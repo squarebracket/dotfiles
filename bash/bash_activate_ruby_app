@@ -1,0 +1,7 @@
+activate_ruby_app() {
+    APPSTRING=$1
+    VERSION=${APPSTRING#*\-*}
+    APP=${APPSTRING%*-*}
+    source $HOME/rubyvenv/$APP/$VERSION/bin/activate
+}
+

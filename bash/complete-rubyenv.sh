@@ -1,0 +1,31 @@
+_get_ruby_envs()
+{
+    local cur
+    
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+
+    RUBYENVS=()
+
+    count=0
+    for file in ${HOME}/rubyvenv/*/*/bin/activate
+    do
+	SOME_VAR=${file#${HOME}/rubyvenv/*}
+	SLASH_SEPARATED=${SOME_VAR%*/bin/activate}
+	APP=${SLASH_SEPARATED%*/*}
+	RUBY_VERSION=${SLASH_SEPARATED#*/*}
+	ACTIVATE_NAME="${APP}-${RUBY_VERSION}"
+	RUBYENVS[$count]=$ACTIVATE_NAME
+	count=$(( $count + 1))
+    done
+
+    envs="${RUBYENVS[@]}"
+
+    COMPREPLY=( $( compgen -W "${envs}" -- ${cur} ) )
+
+    return 0
+}
+
+complete -F _get_ruby_envs activate_ruby_app
+
+

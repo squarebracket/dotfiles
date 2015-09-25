@@ -1,0 +1,62 @@
+[submodule "dircolors-solarized"]
+    path = dircolors
+    url = https://github.com/huyz/dircolors-solarized
+[submodule "jshint-vim"]
+    path = .vim/bundle/jshint2.vim
+    url = https://github.com/Shutnik/jshint2.vim.git
+    ignore = dirty
+[submodule "nerdcommenter"]
+    path = .vim/bundle/nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter.git
+    ignore = dirty
+[submodule "syntastic"]
+    path = .vim/bundle/syntastic
+    url = https://github.com/scrooloose/syntastic.git
+    ignore = dirty
+[submodule "vim-airline"]
+    path = .vim/bundle/vim-airline
+    url = https://github.com/bling/vim-airline.git
+    ignore = dirty
+[submodule "vim-colors-solarized"]
+    path = .vim/bundle/vim-colors-solarized
+    url = https://github.com/altercation/vim-colors-solarized.git
+    ignore = dirty
+[submodule "tabular"]
+    path = .vim/bundle/tabular
+    url = https://github.com/godlygeek/tabular
+    ignore = dirty
+[submodule "vim-puppet"]
+    path = .vim/bundle/vim-puppet
+    url = https://github.com/rodjek/vim-puppet
+    ignore = dirty
+[submodule "nerdtree"]
+    path = .vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree
+    ignore = dirty
+[submodule "ag.vim"]
+    path = .vim/bundle/ag.vim
+    url = https://github.com/rking/ag.vim.git
+    ignore = dirty
+[submodule "ctrlp.vim"]
+    path = .vim/bundle/ctrlp.vim
+    url = https://github.com/kien/ctrlp.vim.git
+    ignore = dirty
+[submodule "vim-indent-object"]
+    path = .vim/bundle/vim-indent-object
+    url = https://github.com/michaeljsmith/vim-indent-object.git
+    ignore = dirty
+[submodule "vim-fugitive"]
+    path = .vim/bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive.git
+    ignore = dirty
+[submodule "nginx.vim"]
+    path = .vim/bundle/nginx.vim
+    url = https://github.com/vim-scripts/nginx.vim.git
+    ignore = dirty
+[submodule "tpm"]
+    path = .tmux/plugins/tpm
+    url = https://github.com/tmux-plugins/tpm
+[submodule "vim-markdown"]
+    path = .vim/bundle/vim-markdown
+    url = https://github.com/plasticboy/vim-markdown
+
