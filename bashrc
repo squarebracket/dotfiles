@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+# set $TERM for colour (required for tmux)
+TERM=xterm-256color
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -139,3 +142,4 @@ for file in ~/dotfiles/bash/*; do
 	source $file
 done
 
+alias eca=". ~/dotfiles/bash-nonauto/eca-aliases.sh"
