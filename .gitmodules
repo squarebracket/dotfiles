@@ -62,3 +62,12 @@
 [submodule "dircolors-solarized"]
     path = dircolors-solarized
     url = https://github.com/seebi/dircolors-solarized
+[submodule "vim-multiple-cursors"]
+    path = .vim/bundle/vim-multiple-cursors
+    url = https://github.com/terryma/vim-multiple-cursors
+[submodule "nerdtree-git-plugin"]
+    path = .vim/bundle/nerdtree-git-plugin
+    url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "vim-tmux"]
+    path = .vim/bundle/vim-tmux
+    url = https://github.com/tmux-plugins/vim-tmux.git
