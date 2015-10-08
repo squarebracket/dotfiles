@@ -80,4 +80,7 @@
 [submodule "vim-gitgutter"]
     path = .vim/bundle/vim-gitgutter
     url = https://github.com/airblade/vim-gitgutter.git
+[submodule "irssi-smartfiler"]
+    path = irssi-smartfilter
+    url = https://github.com/lifeforms/irssi-smartfilter.git
 
