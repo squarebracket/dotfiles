@@ -71,3 +71,13 @@
 [submodule "vim-tmux"]
     path = .vim/bundle/vim-tmux
     url = https://github.com/tmux-plugins/vim-tmux.git
+[submodule "vim-vagrant"]
+    path = .vim/bundle/vim-vagrant
+    url = https://github.com/markcornick/vim-vagrant.git
+[submodule "vim-virtualenv"]
+    path = .vim/bundle/vim-virtualenv
+    url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule "vim-gitgutter"]
+    path = .vim/bundle/vim-gitgutter
+    url = https://github.com/airblade/vim-gitgutter.git
+
