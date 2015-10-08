@@ -1,7 +1,0 @@
-new -s UITests -n Mottainai "ssh root@10.104.103.2"
-neww -n HMS_LTRX1 "ssh root@10.104.103.11"
-neww -n LTRX2_GLUSTER "ssh root@10.104.103.12"
-neww -n OAM_IPSS_MONGO "ssh root@10.104.103.13"
-neww -n MP_INGEST_MONGO "ssh root@10.104.103.14"
-neww -n GLUSTER_MONGO "ssh root@10.104.103.15"
-neww -n local
