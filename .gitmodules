@@ -80,4 +80,10 @@
 [submodule "vim-gitgutter"]
     path = .vim/bundle/vim-gitgutter
     url = https://github.com/airblade/vim-gitgutter.git
+[submodule "gundo.vim"]
+    path = .vim/bundle/gundo.vim
+    url = https://github.com/sjl/gundo.vim
+[submodule "vim-bufferline"]
+    path = .vim/bundle/vim-bufferline
+    url = https://github.com/bling/vim-bufferline.git
 
