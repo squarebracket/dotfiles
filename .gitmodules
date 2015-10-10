@@ -86,4 +86,7 @@
 [submodule "vim-bufferline"]
     path = .vim/bundle/vim-bufferline
     url = https://github.com/bling/vim-bufferline.git
+[submodule "irssi-smartfiler"]
+    path = irssi-smartfilter
+    url = https://github.com/lifeforms/irssi-smartfilter.git
 
