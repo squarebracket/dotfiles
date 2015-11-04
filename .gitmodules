@@ -90,3 +90,6 @@
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule ".vim/bundle/csv.vim"]
+	path = .vim/bundle/csv.vim
+	url = https://github.com/chrisbra/csv.vim.git

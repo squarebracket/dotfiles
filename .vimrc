@@ -30,12 +30,15 @@ set foldmethod=indent                   " fold based on indent level
 
 " stuff
 " jk is escape
-inoremap jk <esc>
+"inoremap <return> <esc>
 " map for copy to X clipboard
 vnoremap <leader>y "+y
 
 " toggle gundo
 nnoremap <leader>u :GundoToggle<CR>
+
+" toggls nerdtree
+nnoremap <leader>q :NERDTreeToggle<CR>
 
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
@@ -64,10 +67,23 @@ else
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+" Delete trailing whitespace automatically
+"autocmd BufWritePre * :%s/\s\+$//e
+
+" automatically reload .vimrc when it's been edited
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
+
 set omnifunc=syntaxcomplete#Complete
 filetype plugin indent on
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 set background=dark                     " darkness
 colorscheme solarized
