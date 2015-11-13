@@ -75,7 +75,7 @@ if [ $ENABLED = 0 ]; then
             MONGO_OUTPUT="\005{kg}MONGO: \005{y}SEC\005{-}"
         fi
     elif [ $FAILED = 0 ]; then
-        MONGO_OUTPUT="\005{b r}MONGO\005}{-}"
+        MONGO_OUTPUT="\005{b r}MONGO\005{-}"
     else
         MONGO_OUTPUT="\005{G}MONGO\005{-}"
     fi
@@ -85,12 +85,20 @@ JMETER_OUTPUT=""
 # /opt/slingshot is created only if this is a requester, so see if we have it
 if [ -d /opt/slingshot ]; then
     # Is slingshot running?
-    ps -ef | grep slingshot -v grep
+    SLINGSHOT_INVOCATION=`ps -ef | grep "python.*slingshot" | grep -v grep > /dev/null`
     SLINGSHOT_ACTIVE=$?
     if [ $SLINGSHOT_ACTIVE -eq 0 ]; then
-        JMETER_OUTPUT="\005{G}[ \005{g}slingshot\005{-} \005{G}]"
+        NUM_TESTS_RUNNING=`ps -ef | grep "java.*slingshot" | grep -v grep -c`
+        NUM_TESTS_TOTAL=`ls /opt/slingshot/var/ | grep jmx -c`
+        if [ $NUM_TESTS_RUNNING -eq 1 ]; then
+            tests="test"
+        else
+            tests="tests"
+        fi
+        #JMETER_OUTPUT="\005{G}[ \005{g}slingshot\005{-} \005{G}]"
+        JMETER_OUTPUT="\005{m}$NUM_TESTS_RUNNING/$NUM_TESTS_TOTAL tests active\005{-}"
     else
-        JMETER_OUTPUT="\005{G}[ \005{b r}slingshot\005{-} \005{G}]"
+        JMETER_OUTPUT="\005{b r}slingshot\005{-}"
     fi
 fi
 
@@ -136,7 +144,7 @@ if [ ! -z "$MONGO_OUTPUT" ]; then
 fi
 
 if [ ! -z "$JMETER_OUTPUT" ]; then
-    OUTPUT="$OUTPUT$JMETER_OUTPUT"
+    OUTPUT="$OUTPUT$JMETER_OUTPUT \005{G}\005{-} "
 fi
 
 echo -e "$OUTPUT"
