@@ -138,8 +138,10 @@ if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline
 fi
 
 # Load other bash stuff
-for file in ~/dotfiles/bash/*; do
+for file in ~/.bash/*; do
 	source $file
 done
 
 alias eca=". ~/dotfiles/bash-nonauto/eca-aliases.sh"
+
+shopt -s dirspell

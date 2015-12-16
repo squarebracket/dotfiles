@@ -1,95 +1,72 @@
-[submodule "jshint-vim"]
-    path = .vim/bundle/jshint2.vim
-    url = https://github.com/Shutnik/jshint2.vim.git
-    ignore = dirty
-[submodule "nerdcommenter"]
-    path = .vim/bundle/nerdcommenter
-    url = https://github.com/scrooloose/nerdcommenter.git
-    ignore = dirty
-[submodule "syntastic"]
-    path = .vim/bundle/syntastic
-    url = https://github.com/scrooloose/syntastic.git
-    ignore = dirty
-[submodule "vim-airline"]
-    path = .vim/bundle/vim-airline
-    url = https://github.com/bling/vim-airline.git
-    ignore = dirty
-[submodule "vim-colors-solarized"]
-    path = .vim/bundle/vim-colors-solarized
-    url = https://github.com/altercation/vim-colors-solarized.git
-    ignore = dirty
-[submodule "tabular"]
-    path = .vim/bundle/tabular
-    url = https://github.com/godlygeek/tabular
-    ignore = dirty
-[submodule "vim-puppet"]
-    path = .vim/bundle/vim-puppet
-    url = https://github.com/rodjek/vim-puppet
-    ignore = dirty
-[submodule "nerdtree"]
-    path = .vim/bundle/nerdtree
-    url = https://github.com/scrooloose/nerdtree
-    ignore = dirty
-[submodule "ag.vim"]
-    path = .vim/bundle/ag.vim
-    url = https://github.com/rking/ag.vim.git
-    ignore = dirty
-[submodule "ctrlp.vim"]
-    path = .vim/bundle/ctrlp.vim
-    url = https://github.com/kien/ctrlp.vim.git
-    ignore = dirty
-[submodule "vim-indent-object"]
-    path = .vim/bundle/vim-indent-object
-    url = https://github.com/michaeljsmith/vim-indent-object.git
-    ignore = dirty
-[submodule "vim-fugitive"]
-    path = .vim/bundle/vim-fugitive
-    url = https://github.com/tpope/vim-fugitive.git
-    ignore = dirty
-[submodule "nginx.vim"]
-    path = .vim/bundle/nginx.vim
-    url = https://github.com/vim-scripts/nginx.vim.git
-    ignore = dirty
-[submodule "tpm"]
-    path = .tmux/plugins/tpm
-    url = https://github.com/tmux-plugins/tpm
-[submodule "vim-markdown"]
-    path = .vim/bundle/vim-markdown
-    url = https://github.com/plasticboy/vim-markdown
-[submodule "vim-flavored-markdown"]
-    path = .vim/bundle/vim-flavored-markdown
-    url = https://github.com/jtratner/vim-flavored-markdown
-[submodule "vim-multiple-cursors"]
-    path = .vim/bundle/vim-multiple-cursors
-    url = https://github.com/terryma/vim-multiple-cursors
-[submodule "nerdtree-git-plugin"]
-    path = .vim/bundle/nerdtree-git-plugin
-    url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
-[submodule "vim-tmux"]
-    path = .vim/bundle/vim-tmux
-    url = https://github.com/tmux-plugins/vim-tmux.git
-[submodule "vim-vagrant"]
-    path = .vim/bundle/vim-vagrant
-    url = https://github.com/markcornick/vim-vagrant.git
-[submodule "vim-virtualenv"]
-    path = .vim/bundle/vim-virtualenv
-    url = https://github.com/jmcantrell/vim-virtualenv.git
-[submodule "vim-gitgutter"]
-    path = .vim/bundle/vim-gitgutter
-    url = https://github.com/airblade/vim-gitgutter.git
-[submodule "gundo.vim"]
-    path = .vim/bundle/gundo.vim
-    url = https://github.com/sjl/gundo.vim
-[submodule "vim-bufferline"]
-    path = .vim/bundle/vim-bufferline
-    url = https://github.com/bling/vim-bufferline.git
-[submodule "irssi-smartfiler"]
-    path = irssi-smartfilter
-    url = https://github.com/lifeforms/irssi-smartfilter.git
-
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
-[submodule ".vim/bundle/csv.vim"]
-	path = .vim/bundle/csv.vim
-	url = https://github.com/chrisbra/csv.vim.git
+[submodule "oh-my-zsh"]
+    path = oh-my-zsh
+    url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "ag.vim"]
+    path = vim/bundle/ag.vim
+    url = https://github.com/rking/ag.vim.git
+[submodule "csv.vim"]
+    path = vim/bundle/csv.vim
+    url = https://github.com/chrisbra/csv.vim.git
+[submodule "ctrlp.vim"]
+    path = vim/bundle/ctrlp.vim
+    url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "gundo.vim"]
+    path = vim/bundle/gundo.vim
+    url = https://github.com/vim-scripts/Gundo.git
+[submodule "jshint2.vim"]
+    path = vim/bundle/jshint2.vim
+    url = https://github.com/Shutnik/jshint2.vim.git
+[submodule "nerdcommenter"]
+    path = vim/bundle/nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "nerdtree"]
+    path = vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git
+[submodule "nerdtree-git-plugin"]
+    path = vim/bundle/nerdtree-git-plugin
+    url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "nginx.vim"]
+    path = vim/bundle/nginx.vim
+    url = https://github.com/vim-scripts/nginx.vim.git
+[submodule "syntastic"]
+    path = vim/bundle/syntastic
+    url = https://github.com/scrooloose/syntastic.git
+[submodule "tabular"]
+    path = vim/bundle/tabular
+    url = https://github.com/godlygeek/tabular.git
+[submodule "vim-airline"]
+    path = vim/bundle/vim-airline
+    url = https://github.com/bling/vim-airline.git
+[submodule "vim-bufferline"]
+    path = vim/bundle/vim-bufferline
+    url = https://github.com/bling/vim-bufferline.git
+[submodule "vim-colors-solarized"]
+    path = vim/bundle/vim-colors-solarized
+    url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim-flavored-markdown"]
+    path = vim/bundle/vim-flavored-markdown
+    url = https://github.com/jtratner/vim-flavored-markdown.git
+[submodule "vim-fugitive"]
+    path = vim/bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim-indent-object"]
+    path = vim/bundle/vim-indent-object
+    url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "vim-markdown"]
+    path = vim/bundle/vim-markdown
+    url = https://github.com/tpope/vim-markdown.git
+[submodule "vim-multiple-cursors"]
+    path = vim/bundle/vim-multiple-cursors
+    url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim-puppet"]
+    path = vim/bundle/vim-puppet
+    url = https://github.com/rodjek/vim-puppet.git
+[submodule "vim-vagrant"]
+    path = vim/bundle/vim-vagrant
+    url = https://github.com/hashivim/vim-vagrant.git
+[submodule "vim-virtualenv"]
+    path = vim/bundle/vim-virtualenv
+    url = https://github.com/jmcantrell/vim-virtualenv.git

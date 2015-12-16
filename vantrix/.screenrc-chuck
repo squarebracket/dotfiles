@@ -1,6 +1,0 @@
-defscrollback 10000
-backtick 1 1 1 $HOME/.van_services.sh
-backtick 2 0 0 $HOME/.van_version.sh
-hardstatus alwayslastline
-#hardstatus string '%{= kd}%1`%{G}[%= %{= kG}%?%-Lw%?%{GW} %n%f%t %?(%u)%?%{kG}%?%+Lw%?%?%= %{G}][%{B} %m-%d %{d}%c %{G}]'
-hardstatus string '%{= kd}%1`%{G}[%{= kd}%= %{G}%?%-Lw%?%{= kd} %{= KW}%?  %F%n%f %t  %?%{= kd}%? (%u) %? %{G}%?%+Lw%?%{= kd} %= %{G}]%{= kd}%2` %{kG} %Y-%m-%d %c'
