@@ -36,6 +36,10 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
         # If we don't, exit with status 13
         exit 13
     fi
+else
+    cd .dotfiles-$REMOTE_USER
+    git pull
+    cd ~
 fi
 printk '\033]2;%s\033\\' "$LAUNCH_SHELL"
 if [ "$LAUNCH_SHELL" = "screen" ]; then
