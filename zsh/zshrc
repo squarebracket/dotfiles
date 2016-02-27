@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/chuck/.oh-my-zsh
+alias s="xclip -in -sel clipboard < ~/.credentials/svn"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -24,7 +25,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+export DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -49,7 +50,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler celery colored-man-pages colorize compleat cp django docker gem git git-extras gitfast github git-hubflow git-remote-branch gnu-utils jira jsontools mosh pip pow pyenv python rake rbenv ruby rvm screen sudo svn-fast-info tmux vagrant virtualenv virtualenvwrapper yum)
+### These are all the plugins I want loaded, but it is quite a few. Probably best to load them in dynamically
+#plugins=(bundler celery colored-man-pages colorize compleat cp django docker gem git git-extras gitfast github git-hubflow git-remote-branch gnu-utils jira jsontools mosh pip pow pyenv python rake rbenv ruby rvm screen sudo svn-fast-info vagrant virtualenv virtualenvwrapper yum)
+plugins=(colorize cp gem git git-extras github git-remote-branch mosh pip python sudo svn-fast-info tmux virtualenv virtualenvwrapper yum)
 
 # User configuration
 
