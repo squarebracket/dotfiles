@@ -43,6 +43,7 @@ else
     cd ~
 fi
 printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
+echo "$LAUNCH_SHELL"
 if [ "$LAUNCH_SHELL" = "screen" ]; then
     screen -c ~/.screenrc-$REMOTE_USER
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
