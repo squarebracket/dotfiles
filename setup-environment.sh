@@ -41,7 +41,7 @@ else
     git pull
     cd ~
 fi
-printk '\033]2;%s\033\\' "$LAUNCH_SHELL"
+printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
 if [ "$LAUNCH_SHELL" = "screen" ]; then
     screen -c ~/.screenrc-$REMOTE_USER
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
