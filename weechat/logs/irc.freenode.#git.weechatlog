@@ -1,0 +1,1199 @@
+2016-02-01 12:08:06	-->	squarebracket (~chuck@gw.vantrix.com) has joined #git
+2016-02-01 12:08:06	ℹ 	Topic for #git is "Welcome to #git! Just don't be an annoying git. | First visit? Read: http://jk.gs/git | Getting "cannot send to channel"? /msg gitinfo .voice | Current stable version: 2.7.0 | git add joke; git commit; git push; git hub pull-request https://madeitwor.se/git-jokes"
+2016-02-01 12:08:06	ℹ 	Topic set by qsx (~qsx@mars.t23h.de) on Thu, 28 Jan 2016 03:10:42
+2016-02-01 12:08:06	ℹ 	Channel #git: 1243 nicks (1 op, 64 voices, 1178 normals)
+2016-02-01 12:08:09	ℹ 	Channel created on Sun, 26 Nov 2006 01:42:45
+2016-02-01 12:08:22	-->	thiago (~thiago@kde/thiago) has joined #git
+2016-02-01 12:08:36	<--	crose (~crose@65.206.2.2) has quit (Remote host closed the connection)
+2016-02-01 12:08:47	-->	skcin7 (~skcin7@cpe-76-94-205-101.socal.res.rr.com) has joined #git
+2016-02-01 12:09:42	<--	sgambino (~textual@198.85.229.3) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 12:09:48	<--	bollullera (~anuxi@95.63.152.106) has quit (Remote host closed the connection)
+2016-02-01 12:10:01	<--	tlaxkit (~Thunderbi@95.63.152.106) has quit (Quit: ¡Hasta luego!)
+2016-02-01 12:10:08	<--	Es0teric (~textual@199.34.249.167) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 12:11:06	-->	editshare-ericf (~chatzilla@173-14-129-9-NewEngland.hfc.comcastbusiness.net) has joined #git
+2016-02-01 12:12:56	<--	Xethron (~Xethron@unaffiliated/xethron) has quit (Ping timeout: 240 seconds)
+2016-02-01 12:13:04	<--	atmosx (~osx@ppp-94-69-131-231.home.otenet.gr) has quit (Quit: Lost in trance)
+2016-02-01 12:13:22	<--	Chunk2 (~chunk@host-184-174-132-176.DAIOLT1.epbfi.com) has quit (Ping timeout: 240 seconds)
+2016-02-01 12:13:32	<--	heroux (sandroco@gateway/shell/insomnia247/x-ufepzqutkpwrjkvk) has quit (Ping timeout: 265 seconds)
+2016-02-01 12:13:36	-->	Es0teric (~textual@199.34.249.167) has joined #git
+2016-02-01 12:13:39	-->	MutantMahesh (~msankhala@unaffiliated/msankhala) has joined #git
+2016-02-01 12:14:36	-->	SrPx (~v@179.210.80.129) has joined #git
+2016-02-01 12:15:05	<--	Dougie187 (~douglasj@y-130-55-115-6.lanl.gov) has left #git
+2016-02-01 12:15:12	-->	heroux (sandroco@gateway/shell/insomnia247/x-leqiomsuconwgrfd) has joined #git
+2016-02-01 12:16:46	<--	noncom (~noncom@37.221.200.34) has quit (Ping timeout: 240 seconds)
+2016-02-01 12:16:58	-->	Gsham (~textual@ool-18bba306.dyn.optonline.net) has joined #git
+2016-02-01 12:17:14	<--	mahendra_ (~mahendrak@182.73.26.174) has quit (Ping timeout: 250 seconds)
+2016-02-01 12:17:15	<--	ShapeShifter499 (~ShapeShif@unaffiliated/shapeshifter499) has quit (Ping timeout: 240 seconds)
+2016-02-01 12:17:24	<--	pungi-man (cb6ef315@gateway/web/freenode/ip.203.110.243.21) has quit (Ping timeout: 252 seconds)
+2016-02-01 12:17:42	<--	thm (~thomas@fedora/thm) has left #git
+2016-02-01 12:18:27	<--	kpease (~kpease@72.22.182.162) has quit (Max SendQ exceeded)
+2016-02-01 12:18:57	-->	kpease (~kpease@72.22.182.162) has joined #git
+2016-02-01 12:19:01	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 12:19:52	<--	strozyka (strozyka@nat/yahoo/x-uhmyamvuzhaacmxf) has quit (Remote host closed the connection)
+2016-02-01 12:20:12	-->	baris (~baris@176.240.39.30) has joined #git
+2016-02-01 12:20:18	-->	HanClinto (~HanClinto@216.68.195.74) has joined #git
+2016-02-01 12:20:20	-->	daito (~daito@203.104.128.123) has joined #git
+2016-02-01 12:21:44	<--	govg (~govg@unaffiliated/govg) has quit (Ping timeout: 252 seconds)
+2016-02-01 12:22:19	-->	strozyka (~strozyka@2001:4998:ef83:0:221:ccff:fed0:2b7) has joined #git
+2016-02-01 12:22:51	<--	dances-with-cats (~dances-wi@35.20.159.168) has quit (Quit: dances-with-cats)
+2016-02-01 12:23:08	<--	simonlinj (~simonlinj@host-10.228.23.190.copaco.com.py) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 12:23:17	-->	mischat (~mischat@195.40.10.116) has joined #git
+2016-02-01 12:24:04	<--	soerenb (~soerenb@149.199.62.254) has quit (Quit: WeeChat 1.3)
+2016-02-01 12:24:05	<--	jnavila_ (~jnavila@static-csq-cds-097114.business.bouyguestelecom.com) has quit (Quit: It was time)
+2016-02-01 12:24:34	<--	daito (~daito@203.104.128.123) has quit (Ping timeout: 240 seconds)
+2016-02-01 12:24:41	<--	Sonderblade (~Sonderbla@h-52-183.a157.priv.bahnhof.se) has quit (Quit: Lämnar)
+2016-02-01 12:24:48	-->	jceb (~jceb@hfw-wlan-out.hs-bremen.de) has joined #git
+2016-02-01 12:25:01	-->	kadoban (~mud@unaffiliated/kadoban) has joined #git
+2016-02-01 12:26:26	-->	sgambino (~textual@198.85.229.3) has joined #git
+2016-02-01 12:26:28	<--	mischat__ (~mischat@188.29.165.16.threembb.co.uk) has quit (Ping timeout: 248 seconds)
+2016-02-01 12:26:28	<--	dan2k3k4 (~dan2k3k4@unaffiliated/dan2k3k4) has quit (Quit: ZZZzzz…)
+2016-02-01 12:26:44	<--	nidr0x (~z4.30i@nidr0x.ddns.jazztel.es) has quit (Read error: Connection reset by peer)
+2016-02-01 12:26:49	-->	dan2k3k4 (~dan2k3k4@unaffiliated/dan2k3k4) has joined #git
+2016-02-01 12:26:55	<--	dan2k3k4 (~dan2k3k4@unaffiliated/dan2k3k4) has quit (Client Quit)
+2016-02-01 12:27:15	-->	nidr0x (~z4.30i@nidr0x.ddns.jazztel.es) has joined #git
+2016-02-01 12:27:49	-->	JJM (~JJM@99.198.195.124) has joined #git
+2016-02-01 12:28:08	-->	jds (uid14340@gateway/web/irccloud.com/x-ufcqninvqxbxxvoe) has joined #git
+2016-02-01 12:28:38	-->	imachuchu (~bhartman@199.223.126.115) has joined #git
+2016-02-01 12:29:17	<--	roentgen (~roentgen@unaffiliated/roentgen) has quit (Quit: WeeChat 1.3)
+2016-02-01 12:29:49	reactormonk	How do I change a specific commit?
+2016-02-01 12:30:54	<--	nidr0x (~z4.30i@nidr0x.ddns.jazztel.es) has quit (Client Quit)
+2016-02-01 12:31:06	<--	clemf (~textual@50.252.15.145) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-02-01 12:31:32	<--	baris (~baris@176.240.39.30) has quit (Ping timeout: 250 seconds)
+2016-02-01 12:31:58	+osse	how far back is it and what do you need to change?
+2016-02-01 12:32:05	-->	clemf (~textual@50.252.15.145) has joined #git
+2016-02-01 12:32:06	-->	rominronin (~rominroni@89.185.127.226) has joined #git
+2016-02-01 12:32:27	Seveas	yuppie: yup.
+2016-02-01 12:33:10	<--	arvid (~user@unaffiliated/arvid) has quit (Remote host closed the connection)
+2016-02-01 12:33:13	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Remote host closed the connection)
+2016-02-01 12:33:19	<--	clemf (~textual@50.252.15.145) has quit (Read error: Connection reset by peer)
+2016-02-01 12:33:23	<--	mariuscc (~mariuscc@79.112.127.35) has quit (Quit: mariuscc)
+2016-02-01 12:34:03	-->	clemf (~textual@50.252.15.145) has joined #git
+2016-02-01 12:34:36	<--	kurkale6ka (~kurkale6k@win.ops.offices.globalpersonals.co.uk) has quit (Quit: WeeChat 1.3)
+2016-02-01 12:34:52	-->	vdv (~vdv@x5ce2fd5a.dyn.telefonica.de) has joined #git
+2016-02-01 12:35:09	reactormonk	osse, a few git subtrees back. I just realized I don't need to.
+2016-02-01 12:36:15	<--	raijin (~raijin@unaffiliated/raijin) has quit (Ping timeout: 240 seconds)
+2016-02-01 12:37:01	-->	chitopunk (~chitopunk@inet-hqmc02-o.oracle.com) has joined #git
+2016-02-01 12:37:10	<--	rominronin (~rominroni@89.185.127.226) has quit (Ping timeout: 245 seconds)
+2016-02-01 12:37:38	-->	ShapeShifter499 (~ShapeShif@unaffiliated/shapeshifter499) has joined #git
+2016-02-01 12:37:56	-->	espindola (~espindola@76-10-164-23.dsl.teksavvy.com) has joined #git
+2016-02-01 12:37:59	-->	nnyk (~nnyk@unaffiliated/nnyk) has joined #git
+2016-02-01 12:38:34	<--	moriko (~moriko@178.162.222.41.adsl.inet-telecom.org) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 12:38:38	-->	Chunk2 (~chunk@host-184-174-132-176.DAIOLT1.epbfi.com) has joined #git
+2016-02-01 12:39:03	<--	MutantMahesh (~msankhala@unaffiliated/msankhala) has quit (Ping timeout: 250 seconds)
+2016-02-01 12:39:20	-->	soerenb (~soerenb@149.199.62.254) has joined #git
+2016-02-01 12:39:25	<--	nilg (~user@77.70.2.229) has quit (Remote host closed the connection)
+2016-02-01 12:39:31	-->	elastix (~Thunderbi@cpc21-addl4-2-0-cust195.6-3.cable.virginm.net) has joined #git
+2016-02-01 12:40:21	<--	localuser- (~quassel@unaffiliated/localuser-) has quit (Ping timeout: 245 seconds)
+2016-02-01 12:40:24	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 12:40:53	<--	chll (~chll@host.99.39.23.62.rev.coltfrance.com) has quit (Quit: quit)
+2016-02-01 12:40:59	<--	ThomasLocke (~ThomasLoc@pdpc/supporter/active/thomaslocke) has quit (Ping timeout: 264 seconds)
+2016-02-01 12:41:26	<--	PCatinean (~wiz@188.26.183.147) has quit (Read error: No route to host)
+2016-02-01 12:42:10	-->	peoliye (~peoliye@c-50-168-22-93.hsd1.ca.comcast.net) has joined #git
+2016-02-01 12:42:20	+osse	Most excellent news
+2016-02-01 12:42:38	-->	raijin (~raijin@unaffiliated/raijin) has joined #git
+2016-02-01 12:42:42	-->	Macaveli (~Macaveli@94-226-221-176.access.telenet.be) has joined #git
+2016-02-01 12:43:34	-->	Limes_ (~Limes@18.10.125.91.dyn.plus.net) has joined #git
+2016-02-01 12:43:37	<--	Macaveli (~Macaveli@94-226-221-176.access.telenet.be) has quit (Client Quit)
+2016-02-01 12:44:04	-->	LBV_User (~leonardo@177.156.224.197) has joined #git
+2016-02-01 12:44:46	<--	nnyk (~nnyk@unaffiliated/nnyk) has quit (Ping timeout: 272 seconds)
+2016-02-01 12:44:53	-->	owenowen (~owenowen@95-45-135-165-dynamic.agg2.sks.blp-srl.eircom.net) has joined #git
+2016-02-01 12:45:15	<--	Asenar (~michael@2a01:e35:1391:aaa0:ae16:2dff:fe01:c986) has quit (Quit: Leaving)
+2016-02-01 12:47:03	-->	MutantMahesh (~msankhala@1.39.86.210) has joined #git
+2016-02-01 12:47:07	-->	User458764 (~textual@62.147.220.187) has joined #git
+2016-02-01 12:47:26	<--	zotherstupidguy (~zotherstu@unaffiliated/zotherstupidguy) has quit (Quit: WeeChat 1.3)
+2016-02-01 12:47:55	<--	skul1 (~skul@host-022-195.133.194.0-0xffffff00.gipromez.ru) has quit (Ping timeout: 240 seconds)
+2016-02-01 12:49:33	-->	skul (~skul@195.133.60.182) has joined #git
+2016-02-01 12:49:36	<--	Manikandan (~Manikanda@106.206.147.58) has quit (Ping timeout: 252 seconds)
+2016-02-01 12:49:42	-->	durham (~durham@2620:10d:c090:200::ad61) has joined #git
+2016-02-01 12:49:58	<--	espindola (~espindola@76-10-164-23.dsl.teksavvy.com) has quit (Quit: Leaving...)
+2016-02-01 12:51:07	<--	Silenced (~Silenced@unaffiliated/silenced-v2/x-9676589) has quit (Quit: ZNC 1.6.2 - http://znc.in)
+2016-02-01 12:51:14	-->	isbotnetcool (~isbotnetc@c-24-130-159-157.hsd1.ca.comcast.net) has joined #git
+2016-02-01 12:53:04	<--	mutex (~mutex@67-23-13-54.static.slicehost.net) has quit (Quit: mutex)
+2016-02-01 12:53:13	-->	acetakwas (~acetakwas@105.112.40.149) has joined #git
+2016-02-01 12:54:30	<--	acetakwas (~acetakwas@105.112.40.149) has quit (Max SendQ exceeded)
+2016-02-01 12:55:22	<--	blckbit10 (~monkey@5070BF3F.static.ziggozakelijk.nl) has quit (Ping timeout: 250 seconds)
+2016-02-01 12:55:23	-->	acetakwas (~acetakwas@105.112.40.149) has joined #git
+2016-02-01 12:55:28	<--	strozyka (~strozyka@2001:4998:ef83:0:221:ccff:fed0:2b7) has quit (Ping timeout: 252 seconds)
+2016-02-01 12:55:36	-->	blckbit10 (~monkey@5070BF3F.static.ziggozakelijk.nl) has joined #git
+2016-02-01 12:55:50	-->	preyalone (uid21561@gateway/web/irccloud.com/x-qddvfjvvjwsbeoqc) has joined #git
+2016-02-01 12:56:03	<--	mwhooker (~mwhooker@104-244-25-60.PUBLIC.monkeybrains.net) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-02-01 12:56:14	-->	dan2k3k4 (~dan2k3k4@unaffiliated/dan2k3k4) has joined #git
+2016-02-01 12:56:38	<--	IdanM (~IdanM@bzq-174-168-31-190.red.bezeqint.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 12:57:15	-->	aleksandar2810_ (~quassel@cable-178-148-38-82.dynamic.sbb.rs) has joined #git
+2016-02-01 12:57:32	<--	aleksandar2810 (~quassel@cable-178-148-38-82.dynamic.sbb.rs) has quit (Ping timeout: 256 seconds)
+2016-02-01 12:58:24	<--	isbotnetcool (~isbotnetc@c-24-130-159-157.hsd1.ca.comcast.net) has quit (Quit: isbotnetcool)
+2016-02-01 12:58:28	<--	colegatron (~colegatro@51.Red-95-121-20.dynamicIP.rima-tde.net) has quit (Remote host closed the connection)
+2016-02-01 12:58:38	-->	pungi-man (cb6ef315@gateway/web/freenode/ip.203.110.243.21) has joined #git
+2016-02-01 12:59:07	-->	jrvlima (~jrvlima@177.69.196.17) has joined #git
+2016-02-01 12:59:40	<--	jam___ (~jam@187.159.181.196) has quit (Remote host closed the connection)
+2016-02-01 13:00:13	<--	encod3 (~encod3@81.30.42.83) has quit (Remote host closed the connection)
+2016-02-01 13:01:12	-->	p8m (~p8m@162.244.177.51) has joined #git
+2016-02-01 13:01:14	<--	josuebrunel (~josue@LMontsouris-656-1-281-47.w80-12.abo.wanadoo.fr) has quit (Ping timeout: 276 seconds)
+2016-02-01 13:01:44	<--	jrvlima (~jrvlima@177.69.196.17) has quit (Max SendQ exceeded)
+2016-02-01 13:02:05	<--	acetakwas (~acetakwas@105.112.40.149) has quit (Read error: Connection reset by peer)
+2016-02-01 13:03:00	<--	Limes_ (~Limes@18.10.125.91.dyn.plus.net) has quit (Ping timeout: 245 seconds)
+2016-02-01 13:05:32	-->	crose (~crose@65.206.2.2) has joined #git
+2016-02-01 13:05:36	-->	krawchyk_ (~textual@50.232.177.30) has joined #git
+2016-02-01 13:06:10	<--	krawchyk (~textual@static-108-45-111-234.washdc.fios.verizon.net) has quit (Ping timeout: 250 seconds)
+2016-02-01 13:06:40	<--	nivag (~gavin@121.98.103.53) has quit (Remote host closed the connection)
+2016-02-01 13:06:53	-->	Oebele (~quassel@2001:67c:2564:331:c433:e47f:4830:bcd9) has joined #git
+2016-02-01 13:07:01	-->	jaguarmagenta2 (~jaguarmag@189.203.217.17) has joined #git
+2016-02-01 13:07:20	-->	_noblegas (uid91066@gateway/web/irccloud.com/x-ydkzldpsxhommlvw) has joined #git
+2016-02-01 13:07:31	-->	mutex (~mutex@67-23-13-54.static.slicehost.net) has joined #git
+2016-02-01 13:07:35	<--	samskiter (~sduke@w-109.cust-11137.ip.static.uno.uk.net) has quit (Ping timeout: 245 seconds)
+2016-02-01 13:08:12	-->	localuser- (~quassel@unaffiliated/localuser-) has joined #git
+2016-02-01 13:08:30	-->	oghamb (~rally@178.208.172.237) has joined #git
+2016-02-01 13:08:42	ℹ 	DeltaHea_ is now known as DeltaHeavy
+2016-02-01 13:09:00	<--	bongjovi (~bongjovi@host81-147-131-40.range81-147.btcentralplus.com) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 13:09:06	-->	rafalcpp (~racalcppp@84-10-11-234.static.chello.pl) has joined #git
+2016-02-01 13:10:31	-->	tristanp_ (~tristanp@c-50-159-71-64.hsd1.wa.comcast.net) has joined #git
+2016-02-01 13:10:55	<--	jaguarmagenta (~jaguarmag@187.159.181.196) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:10:55	<--	tristanp (~tristanp@2601:602:8a00:1310::2) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:10:56	<--	fedexo (~quassel@2602:30a:c021:5bf0:a41d:4011:83d4:ca3d) has quit (Ping timeout: 250 seconds)
+2016-02-01 13:11:44	-->	nivag (~gavin@121.98.103.53) has joined #git
+2016-02-01 13:11:52	-->	btree (~btree@unaffiliated/archis) has joined #git
+2016-02-01 13:12:02	<--	subhojit777 (~subhojit7@122.176.168.219) has quit (Quit: Bbye ;))
+2016-02-01 13:12:26	<--	sangy (~Sangy@unaffiliated/sangy) has quit (Quit: WeeChat 1.3)
+2016-02-01 13:12:41	-->	samskiter (~sduke@w-109.cust-11137.ip.static.uno.uk.net) has joined #git
+2016-02-01 13:12:58	<--	algae (~algae@blk-138-28-208.eastlink.ca) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:13:20	-->	thierryp (~thierry@82.226.190.44) has joined #git
+2016-02-01 13:13:55	-->	ra0_ (~ra0@103.224.129.19) has joined #git
+2016-02-01 13:13:58	<--	peoliye (~peoliye@c-50-168-22-93.hsd1.ca.comcast.net) has quit (Ping timeout: 256 seconds)
+2016-02-01 13:14:09	-->	strozyka (strozyka@nat/yahoo/x-wnyfbylmoereeprn) has joined #git
+2016-02-01 13:14:22	<--	yuppie (~Space_Cas@unaffiliated/space-case/x-0038823) has left #git ("Textual IRC Client: www.textualapp.com")
+2016-02-01 13:14:56	<--	zeroed (~zeroed@unaffiliated/zeroed) has quit (Quit: Lost terminal)
+2016-02-01 13:14:58	<--	skul (~skul@195.133.60.182) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:15:01	-->	algae (~algae@blk-7-222-58.eastlink.ca) has joined #git
+2016-02-01 13:15:32	<--	btree (~btree@unaffiliated/archis) has left #git
+2016-02-01 13:15:54	<--	ehynds (~ehynds@65-118-155-74.dia.static.qwest.net) has quit
+2016-02-01 13:15:56	-->	zeroed (~zeroed@unaffiliated/zeroed) has joined #git
+2016-02-01 13:16:10	-->	sssilver (~sssilver@cpe-70-112-245-224.austin.res.rr.com) has joined #git
+2016-02-01 13:17:05	<--	Steadfast (~andrew@178.137.215.151) has quit (Quit: Leaving.)
+2016-02-01 13:17:07	<--	hobodave_ (~hobodave@pdpc/supporter/professional/hobodave) has quit (Quit: Computer has gone to sleep.)
+2016-02-01 13:17:13	-->	Imek (~Imek@5751c702.skybroadband.com) has joined #git
+2016-02-01 13:17:21	-->	peoliye (~peoliye@2601:646:8101:94c0:91fa:6548:640a:f141) has joined #git
+2016-02-01 13:17:40	-->	Darcidride_ (~Quentin@158.69.114.146) has joined #git
+2016-02-01 13:17:46	<--	samskiter (~sduke@w-109.cust-11137.ip.static.uno.uk.net) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:17:53	-->	djx (~djx@a89-155-126-71.cpe.netcabo.pt) has joined #git
+2016-02-01 13:18:05	djx	is there a local ignore for untracked files?
+2016-02-01 13:18:14	-->	PCatinean (~wiz@188.26.183.147) has joined #git
+2016-02-01 13:18:35	-->	baris (~baris@176.240.39.30) has joined #git
+2016-02-01 13:18:44	qsx	djx: .git/info/exclude
+2016-02-01 13:19:28	-->	skul (~skul@host-022-195.133.194.0-0xffffff00.gipromez.ru) has joined #git
+2016-02-01 13:19:50	djx	qsx thanks!
+2016-02-01 13:19:51	<--	krawchyk_ (~textual@50.232.177.30) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 13:20:12	Seveas	or ~/.gitignore if there are files you want to exclude in all repos
+2016-02-01 13:20:33	<--	PinkPonyOfDeath (~Martin_H@p579D2DF9.dip0.t-ipconnect.de) has left #git
+2016-02-01 13:20:36	qsx	Seveas: doesn”t that git config --global core.excludesfile?
+2016-02-01 13:20:45	-->	nettoweb (~textual@189.26.129.233.dynamic.adsl.gvt.net.br) has joined #git
+2016-02-01 13:20:50	-->	krawchyk (~textual@50.232.177.30) has joined #git
+2016-02-01 13:21:00	Seveas	mmyes
+2016-02-01 13:21:06	qsx	*need
+2016-02-01 13:21:12	-->	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 13:22:55	djx	other think, is it possible to clone a specific commit from a repo?
+2016-02-01 13:22:59	ashka	hi, I have a question about something I don't understand with rebasing: when I want to rebase from develop to master I do git rebase -i, but when I do that I see commits that I have already rebased on my last rebase, why is that ?
+2016-02-01 13:23:41	Seveas	ashka: because until the commits are merged into master, you'll need to keep rebasing them.
+2016-02-01 13:23:56	<--	peoliye (~peoliye@2601:646:8101:94c0:91fa:6548:640a:f141) has quit (Ping timeout: 250 seconds)
+2016-02-01 13:25:11	ashka	Seveas: but let's say I do 5 commits on develop, I then rebase from master, squash the commits into one, push the rebased commits to origin/master, then I do 5 more commits, and when I rebase I see the commits I rebased the last time
+2016-02-01 13:25:33	Seveas	ashka: you're using quite a few terms in a very confusing way there
+2016-02-01 13:25:40	Seveas	so I have no idea what you actually did
+2016-02-01 13:26:21	-->	Sasazuka (~Sasazuka@unaffiliated/sasazuka) has joined #git
+2016-02-01 13:26:21	ashka	Seveas: I'm used to git merge so maybe I'm doing something wrong: when I want to rebase I checkout master, merge develop and then rebase -i
+2016-02-01 13:26:34	<--	raijin (~raijin@unaffiliated/raijin) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:26:41	Seveas	ok, that's completely different from what I thought you did
+2016-02-01 13:26:47	Seveas	and also rather wrong
+2016-02-01 13:26:50	-->	peoliye__ (~peoliye@c-50-168-22-93.hsd1.ca.comcast.net) has joined #git
+2016-02-01 13:27:52	<--	krawchyk (~textual@50.232.177.30) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 13:28:00	Seveas	it's better to rebase -i while on develop, then you can just do merge --ff-only on master and both master and develop would be at the same commit.
+2016-02-01 13:28:02	-->	dreiss (~dreiss@23-24-202-9-static.hfc.comcastbusiness.net) has joined #git
+2016-02-01 13:28:20	ashka	Seveas: oh okay I thought it was the other way. After rebasing I'd checkout develop and merge master
+2016-02-01 13:28:36	Seveas	that's probably even worse
+2016-02-01 13:29:03	<--	LeBlaaanc (~LeBlaaanc@199.115.166.10) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 13:29:13	Seveas	please go back to the manual and find out what rebase really does. And maye look at https://git.seveas.net/rebasing-illustrated.html#rebasing-illustrated
+2016-02-01 13:29:25	<--	jaguarmagenta2 (~jaguarmag@189.203.217.17) has quit (Ping timeout: 265 seconds)
+2016-02-01 13:30:12	<--	djx (~djx@a89-155-126-71.cpe.netcabo.pt) has left #git ("Leaving")
+2016-02-01 13:31:06	<--	sssilver (~sssilver@cpe-70-112-245-224.austin.res.rr.com) has quit (Read error: Connection reset by peer)
+2016-02-01 13:31:29	-->	vkngpmhc (~vkngpmhc@71-9-93-156.dhcp.ccmn.ca.charter.com) has joined #git
+2016-02-01 13:31:46	<--	Gsham (~textual@ool-18bba306.dyn.optonline.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 13:32:33	-->	LeBlaaanc (~LeBlaaanc@199.115.166.10) has joined #git
+2016-02-01 13:32:52	-->	toogley (~toogley@2.165.109.55) has joined #git
+2016-02-01 13:33:33	-->	rominronin (~rominroni@89.185.127.226) has joined #git
+2016-02-01 13:33:57	<--	User458764 (~textual@62.147.220.187) has quit (Quit: My iMac has gone to sleep. ZZZzzz…)
+2016-02-01 13:34:06	<--	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Ping timeout: 245 seconds)
+2016-02-01 13:34:17	-->	kukks (~Guenter@ip5b42ce25.dynamic.kabel-deutschland.de) has joined #git
+2016-02-01 13:34:17	<--	kukks (~Guenter@ip5b42ce25.dynamic.kabel-deutschland.de) has quit (Changing host)
+2016-02-01 13:34:17	-->	kukks (~Guenter@samba/team/kukks) has joined #git
+2016-02-01 13:34:59	<--	Guest64225 (~zzz@73.152.112.224) has quit (Quit: Leaving...)
+2016-02-01 13:35:08	<--	kukks (~Guenter@samba/team/kukks) has quit (Client Quit)
+2016-02-01 13:35:47	<--	mauricio (~mauricio@151.50.216.173) has quit (Remote host closed the connection)
+2016-02-01 13:36:03	<--	crose (~crose@65.206.2.2) has quit (Quit: crose_quit)
+2016-02-01 13:36:42	-->	crose (~crose@65.206.2.2) has joined #git
+2016-02-01 13:36:47	<--	LeBlaaanc (~LeBlaaanc@199.115.166.10) has quit (Client Quit)
+2016-02-01 13:37:11	-->	nitin_ (~nitin@106.205.154.187) has joined #git
+2016-02-01 13:37:34	-->	squiddle (~squiddle@p508FD7BA.dip0.t-ipconnect.de) has joined #git
+2016-02-01 13:38:05	-->	samskiter (~sduke@w-109.cust-11137.ip.static.uno.uk.net) has joined #git
+2016-02-01 13:38:17	<--	mischat (~mischat@195.40.10.116) has quit (Remote host closed the connection)
+2016-02-01 13:38:34	<--	rominronin (~rominroni@89.185.127.226) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:38:36	-->	jolts (~jolts@c83-254-210-108.bredband.comhem.se) has joined #git
+2016-02-01 13:39:32	ashka	Seveas: alright, thanks for the help
+2016-02-01 13:39:43	-->	bronson (~bronson@50-0-66-240.dsl.dynamic.fusionbroadband.com) has joined #git
+2016-02-01 13:40:54	<--	aleksandar2810_ (~quassel@cable-178-148-38-82.dynamic.sbb.rs) has quit (Read error: Connection reset by peer)
+2016-02-01 13:40:59	-->	Sunkinship (~Sunkinshi@143-43-243-237.Knoblauch.wiu.edu) has joined #git
+2016-02-01 13:41:11	-->	aleksandar2810 (~quassel@cable-178-148-38-82.dynamic.sbb.rs) has joined #git
+2016-02-01 13:41:24	-->	Sazhen86 (~Sazhen86@219-89-123-59.adsl.xtra.co.nz) has joined #git
+2016-02-01 13:41:42	<--	dan2k3k4 (~dan2k3k4@unaffiliated/dan2k3k4) has quit (Quit: ZZZzzz…)
+2016-02-01 13:42:10	-->	zzz (~zzz@c-73-152-112-224.hsd1.va.comcast.net) has joined #git
+2016-02-01 13:42:34	ℹ 	zzz is now known as Guest89119
+2016-02-01 13:43:23	<--	Chunk2 (~chunk@host-184-174-132-176.DAIOLT1.epbfi.com) has quit (Ping timeout: 264 seconds)
+2016-02-01 13:43:26	<--	jceb (~jceb@hfw-wlan-out.hs-bremen.de) has quit (Ping timeout: 240 seconds)
+2016-02-01 13:43:36	-->	ehynds (~ehynds@65-118-155-74.dia.static.qwest.net) has joined #git
+2016-02-01 13:44:01	-->	nnyk (~nnyk@unaffiliated/nnyk) has joined #git
+2016-02-01 13:44:33	-->	kozko (~textual@88.17.163.249) has joined #git
+2016-02-01 13:45:54	-->	t4nk931 (4c42c2cb@gateway/web/freenode/ip.76.66.194.203) has joined #git
+2016-02-01 13:47:19	-->	mwhooker (~mwhooker@173.247.207.136) has joined #git
+2016-02-01 13:47:20	-->	AtnevRed (~atnevred@82-168-162-118.ip.telfort.nl) has joined #git
+2016-02-01 13:47:40	foul_owl	After I try to merge, have it fail, then I fix conflicts, do I need to run "git merge" again?
+2016-02-01 13:47:44	<--	benjick (benjick@irc.kandata.se) has left #git
+2016-02-01 13:47:45	-->	MutantMa_ (~msankhala@unaffiliated/msankhala) has joined #git
+2016-02-01 13:47:48	-->	romankl (~Roman@p508D5D89.dip0.t-ipconnect.de) has joined #git
+2016-02-01 13:47:53	-->	dan2k3k4 (~dan2k3k4@unaffiliated/dan2k3k4) has joined #git
+2016-02-01 13:48:12	-->	sangy (~Sangy@unaffiliated/sangy) has joined #git
+2016-02-01 13:48:41	-->	CareBear\ (foo@stuge.se) has joined #git
+2016-02-01 13:49:23	-->	moriko (~moriko@178.162.222.41.adsl.inet-telecom.org) has joined #git
+2016-02-01 13:50:21	<--	t4nk931 (4c42c2cb@gateway/web/freenode/ip.76.66.194.203) has quit (Ping timeout: 252 seconds)
+2016-02-01 13:50:55	<--	MutantMahesh (~msankhala@1.39.86.210) has quit (Ping timeout: 245 seconds)
+2016-02-01 13:51:09	-->	hasitha (~hasitha@ext.nulogy.com) has joined #git
+2016-02-01 13:51:46	<--	marcogmonteiro (~textual@62.28.236.130) has quit (Quit: So long!)
+2016-02-01 13:51:56	<--	AtnevRed (~atnevred@82-168-162-118.ip.telfort.nl) has quit (Ping timeout: 256 seconds)
+2016-02-01 13:52:22	soerenb	foul_owl, IIRC, you git commit once you resolved the conflicts
+2016-02-01 13:52:24	<--	skcin7 (~skcin7@cpe-76-94-205-101.socal.res.rr.com) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 13:52:25	-->	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 13:52:26	-->	followinfrared (~followinf@86.57.170.19) has joined #git
+2016-02-01 13:53:07	+osse	remember to git add
+2016-02-01 13:53:45	<--	LBV_User (~leonardo@177.156.224.197) has quit (Quit: done with this Instant Ramen Cup)
+2016-02-01 13:53:49	-->	roelmonnens (~roelmonne@ptr-2hj4tbleeixo2rqk0ty2ahr8y.ip6.access.telenet.be) has joined #git
+2016-02-01 13:54:00	-->	nidr0x (~z4.30i@nidr0x.ddns.jazztel.es) has joined #git
+2016-02-01 13:54:04	<--	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has quit (Quit: cmckee)
+2016-02-01 13:54:04	<--	dreiss (~dreiss@23-24-202-9-static.hfc.comcastbusiness.net) has quit (Ping timeout: 265 seconds)
+2016-02-01 13:54:28	-->	presto (~presto@unaffiliated/presto) has joined #git
+2016-02-01 13:55:11	<--	presto (~presto@unaffiliated/presto) has quit (Client Quit)
+2016-02-01 13:55:17	<--	arnatal (~arnatal@dync-35-219.ac.upc.edu) has quit (Remote host closed the connection)
+2016-02-01 13:55:22	<--	Senecea (~textual@pool-108-52-28-121.phlapa.fios.verizon.net) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 13:55:30	<--	nitin_ (~nitin@106.205.154.187) has quit (Ping timeout: 272 seconds)
+2016-02-01 13:56:32	-->	samw (~samw@17.114.59.184) has joined #git
+2016-02-01 13:57:00	-->	xvx (~xvx@93.191.201.219) has joined #git
+2016-02-01 13:57:16	<--	astockton (~astockton@63.225.31.147) has quit (Remote host closed the connection)
+2016-02-01 13:58:45	<--	Guest55 (~textual@199.201.64.129) has quit (Read error: Connection reset by peer)
+2016-02-01 13:59:15	<--	blackwind_123 (~IceChat9@117.192.143.211) has quit (Ping timeout: 245 seconds)
+2016-02-01 13:59:18	<--	jbudz (~jbudz@208.59.77.125) has quit (Quit: ZZZzzz…)
+2016-02-01 13:59:28	<--	moriko (~moriko@178.162.222.41.adsl.inet-telecom.org) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 13:59:37	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Remote host closed the connection)
+2016-02-01 14:00:44	<--	King_Hual (~failed@unaffiliated/king-hual/x-1207580) has quit (Ping timeout: 252 seconds)
+2016-02-01 14:01:56	<--	aleksandar2810 (~quassel@cable-178-148-38-82.dynamic.sbb.rs) has quit (Ping timeout: 248 seconds)
+2016-02-01 14:02:14	-->	Anderson69s_Deb (~Anderson6@mne69-3-82-224-54-195.fbx.proxad.net) has joined #git
+2016-02-01 14:02:39	<--	iamtakingiteasy (~Wooga@eientei.org) has quit (Quit: Reconnecting)
+2016-02-01 14:02:41	-->	hobodave (~hobodave@pdpc/supporter/professional/hobodave) has joined #git
+2016-02-01 14:02:45	-->	iamtakingiteasy (~Wooga@eientei.org) has joined #git
+2016-02-01 14:03:25	-->	jbudz (~jbudz@24-148-70-235.c3-0.mart-ubr1.chi-mart.il.cable.rcn.com) has joined #git
+2016-02-01 14:03:39	-->	tesla (~tesla@ipservice-092-211-073-053.092.211.pools.vodafone-ip.de) has joined #git
+2016-02-01 14:04:02	<--	ech0s7 (~ech0s7@198.208.72.27) has quit (Quit: This computer has gone to sleep)
+2016-02-01 14:04:11	-->	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has joined #git
+2016-02-01 14:04:13	-->	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has joined #git
+2016-02-01 14:04:58	<--	marscher (~marscher@zafc6.pia.fu-berlin.de) has quit (Ping timeout: 256 seconds)
+2016-02-01 14:05:23	<--	Darcidride_ (~Quentin@158.69.114.146) has quit (Ping timeout: 246 seconds)
+2016-02-01 14:05:25	-->	gigq (~justin@45-20-197-26.lightspeed.austtx.sbcglobal.net) has joined #git
+2016-02-01 14:05:44	<--	jwest (~jwest@ec2-52-20-223-127.compute-1.amazonaws.com) has quit (Quit: WeeChat 1.0.1)
+2016-02-01 14:05:49	-->	Darcidride_ (~Quentin@158.69.114.146) has joined #git
+2016-02-01 14:06:07	-->	jwest (~jwest@ec2-52-20-223-127.compute-1.amazonaws.com) has joined #git
+2016-02-01 14:06:34	-->	presto (~presto@unaffiliated/presto) has joined #git
+2016-02-01 14:08:15	<--	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has quit (Ping timeout: 240 seconds)
+2016-02-01 14:08:45	<--	jbudz (~jbudz@24-148-70-235.c3-0.mart-ubr1.chi-mart.il.cable.rcn.com) has quit (Ping timeout: 250 seconds)
+2016-02-01 14:08:56	<--	fracting (~fracting@116.4.122.82) has quit (Ping timeout: 256 seconds)
+2016-02-01 14:09:57	-->	arooni (~textual@108-207-116-185.lightspeed.mssnks.sbcglobal.net) has joined #git
+2016-02-01 14:11:15	-->	fracting (~fracting@113.79.136.193) has joined #git
+2016-02-01 14:12:25	<--	fracting (~fracting@113.79.136.193) has quit (Max SendQ exceeded)
+2016-02-01 14:12:42	-->	jbudz (~jbudz@li1246-191.members.linode.com) has joined #git
+2016-02-01 14:13:29	<--	elastix (~Thunderbi@cpc21-addl4-2-0-cust195.6-3.cable.virginm.net) has quit (Quit: elastix)
+2016-02-01 14:14:32	-->	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 14:14:39	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 14:14:49	<--	Treio (~Treio@87.244.233.250) has quit (Ping timeout: 250 seconds)
+2016-02-01 14:15:37	-->	ELFrederich (~ELFrederi@63.87.61.108) has joined #git
+2016-02-01 14:16:00	ELFrederich	anyone here using CentOS7 / RHEL7?  Wondering the best way to get a more recent Git.  I'd like to start using >=2.5 so I can have multiple workspaces
+2016-02-01 14:16:27	Seveas	ELFrederich: I have an el5/6/7 repo that gives you the latest development version
+2016-02-01 14:17:21	<--	cdg (~cdg@2602:306:bd5d:2c20:70b9:da45:554b:6a1) has quit (Remote host closed the connection)
+2016-02-01 14:18:17	ELFrederich	Seveas, your own personal repo?
+2016-02-01 14:18:31	Seveas	https://build.opensuse.org/package/show/home:seveas:git-next/git
+2016-02-01 14:18:44	Seveas	using suse's build service
+2016-02-01 14:19:00	qsx	Seveas: i thought copr was the hot shit for fedora and co
+2016-02-01 14:19:14	Seveas	qsx: it is, and obs sucks. Need to migrate, but -ETIME
+2016-02-01 14:20:03	<--	iLembus (~iLembus@p548589DB.dip0.t-ipconnect.de) has quit (Read error: Connection reset by peer)
+2016-02-01 14:20:35	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Ping timeout: 240 seconds)
+2016-02-01 14:20:59	-->	isbotnetcool (~isbotnetc@173-13-145-238-sfba.hfc.comcastbusiness.net) has joined #git
+2016-02-01 14:20:59	qsx	Seveas: i know who is to blame for that :3
+2016-02-01 14:21:09	-->	daito (~daito@203.104.128.123) has joined #git
+2016-02-01 14:21:45	Seveas	a little shitmachine.
+2016-02-01 14:21:51	<--	tsunamie (~tsunamie@54.218.82.59) has quit (*.net *.split)
+2016-02-01 14:21:51	<--	rnsanchez (~rnsanchez@189.58.234.140) has quit (*.net *.split)
+2016-02-01 14:21:51	<--	mwhooker (~mwhooker@173.247.207.136) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-02-01 14:22:01	-->	paddyez (~paddy@x5f7483ca.dyn.telefonica.de) has joined #git
+2016-02-01 14:22:01	<--	paddyez (~paddy@x5f7483ca.dyn.telefonica.de) has quit (Changing host)
+2016-02-01 14:22:01	-->	paddyez (~paddy@wikipedia/paddyez) has joined #git
+2016-02-01 14:22:05	qsx	i wouldn’t have called you that, but if you insist …
+2016-02-01 14:22:46	-->	jost (~jost@p579C6165.dip0.t-ipconnect.de) has joined #git
+2016-02-01 14:22:53	-->	anchorite (~anchorite@95.111.56.99) has joined #git
+2016-02-01 14:22:55	-->	zeroed_ (~zeroed@93-34-219-182.ip51.fastwebnet.it) has joined #git
+2016-02-01 14:23:30	Seveas	I probably produce more shit, but don't need help getting rid of it :-0
+2016-02-01 14:23:56	qsx	 
+2016-02-01 14:24:28	<--	vkngpmhc (~vkngpmhc@71-9-93-156.dhcp.ccmn.ca.charter.com) has quit (Read error: Connection reset by peer)
+2016-02-01 14:24:30	_ikke_	 
+2016-02-01 14:24:43	-->	vkngpmhc (~vkngpmhc@71-9-93-156.dhcp.ccmn.ca.charter.com) has joined #git
+2016-02-01 14:25:30	<--	zeroed (~zeroed@unaffiliated/zeroed) has quit (Ping timeout: 250 seconds)
+2016-02-01 14:25:38	-->	incite (~1nc1te@50.248.81.65) has joined #git
+2016-02-01 14:26:06	<--	daito (~daito@203.104.128.123) has quit (Ping timeout: 272 seconds)
+2016-02-01 14:26:19	<--	Oebele (~quassel@2001:67c:2564:331:c433:e47f:4830:bcd9) has quit (Remote host closed the connection)
+2016-02-01 14:26:39	courrier	Hey guys, I'm cleaning a >500MB repo, keeping only a bunch of files among many others that have been deleted, can I tell git to forget the versions of all files not in HEAD?
+2016-02-01 14:26:45	courrier	I find answers to filter large files but I would prefer to ignore all other files that are now unsused
+2016-02-01 14:27:06	Seveas	!bfg
+2016-02-01 14:27:07	@gitinfo	A tool designed to remove large files, or passwords from history: https://rtyley.github.io/bfg-repo-cleaner/ (!rewrite applies)
+2016-02-01 14:28:06	-->	ahmedelgabri (~ahmedelga@ip4da074e6.direct-adsl.nl) has joined #git
+2016-02-01 14:28:17	<--	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 14:28:38	-->	Joel (~Joel@gov91-4-83-152-215-118.fbx.proxad.net) has joined #git
+2016-02-01 14:29:01	ℹ 	Joel is now known as Guest14521
+2016-02-01 14:29:18	<--	Guest14521 (~Joel@gov91-4-83-152-215-118.fbx.proxad.net) has left #git
+2016-02-01 14:29:18	-->	Chunk2 (~chunk@184.174.132.176) has joined #git
+2016-02-01 14:29:23	<--	jwmann (~jwmann@144.172.157.184) has quit (Quit: zZzZz)
+2016-02-01 14:30:40	-->	Uptime (notbot@freenode/staff/uptime) has joined #git
+2016-02-01 14:30:52	<--	skapunker (~skapunker@69.146.224.66) has quit (Quit: Leaving)
+2016-02-01 14:31:39	-->	ensyde__ (~ensyde@2606:a000:64cf:3000:39a7:b1a2:c3f:b791) has joined #git
+2016-02-01 14:31:58	<--	PCatinean (~wiz@188.26.183.147) has quit (Quit: Leaving)
+2016-02-01 14:32:06	-->	fees (~fees_@d54C22E1C.access.telenet.be) has joined #git
+2016-02-01 14:32:17	-->	rnsanchez (~rnsanchez@189.58.234.140) has joined #git
+2016-02-01 14:32:26	-->	rominronin (~rominroni@89.185.127.226) has joined #git
+2016-02-01 14:32:53	<--	MutantMa_ (~msankhala@unaffiliated/msankhala) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 14:33:32	-->	cagedwisdom (~X@106.69.123.251) has joined #git
+2016-02-01 14:33:55	-->	Peuc2 (~Peuc@ip-50-21-139-250.dsl.netrevolution.com) has joined #git
+2016-02-01 14:34:31	-->	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 14:34:33	-->	User458764 (~textual@62.147.220.187) has joined #git
+2016-02-01 14:34:37	courrier	Seveas: thanks, but there is no bfs option to skip files not in head apparently
+2016-02-01 14:34:50	courrier	maybe by combining with git list of files
+2016-02-01 14:34:54	-->	josuebrunel (~josue@2a01:e34:ecec:a0f0:ba86:87ff:fe53:30f7) has joined #git
+2016-02-01 14:35:00	-->	skcin7 (~skcin7@ip-64-134-222-225.public.wayport.net) has joined #git
+2016-02-01 14:35:02	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 14:35:04	-->	aeok (~aeok@AAubervilliers-151-1-8-103.w83-114.abo.wanadoo.fr) has joined #git
+2016-02-01 14:35:08	<--	aeok (~aeok@AAubervilliers-151-1-8-103.w83-114.abo.wanadoo.fr) has quit (Max SendQ exceeded)
+2016-02-01 14:35:18	<--	crose (~crose@65.206.2.2) has quit (Quit: crose_quit)
+2016-02-01 14:35:20	-->	acetakwas (~acetakwas@105.112.43.149) has joined #git
+2016-02-01 14:35:23	<--	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has quit (Max SendQ exceeded)
+2016-02-01 14:35:32	<--	Peuc (~Peuc@ip-50-21-133-101.dsl.netrevolution.com) has quit (Ping timeout: 248 seconds)
+2016-02-01 14:35:32	ℹ 	Peuc2 is now known as Peuc
+2016-02-01 14:35:57	-->	Jackneill (~Jackneill@gateway/vpn/privateinternetaccess/jackneill) has joined #git
+2016-02-01 14:36:04	<--	tesla (~tesla@ipservice-092-211-073-053.092.211.pools.vodafone-ip.de) has quit (Ping timeout: 248 seconds)
+2016-02-01 14:36:36	_ikke_	isn't that the default behaviour?
+2016-02-01 14:37:07	-->	astockton (~astockton@63.225.31.147) has joined #git
+2016-02-01 14:37:24	<--	rominronin (~rominroni@89.185.127.226) has quit (Ping timeout: 252 seconds)
+2016-02-01 14:37:24	<--	sim642 (~sim642@205-29-190-90.dyn.estpak.ee) has quit (Ping timeout: 252 seconds)
+2016-02-01 14:37:26	<--	sgambino (~textual@198.85.229.3) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 14:37:36	_ikke_	No, that's something different
+2016-02-01 14:37:44	-->	Treio (~Treio@87.244.233.250) has joined #git
+2016-02-01 14:37:56	-->	boombatower (~boombatow@drupal.org/user/214218/view) has joined #git
+2016-02-01 14:38:01	+osse	it refuses to delete files that are present in HEAD
+2016-02-01 14:38:06	-->	LeBlaaanc (~LeBlaaanc@199.115.166.10) has joined #git
+2016-02-01 14:38:09	+osse	so maybe you can tell it to just delete everything :P
+2016-02-01 14:38:36	_ikke_	But then you loose your history
+2016-02-01 14:39:09	qsx	_ikke_: remember to fasten it again!
+2016-02-01 14:39:23	-->	Gsham (~textual@pool-108-41-147-163.nycmny.fios.verizon.net) has joined #git
+2016-02-01 14:39:24	courrier	_ikke_: if the history concerns none of the files that still exist that seems fine
+2016-02-01 14:39:35	courrier	will it keep the history of files that are in HEAD, then?
+2016-02-01 14:39:39	<--	thierryp (~thierry@82.226.190.44) has quit (Remote host closed the connection)
+2016-02-01 14:39:44	courrier	if I remove *
+2016-02-01 14:40:06	<--	acetakwas (~acetakwas@105.112.43.149) has quit (Read error: Connection reset by peer)
+2016-02-01 14:40:19	-->	sim642 (~sim642@205-29-190-90.dyn.estpak.ee) has joined #git
+2016-02-01 14:40:33	<--	erichf (uid48967@gateway/web/irccloud.com/x-omnmxmrfneaauvta) has quit (Quit: Connection closed for inactivity)
+2016-02-01 14:40:40	<--	Cerise (jerry@unaffiliated/cerise) has quit (Ping timeout: 260 seconds)
+2016-02-01 14:40:43	-->	spriz (~spriz@3e6b70be.rev.stofanet.dk) has joined #git
+2016-02-01 14:41:04	-->	SimonNa (~simon@79.241.170.54) has joined #git
+2016-02-01 14:41:04	<--	ehynds (~ehynds@65-118-155-74.dia.static.qwest.net) has quit
+2016-02-01 14:41:42	-->	sgambino_ (~textual@198.85.229.3) has joined #git
+2016-02-01 14:41:59	_ikke_	From what I read it does
+2016-02-01 14:42:06	<--	astockton (~astockton@63.225.31.147) has quit (Ping timeout: 240 seconds)
+2016-02-01 14:42:10	_ikke_	"with none of the dirty files you want removing from your history still in it."
+2016-02-01 14:42:46	-->	myhau79 (~myhau@host-94-251-135-154.dynamic.mm.pl) has joined #git
+2016-02-01 14:42:49	-->	slxbn (c7a9cc04@gateway/web/cgi-irc/kiwiirc.com/ip.199.169.204.4) has joined #git
+2016-02-01 14:43:22	<--	localuser- (~quassel@unaffiliated/localuser-) has quit (Ping timeout: 240 seconds)
+2016-02-01 14:43:22	<--	peoliye__ (~peoliye@c-50-168-22-93.hsd1.ca.comcast.net) has quit (Ping timeout: 265 seconds)
+2016-02-01 14:43:23	<--	myhau79 (~myhau@host-94-251-135-154.dynamic.mm.pl) has quit (Client Quit)
+2016-02-01 14:43:41	<--	totte (~totte@unaffiliated/totte) has quit (Excess Flood)
+2016-02-01 14:44:20	-->	Cerise (jerry@jerry.devzero.info) has joined #git
+2016-02-01 14:44:20	<--	Cerise (jerry@jerry.devzero.info) has quit (Changing host)
+2016-02-01 14:44:20	-->	Cerise (jerry@unaffiliated/cerise) has joined #git
+2016-02-01 14:44:35	-->	myhau (~myhau@94.251.135.154) has joined #git
+2016-02-01 14:44:54	<--	myhau (~myhau@94.251.135.154) has quit (Remote host closed the connection)
+2016-02-01 14:45:05	<--	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has quit (Quit: cmckee)
+2016-02-01 14:45:26	<--	zeroed_ (~zeroed@93-34-219-182.ip51.fastwebnet.it) has quit (Ping timeout: 240 seconds)
+2016-02-01 14:45:44	foul_owl	soerenb osse thanks!
+2016-02-01 14:45:55	<--	a3Dman_ (~3Dman@unaffiliated/a3dman) has quit (Ping timeout: 245 seconds)
+2016-02-01 14:46:17	-->	a3Dman (~3Dman@unaffiliated/a3dman) has joined #git
+2016-02-01 14:46:22	<--	Jackneill (~Jackneill@gateway/vpn/privateinternetaccess/jackneill) has quit (Quit: Leaving)
+2016-02-01 14:46:29	-->	tsunamie (~tsunamie@54.218.82.59) has joined #git
+2016-02-01 14:46:44	-->	iha (~iha@83.114.7.103) has joined #git
+2016-02-01 14:46:55	-->	totte (~totte@tott.es) has joined #git
+2016-02-01 14:47:02	ℹ 	totte is now known as Guest37768
+2016-02-01 14:47:12	<--	Guest37768 (~totte@tott.es) has left #git
+2016-02-01 14:47:42	<--	iha (~iha@83.114.7.103) has quit (Excess Flood)
+2016-02-01 14:47:48	-->	Puhe (~Puhe@ool-18bf15a1.dyn.optonline.net) has joined #git
+2016-02-01 14:47:52	-->	AngryInca (~mailme@82-71-62-199.dsl.in-addr.zen.co.uk) has joined #git
+2016-02-01 14:48:24	AngryInca	Hi, can anyone tell me, when I've cloned a git repo, how do I make sure I'm compiling a specific tag/branch?
+2016-02-01 14:48:35	-->	astockton (~astockton@63.225.31.147) has joined #git
+2016-02-01 14:48:51	+osse	AngryInca: you do 'git checkout thing' where thing is what you want
+2016-02-01 14:49:04	+osse	such as v1.5 or whatever
+2016-02-01 14:49:37	-->	skapunker (~skapunker@69.146.224.66) has joined #git
+2016-02-01 14:51:13	AngryInca	so, git clone url & git checkout v0.11.2.cl1.b1 && ./autogen.sh && ./configure && make ?
+2016-02-01 14:51:46	+osse	ehh
+2016-02-01 14:51:49	+osse	sure
+2016-02-01 14:52:07	AngryInca	yeah, thats worked.  Thanks.
+2016-02-01 14:52:25	AngryInca	I've not used branches in Git, just TFS.
+2016-02-01 14:52:29	-->	aidalgol (~user@pdpc/supporter/student/aidalgol) has joined #git
+2016-02-01 14:52:32	<--	chernjie (~chernjie@207.46.226.125) has quit (Remote host closed the connection)
+2016-02-01 14:53:11	-->	akiva (~akiva@S010608606e20ed69.gv.shawcable.net) has joined #git
+2016-02-01 14:53:31	<--	astockton (~astockton@63.225.31.147) has quit (Ping timeout: 265 seconds)
+2016-02-01 14:53:31	<--	jkoudys (~jkoudys@CPEbc4dfb202913-CMbc4dfb202910.cpe.net.cable.rogers.com) has quit (Ping timeout: 265 seconds)
+2016-02-01 14:55:12	<--	BillCriswell (uid18074@gateway/web/irccloud.com/x-qcjtaxleophsvctx) has quit (Quit: Connection closed for inactivity)
+2016-02-01 14:55:26	courrier	Mmmmmmmmh after ```java -jar bfg-1.12.8.jar --delete-files "*" ``` followed by ```git gc --prune=now --aggressive``` I still get a 450MB folder :/ Did I miss something?
+2016-02-01 14:56:10	-->	MistahKurtz (~ColKurtz@cpe-76-94-201-204.socal.res.rr.com) has joined #git
+2016-02-01 14:57:50	-->	mohabaks (~zer0ph@105.230.107.59) has joined #git
+2016-02-01 14:57:54	<--	jimi_ (~jimi@unaffiliated/tuxguy) has quit (Quit: This computer has gone to sleep)
+2016-02-01 14:58:24	+osse	git reflog --expire --expire=all --all and gc again
+2016-02-01 14:58:31	courrier	Oh no sorry, that's fine, for some reason du -hs was not up to date, output repo: 20MB
+2016-02-01 14:58:46	+osse	oh
+2016-02-01 14:58:54	courrier	Do we need to commit after git gc?
+2016-02-01 14:59:15	-->	yeticry_ (~yeticry@183.165.193.49) has joined #git
+2016-02-01 14:59:16	courrier	Looks like I have all the files marked as removed
+2016-02-01 14:59:22	_ikke_	nop
+2016-02-01 14:59:37	_ikke_	gc doesn't touch the index or working tree
+2016-02-01 14:59:41	_ikke_	only the object db
+2016-02-01 15:00:07	<--	sgambino_ (~textual@198.85.229.3) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 15:00:08	<--	flavi0 (~anon@mac-nomade-214.ircam.fr) has quit (Quit: leaving)
+2016-02-01 15:00:24	-->	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has joined #git
+2016-02-01 15:00:33	courrier	Oh, I know
+2016-02-01 15:00:33	-->	jam_ (~jam@187.159.181.196) has joined #git
+2016-02-01 15:01:01	courrier	In fact I removed all the files I didn't want with multiple git rm
+2016-02-01 15:01:06	-->	sgambino (~textual@198.85.229.3) has joined #git
+2016-02-01 15:01:14	-->	ehynds (~ehynds@65-118-155-74.dia.static.qwest.net) has joined #git
+2016-02-01 15:01:18	courrier	and then ran BFG
+2016-02-01 15:01:25	-->	zeroed (~zeroed@unaffiliated/zeroed) has joined #git
+2016-02-01 15:01:38	courrier	so it kept these uncommited deletions :/
+2016-02-01 15:01:53	courrier	that hadn't been commited
+2016-02-01 15:02:49	courrier	do you think I can just reset to get rid of these?
+2016-02-01 15:03:25	<--	codeman (~codeman@2804:14c:170:2360:26f5:aaff:fe50:da4b) has quit (Ping timeout: 245 seconds)
+2016-02-01 15:03:34	-->	srcerer (~chatzilla@dns2.klsairexpress.com) has joined #git
+2016-02-01 15:03:53	-->	thierryp (~thierry@2a01:e35:2e2b:e2c0:18aa:cea8:dc89:bab6) has joined #git
+2016-02-01 15:03:56	<--	roygbiv (~JohnRambo@pdpc/supporter/active/roygbiv) has quit (Quit: ™)
+2016-02-01 15:05:14	_ikke_	I think so
+2016-02-01 15:05:17	_ikke_	just git reset
+2016-02-01 15:05:20	_ikke_	couldn't hurt
+2016-02-01 15:05:20	<--	ensyde__ (~ensyde@2606:a000:64cf:3000:39a7:b1a2:c3f:b791) has quit (Ping timeout: 250 seconds)
+2016-02-01 15:05:22	<--	jam_ (~jam@187.159.181.196) has quit (Ping timeout: 272 seconds)
+2016-02-01 15:05:30	<--	nofacade (~nofacade@unaffiliated/nofacade) has quit (Ping timeout: 245 seconds)
+2016-02-01 15:05:55	-->	dmillar (~millard@64.216.252.43) has joined #git
+2016-02-01 15:05:56	<--	phaleth (~IceChat9@unaffiliated/phaleth) has quit (Quit: Relax, its only ONES and ZEROS!)
+2016-02-01 15:06:16	courrier	_ikke_: not sufficient, the list of "deleted: " is still there
+2016-02-01 15:06:38	-->	jkoudys (~jkoudys@CPEbc4dfb202913-CMbc4dfb202910.cpe.net.cable.rogers.com) has joined #git
+2016-02-01 15:06:47	<--	zeroed (~zeroed@unaffiliated/zeroed) has quit (Ping timeout: 264 seconds)
+2016-02-01 15:06:58	<--	theskillwithin (~theskillw@unaffiliated/theskillwithin) has quit (Remote host closed the connection)
+2016-02-01 15:07:19	_ikke_	Ok, I think you have to commit that then
+2016-02-01 15:07:30	_ikke_	the files are removed from the FS, but not yet from the latest commit
+2016-02-01 15:07:36	-->	astockton (~astockton@63.225.31.147) has joined #git
+2016-02-01 15:07:41	<--	jteneyck (~jteneyck@unaffiliated/josephteneyck) has quit (Remote host closed the connection)
+2016-02-01 15:07:55	<--	MarkyC_ (~markyc@76.9.215.130) has quit (Remote host closed the connection)
+2016-02-01 15:08:01	-->	mischat (~mischat@97e1b1b3.skybroadband.com) has joined #git
+2016-02-01 15:08:06	<--	thierryp (~thierry@2a01:e35:2e2b:e2c0:18aa:cea8:dc89:bab6) has quit (Ping timeout: 240 seconds)
+2016-02-01 15:08:19	-->	jteneyck (~jteneyck@unaffiliated/josephteneyck) has joined #git
+2016-02-01 15:08:27	<--	jteneyck (~jteneyck@unaffiliated/josephteneyck) has quit (Remote host closed the connection)
+2016-02-01 15:08:44	courrier	_ikke_: should I commit *before* running BFG, then? I have a copy of my initial repo
+2016-02-01 15:08:52	-->	myhau (~myhau@host-94-251-135-154.dynamic.mm.pl) has joined #git
+2016-02-01 15:09:12	-->	King_Hual (~failed@94.26.28.68) has joined #git
+2016-02-01 15:09:12	<--	King_Hual (~failed@94.26.28.68) has quit (Changing host)
+2016-02-01 15:09:12	-->	King_Hual (~failed@unaffiliated/king-hual/x-1207580) has joined #git
+2016-02-01 15:09:19	<--	Darcidride_ (~Quentin@158.69.114.146) has quit (Quit: Bye.)
+2016-02-01 15:09:34	-->	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has joined #git
+2016-02-01 15:09:51	<--	tinajohnson__ (uid25907@gateway/web/irccloud.com/x-evwhlzrllmocbrpz) has quit (Quit: Connection closed for inactivity)
+2016-02-01 15:09:54	-->	tesla (~tesla@ipservice-092-211-073-053.092.211.pools.vodafone-ip.de) has joined #git
+2016-02-01 15:10:09	<--	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has quit (Max SendQ exceeded)
+2016-02-01 15:10:12	<--	myhau (~myhau@host-94-251-135-154.dynamic.mm.pl) has quit (Remote host closed the connection)
+2016-02-01 15:10:17	-->	blackwind_123 (~IceChat9@117.192.140.245) has joined #git
+2016-02-01 15:10:29	-->	jteneyck (~jteneyck@unaffiliated/josephteneyck) has joined #git
+2016-02-01 15:10:38	<--	samskiter (~sduke@w-109.cust-11137.ip.static.uno.uk.net) has quit (Quit: samskiter)
+2016-02-01 15:10:42	-->	MarkyC (~markyc@76.9.215.130) has joined #git
+2016-02-01 15:10:42	-->	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has joined #git
+2016-02-01 15:10:47	_ikke_	You already ran it, didn't you
+2016-02-01 15:10:50	_ikke_	?
+2016-02-01 15:11:12	-->	Darcidride_ (~Quentin@158.69.114.146) has joined #git
+2016-02-01 15:11:28	<--	preyalone (uid21561@gateway/web/irccloud.com/x-qddvfjvvjwsbeoqc) has quit (Quit: Connection closed for inactivity)
+2016-02-01 15:11:28	<--	Darcidride_ (~Quentin@158.69.114.146) has quit (Remote host closed the connection)
+2016-02-01 15:12:00	courrier	_ikke_: Yeah but if it's cleaner to commit before BFG I can restore my initial copy of the repo :)
+2016-02-01 15:12:18	-->	radsy (~irc@unaffiliated/radsy) has joined #git
+2016-02-01 15:12:25	<--	doener (~doener@5.147.61.64) has quit (Quit: leaving)
+2016-02-01 15:12:39	_ikke_	Well, you can just commit and run it again
+2016-02-01 15:12:50	<--	hasitha (~hasitha@ext.nulogy.com) has quit (Remote host closed the connection)
+2016-02-01 15:12:54	-->	jceb (~jceb@2001:6f8:900:8e46:6a5d:43ff:fea2:3276) has joined #git
+2016-02-01 15:13:18	<--	astockton (~astockton@63.225.31.147) has quit (Remote host closed the connection)
+2016-02-01 15:13:45	-->	zeroed (~zeroed@unaffiliated/zeroed) has joined #git
+2016-02-01 15:14:35	-->	astockton (~astockton@63.225.31.147) has joined #git
+2016-02-01 15:14:42	-->	joshtronic (~joshtroni@pool-96-252-213-160.tampfl.fios.verizon.net) has joined #git
+2016-02-01 15:15:08	courrier	_ikke_: I think the only difference will be that the cleaning commit will disappear if I run it before BFG, right?
+2016-02-01 15:15:48	<--	sgambino (~textual@198.85.229.3) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 15:16:30	<--	NeverDie (~NeverDie@pool-98-113-171-151.nycmny.fios.verizon.net) has quit (Quit: http://radiux.io/)
+2016-02-01 15:16:54	<--	ehynds (~ehynds@65-118-155-74.dia.static.qwest.net) has quit
+2016-02-01 15:17:07	<--	anth0ny (~quassel@unaffiliated/anth0ny) has quit (Read error: Connection reset by peer)
+2016-02-01 15:18:12	-->	ahr3n (~textual@222-154-240-28.adsl.xtra.co.nz) has joined #git
+2016-02-01 15:18:39	-->	sgambino (~textual@198.85.229.3) has joined #git
+2016-02-01 15:18:53	<--	algae (~algae@blk-7-222-58.eastlink.ca) has quit (Quit: leaving)
+2016-02-01 15:19:15	<--	JanC (~janc@lugwv/member/JanC) has quit (Ping timeout: 240 seconds)
+2016-02-01 15:19:33	<--	rnsanchez (~rnsanchez@189.58.234.140) has quit (Quit: Exit 1)
+2016-02-01 15:19:38	<--	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Ping timeout: 250 seconds)
+2016-02-01 15:20:55	<--	Sucks (~quassel@2804:14c:5787:19d9:a2f3:c1ff:fe0a:2e19) has quit (Read error: Connection reset by peer)
+2016-02-01 15:21:16	-->	myhau (~myhau@host-94-251-135-154.dynamic.mm.pl) has joined #git
+2016-02-01 15:21:24	-->	kfoonamalik (~eryan@66.172.3.104) has joined #git
+2016-02-01 15:22:05	-->	theskillwithin (~theskillw@unaffiliated/theskillwithin) has joined #git
+2016-02-01 15:22:55	<--	NimeshNeema (uid2689@gateway/web/irccloud.com/x-rcuadygegctqkkmf) has quit (Quit: Connection closed for inactivity)
+2016-02-01 15:23:08	-->	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 15:23:08	<--	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has quit (Client Quit)
+2016-02-01 15:23:23	<--	mohabaks (~zer0ph@105.230.107.59) has quit (Read error: Connection reset by peer)
+2016-02-01 15:23:35	<--	s00pcan (~chris@209.197.20.203) has quit (Ping timeout: 276 seconds)
+2016-02-01 15:24:26	hfp	Hi, I'm having a hard time understanding rebase --onto. This is my situation: there are two branches that have both been forked off master at different times. I would like to rebase my branch onto that other branch so I can get all the changes from it. I tried `git rebase --onto their_branch my_branch HEAD` but I didn't get the commits I wanted. How should I do that?
+2016-02-01 15:25:05	-->	chrisrhoden (~chrisrhod@163.172.128.7) has joined #git
+2016-02-01 15:25:16	<--	samw (~samw@17.114.59.184) has quit (Remote host closed the connection)
+2016-02-01 15:25:36	-->	s00pcan (~chris@209.197.20.197) has joined #git
+2016-02-01 15:25:42	-->	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 15:26:33	<--	mwk_ (~mwk@c-24-7-120-186.hsd1.ca.comcast.net) has left #git
+2016-02-01 15:26:46	-->	samw (~samw@17.114.59.184) has joined #git
+2016-02-01 15:27:40	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Remote host closed the connection)
+2016-02-01 15:28:10	kadoban	hfp: Well, let's look at the manpage, even just the reminder text at the top: 'git rebase --onto <newbase> <upstream> <branch>'
+2016-02-01 15:28:14	-->	EduardoMartins (~Thunderbi@177.33.48.191) has joined #git
+2016-02-01 15:28:40	kadoban	hfp: my_branch == <upstream> doesn't sound right, and HEAD is a bit dubious for <branch> as well, though that could work.
+2016-02-01 15:28:51	Seveas	hfp: http://git.seveas.net/rebasing-illustrated.html#rebasing-illustrated
+2016-02-01 15:29:45	<--	Gsham (~textual@pool-108-41-147-163.nycmny.fios.verizon.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 15:30:48	<--	clemf (~textual@50.252.15.145) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-02-01 15:30:57	<--	chrisrhoden (~chrisrhod@163.172.128.7) has quit (Remote host closed the connection)
+2016-02-01 15:31:09	-->	Gsham (~textual@pool-108-41-147-163.nycmny.fios.verizon.net) has joined #git
+2016-02-01 15:31:13	-->	robbyoconnor (~wakawaka@guifications/user/r0bby) has joined #git
+2016-02-01 15:31:14	-->	chrisrhoden (~chrisrhod@163.172.128.7) has joined #git
+2016-02-01 15:31:38	-->	ooa (~ooa@41.141.4.143) has joined #git
+2016-02-01 15:32:02	<--	roelmonnens (~roelmonne@ptr-2hj4tbleeixo2rqk0ty2ahr8y.ip6.access.telenet.be) has quit (Remote host closed the connection)
+2016-02-01 15:32:07	<--	ooa (~ooa@41.141.4.143) has quit (Max SendQ exceeded)
+2016-02-01 15:32:48	-->	Macaveli (~Macaveli@94-226-221-176.access.telenet.be) has joined #git
+2016-02-01 15:32:50	-->	jwmann (~jwmann@144.172.157.184) has joined #git
+2016-02-01 15:33:15	<--	robbyoconnor (~wakawaka@guifications/user/r0bby) has quit (Client Quit)
+2016-02-01 15:33:18	-->	crose (~crose@65.206.2.2) has joined #git
+2016-02-01 15:33:23	-->	rominronin (~rominroni@89.185.127.226) has joined #git
+2016-02-01 15:34:22	-->	JanC (~janc@lugwv/member/JanC) has joined #git
+2016-02-01 15:34:42	-->	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 15:34:42	-->	atmosx_laptop (~osx@79.103.6.35.dsl.dyn.forthnet.gr) has joined #git
+2016-02-01 15:34:49	-->	modocache (~modocache@199.201.65.135) has joined #git
+2016-02-01 15:34:52	<--	nettoweb (~textual@189.26.129.233.dynamic.adsl.gvt.net.br) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-02-01 15:34:55	-->	yqt (~yqt@81.88.230.28) has joined #git
+2016-02-01 15:34:58	atmosx_laptop	hello
+2016-02-01 15:34:59	@gitinfo	atmosx_laptop: hi! I'd like to automatically welcome you to #git, a place full of helpful gits. Got a question? Just ask it — chances are someone will answer fairly soon. The topic has links with more information about git and this channel. NB. it can't hurt to do a backup (type !backup for help) before trying things out, especially if they involve dangerous keywords such as --hard, clean, --force/-f, rm and so on.
+2016-02-01 15:35:35	<--	EduardoMartins (~Thunderbi@177.33.48.191) has quit (Ping timeout: 264 seconds)
+2016-02-01 15:36:09	-->	rindolf (~rindolf@bzq-79-180-213-220.red.bezeqint.net) has joined #git
+2016-02-01 15:36:12	atmosx_laptop	I made a PR on github then someone requested a minor change and I edited the file on github creating a second commit on github. Can I squash these commits somehow?
+2016-02-01 15:36:16	rindolf	Hi all.
+2016-02-01 15:37:01	atmosx_laptop	I tried pulling the remote branch, rebase -i HEAD~2 and then push origin branch_name but I get this: hint: Updates were rejected because the tip of your current branch is behind
+2016-02-01 15:37:37	kadoban	atmosx_laptop: What did you do in the rebase -i ? That sounds like you just removed one of the commits.
+2016-02-01 15:37:49	<--	chrisrhoden (~chrisrhod@163.172.128.7) has quit (Remote host closed the connection)
+2016-02-01 15:38:30	-->	peoliye (~peoliye@204.17.143.20) has joined #git
+2016-02-01 15:38:44	<--	rominronin (~rominroni@89.185.127.226) has quit (Ping timeout: 250 seconds)
+2016-02-01 15:39:26	<--	CheckDavid (uid14990@gateway/web/irccloud.com/x-cxkvgjinjdivbhkg) has quit (Quit: Connection closed for inactivity)
+2016-02-01 15:39:29	<--	rafalcpp (~racalcppp@84-10-11-234.static.chello.pl) has quit (Remote host closed the connection)
+2016-02-01 15:39:37	atmosx_laptop	kadoban: can I squash them in a different way?
+2016-02-01 15:39:52	atmosx_laptop	kadoban: ah sorry, I squash the 2nd commit
+2016-02-01 15:40:08	<--	mellernoia (edw@177.156.230.211) has quit
+2016-02-01 15:40:16	-->	rafalcpp (~racalcppp@84-10-11-234.static.chello.pl) has joined #git
+2016-02-01 15:40:19	Seveas	atmosx_laptop: you'll need to push -f
+2016-02-01 15:40:30	atmosx_laptop	Seveas: so after I squash I push -f ?
+2016-02-01 15:40:36	<--	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 15:40:42	-->	IWishIKnew (~IWishIKne@nv-71-52-56-106.dhcp.embarqhsd.net) has joined #git
+2016-02-01 15:40:47	-->	intellix (~intellix@46.11.72.76) has joined #git
+2016-02-01 15:40:57	Seveas	yes
+2016-02-01 15:41:27	atmosx_laptop	so to recap, I clone, pull origin branch_feat1; rebase -i ; push -f origin branch_feat1
+2016-02-01 15:41:30	<--	bluezone (uid104970@gateway/web/irccloud.com/x-lwwwgxdsldruhxqq) has quit (Quit: Connection closed for inactivity)
+2016-02-01 15:41:49	atmosx_laptop	Seveas: if that workflow does what I wantm I'll buy you a beer
+2016-02-01 15:41:50	-->	s00pcan_ (~chris@209.197.20.206) has joined #git
+2016-02-01 15:41:54	<--	s00pcan (~chris@209.197.20.197) has quit (Read error: Connection reset by peer)
+2016-02-01 15:42:12	kadoban	atmosx_laptop: That doesn't sound quite right.
+2016-02-01 15:42:13	Seveas	after a clone you don't need to pull
+2016-02-01 15:42:16	Seveas	just check out
+2016-02-01 15:42:35	kadoban	atmosx_laptop: You clone the repo, checkout the branch that you're using for the PR, then rebase -i it, and push -f it
+2016-02-01 15:42:38	atmosx_laptop	Seveas: I don't need to pull/featch the specific branch?
+2016-02-01 15:42:40	ℹ 	Mode #git [+vvv kadoban Seveas _ikke_] by ChanServ
+2016-02-01 15:42:41	+Seveas	git clone; git checjout branch_feat1; git rebase -i HEAD~2 (then squash 2); git push -f
+2016-02-01 15:42:54	atmosx_laptop	hm ok
+2016-02-01 15:42:55	+Seveas	a clone clones all branches
+2016-02-01 15:42:57	-->	JZA (Elite11306@gateway/shell/elitebnc/x-dactaycvtifiqyhn) has joined #git
+2016-02-01 15:43:09	JZA	hi how do I remove a file from a remote
+2016-02-01 15:43:15	JZA	git remove file.txt.swp for example.
+2016-02-01 15:43:53	JZA	git clean remote file.txt.swp
+2016-02-01 15:43:54	JZA	?
+2016-02-01 15:44:11	atmosx_laptop	Seveas: how can I clone all branches?
+2016-02-01 15:44:19	+Seveas	JZA: you don't. You remove it locally, commit and push.
+2016-02-01 15:44:30	+Seveas	atmosx_laptop: git clone clones all branches.
+2016-02-01 15:44:38	+Seveas	unless you specifically tell it not to
+2016-02-01 15:44:41	atmosx_laptop	hm
+2016-02-01 15:44:44	-->	dreiss (~dreiss@23-24-202-9-static.hfc.comcastbusiness.net) has joined #git
+2016-02-01 15:44:59	+kadoban	JZA: That sounds like a pretty big misconception of how git works, you should really read a book, like pro git from the website.
+2016-02-01 15:45:09	qsx	!book
+2016-02-01 15:45:10	@gitinfo	There are several good books available about git; 'Pro Git' is probably the best: http://git-scm.com/book but also look at !bottomup !cs !gcs !designers !gitt !vcbe and !parable
+2016-02-01 15:45:30	+Seveas	atmosx_laptop: if you're confused because 'git branch' doesn't show them, try 'git branch -a' and learn about the differences between normal and remote-tracking branches, possibly at http://git.seveas.net/the-meaning-of-refs-and-refspecs.html#the-meaning-of-refs-and-refspecs
+2016-02-01 15:45:34	-->	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 15:45:45	atmosx_laptop	Seveas: yes that's it
+2016-02-01 15:45:57	+Seveas	atmosx_laptop: common issue :)
+2016-02-01 15:46:10	<--	jbudz (~jbudz@li1246-191.members.linode.com) has quit (Quit: ZZZzzz…)
+2016-02-01 15:46:18	<--	sgambino (~textual@198.85.229.3) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 15:46:28	<--	ahmedelgabri (~ahmedelga@ip4da074e6.direct-adsl.nl) has quit (Ping timeout: 248 seconds)
+2016-02-01 15:46:37	<--	followinfrared (~followinf@86.57.170.19) has quit (Remote host closed the connection)
+2016-02-01 15:46:38	<--	dopesong (~dopesong@126.204.46.84.static.lrtc.lt) has quit (Remote host closed the connection)
+2016-02-01 15:47:48	-->	m0viefreak (~asdf@unaffiliated/m0viefreak) has joined #git
+2016-02-01 15:48:02	JZA	how can I add the .swp and .swo extension to git ignore.
+2016-02-01 15:48:12	-->	AtnevRed (~atnevred@82-168-162-118.ip.telfort.nl) has joined #git
+2016-02-01 15:48:26	preaction	make a personal global gitignore file
+2016-02-01 15:48:32	<--	meLon_ (~meLon@c-50-139-89-210.hsd1.or.comcast.net) has quit (Quit: leaving)
+2016-02-01 15:48:39	+Seveas	echo '.*.sw?' >> .gitignore; git add .gitignore; git commit -m "Ignore vim swapfiles"
+2016-02-01 15:48:49	-->	meLon (~meLon@unaffiliated/earthmelon) has joined #git
+2016-02-01 15:48:58	-->	Noldorin (~noldorin@unaffiliated/noldorin) has joined #git
+2016-02-01 15:49:08	preaction	git config --global core.excludesfile '~/.gitignore'; echo '.*sw?' >> ~/.gitignore;
+2016-02-01 15:49:17	courrier	_ikke_: mmmh that did not work, the number of commits didn't decrease during cleaning but they are all empty commits, including when they changed files that are still in HEAD
+2016-02-01 15:49:18	-->	jbudz (~jbudz@li1246-191.members.linode.com) has joined #git
+2016-02-01 15:49:30	hfp	kadoban: I still don't get it. I dont understand what is the newbase, upstream and branch. upstream is origin? branch is my_branch? newbase is their_branch?
+2016-02-01 15:49:32	preaction	my feeling is that any editor-related detritus should be the responsibility of the dev to ignore, not the project
+2016-02-01 15:50:07	JZA	preaction: thanks
+2016-02-01 15:50:07	+kadoban	hfp: upstream is used to determine the place where you use the scissors
+2016-02-01 15:50:15	courrier	maybe removing "*" is not a good idea! :P
+2016-02-01 15:50:26	-->	edude03 (~edude03@184.151.179.167) has joined #git
+2016-02-01 15:50:37	+kadoban	hfp: If you branch something off from master, call it branchA, and you want all of branchA to be moved but nothing from master, then upstream is 'master'
+2016-02-01 15:50:49	hfp	ok
+2016-02-01 15:51:11	+kadoban	hfp: The rebase manpage has some great examples of this really, if you haven't looked at them. It's remarkably well written and demonstrated.
+2016-02-01 15:51:16	-->	epaulson10 (~erpaulso@134.134.137.73) has joined #git
+2016-02-01 15:51:41	hfp	kadoban: I did look at it but there doesnt seem to be my particular case and I couldnt infer it from the other examples... maybe i'm slow
+2016-02-01 15:52:00	-->	ahmedelgabri (~ahmedelga@ip4da074e6.direct-adsl.nl) has joined #git
+2016-02-01 15:52:37	-->	nfk|laptop (~nfk@unaffiliated/nfk) has joined #git
+2016-02-01 15:52:50	-->	Balliad (~textual@82.217.109.67) has joined #git
+2016-02-01 15:53:07	<--	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has quit (Quit: cmckee)
+2016-02-01 15:53:20	+kadoban	hfp: It's probably more that it's a pretty difficult and intricate concept. It takes a while to make sense, just wanted to make sure you actually were looking there, in addition to whatever you're attempting to understand it (many don't).
+2016-02-01 15:53:30	<--	AtnevRed (~atnevred@82-168-162-118.ip.telfort.nl) has quit (Ping timeout: 272 seconds)
+2016-02-01 15:53:39	-->	clemf (~textual@50.252.15.145) has joined #git
+2016-02-01 15:54:00	-->	chrisrhoden (~chrisrhod@163.172.128.7) has joined #git
+2016-02-01 15:54:32	<--	Noldorin (~noldorin@unaffiliated/noldorin) has quit (Read error: Connection reset by peer)
+2016-02-01 15:54:57	+kadoban	hfp: Are you using any views of your repository that show the commits and branches as a tree? 'gitk --all' helps visualize all of this. Rebase, in this sense, I understand as taking a pair of scissors to snip off a bunch of commits from the graph of commits, and pasting it on somewhere else.
+2016-02-01 15:55:00	atmosx_laptop	Seveas: out of curiosity, when I'm working in branch feature_1, after I rebased, should I define push -f origin feature_1 ... or push -f will push to the right branch?
+2016-02-01 15:55:18	<--	epaulson10 (~erpaulso@134.134.137.73) has quit (Client Quit)
+2016-02-01 15:55:25	-->	tpollard (~tpollard@helez.timp.com.au) has joined #git
+2016-02-01 15:55:44	moritz	atmosx_laptop: you can try with --dry-run to find out
+2016-02-01 15:55:50	atmosx_laptop	cool
+2016-02-01 15:55:51	atmosx_laptop	moritz: ty
+2016-02-01 15:56:20	+kadoban	atmosx_laptop: If you did 'git checkout feature_1' it automatically sets the upstream to be the one it finds that branch at. It's a shorthand.
+2016-02-01 15:56:31	atmosx_laptop	okay
+2016-02-01 15:57:15	<--	dmillar (~millard@64.216.252.43) has quit (Quit: Leaving.)
+2016-02-01 15:58:10	-->	peoliye__ (~peoliye@204.17.143.20) has joined #git
+2016-02-01 15:58:16	<--	vkngpmhc (~vkngpmhc@71-9-93-156.dhcp.ccmn.ca.charter.com) has quit (Quit: Lost terminal)
+2016-02-01 15:58:27	-->	sgambino (~textual@198.85.229.3) has joined #git
+2016-02-01 15:58:43	-->	mwhooker (~mwhooker@173.247.207.136) has joined #git
+2016-02-01 15:58:52	-->	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has joined #git
+2016-02-01 15:59:17	atmosx_laptop	thank you guys, I did it! :-D
+2016-02-01 15:59:45	<--	hobodave (~hobodave@pdpc/supporter/professional/hobodave) has quit (Quit: Computer has gone to sleep.)
+2016-02-01 15:59:53	hfp	kadoban: I'm looking at the tree but it was a lot clearer in my head than seeing the tree in gitk
+2016-02-01 16:00:14	hfp	kadoban: nvm, I'll wait for the branch to be merged, I already wasted too much time on this
+2016-02-01 16:00:25	hfp	thanks for your help anyway :)
+2016-02-01 16:00:35	<--	tesla (~tesla@ipservice-092-211-073-053.092.211.pools.vodafone-ip.de) has quit (Ping timeout: 240 seconds)
+2016-02-01 16:00:58	-->	ehynds (~ehynds@65-118-155-74.dia.static.qwest.net) has joined #git
+2016-02-01 16:01:09	-->	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 16:01:13	+kadoban	hfp: Well, it was probably clear-but-wrong in your head, because the rebase command above was wrong. Which isn't really a problem, just a statement you have more to learn to figure this out, but if reality is less clear than something that lead you in a wrong direction …
+2016-02-01 16:01:17	<--	peoliye (~peoliye@204.17.143.20) has quit (Ping timeout: 276 seconds)
+2016-02-01 16:01:23	<--	astockton (~astockton@63.225.31.147) has quit (Remote host closed the connection)
+2016-02-01 16:01:23	+kadoban	hfp: Sure, good luck. You can always figure this out when you have more time.
+2016-02-01 16:01:49	-->	cdg (~cdg@157.166.175.129) has joined #git
+2016-02-01 16:01:55	<--	t0by (~t0by@host12-246-dynamic.41-79-r.retail.telecomitalia.it) has quit (Remote host closed the connection)
+2016-02-01 16:02:34	-->	nettoweb (~textual@189.26.129.233.dynamic.adsl.gvt.net.br) has joined #git
+2016-02-01 16:02:49	<--	livingstn (~livingstn@96.92.46.73) has quit (Remote host closed the connection)
+2016-02-01 16:03:24	<--	joshtronic (~joshtroni@pool-96-252-213-160.tampfl.fios.verizon.net) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 16:03:51	<--	Macaveli (~Macaveli@94-226-221-176.access.telenet.be) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 16:03:52	<--	Puhe (~Puhe@ool-18bf15a1.dyn.optonline.net) has quit (Ping timeout: 250 seconds)
+2016-02-01 16:04:27	-->	hobodave (~hobodave@pdpc/supporter/professional/hobodave) has joined #git
+2016-02-01 16:04:51	<--	romankl (~Roman@p508D5D89.dip0.t-ipconnect.de) has quit (Quit: romankl)
+2016-02-01 16:04:52	-->	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has joined #git
+2016-02-01 16:06:19	-->	t0by (~t0by@host12-246-dynamic.41-79-r.retail.telecomitalia.it) has joined #git
+2016-02-01 16:06:23	-->	EvilPenguin (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 16:06:24	-->	tesla (~tesla@ipservice-092-211-073-053.092.211.pools.vodafone-ip.de) has joined #git
+2016-02-01 16:06:54	<--	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Read error: Connection reset by peer)
+2016-02-01 16:09:04	<--	jason237 (~jason@109.236.131.45) has quit (Ping timeout: 250 seconds)
+2016-02-01 16:09:14	<--	notebox (~textual@95.175.193.107) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 16:09:37	-->	jason237 (~jason@109.236.131.45) has joined #git
+2016-02-01 16:09:53	<--	nnyk (~nnyk@unaffiliated/nnyk) has quit (Ping timeout: 265 seconds)
+2016-02-01 16:09:58	<--	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has quit (Ping timeout: 272 seconds)
+2016-02-01 16:12:12	<--	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 16:12:24	-->	codeman (~codeman@2804:14c:170:2360:26f5:aaff:fe50:da4b) has joined #git
+2016-02-01 16:12:48	-->	jaguarmagenta (~jaguarmag@189.203.217.17) has joined #git
+2016-02-01 16:13:05	<--	sgambino (~textual@198.85.229.3) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 16:13:19	<--	kozko (~textual@88.17.163.249) has quit (Quit: mm)
+2016-02-01 16:13:26	<--	adamaN (~adama@38.104.59.18) has quit (Read error: Connection reset by peer)
+2016-02-01 16:13:33	<--	crose (~crose@65.206.2.2) has quit (Ping timeout: 250 seconds)
+2016-02-01 16:14:25	-->	astockton (~astockton@63.225.31.147) has joined #git
+2016-02-01 16:14:39	<--	toogley (~toogley@2.165.109.55) has quit (Quit: toogley)
+2016-02-01 16:14:51	<--	tvw (~tv@2a02:2028:72e:6001:d0:e03f:ee68:6fa8) has quit (Remote host closed the connection)
+2016-02-01 16:15:03	-->	sgambino (~textual@198.85.229.3) has joined #git
+2016-02-01 16:15:07	-->	nwkj86 (~Artur@host-78-145-122-188.as13285.net) has joined #git
+2016-02-01 16:15:11	-->	WaReZ (~warez@cable-83.217.130.64.coditel.net) has joined #git
+2016-02-01 16:15:37	-->	abacuspowers (~quassel@c-76-22-227-15.hsd1.tn.comcast.net) has joined #git
+2016-02-01 16:16:42	<--	xelxebar (~xelxebar@wcache1.waseda.ac.jp) has quit (Quit: WeeChat 1.3)
+2016-02-01 16:16:54	<--	jds (uid14340@gateway/web/irccloud.com/x-ufcqninvqxbxxvoe) has quit (Quit: Connection closed for inactivity)
+2016-02-01 16:17:31	<--	EvilPenguin (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Read error: Connection reset by peer)
+2016-02-01 16:18:10	<--	MarkyC (~markyc@76.9.215.130) has quit (Read error: Connection reset by peer)
+2016-02-01 16:19:42	-->	MarkyC (~markyc@76.9.215.130) has joined #git
+2016-02-01 16:19:48	<--	jost (~jost@p579C6165.dip0.t-ipconnect.de) has quit (Remote host closed the connection)
+2016-02-01 16:19:58	-->	EvilPenguin (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 16:20:35	-->	bluezone (uid104970@gateway/web/irccloud.com/x-xdlxmogzpvsxzgqs) has joined #git
+2016-02-01 16:20:37	-->	shevchuks (b24adf27@gateway/web/freenode/ip.178.74.223.39) has joined #git
+2016-02-01 16:20:42	<--	samw (~samw@17.114.59.184) has quit (Remote host closed the connection)
+2016-02-01 16:21:04	-->	astockto_ (~astockton@63.225.31.147) has joined #git
+2016-02-01 16:21:36	<--	MarkyC (~markyc@76.9.215.130) has quit (Remote host closed the connection)
+2016-02-01 16:21:42	<--	abacuspowers (~quassel@c-76-22-227-15.hsd1.tn.comcast.net) has quit (Remote host closed the connection)
+2016-02-01 16:21:53	-->	daito (~daito@203.104.128.123) has joined #git
+2016-02-01 16:22:20	-->	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 16:22:35	-->	samw (~samw@17.114.59.184) has joined #git
+2016-02-01 16:25:15	<--	astockto_ (~astockton@63.225.31.147) has quit (Ping timeout: 250 seconds)
+2016-02-01 16:25:23	<--	astockton (~astockton@63.225.31.147) has quit (Ping timeout: 264 seconds)
+2016-02-01 16:26:15	<--	daito (~daito@203.104.128.123) has quit (Ping timeout: 240 seconds)
+2016-02-01 16:26:22	-->	crose (~crose@65.206.2.2) has joined #git
+2016-02-01 16:26:49	-->	asti (~user@yuluserpool5.nat.as55222.com) has joined #git
+2016-02-01 16:27:17	<--	samw (~samw@17.114.59.184) has quit (Ping timeout: 265 seconds)
+2016-02-01 16:27:18	<--	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has quit (Quit: cmckee)
+2016-02-01 16:28:10	<--	freimatz3 (~irc@197.225.104.92.dynamic.wline.res.cust.swisscom.ch) has quit (Ping timeout: 240 seconds)
+2016-02-01 16:28:35	<--	irqq (~chatzilla@agux212.neoplus.adsl.tpnet.pl) has quit (Ping timeout: 240 seconds)
+2016-02-01 16:28:48	<--	rwb (~Thunderbi@host56.vsac.cust.sover.net) has quit (Quit: rwb)
+2016-02-01 16:30:14	<--	zeroed (~zeroed@unaffiliated/zeroed) has quit (Quit: leaving)
+2016-02-01 16:30:40	-->	NeverDie (~NeverDie@pool-98-113-171-151.nycmny.fios.verizon.net) has joined #git
+2016-02-01 16:31:11	<--	bronson (~bronson@50-0-66-240.dsl.dynamic.fusionbroadband.com) has quit (Remote host closed the connection)
+2016-02-01 16:32:02	<--	Sunkinship (~Sunkinshi@143-43-243-237.Knoblauch.wiu.edu) has quit (Ping timeout: 250 seconds)
+2016-02-01 16:33:08	<--	jeffreylevesque (~chatzilla@129.6.234.199) has quit (Ping timeout: 276 seconds)
+2016-02-01 16:33:25	<--	SpeakerToMeat (~SpeakerTo@prgmr/customer/SpeakerToMeat) has quit (Ping timeout: 245 seconds)
+2016-02-01 16:35:41	-->	rominronin (~rominroni@89.185.127.226) has joined #git
+2016-02-01 16:36:14	-->	Noldorin (~noldorin@unaffiliated/noldorin) has joined #git
+2016-02-01 16:37:35	<--	jaguarmagenta (~jaguarmag@189.203.217.17) has quit (Ping timeout: 245 seconds)
+2016-02-01 16:37:37	<--	Balliad (~textual@82.217.109.67) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-02-01 16:40:03	<--	crose (~crose@65.206.2.2) has quit (Remote host closed the connection)
+2016-02-01 16:40:19	<--	skcin7 (~skcin7@ip-64-134-222-225.public.wayport.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 16:40:30	<--	rominronin (~rominroni@89.185.127.226) has quit (Ping timeout: 245 seconds)
+2016-02-01 16:40:40	<--	courrier (~courrier@193.50.110.248) has quit (Ping timeout: 250 seconds)
+2016-02-01 16:40:54	-->	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has joined #git
+2016-02-01 16:41:03	<--	atmosx_laptop (~osx@79.103.6.35.dsl.dyn.forthnet.gr) has quit (Quit: computer went to sleep...)
+2016-02-01 16:41:22	<--	junw (~junw@199.201.66.3) has quit (Ping timeout: 256 seconds)
+2016-02-01 16:41:22	-->	postsneakernet (postsneake@c-76-111-222-223.hsd1.fl.comcast.net) has joined #git
+2016-02-01 16:41:39	-->	d4rklit3 (~textual@rrcs-64-183-104-146.west.biz.rr.com) has joined #git
+2016-02-01 16:42:05	<--	modocache (~modocache@199.201.65.135) has quit (Remote host closed the connection)
+2016-02-01 16:42:40	ℹ 	Mode #git [+v shevchuks] by gitinfo
+2016-02-01 16:42:41	<--	hobodave (~hobodave@pdpc/supporter/professional/hobodave) has quit (Quit: Computer has gone to sleep.)
+2016-02-01 16:43:20	d4rklit3	what is the push.default where it pushes all tracked upstream branches
+2016-02-01 16:44:00	-->	ncd|leeN (~leeN@x55b4b47a.dyn.telefonica.de) has joined #git
+2016-02-01 16:45:11	rindolf	d4rklit3: I just do --set-origin for all branches explicitly once.
+2016-02-01 16:45:34	rindolf	d4rklit3: or perhaps I'm misunderstanding you.
+2016-02-01 16:45:42	-->	jaguarmagenta (~jaguarmag@189.203.217.17) has joined #git
+2016-02-01 16:46:42	<--	jkoudys (~jkoudys@CPEbc4dfb202913-CMbc4dfb202910.cpe.net.cable.rogers.com) has quit (Ping timeout: 272 seconds)
+2016-02-01 16:46:42	<--	mwhooker (~mwhooker@173.247.207.136) has quit (Read error: Connection reset by peer)
+2016-02-01 16:47:08	-->	mwhooker (~mwhooker@173.247.207.136) has joined #git
+2016-02-01 16:47:18	<--	mwhooker (~mwhooker@173.247.207.136) has quit (Client Quit)
+2016-02-01 16:47:18	+_ikke_	d4rklit3: matching is the only one that pushes more then one branch, but only when they have the same name (tracking information is ignored)
+2016-02-01 16:47:30	<--	slxbn (c7a9cc04@gateway/web/cgi-irc/kiwiirc.com/ip.199.169.204.4) has quit (Quit: http://www.kiwiirc.com/ - A hand crafted IRC client)
+2016-02-01 16:47:58	<--	Neelia (~leeN@x55b4bcd7.dyn.telefonica.de) has quit (Ping timeout: 272 seconds)
+2016-02-01 16:48:25	<--	myme (~myme@88.95.19.252) has quit (Ping timeout: 260 seconds)
+2016-02-01 16:48:35	-->	hackel (~hackel@96.93.229.26) has joined #git
+2016-02-01 16:48:43	<--	Gsham (~textual@pool-108-41-147-163.nycmny.fios.verizon.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 16:49:22	hackel	If I add files while I'm editing a commit message, will those additions be included in the commit?
+2016-02-01 16:49:24	<--	squiddle (~squiddle@p508FD7BA.dip0.t-ipconnect.de) has quit (Ping timeout: 248 seconds)
+2016-02-01 16:49:49	asti	hello. how do I create an empty master branch on git?
+2016-02-01 16:49:57	-->	mwhooker (~mwhooker@173.247.207.136) has joined #git
+2016-02-01 16:50:13	-->	hobodave (~hobodave@pdpc/supporter/professional/hobodave) has joined #git
+2016-02-01 16:50:29	-->	Shentino (~Shentino@gentoo/contributor/shentino) has joined #git
+2016-02-01 16:51:17	-->	myme (~myme@88.95.19.252) has joined #git
+2016-02-01 16:51:19	-->	Gsham (~textual@pool-108-41-147-163.nycmny.fios.verizon.net) has joined #git
+2016-02-01 16:51:20	hackel	asti: `git branch <name of master branch>` should do it.
+2016-02-01 16:51:56	<--	dreiss (~dreiss@23-24-202-9-static.hfc.comcastbusiness.net) has quit (Ping timeout: 250 seconds)
+2016-02-01 16:53:25	lebster	is there a way to auto allow fastforwards for git pull but auto no-ff for git merge command only
+2016-02-01 16:53:27	hackel	asti: Actually, you want `checkout --orphan`
+2016-02-01 16:53:31	-->	samw (~samw@17.114.27.111) has joined #git
+2016-02-01 16:53:49	asti	hackel: it tells me `fatal: Not a valid object name: 'master'`.
+2016-02-01 16:54:20	asti	hackel: I'm on a new project. I just want to setup a master branch on the remote repo and continue working on my features (not emrging for now)
+2016-02-01 16:54:40	lebster	right now i used config --global merge.ff false but when i git pull it does not allow ff
+2016-02-01 16:54:43	lebster	which is not what i want
+2016-02-01 16:55:04	-->	Steadfast (~andrew@178.137.215.151) has joined #git
+2016-02-01 16:55:17	-->	astockton (~astockton@71.205.14.247) has joined #git
+2016-02-01 16:55:28	-->	bronson (~bronson@50-0-66-240.dsl.dynamic.fusionbroadband.com) has joined #git
+2016-02-01 16:55:45	asti	maybe I can use the --allow-empty command?
+2016-02-01 16:56:37	-->	raininja (~raijin@unaffiliated/raijin) has joined #git
+2016-02-01 16:56:39	<--	bronson (~bronson@50-0-66-240.dsl.dynamic.fusionbroadband.com) has quit (Remote host closed the connection)
+2016-02-01 16:56:40	-->	MattMaker (~MattMaker@cpe-72-182-76-236.austin.res.rr.com) has joined #git
+2016-02-01 16:56:55	<--	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has quit (Ping timeout: 240 seconds)
+2016-02-01 16:57:24	hackel	asti: If you created the orphaned master branch, you should be able to push that up (might need -f if it already existed).  I'm not really clear what you're trying to do.
+2016-02-01 16:57:29	-->	xnil (~xnil@69.43.66.12) has joined #git
+2016-02-01 16:58:13	<--	samw (~samw@17.114.27.111) has quit (Ping timeout: 265 seconds)
+2016-02-01 16:58:55	<--	BigWillie (~bigwillie@PAT-208.95.51.254.liberty.edu) has quit (Quit: Leaving...)
+2016-02-01 16:58:59	-->	jkoudys (~jkoudys@CPEbc4dfb202913-CMbc4dfb202910.cpe.net.cable.rogers.com) has joined #git
+2016-02-01 16:59:36	lebster	whats the default for merge.ff?
+2016-02-01 17:00:11	<--	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has quit (Quit: cmckee)
+2016-02-01 17:01:01	<--	ELFrederich (~ELFrederi@63.87.61.108) has quit (Remote host closed the connection)
+2016-02-01 17:01:13	-->	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has joined #git
+2016-02-01 17:01:26	<--	codeman (~codeman@2804:14c:170:2360:26f5:aaff:fe50:da4b) has quit (Ping timeout: 240 seconds)
+2016-02-01 17:01:30	<--	baris (~baris@176.240.39.30) has quit (Ping timeout: 252 seconds)
+2016-02-01 17:01:54	+Seveas	true
+2016-02-01 17:03:23	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 17:03:26	<--	josuebrunel (~josue@2a01:e34:ecec:a0f0:ba86:87ff:fe53:30f7) has quit (Ping timeout: 240 seconds)
+2016-02-01 17:03:50	-->	samw (~samw@17.114.59.184) has joined #git
+2016-02-01 17:04:48	<--	blackwind_123 (~IceChat9@117.192.140.245) has quit (Ping timeout: 252 seconds)
+2016-02-01 17:05:05	<--	vdv (~vdv@x5ce2fd5a.dyn.telefonica.de) has quit (Ping timeout: 245 seconds)
+2016-02-01 17:05:33	<--	sagittarian (~sagittari@213.57.21.122) has quit (Ping timeout: 250 seconds)
+2016-02-01 17:06:19	-->	jimi_ (~jimi@unaffiliated/tuxguy) has joined #git
+2016-02-01 17:06:29	<--	ehynds (~ehynds@65-118-155-74.dia.static.qwest.net) has quit
+2016-02-01 17:06:59	<--	Sazhen86 (~Sazhen86@219-89-123-59.adsl.xtra.co.nz) has quit (Max SendQ exceeded)
+2016-02-01 17:07:03	<--	jteneyck (~jteneyck@unaffiliated/josephteneyck) has quit (Remote host closed the connection)
+2016-02-01 17:07:10	-->	blackwind_123 (~IceChat9@117.192.144.165) has joined #git
+2016-02-01 17:08:22	-->	SpeakerToMeat (~SpeakerTo@prgmr/customer/SpeakerToMeat) has joined #git
+2016-02-01 17:09:25	<--	pantsman- (~pantsman@cpc85034-haye22-2-0-cust50.17-4.cable.virginm.net) has quit (Ping timeout: 260 seconds)
+2016-02-01 17:10:34	<--	intellix (~intellix@46.11.72.76) has quit (Read error: Connection reset by peer)
+2016-02-01 17:10:47	-->	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has joined #git
+2016-02-01 17:10:47	<--	HanClinto (~HanClinto@216.68.195.74) has quit (Ping timeout: 265 seconds)
+2016-02-01 17:12:43	-->	flavi0 (~anon@21.130.90.92.rev.sfr.net) has joined #git
+2016-02-01 17:13:04	<--	SrPx (~v@179.210.80.129) has quit (Quit: SrPx)
+2016-02-01 17:13:06	-->	rustPushmaster (~rusty@ip72-196-214-135.dc.dc.cox.net) has joined #git
+2016-02-01 17:13:43	ℹ 	Mode #git [+v rustPushmaster] by gitinfo
+2016-02-01 17:13:51	+rustPushmaster	guys i noticed that when  i put a file in a staging area by doing git add <filename>
+2016-02-01 17:14:12	+Seveas	*drumroll*
+2016-02-01 17:14:14	+rustPushmaster	and then  i modify the file again. And then I do git add <filename>
+2016-02-01 17:14:23	+rustPushmaster	it's no longer in the staging area
+2016-02-01 17:14:29	+Seveas	*drumroll again* (try using commas, not enter as punctuation)
+2016-02-01 17:14:44	qsx	Seveas: don’t say that too loudly
+2016-02-01 17:14:48	+Seveas	rustPushmaster: that's not quite possible unless you also commit, reset or checkout...
+2016-02-01 17:14:52	qsx	rustPushmaster: !repro
+2016-02-01 17:14:52	@gitinfo	rustPushmaster: [!transcript] Please paste (using https://gist.github.com/ or similar) a transcript ( https://gist.github.com/2415442 ) of your terminal session.
+2016-02-01 17:15:09	<--	mizu_no_oto (~textual@c-67-189-145-156.hsd1.ma.comcast.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 17:15:12	<--	jh3 (~jaql@192.75.62.1) has quit (Ping timeout: 272 seconds)
+2016-02-01 17:15:35	+rustPushmaster	qsx, !repro ?
+2016-02-01 17:15:35	@gitinfo	qsx: [!transcript] Please paste (using https://gist.github.com/ or similar) a transcript ( https://gist.github.com/2415442 ) of your terminal session.
+2016-02-01 17:15:57	+Seveas	rustPushmaster: read what our friendly infobot wrote. And follow its instructions
+2016-02-01 17:16:12	<--	nfk|laptop (~nfk@unaffiliated/nfk) has quit (Quit: yawn)
+2016-02-01 17:16:19	+Seveas	basically, we believe you're only telling half a story, so we need proof :)
+2016-02-01 17:16:30	lebster	Seveas: thx
+2016-02-01 17:16:36	+rustPushmaster	Seveas, got it~
+2016-02-01 17:16:59	<--	Noldorin (~noldorin@unaffiliated/noldorin) has quit (Ping timeout: 264 seconds)
+2016-02-01 17:17:12	<--	tesla (~tesla@ipservice-092-211-073-053.092.211.pools.vodafone-ip.de) has quit (Quit: Leaving)
+2016-02-01 17:18:00	-->	namikr (~namikr@69-50-171-80.westerncable.ca) has joined #git
+2016-02-01 17:18:34	<--	ahmedelgabri (~ahmedelga@ip4da074e6.direct-adsl.nl) has quit (Quit: WeeChat 1.4)
+2016-02-01 17:19:20	<--	Gamecubic (~cubic@modemcable104.111-160-184.mc.videotron.ca) has quit (Quit: Leaving)
+2016-02-01 17:19:53	<--	hyperdrive (hdrv@37.59.167.9) has quit (Quit: ZNC - http://znc.in)
+2016-02-01 17:20:35	<--	EvilPenguin (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Ping timeout: 276 seconds)
+2016-02-01 17:20:45	+rustPushmaster	https://gist.github.com/pyoungkangkim/a86884e71bb0f4171d3a
+2016-02-01 17:21:12	<--	apotry (~textual@cpc1-live26-2-0-cust227.17-2.cable.virginm.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 17:21:21	<--	LucaTM (~LucaTM@unaffiliated/lucatm) has quit (Quit: To infinity and beyond...)
+2016-02-01 17:21:28	-->	jottr_ (~jottr@unaffiliated/jottr) has joined #git
+2016-02-01 17:21:55	+Seveas	rustPushmaster: let me guess, your second edit undid what the first edit did?
+2016-02-01 17:22:21	+rustPushmaster	Seveas, Oh that must be why
+2016-02-01 17:22:27	+rustPushmaster	great guess
+2016-02-01 17:22:34	<--	IWishIKnew (~IWishIKne@nv-71-52-56-106.dhcp.embarqhsd.net) has quit (Quit: Remember: With great power, comes great current squared times resistance.)
+2016-02-01 17:22:37	-->	iota_pi (uid100059@gateway/web/irccloud.com/x-usoizzwhycowtafc) has joined #git
+2016-02-01 17:22:49	+Seveas	No other possibility, unless vim is aliased to 'git checkout' :)
+2016-02-01 17:22:51	-->	IWishIKnew (~IWishIKne@nv-71-52-56-106.dhcp.embarqhsd.net) has joined #git
+2016-02-01 17:23:21	<--	edude03 (~edude03@184.151.179.167) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 17:23:32	+rustPushmaster	Seveas, definately not, thx i didn't catch that
+2016-02-01 17:23:33	qsx	reminds me of https://www.gnu.org/fun/jokes/ed-msg.html
+2016-02-01 17:23:41	qsx	Emacs has been replaced by a shell script which 1) Generates a syslog message at level LOG_EMERG; 2) reduces the user's disk quota by 100K; and 3) RUNS ED!!!!!!
+2016-02-01 17:23:50	qsx	(100K. adorable.)
+2016-02-01 17:24:20	+rustPushmaster	maybe the jokes realllllllly old
+2016-02-01 17:24:26	<--	jottr (~jottr@unaffiliated/jottr) has quit (Ping timeout: 250 seconds)
+2016-02-01 17:24:42	+Seveas	it is. GNU stopped being funny about 30 years ago
+2016-02-01 17:25:15	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Ping timeout: 240 seconds)
+2016-02-01 17:25:19	qsx	Seveas: they ever were?
+2016-02-01 17:25:20	+rustPushmaster	Seveas, 30 years ago?
+2016-02-01 17:25:34	+rustPushmaster	idk how you remeber back then
+2016-02-01 17:26:27	<--	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has quit (Read error: Connection reset by peer)
+2016-02-01 17:26:47	-->	Chilley (~Chilley@unaffiliated/chilley) has joined #git
+2016-02-01 17:27:43	-->	SaraDR (~SaraDT@unaffiliated/saradt) has joined #git
+2016-02-01 17:27:55	+rustPushmaster	just to be clear though, git does not ever add files to the staging area if it is already in the git log ?
+2016-02-01 17:28:14	+Seveas	rustPushmaster: there's no such thing as a 'git log'
+2016-02-01 17:28:25	+rustPushmaster	oh okay, i guess it's just a command
+2016-02-01 17:28:48	<--	kriskropd (~kris@unaffiliated/kriskropd) has quit (Ping timeout: 250 seconds)
+2016-02-01 17:28:50	<--	Chilley-- (~Chilley@dsl-espbrasgw1-50dfb4-76.dhcp.inet.fi) has quit (Ping timeout: 245 seconds)
+2016-02-01 17:29:07	qsx	the index (aka staging area) is an image of the tree that will be comitted
+2016-02-01 17:29:19	SaraDR	Hi, i've been added to a repository, I've git pulled it, made some changes, added, commited, but how the hell do i push back up? I tried 'git push origin master' like I always have been using, but it says origin isn't a git repository, and it can't read from remote repository.
+2016-02-01 17:29:39	qsx	upon git add, a file (or parts of it, if you add --patch) is hashed into the database and its hash is written to the index
+2016-02-01 17:29:59	qsx	if you undo your changes and add again, the file is hashed, not written to the db cause it already exists and said hash is written to the index
+2016-02-01 17:30:11	<--	ash_workz (~chatzilla@50.243.5.153) has quit (Ping timeout: 264 seconds)
+2016-02-01 17:30:21	qsx	upon commit, the tree objects are created from the index and a commit object referencing the top-level tree is written
+2016-02-01 17:30:47	<--	cebor (cebor@unaffiliated/cebor) has quit (Ping timeout: 264 seconds)
+2016-02-01 17:30:51	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 17:30:58	<--	mischat (~mischat@97e1b1b3.skybroadband.com) has quit (Remote host closed the connection)
+2016-02-01 17:31:02	<--	SimonNa (~simon@79.241.170.54) has quit (Ping timeout: 272 seconds)
+2016-02-01 17:31:38	+rustPushmaster	qsx, I see, that was very great explanation
+2016-02-01 17:31:41	-->	SrPx (~v@179.210.80.129) has joined #git
+2016-02-01 17:32:36	<--	anchorite (~anchorite@95.111.56.99) has quit (Remote host closed the connection)
+2016-02-01 17:33:08	-->	modocach_ (~modocache@199.201.65.146) has joined #git
+2016-02-01 17:33:31	+rustPushmaster	qsx, wow
+2016-02-01 17:33:45	qsx	iirc !cs was a nice explanation of that if one understands the underlying terms
+2016-02-01 17:33:45	@gitinfo	"Git for Computer Scientists" is a quick introduction to git internals for people who are not scared by phrases like Directed Acyclic Graph. http://eagain.net/articles/git-for-computer-scientists/ See also !concepts !bottomup
+2016-02-01 17:33:51	-->	mischat_ (~mischat@97e1b1b3.skybroadband.com) has joined #git
+2016-02-01 17:34:10	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Read error: Connection reset by peer)
+2016-02-01 17:34:19	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 17:34:24	<--	SaraDR (~SaraDT@unaffiliated/saradt) has left #git ("Leaving")
+2016-02-01 17:34:37	qsx	mhyeah, seems correct at a quick glance
+2016-02-01 17:34:38	+rustPushmaster	qsx, I do konw what Directed Acyclic Graph is, but I did not get to take my theory/algorithm class next semester which we will actually implement it and use it
+2016-02-01 17:34:52	<--	eijk_ (~eijk@x55b2c35e.dyn.telefonica.de) has quit (Ping timeout: 252 seconds)
+2016-02-01 17:34:54	qsx	it’s not that important
+2016-02-01 17:35:05	qsx	what i had in high school about graphs is enough
+2016-02-01 17:35:24	qsx	not that what i learnt at discreet math at university doesn’t help …
+2016-02-01 17:35:31	+rustPushmaster	qsx, oh man... high school i was a bad kid lol
+2016-02-01 17:35:47	qsx	(respectively what i would have learnt if i had payed attention *sigh*)
+2016-02-01 17:36:08	+rustPushmaster	qsx, lol how so? cus i forgot everything in discrete math
+2016-02-01 17:36:10	qsx	(oh yeah. exams are in, er, two and a half weeks. maybe i _should_ learn.)
+2016-02-01 17:36:16	<--	_noblegas (uid91066@gateway/web/irccloud.com/x-ydkzldpsxhommlvw) has quit (Quit: Connection closed for inactivity)
+2016-02-01 17:36:21	+rustPushmaster	qsx, except proofs
+2016-02-01 17:36:32	+rustPushmaster	like involving logic
+2016-02-01 17:36:49	-->	rominronin (~rominroni@89.185.127.226) has joined #git
+2016-02-01 17:37:02	+rustPushmaster	qsx, 2.5 weeks lol
+2016-02-01 17:37:13	nedbat	is there a git command that will give me the branch I'll end up on when I do "git checkout -" ?
+2016-02-01 17:37:31	<--	rindolf (~rindolf@bzq-79-180-213-220.red.bezeqint.net) has quit (Quit: http://www.shlomifish.org/ ; Yay! I'm a llama again.)
+2016-02-01 17:37:48	<--	modocach_ (~modocache@199.201.65.146) has quit (Ping timeout: 252 seconds)
+2016-02-01 17:38:01	-->	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has joined #git
+2016-02-01 17:38:12	<--	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 17:38:44	-->	toocwa (toocwa@62-64-254-71.dynamic.dsl.as9105.com) has joined #git
+2016-02-01 17:39:05	<--	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has quit (Quit: cmckee)
+2016-02-01 17:39:17	<--	editshare-ericf (~chatzilla@173-14-129-9-NewEngland.hfc.comcastbusiness.net) has quit (Quit: ChatZilla 0.9.92 [Firefox 38.5.2/20151221154602])
+2016-02-01 17:39:23	qsx	nedbat: uhh, something something reflog?
+2016-02-01 17:39:33	-->	rosco_y (~IceChat9@71.86.232.127) has joined #git
+2016-02-01 17:39:37	nedbat	qsx: i was afraid of that :)
+2016-02-01 17:39:39	qsx	git reflog | grep checkout # lol.
+2016-02-01 17:39:56	-->	elastix (~Thunderbi@cpc21-addl4-2-0-cust195.6-3.cable.virginm.net) has joined #git
+2016-02-01 17:40:02	qsx	dunno whether there’s a better way, git rev-parse is not cooperative so far
+2016-02-01 17:40:25	nedbat	qsx: i just assumed it was stored in a file in .git somewhere simple, but seems not to be
+2016-02-01 17:40:31	<--	rosco_y (~IceChat9@71.86.232.127) has quit (Client Quit)
+2016-02-01 17:40:35	-->	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has joined #git
+2016-02-01 17:40:36	<--	IWishIKnew (~IWishIKne@nv-71-52-56-106.dhcp.embarqhsd.net) has quit (Ping timeout: 248 seconds)
+2016-02-01 17:40:39	qsx	hmmm.
+2016-02-01 17:40:43	qsx	i’ma read the src.
+2016-02-01 17:41:13	qsx	correction, i’ma run for the last bus.
+2016-02-01 17:41:15	-->	cebor (cebor@unaffiliated/cebor) has joined #git
+2016-02-01 17:41:33	-->	Treio_ (~Treio@87.244.233.250) has joined #git
+2016-02-01 17:42:05	nedbat	qsx: thanks anyway :)
+2016-02-01 17:42:26	<--	rominronin (~rominroni@89.185.127.226) has quit (Ping timeout: 272 seconds)
+2016-02-01 17:42:46	<--	jason237 (~jason@109.236.131.45) has quit (Remote host closed the connection)
+2016-02-01 17:43:21	<--	flobin (~Flobin@unaffiliated/flobin) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 17:43:46	<--	Treio (~Treio@87.244.233.250) has quit (Ping timeout: 240 seconds)
+2016-02-01 17:43:48	<--	mwhooker (~mwhooker@173.247.207.136) has quit (Ping timeout: 248 seconds)
+2016-02-01 17:44:13	<--	oghamb (~rally@178.208.172.237) has quit (Quit: Jinkies, Scoob!)
+2016-02-01 17:44:40	<--	namikr (~namikr@69-50-171-80.westerncable.ca) has quit
+2016-02-01 17:45:02	<--	samw (~samw@17.114.59.184) has quit (Remote host closed the connection)
+2016-02-01 17:45:23	-->	Sunkinship (~Sunkinshi@143-43-135-93.wiu.edu) has joined #git
+2016-02-01 17:45:35	+rustPushmaster	qsx, I now see git add as making another copy of the file and adding it to the db(which probably exist somewhere inside .git directory)
+2016-02-01 17:46:04	+rustPushmaster	qsx, how did you figure out that git does this? just curious
+2016-02-01 17:46:15	-->	vkngpmhc (~vkngpmhc@71-9-93-156.dhcp.ccmn.ca.charter.com) has joined #git
+2016-02-01 17:46:30	<--	mezod (~mezod@unaffiliated/mezod) has quit (Remote host closed the connection)
+2016-02-01 17:46:58	+rustPushmaster	also, if that is the case, wouldn't that kind of waste memory if you copy a lot of files and put it in a db on your local computer that way git can use hash to reference it
+2016-02-01 17:47:10	-->	samw (~samw@17.114.59.184) has joined #git
+2016-02-01 17:47:22	-->	dsdeiz (~dsdeiz@drupal.org/user/447770/view) has joined #git
+2016-02-01 17:47:31	-->	jeffreylevesque (~chatzilla@pool-100-15-106-25.washdc.fios.verizon.net) has joined #git
+2016-02-01 17:47:39	<--	Treio_ (~Treio@87.244.233.250) has quit (Quit: Leaving)
+2016-02-01 17:48:25	-->	dreiss (~dreiss@23-24-202-9-static.hfc.comcastbusiness.net) has joined #git
+2016-02-01 17:48:58	-->	AtnevRed (~atnevred@82-168-162-118.ip.telfort.nl) has joined #git
+2016-02-01 17:49:24	<--	cagedwisdom (~X@106.69.123.251) has quit (Ping timeout: 272 seconds)
+2016-02-01 17:50:02	<--	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has quit (Ping timeout: 250 seconds)
+2016-02-01 17:50:11	-->	HelloAtMega (~HelloShit@se-217-129-90-2.netvisao.pt) has joined #git
+2016-02-01 17:50:42	<--	shevchuks (b24adf27@gateway/web/freenode/ip.178.74.223.39) has quit (Ping timeout: 252 seconds)
+2016-02-01 17:50:43	-->	josuebrunel (~josue@cho94-3-82-227-125-5.fbx.proxad.net) has joined #git
+2016-02-01 17:51:52	<--	samw (~samw@17.114.59.184) has quit (Ping timeout: 265 seconds)
+2016-02-01 17:52:05	-->	Noldorin (~noldorin@unaffiliated/noldorin) has joined #git
+2016-02-01 17:52:07	<--	vkngpmhc (~vkngpmhc@71-9-93-156.dhcp.ccmn.ca.charter.com) has quit (Quit: leaving)
+2016-02-01 17:52:37	-->	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 17:54:11	<--	AtnevRed (~atnevred@82-168-162-118.ip.telfort.nl) has quit (Ping timeout: 264 seconds)
+2016-02-01 17:54:15	-->	Treio (~Treio@87.244.233.250) has joined #git
+2016-02-01 17:54:46	-->	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 17:55:24	<--	cmckee (~curtismck@97-75-178-52.static.ip.veracitynetworks.com) has quit (Quit: cmckee)
+2016-02-01 17:57:02	<--	sbasso (~sbasso@93-50-50-245.ip151.fastwebnet.it) has quit (Remote host closed the connection)
+2016-02-01 17:57:08	-->	bronson (~bronson@50-0-66-240.dsl.dynamic.fusionbroadband.com) has joined #git
+2016-02-01 17:57:19	-->	samw (~samw@17.114.59.184) has joined #git
+2016-02-01 17:57:26	<--	Es0teric (~textual@199.34.249.167) has quit (Ping timeout: 240 seconds)
+2016-02-01 17:57:44	-->	junw (~junw@90.200.48.3) has joined #git
+2016-02-01 17:58:09	<--	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Ping timeout: 265 seconds)
+2016-02-01 17:58:44	<--	Noldorin (~noldorin@unaffiliated/noldorin) has quit (Max SendQ exceeded)
+2016-02-01 17:59:26	<--	sgambino (~textual@198.85.229.3) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 17:59:31	<--	bango2 (~bango2@uaf48613.ddns.uark.edu) has quit (Remote host closed the connection)
+2016-02-01 17:59:44	<--	davidosomething (~davidosom@69.60.15.194) has quit (Quit: leaving)
+2016-02-01 18:00:16	-->	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 18:00:45	<--	wireddude (~wireddude@ip72-220-214-36.sd.sd.cox.net) has quit (Changing host)
+2016-02-01 18:00:45	-->	wireddude (~wireddude@unaffiliated/wireddude) has joined #git
+2016-02-01 18:01:19	<--	DeltaHeavy (~DeltaHeav@unaffiliated/deltaheavy) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 18:01:32	-->	cagedwisdom (~X@128.199.52.170) has joined #git
+2016-02-01 18:02:42	<--	bronson (~bronson@50-0-66-240.dsl.dynamic.fusionbroadband.com) has quit (Ping timeout: 272 seconds)
+2016-02-01 18:03:09	<--	pacbard (~pacbard@ec2-54-210-146-1.compute-1.amazonaws.com) has quit (Remote host closed the connection)
+2016-02-01 18:03:36	-->	Sunkinship_ (~Sunkinshi@143-43-131-21.wiu.edu) has joined #git
+2016-02-01 18:03:45	-->	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has joined #git
+2016-02-01 18:03:50	qsx	rustPushmaster: well, reading documentation and so
+2016-02-01 18:03:59	<--	diogenese (~diogenese@diogenese.velotech.net) has quit (Quit: Leaving)
+2016-02-01 18:04:03	qsx	and indeed it does, that’s why git packs the file after a while
+2016-02-01 18:04:07	qsx	man git gc, man git repack
+2016-02-01 18:04:07	@gitinfo	the git-gc manpage is available at http://jk.gs/git-gc.html
+2016-02-01 18:04:08	@gitinfo	the git-repack manpage is available at http://jk.gs/git-repack.html
+2016-02-01 18:04:15	<--	Sunkinship (~Sunkinshi@143-43-135-93.wiu.edu) has quit (Ping timeout: 260 seconds)
+2016-02-01 18:04:16	-->	diogenese (~diogenese@diogenese.velotech.net) has joined #git
+2016-02-01 18:04:59	<--	peoliye__ (~peoliye@204.17.143.20) has quit (Ping timeout: 264 seconds)
+2016-02-01 18:05:13	-->	mwhooker (~mwhooker@173.247.207.136) has joined #git
+2016-02-01 18:05:15	<--	pcre (~quassel@b2b-130-180-86-10.unitymedia.biz) has quit (Remote host closed the connection)
+2016-02-01 18:05:19	+rustPushmaster	qsx, gitinfo thanks guys
+2016-02-01 18:05:19	@gitinfo	rustPushmaster: you're welcome, but please note that I'm a bot. I'm not programmed to care.
+2016-02-01 18:05:31	-->	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has joined #git
+2016-02-01 18:05:46	+rustPushmaster	thanks, bot maker
+2016-02-01 18:06:08	-->	victortyau (~victortya@190.123.228.251) has joined #git
+2016-02-01 18:06:19	qsx	gitinfo is perl, don’t overdo it
+2016-02-01 18:06:27	<--	SrPx (~v@179.210.80.129) has quit (Quit: SrPx)
+2016-02-01 18:06:44	<--	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Ping timeout: 276 seconds)
+2016-02-01 18:06:47	<--	fling (~fling@fsf/member/fling) has quit (Quit: ZNC - http://znc.in)
+2016-02-01 18:06:54	<--	t0by (~t0by@host12-246-dynamic.41-79-r.retail.telecomitalia.it) has quit (Quit: Bye!)
+2016-02-01 18:07:33	preaction	que?
+2016-02-01 18:07:43	-->	tang^ (~tang^@184.70.127.123) has joined #git
+2016-02-01 18:08:11	-->	skcin7 (~skcin7@ip-64-134-222-225.public.wayport.net) has joined #git
+2016-02-01 18:09:14	preaction	what part of the bot being perl require restraint?
+2016-02-01 18:09:31	-->	fling (~fling@fsf/member/fling) has joined #git
+2016-02-01 18:09:43	-->	junw_ (~junw@199.201.66.0) has joined #git
+2016-02-01 18:09:46	<--	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has quit (Ping timeout: 240 seconds)
+2016-02-01 18:10:14	bremner	the electric chair part
+2016-02-01 18:10:15	<--	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 18:10:28	-->	mezod (~mezod@unaffiliated/mezod) has joined #git
+2016-02-01 18:10:53	preaction	what?
+2016-02-01 18:12:20	bremner	https://en.wikipedia.org/wiki/Joke
+2016-02-01 18:12:25	-->	mkelly (~mkelly@c-24-7-120-186.hsd1.ca.comcast.net) has joined #git
+2016-02-01 18:12:32	<--	hobodave (~hobodave@pdpc/supporter/professional/hobodave) has quit (Ping timeout: 250 seconds)
+2016-02-01 18:13:04	-->	jaguarmagenta2 (~jaguarmag@187.159.181.196) has joined #git
+2016-02-01 18:13:11	-->	jam_ (~jam@187.159.181.196) has joined #git
+2016-02-01 18:13:18	preaction	it lacks the prerequisite of being funny
+2016-02-01 18:13:22	-->	SrPx (~v@179.210.80.129) has joined #git
+2016-02-01 18:13:23	<--	junw (~junw@90.200.48.3) has quit (Ping timeout: 264 seconds)
+2016-02-01 18:14:59	qsx	perl isn’t funny either
+2016-02-01 18:16:34	<--	dan2k3k4 (~dan2k3k4@unaffiliated/dan2k3k4) has quit (Quit: ZZZzzz…)
+2016-02-01 18:16:42	<--	elastix (~Thunderbi@cpc21-addl4-2-0-cust195.6-3.cable.virginm.net) has quit (Quit: elastix)
+2016-02-01 18:16:52	<--	jaguarmagenta (~jaguarmag@189.203.217.17) has quit (Ping timeout: 250 seconds)
+2016-02-01 18:16:55	-->	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 18:17:05	<--	nettoweb (~textual@189.26.129.233.dynamic.adsl.gvt.net.br) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-02-01 18:17:26	<--	SrPx (~v@179.210.80.129) has quit (Ping timeout: 240 seconds)
+2016-02-01 18:17:26	<--	MacGyver (~macgyver@unaffiliated/macgyvernl) has quit (Remote host closed the connection)
+2016-02-01 18:18:05	-->	Chill_Surf (~chillsurf@ppp-2-86-204-213.home.otenet.gr) has joined #git
+2016-02-01 18:18:57	<--	Imek (~Imek@5751c702.skybroadband.com) has quit (Read error: Connection reset by peer)
+2016-02-01 18:19:51	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Remote host closed the connection)
+2016-02-01 18:20:46	-->	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has joined #git
+2016-02-01 18:20:48	<--	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has quit (Max SendQ exceeded)
+2016-02-01 18:21:11	-->	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has joined #git
+2016-02-01 18:21:18	<--	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has quit (Max SendQ exceeded)
+2016-02-01 18:21:37	<--	Steadfast (~andrew@178.137.215.151) has quit (Remote host closed the connection)
+2016-02-01 18:21:49	-->	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has joined #git
+2016-02-01 18:21:57	<--	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has quit (Max SendQ exceeded)
+2016-02-01 18:22:32	-->	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has joined #git
+2016-02-01 18:22:39	-->	daito (~daito@203.104.128.123) has joined #git
+2016-02-01 18:22:43	<--	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has quit (Max SendQ exceeded)
+2016-02-01 18:23:07	-->	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has joined #git
+2016-02-01 18:23:51	<--	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has quit (Max SendQ exceeded)
+2016-02-01 18:24:16	-->	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has joined #git
+2016-02-01 18:24:27	-->	Poppabear (~Poppabear@cpe-174-97-101-252.cinci.res.rr.com) has joined #git
+2016-02-01 18:24:27	<--	Poppabear (~Poppabear@cpe-174-97-101-252.cinci.res.rr.com) has quit (Changing host)
+2016-02-01 18:24:27	-->	Poppabear (~Poppabear@unaffiliated/poppabear) has joined #git
+2016-02-01 18:24:40	-->	SrPx (~v@177.146.19.48) has joined #git
+2016-02-01 18:24:58	<--	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has quit (Max SendQ exceeded)
+2016-02-01 18:25:35	-->	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has joined #git
+2016-02-01 18:25:37	<--	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has quit (Max SendQ exceeded)
+2016-02-01 18:25:41	ℹ 	Mode #git [+o Eugene] by ChanServ
+2016-02-01 18:25:43	<--	SrPx (~v@177.146.19.48) has quit (Remote host closed the connection)
+2016-02-01 18:26:09	-->	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has joined #git
+2016-02-01 18:26:20	-->	johnny56_ (~johnny56@gateway/vpn/privateinternetaccess/johnny56) has joined #git
+2016-02-01 18:26:20	<--	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has quit (Max SendQ exceeded)
+2016-02-01 18:26:39	-->	t-mart__ (~t-mart@unaffiliated/t-mart) has joined #git
+2016-02-01 18:26:43	-->	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has joined #git
+2016-02-01 18:26:48	-->	Limes_ (~Limes@18.10.125.91.dyn.plus.net) has joined #git
+2016-02-01 18:26:59	<--	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has quit (Max SendQ exceeded)
+2016-02-01 18:27:00	<--	daito (~daito@203.104.128.123) has quit (Ping timeout: 248 seconds)
+2016-02-01 18:27:01	-->	modocache (~modocache@2620:10d:c091:200::f:9ac5) has joined #git
+2016-02-01 18:27:05	ℹ 	Eugene has changed topic for #git from "Welcome to #git! Just don't be an annoying git. | First visit? Read: http://jk.gs/git | Getting "cannot send to channel"? /msg gitinfo .voice | Current stable version: 2.7.0 | git add joke; git commit; git push; git hub pull-request https://madeitwor.se/git-jokes" to "Welcome to #git! Just don't be an annoying git. | First visit? Read: http://jk.gs/git | Getting "cannot send to channel"? /msg gitinfo .voice | Current stable version: 2.7.0 | They see me codin, they hatin', reviewing tryna catch me commitin dirty"
+2016-02-01 18:27:07	-->	ag4ve (~ag4ve@50.242.222.38) has joined #git
+2016-02-01 18:27:29	+rustPushmaster	im just curious,why do i always get cannot send to channel at the beginning of the git channel
+2016-02-01 18:27:30	-->	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has joined #git
+2016-02-01 18:27:47	<--	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has quit (Max SendQ exceeded)
+2016-02-01 18:28:11	-->	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has joined #git
+2016-02-01 18:28:18	@Eugene	Because we have a quiet set on unregistered users, to combat spam
+2016-02-01 18:28:19	<--	fractex (~fractex@108-192-130-92.lightspeed.rlghnc.sbcglobal.net) has quit (Max SendQ exceeded)
+2016-02-01 18:28:23	<--	johnny56 (~johnny56@gateway/vpn/privateinternetaccess/johnny56) has quit (Ping timeout: 264 seconds)
+2016-02-01 18:28:43	@Eugene	Registering+IDing with NickServ or using the bot's .voice command will let you speak
+2016-02-01 18:28:43	-->	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has joined #git
+2016-02-01 18:28:53	+rustPushmaster	Eugene, oh, I see that makes sense
+2016-02-01 18:28:54	<--	fractex (~fractex@2602:306:cc08:25c0:9c5:f655:59e9:8577) has quit (Max SendQ exceeded)
+2016-02-01 18:29:40	<--	t-mart_ (~t-mart@unaffiliated/t-mart) has quit (Ping timeout: 245 seconds)
+2016-02-01 18:29:56	-->	dpower (~dpower@46.109.154.189) has joined #git
+2016-02-01 18:31:25	ℹ 	Mode #git [-o Eugene] by Eugene
+2016-02-01 18:31:40	<--	modocache (~modocache@2620:10d:c091:200::f:9ac5) has quit (Ping timeout: 260 seconds)
+2016-02-01 18:31:54	<--	dpower (~dpower@46.109.154.189) has quit (Client Quit)
+2016-02-01 18:32:27	-->	nilg (~user@77.70.2.229) has joined #git
+2016-02-01 18:32:59	<--	User458764 (~textual@62.147.220.187) has quit (Quit: My iMac has gone to sleep. ZZZzzz…)
+2016-02-01 18:34:10	<--	zivester (~zivester@cpe-24-193-78-114.nyc.res.rr.com) has quit (Ping timeout: 240 seconds)
+2016-02-01 18:34:34	<--	holodoc (~holodoc@unaffiliated/holodoc) has quit (Ping timeout: 240 seconds)
+2016-02-01 18:34:36	-->	dpower (uid103540@gateway/web/irccloud.com/x-dlqwndlfsuuthohc) has joined #git
+2016-02-01 18:35:59	<--	samw (~samw@17.114.59.184) has quit (Remote host closed the connection)
+2016-02-01 18:36:22	<--	WaReZ (~warez@cable-83.217.130.64.coditel.net) has quit (Ping timeout: 250 seconds)
+2016-02-01 18:36:32	<--	paddyez (~paddy@wikipedia/paddyez) has quit (Remote host closed the connection)
+2016-02-01 18:36:50	-->	holodoc (~holodoc@unaffiliated/holodoc) has joined #git
+2016-02-01 18:37:42	<--	jbudz (~jbudz@li1246-191.members.linode.com) has quit (Ping timeout: 250 seconds)
+2016-02-01 18:37:50	-->	rominronin (~rominroni@89.185.127.226) has joined #git
+2016-02-01 18:40:34	<--	f0ster (~f0ster@unaffiliated/f0ster) has quit (Read error: Connection reset by peer)
+2016-02-01 18:40:55	<--	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has quit (Ping timeout: 245 seconds)
+2016-02-01 18:41:06	<--	fees (~fees_@d54C22E1C.access.telenet.be) has quit (Remote host closed the connection)
+2016-02-01 18:42:26	<--	rominronin (~rominroni@89.185.127.226) has quit (Ping timeout: 240 seconds)
+2016-02-01 18:43:05	<--	AaronMT (~AaronMT@CPE64200c35af58-CM84948c8c0580.cpe.net.cable.rogers.com) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-02-01 18:43:35	<--	dreiss (~dreiss@23-24-202-9-static.hfc.comcastbusiness.net) has quit (Ping timeout: 265 seconds)
+2016-02-01 18:45:07	-->	hyphen8ed (~hyphenate@mail.tw.co.nz) has joined #git
+2016-02-01 18:46:35	-->	vkngpmhc (~vkngpmhc@169.235.218.134) has joined #git
+2016-02-01 18:46:54	<--	skcin7 (~skcin7@ip-64-134-222-225.public.wayport.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-01 18:47:46	+ciaranm	i'm trying to dig up a commit which removed a bunch of adjacent lines from one file. i know exactly where those lines were. is there an easy way to find it? 'blame' is no good here...
+2016-02-01 18:49:08	+kadoban	ciaranm: Look at the -S or -G options of log perhaps?
+2016-02-01 18:50:02	+ciaranm	hrm. it's not easy to identify those lines by what they contained
+2016-02-01 18:51:11	+Eugene	You can probably make a regex demon that will find it
+2016-02-01 18:51:25	+Eugene	Otherwise, you'll need to walk the history(possibly with git-bisect?) and look yourself
+2016-02-01 18:51:29	+ciaranm	eww
+2016-02-01 18:53:21	ℹ 	actually_working is now known as beerandpizza
+2016-02-01 18:53:34	+ciaranm	ok, found a good word to grep for
+2016-02-01 18:54:55	-->	moobee (~harveypha@14.177.140.75) has joined #git
+2016-02-01 18:54:56	ℹ 	Mode #git [+v moobee] by gitinfo
+2016-02-01 18:57:05	-->	modocache (~modocache@pool-108-30-122-22.nycmny.fios.verizon.net) has joined #git
+2016-02-01 18:57:35	<--	nwkj86 (~Artur@host-78-145-122-188.as13285.net) has quit (Ping timeout: 245 seconds)
+2016-02-01 18:58:06	<--	fscala (~fscala@unaffiliated/fscala) has quit (Ping timeout: 240 seconds)
+2016-02-01 18:58:33	-->	GT (~Miranda@187.113.72.105) has joined #git
+2016-02-01 18:58:37	<--	nilg (~user@77.70.2.229) has quit (Remote host closed the connection)
+2016-02-01 18:59:45	-->	EvilPeng1 (~EvilPengu@bur-inet-pa-1.disney.com) has joined #git
+2016-02-01 19:00:25	<--	bjoe2k4_ (bjoe2k4@84.200.43.124) has quit (Quit: ZNC - http://znc.in)
+2016-02-01 19:00:36	-->	bjoe2k4 (bjoe2k4@kalzium.d9c.eu) has joined #git
+2016-02-01 19:00:56	<--	bjoe2k4 (bjoe2k4@kalzium.d9c.eu) has quit (Remote host closed the connection)
+2016-02-01 19:01:02	-->	fscala (~fscala@unaffiliated/fscala) has joined #git
+2016-02-01 19:01:06	-->	bjoe2k4 (bjoe2k4@kalzium.d9c.eu) has joined #git
+2016-02-01 19:01:46	<--	radsy (~irc@unaffiliated/radsy) has quit (Ping timeout: 240 seconds)
+2016-02-01 19:02:04	<--	yohnnyjoe (~yohnnyjoe@2601:143:8201:585e:fa1e:dfff:fed7:1ace) has quit (Quit: WeeChat 1.3)
+2016-02-01 19:02:52	<--	cagedwisdom (~X@128.199.52.170) has quit (Ping timeout: 272 seconds)
+2016-02-01 19:03:02	<--	infernix (nix@unaffiliated/infernix) has quit (Ping timeout: 256 seconds)
+2016-02-01 19:04:39	-->	cagedwisdom (~X@128.199.52.170) has joined #git
+2016-02-01 19:04:42	<--	junw_ (~junw@199.201.66.0) has quit (Read error: Connection reset by peer)
+2016-02-01 19:05:33	-->	junw (~junw@90.200.48.3) has joined #git
+2016-02-01 19:06:28	-->	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has joined #git
+2016-02-01 19:08:19	-->	edude03 (~edude03@TOROON6126W-LP140-02-1242310181.dsl.bell.ca) has joined #git
+2016-02-01 19:08:38	<--	hyperair (~hyperair@ubuntu/member/hyperair) has quit (Remote host closed the connection)
+2016-02-01 19:08:55	-->	Apathy` (profeten@shell.eth0.info) has joined #git
+2016-02-01 19:09:20	ℹ 	Mode #git [+v Apathy`] by gitinfo
+2016-02-01 19:10:05	+Apathy`	hi, I messed up big time and now my git is giving me >>>>> all over the place
+2016-02-01 19:10:30	+Apathy`	realised from reading I had reverted and had uncommited things and god know what
+2016-02-01 19:10:39	+Apathy`	reading on google*
+2016-02-01 19:10:44	<--	denimsoft (~textual@cpc73682-dals20-2-0-cust512.20-2.cable.virginm.net) has quit (Ping timeout: 248 seconds)
+2016-02-01 19:10:44	<--	kenansulayman (~kenan@unaffiliated/kenansulayman) has quit (Ping timeout: 248 seconds)
+2016-02-01 19:11:14	+Apathy`	basically my entire project looks like a demon spawn
+2016-02-01 19:11:21	-->	hexagoxel_ (~hexagoxel@x5f769038.dyn.telefonica.de) has joined #git
+2016-02-01 19:11:28	+Apathy`	is there any way to get... back to previous versions?
+2016-02-01 19:11:46	<--	Treio (~Treio@87.244.233.250) has quit (Ping timeout: 240 seconds)
+2016-02-01 19:12:04	+Apathy`	delete whatever changes I made to a certain stage
+2016-02-01 19:12:06	<--	Infamous (~TeeKanne@87.106.3.203) has quit (Ping timeout: 240 seconds)
+2016-02-01 19:12:07	<--	edude03 (~edude03@TOROON6126W-LP140-02-1242310181.dsl.bell.ca) has quit (Client Quit)
+2016-02-01 19:12:32	<--	arooni (~textual@108-207-116-185.lightspeed.mssnks.sbcglobal.net) has quit (Quit: Textual IRC Client: www.textualapp.com)

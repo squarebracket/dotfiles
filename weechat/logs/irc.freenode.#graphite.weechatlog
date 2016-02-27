@@ -1,0 +1,1291 @@
+2016-01-06 12:34:01	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-06 12:34:01	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-06 12:34:01	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-06 12:34:01	ℹ 	Channel #graphite: 186 nicks (1 op, 0 voices, 185 normals)
+2016-01-06 12:34:04	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-06 12:34:37	squarebracket	I'm getting an AppRegistryNotReady error with graphite 0.9.15, is that because it's only compatible with Django < 1.6?
+2016-01-06 12:40:33	-->	cla (~leggenda@37.157.33.36) has joined #graphite
+2016-01-06 12:52:11	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-06 12:55:02	<--	dene14 (~dene14@dene.tcm.by) has quit (Ping timeout: 256 seconds)
+2016-01-06 12:55:19	-->	dene14 (~dene14@dene.tcm.by) has joined #graphite
+2016-01-06 12:57:15	doismellburning	squarebracket: based on my Django knowledge, I would guess so
+2016-01-06 12:57:20	doismellburning	squarebracket: _perhaps_ <1.7
+2016-01-06 12:57:26	doismellburning	but the app loading changes were around then
+2016-01-06 12:57:47	squarebracket	yes, sorry, <=1.6 is what I meant
+2016-01-06 13:06:23	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-06 13:08:35	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-06 13:09:41	-->	cooktheryan (rcook-deve@nat/redhat/x-ptdxgyxappbktvtl) has joined #graphite
+2016-01-06 13:09:41	<--	cooktheryan (rcook-deve@nat/redhat/x-ptdxgyxappbktvtl) has quit (Client Quit)
+2016-01-06 13:09:54	-->	cooktheryan (rcook-deve@nat/redhat/x-onbyrvtaeczmhkuw) has joined #graphite
+2016-01-06 13:13:19	<--	cooktheryan (rcook-deve@nat/redhat/x-onbyrvtaeczmhkuw) has quit (Client Quit)
+2016-01-06 13:13:36	-->	cooktheryan (rcook-deve@nat/redhat/x-ptavuriwnqoyqyjy) has joined #graphite
+2016-01-06 13:13:43	<--	cooktheryan (rcook-deve@nat/redhat/x-ptavuriwnqoyqyjy) has quit (Remote host closed the connection)
+2016-01-06 13:16:25	-->	cooktheryan (rcook-deve@nat/redhat/x-wiocjtvpzytoplnl) has joined #graphite
+2016-01-06 13:28:40	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-06 13:29:11	<--	cooktheryan (rcook-deve@nat/redhat/x-wiocjtvpzytoplnl) has quit (Quit: Leaving)
+2016-01-06 13:29:27	-->	cooktheryan (rcook-deve@nat/redhat/x-xkbqixwtzjuqgrxy) has joined #graphite
+2016-01-06 13:32:06	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-06 13:34:42	<--	cooktheryan (rcook-deve@nat/redhat/x-xkbqixwtzjuqgrxy) has quit (Quit: Leaving)
+2016-01-06 13:34:58	-->	cooktheryan (rcook-deve@nat/redhat/x-wjqvylywrjuofrvw) has joined #graphite
+2016-01-06 13:36:50	<--	anmol (~anmol@106.216.174.211) has quit (Ping timeout: 245 seconds)
+2016-01-06 13:41:21	<--	cla (~leggenda@37.157.33.36) has quit (Remote host closed the connection)
+2016-01-06 13:43:01	<--	cooktheryan (rcook-deve@nat/redhat/x-wjqvylywrjuofrvw) has quit (Quit: Leaving)
+2016-01-06 13:43:19	-->	cooktheryan (rcook-deve@nat/redhat/x-rlkbxjskpwsnccxf) has joined #graphite
+2016-01-06 13:44:43	-->	tazz (~gaurav@triband-mum-120.60.155.129.mtnl.net.in) has joined #graphite
+2016-01-06 13:51:17	-->	Zonywhoo_ (~Zonywhoop@74.11.33.194) has joined #graphite
+2016-01-06 13:54:15	<--	Zonywhoop (~Zonywhoop@74.11.33.194) has quit (Ping timeout: 260 seconds)
+2016-01-06 13:54:44	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-06 13:58:05	<--	matejz (~matejz@element.planetq.org) has quit (Client Quit)
+2016-01-06 14:05:35	<--	N-Mi (~nicolas@calvix/staff/N-Mi) has quit (Ping timeout: 276 seconds)
+2016-01-06 14:13:28	<--	adaam (uid27983@gateway/web/irccloud.com/x-zesdyowqdzuelhxw) has quit (Quit: Connection closed for inactivity)
+2016-01-06 14:19:55	<--	gheegh (~textual@pool-96-255-20-180.washdc.ftas.verizon.net) has quit (Ping timeout: 240 seconds)
+2016-01-06 14:47:39	<--	SkyRocknRoll_ (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Ping timeout: 245 seconds)
+2016-01-06 14:47:57	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-06 14:58:04	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Quit: Leaving.)
+2016-01-06 15:25:06	<--	tazz (~gaurav@triband-mum-120.60.155.129.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-06 16:16:35	keekz	it's incompat with < django 1.9 i believe. i'm using it with django 1.8
+2016-01-06 16:17:11	keekz	https://github.com/graphite-project/graphite-web/blob/master/requirements.txt#L38
+2016-01-06 16:27:16	<--	cshort__ (~ChrisShor@152.16.191.70) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-06 16:27:47	<--	booya (~me@216.168.115.92) has quit (Ping timeout: 264 seconds)
+2016-01-06 16:34:10	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has quit (Remote host closed the connection)
+2016-01-06 16:38:19	<--	cooktheryan (rcook-deve@nat/redhat/x-rlkbxjskpwsnccxf) has quit (Remote host closed the connection)
+2016-01-06 16:39:12	-->	cooktheryan (rcook-deve@nat/redhat/x-wjbwwrdczjbfsfir) has joined #graphite
+2016-01-06 16:40:38	<--	cooktheryan (rcook-deve@nat/redhat/x-wjbwwrdczjbfsfir) has quit (Read error: Connection reset by peer)
+2016-01-06 16:41:35	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-06 16:52:54	<--	Dossy (~dossy@mail.panoptic.com) has quit (Ping timeout: 272 seconds)
+2016-01-06 17:00:31	-->	Dossy (~dossy@96.56.31.42) has joined #graphite
+2016-01-06 17:04:35	<--	ndumont_________ (~ndumont@190.ip-149-202-52.eu) has quit (Ping timeout: 240 seconds)
+2016-01-06 17:04:35	<--	squarebracket (~chuck@gw.vantrix.com) has quit (Ping timeout: 240 seconds)
+2016-01-06 17:04:35	ℹ 	irc: disconnected from server
+2016-01-06 17:05:01	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-06 17:05:01	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-06 17:05:01	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-06 17:05:01	ℹ 	Channel #graphite: 176 nicks (1 op, 0 voices, 175 normals)
+2016-01-06 17:05:01	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-06 17:05:15	<--	mfournier (~marc@2001:4b98:dc2:41:216:3eff:fe6d:dc0b) has quit (Ping timeout: 240 seconds)
+2016-01-06 17:05:16	<--	Xorlev (sid226@gateway/web/irccloud.com/x-ctjfkyshvakjyoof) has quit (Ping timeout: 240 seconds)
+2016-01-06 17:05:28	ℹ 	davidascher_afk_ is now known as davida
+2016-01-06 17:05:35	ℹ 	davida is now known as davidascher
+2016-01-06 17:05:35	<--	VeggieMeat (~quassel@2001:4800:780d:509:ef6f:d6e8:ff04:6dab) has quit (Ping timeout: 240 seconds)
+2016-01-06 17:05:56	-->	jmcc_____ (sid32445@gateway/web/irccloud.com/x-zqhceuicmasudjak) has joined #graphite
+2016-01-06 17:06:35	-->	laurent\ (~laurent@unaffiliated/laurent/x-4048133) has joined #graphite
+2016-01-06 17:06:37	-->	ndumont_________ (~ndumont@190.ip-149-202-52.eu) has joined #graphite
+2016-01-06 17:07:01	ℹ 	Xorlev_ is now known as Xorlev
+2016-01-06 17:08:58	ℹ 	VeggieMeat_ is now known as VeggieMeat
+2016-01-06 17:09:07	-->	finster (~finster@unaffiliated/axrfnu) has joined #graphite
+2016-01-06 17:16:23	<--	UICTamale (~joshua@104.218.249.10) has quit (Ping timeout: 264 seconds)
+2016-01-06 17:16:40	-->	trent__ (~trent@202.7.176.58) has joined #graphite
+2016-01-06 17:19:04	-->	mfournier (~marc@2001:4b98:dc2:41:216:3eff:fe6d:dc0b) has joined #graphite
+2016-01-06 17:34:25	<--	zupzupper (~Zup@104.131.128.23) has quit (Ping timeout: 260 seconds)
+2016-01-06 17:35:20	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-06 17:36:08	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-06 17:36:22	-->	zupzupper (~Zup@104.131.128.23) has joined #graphite
+2016-01-06 17:40:50	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Ping timeout: 260 seconds)
+2016-01-06 18:14:56	<--	Zonywhoo_ (~Zonywhoop@74.11.33.194) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-06 18:51:47	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-06 22:51:44	ℹ 	irc: disconnected from server
+2016-01-06 22:52:14	-->	squarebracket (~chuck@modemcable004.14-82-70.mc.videotron.ca) has joined #graphite
+2016-01-06 22:52:14	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-06 22:52:14	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-06 22:52:14	ℹ 	Channel #graphite: 174 nicks (1 op, 0 voices, 173 normals)
+2016-01-06 22:52:15	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-06 22:55:16	-->	blizzow (~jburns@c-50-152-51-96.hsd1.co.comcast.net) has joined #graphite
+2016-01-06 23:10:17	<--	poops (~poops4@bzq-219-181-50.dsl.bezeqint.net) has quit (Ping timeout: 276 seconds)
+2016-01-06 23:12:16	<--	mikeydoyle (~textual@8.25.196.26) has quit (Ping timeout: 272 seconds)
+2016-01-06 23:35:30	-->	anmol (anmol@nat/redhat/x-brtajkyjxiuslath) has joined #graphite
+2016-01-06 23:43:17	<--	anmol (anmol@nat/redhat/x-brtajkyjxiuslath) has quit (Quit: Leaving)
+2016-01-06 23:43:32	-->	anmol (anmol@nat/redhat/x-zactivoyixyubhpo) has joined #graphite
+2016-01-07 00:36:19	ℹ 	irc: disconnected from server
+2016-01-07 00:36:43	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-07 00:36:43	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-07 00:36:43	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-07 00:36:43	ℹ 	Channel #graphite: 174 nicks (1 op, 0 voices, 173 normals)
+2016-01-07 00:36:43	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-07 10:28:00	ℹ 	irc: disconnected from server
+2016-01-07 10:28:25	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-07 10:28:25	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-07 10:28:25	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-07 10:28:25	ℹ 	Channel #graphite: 181 nicks (1 op, 0 voices, 180 normals)
+2016-01-07 10:28:25	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-07 10:29:35	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Ping timeout: 240 seconds)
+2016-01-07 10:30:09	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-07 10:35:52	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-07 10:39:47	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-07 10:43:25	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-07 10:47:00	-->	Mike11339 (~mike11339@bur-inet-pa-1.disney.com) has joined #graphite
+2016-01-07 10:47:20	-->	deniszh (~deniszh@62.72.192.89) has joined #graphite
+2016-01-07 10:49:33	-->	gheegh (~textual@pool-96-255-20-180.washdc.ftas.verizon.net) has joined #graphite
+2016-01-07 10:51:28	<--	zupzupper (~Zup@104.131.128.23) has quit (Ping timeout: 250 seconds)
+2016-01-07 10:51:54	<--	deniszh (~deniszh@62.72.192.89) has quit (Ping timeout: 260 seconds)
+2016-01-07 10:51:56	-->	zupzupper (~Zup@104.131.128.23) has joined #graphite
+2016-01-07 10:54:30	-->	deniszh (~deniszh@195.234.136.80) has joined #graphite
+2016-01-07 10:56:06	-->	martbhell (mart@2001:708:60:0:e::dead) has joined #graphite
+2016-01-07 10:57:53	<--	deniszh (~deniszh@195.234.136.80) has quit (Client Quit)
+2016-01-07 10:58:00	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-07 11:01:09	<--	NetRazor (3edb70e4@gateway/web/freenode/ip.62.219.112.228) has quit (Quit: Page closed)
+2016-01-07 11:06:43	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-07 11:07:45	-->	productiondba (~productio@188.29.164.67.threembb.co.uk) has joined #graphite
+2016-01-07 11:32:09	-->	cla (~leggenda@185.53.224.212) has joined #graphite
+2016-01-07 11:32:47	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:916:26bf:85f6:29ef) has joined #graphite
+2016-01-07 11:33:04	<--	productiondba (~productio@188.29.164.67.threembb.co.uk) has quit (Ping timeout: 250 seconds)
+2016-01-07 11:34:23	<--	cla (~leggenda@185.53.224.212) has left #graphite
+2016-01-07 11:48:33	-->	blizzow (~jburns@50.243.148.102) has joined #graphite
+2016-01-07 11:48:37	<--	blizzow (~jburns@50.243.148.102) has quit (Max SendQ exceeded)
+2016-01-07 11:49:38	-->	blizzow (~jburns@50.243.148.102) has joined #graphite
+2016-01-07 11:59:25	<--	blizzow (~jburns@50.243.148.102) has quit (Remote host closed the connection)
+2016-01-07 12:03:11	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-07 12:14:41	<--	cshort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-07 12:15:57	-->	cshort (~ChrisShor@152.16.191.31) has joined #graphite
+2016-01-07 12:18:54	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-07 12:20:55	<--	martbhell (mart@2001:708:60:0:e::dead) has left #graphite
+2016-01-07 12:21:00	<--	varesa (~varesa@ec2-54-246-169-192.eu-west-1.compute.amazonaws.com) has quit (Killed (Sigyn (Spam is off topic on freenode.)))
+2016-01-07 12:27:26	<--	zathras (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 265 seconds)
+2016-01-07 12:28:56	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:f0f1:e3b0:8019:a4fe) has joined #graphite
+2016-01-07 12:31:12	-->	cshort__ (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-07 12:32:30	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:916:26bf:85f6:29ef) has quit (Ping timeout: 260 seconds)
+2016-01-07 12:34:19	<--	cshort (~ChrisShor@152.16.191.31) has quit (Ping timeout: 245 seconds)
+2016-01-07 12:34:43	gjain	rpetre: :)
+2016-01-07 12:35:47	-->	Druid_ (~smuxi@176.199.16.57) has joined #graphite
+2016-01-07 12:36:57	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-07 12:38:37	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:4d03:a709:4fe5:7ab1) has joined #graphite
+2016-01-07 12:40:01	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-07 12:41:15	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:f0f1:e3b0:8019:a4fe) has quit (Ping timeout: 260 seconds)
+2016-01-07 12:41:19	-->	varesa (~varesa@ec2-54-246-169-192.eu-west-1.compute.amazonaws.com) has joined #graphite
+2016-01-07 12:42:11	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 264 seconds)
+2016-01-07 12:43:46	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:4127:b051:9d2f:77a4) has joined #graphite
+2016-01-07 12:45:20	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:4d03:a709:4fe5:7ab1) has quit (Ping timeout: 260 seconds)
+2016-01-07 12:49:40	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:412:ed0:f83a:edc8) has joined #graphite
+2016-01-07 12:50:24	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-07 12:50:41	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-07 12:52:55	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:4127:b051:9d2f:77a4) has quit (Ping timeout: 260 seconds)
+2016-01-07 12:53:28	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:b549:e503:5b41:2a1c) has joined #graphite
+2016-01-07 12:56:16	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:412:ed0:f83a:edc8) has quit (Ping timeout: 250 seconds)
+2016-01-07 12:57:32	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:415b:746:3c1:fa68) has joined #graphite
+2016-01-07 13:00:30	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:b549:e503:5b41:2a1c) has quit (Ping timeout: 260 seconds)
+2016-01-07 13:16:07	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-07 13:17:09	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-07 13:17:36	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:18dc:763e:9ac9:4384) has joined #graphite
+2016-01-07 13:20:06	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:415b:746:3c1:fa68) has quit (Ping timeout: 250 seconds)
+2016-01-07 13:24:37	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-07 13:25:01	-->	adaam (uid27983@gateway/web/irccloud.com/x-nzpivoxalwyxqcbt) has joined #graphite
+2016-01-07 13:25:47	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:210c:a46d:d24a:f951) has joined #graphite
+2016-01-07 13:28:46	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:18dc:763e:9ac9:4384) has quit (Ping timeout: 250 seconds)
+2016-01-07 13:30:45	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 265 seconds)
+2016-01-07 13:32:19	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-07 13:33:28	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Ping timeout: 276 seconds)
+2016-01-07 13:36:37	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-07 13:40:45	-->	tazz (~gaurav@triband-mum-120.60.186.210.mtnl.net.in) has joined #graphite
+2016-01-07 13:41:32	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Quit: Leaving.)
+2016-01-07 13:41:53	keekz	i have some backed up metrics on a USB drive that i'd like to backfill in to the current metrics.. what's the best way to go about that? can carbonate's carbon-sync do only local directories? i've only used it to sync metrics from one host to another
+2016-01-07 13:44:00	<--	dgryski (uid38143@gateway/web/irccloud.com/x-oufnmmfisocmfglr) has quit (Quit: Connection closed for inactivity)
+2016-01-07 13:46:45	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-07 13:47:19	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-07 13:47:48	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-07 13:49:57	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:65dd:23eb:e5f2:f4a5) has joined #graphite
+2016-01-07 13:51:14	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-07 13:52:35	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:210c:a46d:d24a:f951) has quit (Ping timeout: 240 seconds)
+2016-01-07 13:53:20	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:ed4b:5d4a:46e9:5af6) has joined #graphite
+2016-01-07 13:54:40	-->	coredump (~coredump|@38.88.32.98) has joined #graphite
+2016-01-07 13:55:18	-->	jbehren__ (~jbehrends@2601:1c1:c100:21d1:257a:975d:5a2:7f10) has joined #graphite
+2016-01-07 13:55:55	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:65dd:23eb:e5f2:f4a5) has quit (Ping timeout: 260 seconds)
+2016-01-07 13:58:15	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:ed4b:5d4a:46e9:5af6) has quit (Ping timeout: 240 seconds)
+2016-01-07 14:00:35	<--	jbehren__ (~jbehrends@2601:1c1:c100:21d1:257a:975d:5a2:7f10) has quit (Ping timeout: 260 seconds)
+2016-01-07 14:03:59	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:b11d:cd90:754d:4d13) has joined #graphite
+2016-01-07 14:07:46	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Ping timeout: 250 seconds)
+2016-01-07 14:08:35	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:b11d:cd90:754d:4d13) has quit (Ping timeout: 240 seconds)
+2016-01-07 14:11:34	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:8187:b0af:9fca:3fa3) has joined #graphite
+2016-01-07 14:15:23	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:d434:7565:6412:1ab9) has joined #graphite
+2016-01-07 14:18:15	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:8187:b0af:9fca:3fa3) has quit (Ping timeout: 240 seconds)
+2016-01-07 14:18:28	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:88e5:60f2:d9a2:711a) has joined #graphite
+2016-01-07 14:20:57	-->	NikoliB (~nikolib@host-063-131-209-153.dhcp.fewpb.net) has joined #graphite
+2016-01-07 14:21:22	NikoliB	hello having some issues getting cabon-cache to start.. anyone around who may be able to help
+2016-01-07 14:21:35	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:d434:7565:6412:1ab9) has quit (Ping timeout: 260 seconds)
+2016-01-07 14:22:10	keekz	NikoliB: what's the issue ?
+2016-01-07 14:22:53	NikoliB	http://pastebin.com/EGPkNKrA
+2016-01-07 14:22:55	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:88e5:60f2:d9a2:711a) has quit (Ping timeout: 240 seconds)
+2016-01-07 14:23:04	NikoliB	this is what I get when I try to start the service
+2016-01-07 14:24:31	NikoliB	I'm not getting much from those messages
+2016-01-07 14:29:59	-->	cshort (~ChrisShor@cpe-174-109-154-169.nc.res.rr.com) has joined #graphite
+2016-01-07 14:31:12	-->	davewongillies_ (sid451@gateway/web/irccloud.com/x-ldxsecrazeunclze) has joined #graphite
+2016-01-07 14:31:13	NikoliB	anyone make sense of that? I'm stumped
+2016-01-07 14:31:30	-->	Mike113391 (~mike11339@bur-inet-pa-3.disney.com) has joined #graphite
+2016-01-07 14:31:32	preaction	i'm trying to do some performance tests with graphite, and i'm coming up with extremely puzzling results: the relay doesn't report sending anything to the caches, but they are all working hard on something...
+2016-01-07 14:33:12	-->	AhmedElGamil (~quassel@ny.manhag.org) has joined #graphite
+2016-01-07 14:33:40	-->	cliles_ (~cliles@ip70-189-165-7.lv.lv.cox.net) has joined #graphite
+2016-01-07 14:34:23	-->	Xorlev_ (sid226@gateway/web/irccloud.com/x-rlfrqejpczxieazq) has joined #graphite
+2016-01-07 14:38:01	-->	varesa- (~varesa@ec2-54-246-169-192.eu-west-1.compute.amazonaws.com) has joined #graphite
+2016-01-07 14:38:30	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (*.net *.split)
+2016-01-07 14:38:30	<--	varesa (~varesa@ec2-54-246-169-192.eu-west-1.compute.amazonaws.com) has quit (*.net *.split)
+2016-01-07 14:38:30	<--	Mike11339 (~mike11339@bur-inet-pa-1.disney.com) has quit (*.net *.split)
+2016-01-07 14:38:30	<--	jmcc_____ (sid32445@gateway/web/irccloud.com/x-zqhceuicmasudjak) has quit (*.net *.split)
+2016-01-07 14:38:30	<--	Xorlev (sid226@gateway/web/irccloud.com/x-wgjtbjcvaxbzdecj) has quit (*.net *.split)
+2016-01-07 14:38:30	<--	cshort_ (~ChrisShor@cpe-174-109-154-169.nc.res.rr.com) has quit (*.net *.split)
+2016-01-07 14:38:31	<--	MPSimmons (sid11486@lopsa/member/mpsimmons) has quit (*.net *.split)
+2016-01-07 14:38:31	<--	davewongillies (sid451@gateway/web/irccloud.com/x-npaqkhoasbzlbrtq) has quit (*.net *.split)
+2016-01-07 14:38:31	<--	cliles (~cliles@ip70-189-165-7.lv.lv.cox.net) has quit (*.net *.split)
+2016-01-07 14:38:31	<--	DigitalFlux (~quassel@unaffiliated/digitalflux) has quit (*.net *.split)
+2016-01-07 14:38:31	<--	krphop (~krphop@watch.out.the.feds.are.rightbehind.us) has quit (*.net *.split)
+2016-01-07 14:38:36	-->	jmcc______ (sid32445@gateway/web/irccloud.com/x-qnjarmgsychaudwk) has joined #graphite
+2016-01-07 14:39:23	ℹ 	davewongillies_ is now known as davewongillies
+2016-01-07 14:39:40	-->	MPSimmons (sid11486@lopsa/member/mpsimmons) has joined #graphite
+2016-01-07 14:39:55	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-07 14:40:18	ℹ 	varesa- is now known as varesa
+2016-01-07 14:41:02	ℹ 	Xorlev_ is now known as Xorlev
+2016-01-07 14:41:07	-->	krphop_ (~krphop@watch.out.the.feds.are.rightbehind.us) has joined #graphite
+2016-01-07 14:47:50	NikoliB	http://pastebin.com/EGPkNKrA any ideas on why the carbon-cache won't start?
+2016-01-07 14:48:55	preaction	NikoliB: you aren't specifying retentions in the storage-schemas.conf
+2016-01-07 14:49:21	NikoliB	let me check I believe I am.. maybe a formatting issue
+2016-01-07 14:50:49	NikoliB	http://pastebin.com/2S9EYKNX
+2016-01-07 14:50:56	NikoliB	that is my storage schemas file
+2016-01-07 14:51:46	<--	tazz (~gaurav@triband-mum-120.60.186.210.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-07 14:55:00	<--	cschneid (cschneid@2600:3c00::f03c:91ff:fe73:9540) has quit (Ping timeout: 250 seconds)
+2016-01-07 14:55:46	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:7590:d356:25df:91f2) has joined #graphite
+2016-01-07 14:56:18	preaction	NikoliB: there's no newline between the configs... you're specifying a pattern of "^netapp\.capacity\.* retentions = 15m:100d, 1d:5y"
+2016-01-07 14:56:54	NikoliB	damnit
+2016-01-07 14:56:56	NikoliB	you're right
+2016-01-07 14:57:01	NikoliB	rententions is on the same line
+2016-01-07 14:57:25	-->	cschneid (cschneid@2600:3c00::f03c:91ff:fe73:9540) has joined #graphite
+2016-01-07 14:57:31	NikoliB	thank you
+2016-01-07 15:00:31	NikoliB	that did it
+2016-01-07 15:00:36	NikoliB	darn typos
+2016-01-07 15:08:00	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:7590:d356:25df:91f2) has quit (Ping timeout: 250 seconds)
+2016-01-07 15:11:03	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:4c44:d56e:10c0:b2b4) has joined #graphite
+2016-01-07 15:11:41	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-07 15:17:00	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:4c44:d56e:10c0:b2b4) has quit (Ping timeout: 260 seconds)
+2016-01-07 15:28:10	<--	NikoliB (~nikolib@host-063-131-209-153.dhcp.fewpb.net) has quit
+2016-01-07 15:33:28	<--	adaam (uid27983@gateway/web/irccloud.com/x-nzpivoxalwyxqcbt) has quit (Quit: Connection closed for inactivity)
+2016-01-07 15:41:31	-->	ipmb (~ipmb@2601:284:4100:6e47:54bb:ee64:41b6:9d3a) has joined #graphite
+2016-01-07 15:44:59	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-07 15:45:36	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-07 16:13:13	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-07 16:13:31	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-07 16:16:12	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Read error: No route to host)
+2016-01-07 16:16:46	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-07 16:21:33	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has quit (Remote host closed the connection)
+2016-01-07 16:29:44	varesa	can I somehow do an equation "100 - series"?
+2016-01-07 16:30:20	varesa	There is offset() to offset a series by a constant but what if I want to offset a constant by a series?
+2016-01-07 16:31:29	doismellburning	varesa: so you want to multiply the series by -1 and offset it by 100?
+2016-01-07 16:32:14	varesa	doismellburning: well I guess I can write that as "-series + 100" :)
+2016-01-07 16:32:22	varesa	which is a lot easier to construct
+2016-01-07 16:33:59	varesa	Total CPU usage of a 8-core machine: offset(scale(sum(collectd.supermicro_ikioma.cpu-*.cpu-idle),-0.125),100)
+2016-01-07 16:34:38	varesa	I guess I should have just averaged those instead of sum(x)/count(x)
+2016-01-07 16:36:34	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:7d79:3006:7886:aabb) has joined #graphite
+2016-01-07 16:37:32	GiLgAmEzH	varesa: maybe using asPercent() ? https://graphite.readthedocs.org/en/latest/functions.html#graphite.render.functions.asPercent
+2016-01-07 16:39:45	varesa	GiLgAmEzH: I guess that would work too, though requires a bit more thinking
+2016-01-07 16:46:13	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-07 16:46:20	<--	cshort__ (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-07 16:50:15	<--	cschneid (cschneid@2600:3c00::f03c:91ff:fe73:9540) has quit (*.net *.split)
+2016-01-07 16:50:15	<--	Xorlev (sid226@gateway/web/irccloud.com/x-rlfrqejpczxieazq) has quit (*.net *.split)
+2016-01-07 16:50:15	<--	mikeydoyle (~textual@192.133.78.132) has quit (*.net *.split)
+2016-01-07 16:50:16	<--	webdestroya (~webdestro@unaffiliated/csdhost) has quit (*.net *.split)
+2016-01-07 16:50:16	<--	titilambert (~titilambe@91.121.27.9) has quit (*.net *.split)
+2016-01-07 16:51:30	-->	cschneid (cschneid@2600:3c00::f03c:91ff:fe73:9540) has joined #graphite
+2016-01-07 16:51:30	-->	Xorlev (sid226@gateway/web/irccloud.com/x-rlfrqejpczxieazq) has joined #graphite
+2016-01-07 16:51:30	-->	mikeydoyle (~textual@192.133.78.132) has joined #graphite
+2016-01-07 16:51:30	-->	webdestroya (~webdestro@unaffiliated/csdhost) has joined #graphite
+2016-01-07 16:51:30	-->	titilambert (~titilambe@91.121.27.9) has joined #graphite
+2016-01-07 16:51:51	<--	Xorlev (sid226@gateway/web/irccloud.com/x-rlfrqejpczxieazq) has quit (Max SendQ exceeded)
+2016-01-07 16:51:51	<--	cschneid (cschneid@2600:3c00::f03c:91ff:fe73:9540) has quit (Max SendQ exceeded)
+2016-01-07 16:52:05	-->	cschneid (cschneid@2600:3c00::f03c:91ff:fe73:9540) has joined #graphite
+2016-01-07 16:52:26	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:7d79:3006:7886:aabb) has quit (Ping timeout: 246 seconds)
+2016-01-07 16:52:43	-->	Xorlev (Xorlev@gateway/web/irccloud.com/x-uodsashcwiobvrog) has joined #graphite
+2016-01-07 16:53:31	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:a572:283:30f8:794) has joined #graphite
+2016-01-07 16:56:15	varesa	I'm learning: https://graphite.esav.fi/dashboard/supermicro :)
+2016-01-07 16:57:50	-->	mowntan (~mowntan@108.162.174.77) has joined #graphite
+2016-01-07 17:09:36	<--	mikeydoyle (~textual@192.133.78.132) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-07 17:15:47	-->	terbolous (~erik@tv.skynet.fail) has joined #graphite
+2016-01-07 17:15:47	<--	terbolous (~erik@tv.skynet.fail) has quit (Changing host)
+2016-01-07 17:15:47	-->	terbolous (~erik@apache/committer/erikw) has joined #graphite
+2016-01-07 17:27:00	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Quit: Leaving.)
+2016-01-07 17:27:06	<--	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has quit (Quit: leaving)
+2016-01-07 17:38:09	<--	coredump (~coredump|@38.88.32.98) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-07 17:47:03	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:29e2:7121:bc15:6f04) has joined #graphite
+2016-01-07 17:49:20	-->	jbehren__ (~jbehrends@2601:1c1:c100:21d1:c03a:f508:78c9:1b96) has joined #graphite
+2016-01-07 17:49:50	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:a572:283:30f8:794) has quit (Ping timeout: 260 seconds)
+2016-01-07 17:52:14	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:29e2:7121:bc15:6f04) has quit (Ping timeout: 250 seconds)
+2016-01-07 17:52:52	<--	ipmb (~ipmb@2601:284:4100:6e47:54bb:ee64:41b6:9d3a) has quit (Quit: Gone to sleep. ZZZzzz…)
+2016-01-07 17:54:05	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Quit: Lost terminal)
+2016-01-07 18:10:55	<--	jbehren__ (~jbehrends@2601:1c1:c100:21d1:c03a:f508:78c9:1b96) has quit (Ping timeout: 240 seconds)
+2016-01-07 18:20:09	<--	Zonywhoop (~Zonywhoop@74.11.33.194) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-08 10:24:30	ℹ 	irc: disconnected from server
+2016-01-08 10:24:55	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-08 10:24:55	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-08 10:24:55	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-08 10:24:55	ℹ 	Channel #graphite: 187 nicks (1 op, 0 voices, 186 normals)
+2016-01-08 10:24:56	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-08 10:27:09	kaotiko	hi
+2016-01-08 10:32:27	<--	kevferna_f (~IceChat9@131.228.182.253) has quit (Quit: The early bird may get the worm, but the second mouse gets the cheese)
+2016-01-08 10:33:14	-->	coredump (~coredump|@c-98-204-28-96.hsd1.dc.comcast.net) has joined #graphite
+2016-01-08 10:39:51	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-08 10:40:10	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-08 10:53:58	<--	cshort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-08 10:57:23	<--	dene14 (~dene14@dene.tcm.by) has quit (Ping timeout: 265 seconds)
+2016-01-08 10:59:59	<--	ogny (~orkun@unaffiliated/ogny) has quit (Quit: WeeChat 1.0.1)
+2016-01-08 11:00:49	-->	dene14 (~dene14@dene.tcm.by) has joined #graphite
+2016-01-08 11:04:05	-->	cshort (~ChrisShor@152.16.191.34) has joined #graphite
+2016-01-08 11:06:17	<--	coredump (~coredump|@c-98-204-28-96.hsd1.dc.comcast.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-08 11:07:09	<--	productiondba (~productio@188.29.102.51.threembb.co.uk) has quit (Remote host closed the connection)
+2016-01-08 11:32:35	-->	cshort_ (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-08 11:35:39	varesa	Hetman: you could propably change that to Order allow,deny Allow from all
+2016-01-08 11:36:20	<--	cshort (~ChrisShor@152.16.191.34) has quit (Ping timeout: 246 seconds)
+2016-01-08 11:37:05	-->	coredump (~coredump|@38.88.32.98) has joined #graphite
+2016-01-08 11:55:31	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-08 12:08:06	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-08 12:10:57	<--	cshort_ (~ChrisShor@152.16.191.70) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-01-08 12:11:20	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-08 12:12:08	-->	jbehrends (~jbehrends@74.121.28.6) has joined #graphite
+2016-01-08 12:14:00	<--	dgryski (uid38143@gateway/web/irccloud.com/x-rubbbvxxmnblywgi) has quit (Quit: Connection closed for inactivity)
+2016-01-08 12:14:06	-->	cshort (~ChrisShor@152.16.189.72) has joined #graphite
+2016-01-08 12:14:43	-->	tazz (~gaurav@triband-mum-120.60.140.201.mtnl.net.in) has joined #graphite
+2016-01-08 12:18:54	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-08 12:19:01	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-08 12:26:56	<--	zathras (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 276 seconds)
+2016-01-08 12:27:44	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Ping timeout: 255 seconds)
+2016-01-08 12:31:31	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-08 12:37:22	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-08 12:50:39	<--	cshort (~ChrisShor@152.16.189.72) has quit (Read error: Connection reset by peer)
+2016-01-08 12:51:17	-->	cshort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-08 13:08:14	<--	valkyr1e (~valkyr1e@unaffiliated/hydralisk) has quit (Ping timeout: 255 seconds)
+2016-01-08 13:11:54	-->	valkyr1e (~valkyr1e@199.180.249.123) has joined #graphite
+2016-01-08 13:11:54	<--	valkyr1e (~valkyr1e@199.180.249.123) has quit (Changing host)
+2016-01-08 13:11:54	-->	valkyr1e (~valkyr1e@unaffiliated/hydralisk) has joined #graphite
+2016-01-08 13:13:36	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-08 13:30:11	varesa	I got an interesting datapoint: http://i.imgur.com/Grj8qDV.jpg
+2016-01-08 13:30:48	varesa	I guess something funny happened while logging/storing that :)
+2016-01-08 13:45:59	kristianpaul	he
+2016-01-08 13:46:14	kristianpaul	cant you zoom on that spike varesa ?
+2016-01-08 13:46:47	varesa	kristianpaul: I did, it's a single value
+2016-01-08 13:47:13	kristianpaul	interesting
+2016-01-08 13:47:22	kristianpaul	what is your sapling rate?
+2016-01-08 13:47:31	kristianpaul	in milliseconds =)
+2016-01-08 13:47:40	varesa	I then increased the cores from 1 to 4 for the VM, now I had 3 cores worth of multi-K readings
+2016-01-08 13:48:10	varesa	so that could be a missing/uninitialized value
+2016-01-08 13:48:27	kristianpaul	ah
+2016-01-08 13:48:37	kristianpaul	good pointer
+2016-01-08 13:51:31	-->	adaam (uid27983@gateway/web/irccloud.com/x-ascwsbkqhtmovxkj) has joined #graphite
+2016-01-08 14:30:24	-->	dgryski (uid38143@gateway/web/irccloud.com/x-pwxxrlctzyiyejds) has joined #graphite
+2016-01-08 15:06:41	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-08 15:09:40	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 260 seconds)
+2016-01-08 15:14:03	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-08 15:53:28	<--	adaam (uid27983@gateway/web/irccloud.com/x-ascwsbkqhtmovxkj) has quit (Quit: Connection closed for inactivity)
+2016-01-08 15:57:50	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-08 16:03:55	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Ping timeout: 260 seconds)
+2016-01-08 16:14:40	<--	jab416171 (~jab416171@c-76-27-96-12.hsd1.ut.comcast.net) has quit (Read error: Connection reset by peer)
+2016-01-08 16:18:46	<--	tazz (~gaurav@triband-mum-120.60.140.201.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-08 16:22:09	-->	jab416171 (~jab416171@c-76-27-96-12.hsd1.ut.comcast.net) has joined #graphite
+2016-01-08 16:24:58	<--	cshort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-08 16:27:39	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 245 seconds)
+2016-01-08 16:48:46	<--	jbehrends (~jbehrends@74.121.28.6) has quit (Ping timeout: 265 seconds)
+2016-01-08 16:58:37	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Remote host closed the connection)
+2016-01-08 17:11:24	-->	tazz (~gaurav@triband-mum-120.60.140.201.mtnl.net.in) has joined #graphite
+2016-01-08 17:16:36	<--	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has quit (Quit: leaving)
+2016-01-08 17:22:54	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has quit (Remote host closed the connection)
+2016-01-08 17:32:18	<--	coredump (~coredump|@38.88.32.98) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-08 17:44:01	<--	dgryski (uid38143@gateway/web/irccloud.com/x-pwxxrlctzyiyejds) has quit (Quit: Connection closed for inactivity)
+2016-01-08 17:44:01	<--	Zonywhoop (~Zonywhoop@74.11.33.194) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-08 17:53:44	<--	galaxy- (~galaxyAbs@rofl.pixomania.net) has left #graphite ("Leaving")
+2016-01-08 17:59:17	piotrp	Hetman: on rhel7? just remove the whole <IfModule mod_authz_core.c> block
+2016-01-08 17:59:49	piotrp	for rhel6 allow from all
+2016-01-09 22:28:23	ℹ 	irc: disconnected from server
+2016-01-09 22:28:56	-->	squarebracket (~chuck@modemcable004.14-82-70.mc.videotron.ca) has joined #graphite
+2016-01-09 22:28:56	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-09 22:28:56	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:14
+2016-01-09 22:28:56	ℹ 	Channel #graphite: 170 nicks (1 op, 0 voices, 169 normals)
+2016-01-09 22:28:57	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-10 00:02:31	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-10 01:13:29	<--	piavlo (~kvirc@bzq-109-67-216-200.red.bezeqint.net) has quit (Ping timeout: 246 seconds)
+2016-01-10 01:50:37	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-10 02:07:31	-->	piavlo (~kvirc@2.52.143.36) has joined #graphite
+2016-01-10 02:48:20	<--	piavlo (~kvirc@2.52.143.36) has quit (Ping timeout: 246 seconds)
+2016-01-10 03:34:24	-->	piavlo (~kvirc@213.57.81.114) has joined #graphite
+2016-01-10 03:56:11	-->	dgryski (uid38143@gateway/web/irccloud.com/x-bjgybwjhfwolmjio) has joined #graphite
+2016-01-10 04:26:58	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-10 04:41:30	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-10 04:51:55	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-10 05:08:36	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Ping timeout: 265 seconds)
+2016-01-10 05:21:16	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-10 05:31:13	-->	tazz (~gaurav@triband-mum-120.60.164.141.mtnl.net.in) has joined #graphite
+2016-01-10 05:42:24	-->	anmol (~anmol@106.216.178.141) has joined #graphite
+2016-01-10 06:04:01	<--	dgryski (uid38143@gateway/web/irccloud.com/x-bjgybwjhfwolmjio) has quit (Quit: Connection closed for inactivity)
+2016-01-10 06:13:51	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-10 06:17:17	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-10 06:23:51	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-10 07:29:31	-->	tazz_ (~gaurav@triband-mum-120.60.164.141.mtnl.net.in) has joined #graphite
+2016-01-10 07:32:26	<--	tazz (~gaurav@triband-mum-120.60.164.141.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-10 08:35:04	ℹ 	tazz_ is now known as tazz
+2016-01-10 08:39:11	-->	Whooop (~Whoop@2a03:b0c0:1:d0::15:c001) has joined #graphite
+2016-01-10 08:43:08	<--	Whooop (~Whoop@2a03:b0c0:1:d0::15:c001) has quit (Client Quit)
+2016-01-10 08:43:28	-->	Whooop (~Whoop@unaffiliated/whoop) has joined #graphite
+2016-01-10 08:56:25	<--	Whooop (~Whoop@unaffiliated/whoop) has quit (Quit: Leaving)
+2016-01-10 08:56:45	-->	Whooop (~Whoop@unaffiliated/whoop) has joined #graphite
+2016-01-10 10:03:08	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-10 10:06:06	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-10 10:14:42	<--	Whoop (Whoop@unaffiliated/whoop) has quit (Quit: Gone)
+2016-01-10 10:22:59	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 264 seconds)
+2016-01-10 11:17:20	<--	Whooop (~Whoop@unaffiliated/whoop) has quit (Quit: Leaving)
+2016-01-10 11:17:41	-->	Whoop (~Whoop@unaffiliated/whoop) has joined #graphite
+2016-01-10 11:46:49	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-10 12:07:57	-->	tazz_ (~gaurav@triband-mum-120.60.177.21.mtnl.net.in) has joined #graphite
+2016-01-10 12:10:46	<--	tazz (~gaurav@triband-mum-120.60.164.141.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-10 12:27:35	<--	piavlo (~kvirc@213.57.81.114) has quit (Ping timeout: 246 seconds)
+2016-01-10 13:07:17	-->	piavlo (~kvirc@2.52.143.36) has joined #graphite
+2016-01-10 13:12:11	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-10 13:13:45	<--	matejz (~matejz@element.planetq.org) has quit (Client Quit)
+2016-01-10 13:17:15	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-10 13:18:24	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-10 13:33:08	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-10 13:57:54	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-10 13:57:55	<--	matejz (~matejz@element.planetq.org) has quit (Remote host closed the connection)
+2016-01-10 13:58:20	<--	anmol (~anmol@106.216.178.141) has quit (Ping timeout: 265 seconds)
+2016-01-10 14:22:23	<--	piavlo (~kvirc@2.52.143.36) has quit (Ping timeout: 246 seconds)
+2016-01-10 14:34:33	<--	gunkaaa_ (~gunkaaa@please.stfu.net.nz) has quit (Read error: No route to host)
+2016-01-10 14:37:59	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 264 seconds)
+2016-01-10 14:39:25	-->	gheegh (~textual@pool-96-255-20-180.washdc.ftas.verizon.net) has joined #graphite
+2016-01-10 14:49:10	<--	armyriad (~armyriad@162.219.176.3) has quit (Ping timeout: 260 seconds)
+2016-01-10 14:49:27	-->	armyriad (~armyriad@71-83-188-91.dhcp.lnbh.ca.charter.com) has joined #graphite
+2016-01-10 14:50:46	ℹ 	tazz_ is now known as tazz
+2016-01-10 15:52:26	<--	tazz (~gaurav@triband-mum-120.60.177.21.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-11 00:46:54	ℹ 	irc: disconnected from server
+2016-01-11 00:47:27	-->	squarebracket (~chuck@modemcable004.14-82-70.mc.videotron.ca) has joined #graphite
+2016-01-11 00:47:27	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-11 00:47:27	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-11 00:47:27	ℹ 	Channel #graphite: 172 nicks (1 op, 0 voices, 171 normals)
+2016-01-11 00:47:27	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-11 00:52:18	-->	trent_ (~trent@202.7.176.58) has joined #graphite
+2016-01-11 00:54:22	-->	kejoma (~kejoma@pool-71-127-34-210.washdc.fios.verizon.net) has joined #graphite
+2016-01-11 01:21:53	ℹ 	irc: disconnected from server
+2016-01-11 01:22:22	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-11 01:22:22	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-11 01:22:22	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-11 01:22:22	ℹ 	Channel #graphite: 172 nicks (1 op, 0 voices, 171 normals)
+2016-01-11 01:22:22	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-11 01:48:21	<--	cliluw (~cliluw@unaffiliated/cliluw) has quit (Read error: Connection reset by peer)
+2016-01-11 01:49:34	-->	cliluw (~cliluw@unaffiliated/cliluw) has joined #graphite
+2016-01-11 01:50:23	<--	cliluw (~cliluw@unaffiliated/cliluw) has quit (Max SendQ exceeded)
+2016-01-11 01:58:34	-->	matejz (~matejz@141.255.254.208) has joined #graphite
+2016-01-11 02:00:57	-->	tazz (~gaurav@triband-mum-120.60.137.251.mtnl.net.in) has joined #graphite
+2016-01-11 03:06:10	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Read error: No route to host)
+2016-01-11 03:06:25	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-11 03:08:53	-->	dgryski (uid38143@gateway/web/irccloud.com/x-velgmkpbnlzawqfq) has joined #graphite
+2016-01-11 03:09:34	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-11 03:22:14	-->	hanine (~hanynowzk@41.249.253.52) has joined #graphite
+2016-01-11 03:44:45	<--	kevferna (~kevferna@131.228.182.251) has quit (Read error: Connection reset by peer)
+2016-01-11 04:04:21	-->	kevferna (~kevferna@131.228.182.251) has joined #graphite
+2016-01-11 10:00:50	ℹ 	irc: disconnected from server
+2016-01-11 10:01:17	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-11 10:01:17	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-11 10:01:17	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-11 10:01:17	ℹ 	Channel #graphite: 177 nicks (1 op, 0 voices, 176 normals)
+2016-01-11 10:01:18	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-11 10:11:43	-->	dev1x (~rfelix@93.102.89.209.rev.optimus.pt) has joined #graphite
+2016-01-11 10:12:00	dev1x	hello, I'm looking for documentation on how to have graphite HA on AWS
+2016-01-11 10:12:10	dev1x	can anyone guide me on where I can get to read about it pls?
+2016-01-11 10:13:48	dev1x	maybe it is too specific, i can adapt it to AWS
+2016-01-11 10:16:18	@jdixon	dev1x: ha, writing that now in the book
+2016-01-11 10:17:04	dev1x	great is there a draft available? I can also help you with polishing it if you want :)
+2016-01-11 10:18:55	@jdixon	it will probably be available in the Early Release within a few weeks.
+2016-01-11 10:19:08	@jdixon	http://shop.oreilly.com/product/0636920035794.do
+2016-01-11 10:19:23	-->	phreakocious (~phreakoci@recalcitrant.phreakocious.net) has joined #graphite
+2016-01-11 10:19:59	dev1x	ah bummer, cant wait that long, but I'll order it for my company tho
+2016-01-11 10:20:55	@jdixon	dev1x: in the meantime some of the stuff in the following may be useful.
+2016-01-11 10:21:09	@jdixon	https://github.com/obfuscurity/graphite-scripts/issues/4
+2016-01-11 10:21:10	@jdixon	https://gist.github.com/obfuscurity/63399584ea4d95f921e4
+2016-01-11 10:22:16	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-11 10:23:37	<--	manlin (~manlin@manlin.co.uk) has left #graphite ("WeeChat 1.3")
+2016-01-11 10:24:15	-->	luch0 (~luch0@OL119-36.fibertel.com.ar) has joined #graphite
+2016-01-11 10:24:33	dev1x	thank you jdixon really appreciate it
+2016-01-11 10:25:19	@jdixon	np
+2016-01-11 10:27:29	-->	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has joined #graphite
+2016-01-11 10:38:37	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-11 10:43:02	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-11 10:48:02	<--	phreakocious (~phreakoci@recalcitrant.phreakocious.net) has quit (Ping timeout: 276 seconds)
+2016-01-11 10:49:30	-->	phreakocious (~phreakoci@64.71.143.122) has joined #graphite
+2016-01-11 10:50:28	-->	coredump (~coredump|@38.88.32.98) has joined #graphite
+2016-01-11 11:06:44	-->	Mike11339 (~mike11339@bur-inet-pa-3.disney.com) has joined #graphite
+2016-01-11 11:15:03	<--	Hetman (~fir3wall@213.1.218.67) has left #graphite
+2016-01-11 11:35:04	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-11 11:58:56	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-11 11:59:17	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-11 12:00:58	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Client Quit)
+2016-01-11 12:01:15	-->	cooktheryan (~rcook-dev@45.37.94.200) has joined #graphite
+2016-01-11 12:02:27	<--	cooktheryan (~rcook-dev@45.37.94.200) has quit (Client Quit)
+2016-01-11 12:02:44	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-11 12:04:17	-->	Zonywhoop (~Zonywhoop@74.11.33.194) has joined #graphite
+2016-01-11 12:06:58	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Client Quit)
+2016-01-11 12:07:17	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-11 12:11:16	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Client Quit)
+2016-01-11 12:11:33	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-11 12:20:56	<--	zathras (~ZZZZZZ@83.163.198.186) has quit (Ping timeout: 272 seconds)
+2016-01-11 12:22:50	-->	luch0_ (~luch0@OL119-36.fibertel.com.ar) has joined #graphite
+2016-01-11 12:25:20	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has quit (Ping timeout: 260 seconds)
+2016-01-11 12:39:52	-->	luch0__ (~luch0@OL119-36.fibertel.com.ar) has joined #graphite
+2016-01-11 12:43:44	<--	luch0_ (~luch0@OL119-36.fibertel.com.ar) has quit (Ping timeout: 272 seconds)
+2016-01-11 12:49:11	<--	dev1x (~rfelix@93.102.89.209.rev.optimus.pt) has quit (Read error: Connection reset by peer)
+2016-01-11 12:54:37	-->	dev1x (~rfelix@93.102.89.209.rev.optimus.pt) has joined #graphite
+2016-01-11 13:14:26	-->	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has joined #graphite
+2016-01-11 13:28:06	<--	tazz (~gaurav@triband-mum-120.60.137.251.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-11 13:29:00	ℹ 	luch0__ is now known as luch0
+2016-01-11 13:33:41	-->	cliluw (~cliluw@unaffiliated/cliluw) has joined #graphite
+2016-01-11 13:33:49	-->	cshort (~ChrisShor@152.16.191.29) has joined #graphite
+2016-01-11 13:35:38	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-11 13:36:47	<--	gheegh (~textual@pool-96-255-20-180.washdc.ftas.verizon.net) has quit (Ping timeout: 246 seconds)
+2016-01-11 13:36:54	<--	cshort (~ChrisShor@152.16.191.29) has quit (Client Quit)
+2016-01-11 13:37:17	-->	ChrisShort (~ChrisShor@152.16.189.157) has joined #graphite
+2016-01-11 13:39:22	<--	ChrisShort (~ChrisShor@152.16.189.157) has quit (Read error: Connection reset by peer)
+2016-01-11 13:40:00	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-11 13:42:38	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 272 seconds)
+2016-01-11 13:44:26	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-11 13:53:46	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-11 13:54:35	-->	conscience (~conscienc@208.8.94.126) has joined #graphite
+2016-01-11 13:58:00	<--	matejz (~matejz@element.planetq.org) has quit (Client Quit)
+2016-01-11 14:08:46	-->	luch0_ (~luch0@OL119-36.fibertel.com.ar) has joined #graphite
+2016-01-11 14:12:05	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has quit (Ping timeout: 260 seconds)
+2016-01-11 14:14:13	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-11 14:17:32	<--	dev1x (~rfelix@93.102.89.209.rev.optimus.pt) has quit (Ping timeout: 255 seconds)
+2016-01-11 14:55:33	-->	Druid_ (~smuxi@ip-176-199-16-57.hsi06.unitymediagroup.de) has joined #graphite
+2016-01-11 15:05:57	-->	finster (~finster@unaffiliated/axrfnu) has joined #graphite
+2016-01-11 15:10:26	<--	trent_ (~trent@202.7.176.58) has quit (Ping timeout: 240 seconds)
+2016-01-11 15:22:50	<--	phreakocious (~phreakoci@64.71.143.122) has quit (Ping timeout: 246 seconds)
+2016-01-11 15:31:43	-->	phreakocious (~phreakoci@recalcitrant.phreakocious.net) has joined #graphite
+2016-01-11 15:32:56	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-11 15:33:39	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-11 15:58:46	<--	Zonywhoop (~Zonywhoop@74.11.33.194) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-11 16:02:20	<--	conscience (~conscienc@208.8.94.126) has quit (Remote host closed the connection)
+2016-01-11 16:17:06	<--	luch0_ (~luch0@OL119-36.fibertel.com.ar) has quit (Remote host closed the connection)
+2016-01-11 16:17:25	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-11 16:17:42	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-11 16:25:58	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-11 17:03:31	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-11 17:32:21	-->	trent_ (~trent@202.7.176.58) has joined #graphite
+2016-01-11 17:41:30	<--	UICTamale (~joshua@104.218.249.10) has quit (Quit: Leaving.)
+2016-01-11 17:51:01	<--	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has quit (Quit: leaving)
+2016-01-11 17:55:48	-->	Zonywhoop (~Zonywhoop@adsl-98-83-184-67.bhm.bellsouth.net) has joined #graphite
+2016-01-11 17:58:08	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Quit: Leaving.)
+2016-01-11 18:01:03	<--	coredump (~coredump|@38.88.32.98) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-11 18:07:37	<--	Zonywhoop (~Zonywhoop@adsl-98-83-184-67.bhm.bellsouth.net) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-01-11 18:12:57	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-11 18:13:52	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-11 18:53:33	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-11 19:38:50	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 260 seconds)
+2016-01-11 20:24:54	ℹ 	irc: disconnected from server
+2016-01-11 20:25:23	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-11 20:25:23	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-11 20:25:23	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-11 20:25:23	ℹ 	Channel #graphite: 173 nicks (1 op, 0 voices, 172 normals)
+2016-01-11 20:25:23	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-11 20:49:31	-->	dev1x (~rfelix@217.129.148.70) has joined #graphite
+2016-01-11 21:02:30	ℹ 	irc: disconnected from server
+2016-01-11 21:02:57	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-11 21:02:57	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-11 21:02:57	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-11 21:02:57	ℹ 	Channel #graphite: 172 nicks (1 op, 0 voices, 171 normals)
+2016-01-11 21:02:57	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-11 21:12:04	<--	dev1x (~rfelix@217.129.148.70) has quit (Ping timeout: 256 seconds)
+2016-01-11 21:22:25	<--	kejoma (~kejoma@pool-71-127-34-210.washdc.fios.verizon.net) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-11 22:06:56	<--	lawnchair (lawnchair@unaffiliated/lawnchair) has quit (Read error: Connection reset by peer)
+2016-01-11 22:07:14	-->	lawnchair (lawnchair@ringo.lawnchair.net) has joined #graphite
+2016-01-11 22:07:14	<--	lawnchair (lawnchair@ringo.lawnchair.net) has quit (Changing host)
+2016-01-11 22:07:14	-->	lawnchair (lawnchair@unaffiliated/lawnchair) has joined #graphite
+2016-01-11 23:04:56	-->	mowntan (~mowntan@108.162.174.77) has joined #graphite
+2016-01-12 10:54:51	ℹ 	irc: disconnected from server
+2016-01-12 10:55:18	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-12 10:55:18	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-12 10:55:18	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-12 10:55:18	ℹ 	Channel #graphite: 180 nicks (1 op, 0 voices, 179 normals)
+2016-01-12 10:55:18	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-12 11:00:07	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-12 11:03:50	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-12 11:07:20	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-12 11:08:14	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-12 11:09:33	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-12 11:12:27	-->	Mike11339 (~mike11339@bur-inet-pa-3.disney.com) has joined #graphite
+2016-01-12 11:31:13	-->	Zathraz (~ZZZZZZ@D57E0C33.static.ziggozakelijk.nl) has joined #graphite
+2016-01-12 11:34:38	<--	zathras (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 255 seconds)
+2016-01-12 11:34:54	-->	cla1 (~leggenda@185.53.224.212) has joined #graphite
+2016-01-12 11:40:47	-->	zzzz (~ZZZZZZ@83.163.198.186) has joined #graphite
+2016-01-12 11:41:04	<--	dev1x (~rfelix@93.102.89.209.rev.optimus.pt) has quit (Ping timeout: 276 seconds)
+2016-01-12 11:44:58	<--	Zathraz (~ZZZZZZ@D57E0C33.static.ziggozakelijk.nl) has quit (Ping timeout: 276 seconds)
+2016-01-12 11:53:00	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-12 12:18:17	<--	anmol (~anmol@106.216.129.148) has quit (Ping timeout: 255 seconds)
+2016-01-12 12:22:14	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-12 12:26:12	<--	zzzz (~ZZZZZZ@83.163.198.186) has quit (Ping timeout: 272 seconds)
+2016-01-12 12:47:36	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-12 12:51:32	-->	RobertBirnie (~RobertBir@157.22.52.100) has joined #graphite
+2016-01-12 12:51:47	-->	tazz (~gaurav@triband-mum-120.60.145.51.mtnl.net.in) has joined #graphite
+2016-01-12 12:53:45	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-12 12:59:23	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-12 13:00:22	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-12 13:00:43	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-12 13:01:03	<--	matejz (~matejz@element.planetq.org) has quit (Client Quit)
+2016-01-12 13:02:28	-->	dev1x (~rfelix@124.20.103.87.rev.vodafone.pt) has joined #graphite
+2016-01-12 13:11:55	<--	dev1x (~rfelix@124.20.103.87.rev.vodafone.pt) has quit (Read error: Connection reset by peer)
+2016-01-12 13:22:12	<--	cla1 (~leggenda@185.53.224.212) has quit (Ping timeout: 256 seconds)
+2016-01-12 13:55:24	-->	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has joined #graphite
+2016-01-12 14:26:19	<--	dene14 (~dene14@dene.tcm.by) has quit (Remote host closed the connection)
+2016-01-12 14:41:46	<--	tazz (~gaurav@triband-mum-120.60.145.51.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-12 15:20:45	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-12 16:10:55	-->	dene14 (~dene14@dene.tcm.by) has joined #graphite
+2016-01-12 16:15:13	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has quit (Remote host closed the connection)
+2016-01-12 16:28:24	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-12 16:40:18	-->	Druid_ (~smuxi@b2b-94-79-167-142.unitymedia.biz) has joined #graphite
+2016-01-12 16:45:16	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-12 16:49:29	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-12 16:56:42	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-12 17:02:05	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-12 17:04:23	<--	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has quit (Ping timeout: 264 seconds)
+2016-01-12 17:38:26	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 265 seconds)
+2016-01-12 18:55:59	ℹ 	irc: disconnected from server
+2016-01-12 18:56:28	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-12 18:56:28	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-12 18:56:28	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-12 18:56:28	ℹ 	Channel #graphite: 176 nicks (1 op, 0 voices, 175 normals)
+2016-01-12 18:56:28	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-12 19:10:38	-->	dev1x (~rfelix@217.129.148.70) has joined #graphite
+2016-01-12 22:44:41	ℹ 	irc: disconnected from server
+2016-01-12 22:45:08	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-12 22:45:08	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-12 22:45:08	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-12 22:45:08	ℹ 	Channel #graphite: 175 nicks (1 op, 0 voices, 174 normals)
+2016-01-12 22:45:08	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-12 23:58:22	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:652b:a91d:666d:b0c) has joined #graphite
+2016-01-13 00:02:49	-->	trent__ (~trent@202.7.176.58) has joined #graphite
+2016-01-13 00:07:17	<--	trent_ (~trent@202.7.176.58) has quit (Ping timeout: 276 seconds)
+2016-01-13 00:11:15	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:652b:a91d:666d:b0c) has quit (Quit: ZZZzzz…)
+2016-01-13 00:18:13	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:816c:55f2:85ee:84ca) has joined #graphite
+2016-01-13 00:37:55	-->	anmol (anmol@nat/redhat/x-rcwgffebdsodmpus) has joined #graphite
+2016-01-13 00:42:29	<--	RobertBirnie (~RobertBir@c-98-248-74-152.hsd1.ca.comcast.net) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-01-13 00:49:06	<--	Dossy (~dossy@96.56.31.42) has quit (Ping timeout: 272 seconds)
+2016-01-13 01:00:10	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:816c:55f2:85ee:84ca) has quit (Quit: ZZZzzz…)
+2016-01-13 01:03:29	-->	trent_ (~trent@202.7.176.58) has joined #graphite
+2016-01-13 01:07:05	<--	trent__ (~trent@202.7.176.58) has quit (Ping timeout: 276 seconds)
+2016-01-13 01:14:25	-->	dev1x (~rfelix@217.129.148.70) has joined #graphite
+2016-01-13 01:19:03	<--	dev1x (~rfelix@217.129.148.70) has quit (Ping timeout: 255 seconds)
+2016-01-13 08:13:27	ℹ 	irc: disconnected from server
+2016-01-13 08:13:53	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-13 08:13:53	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-13 08:13:53	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-13 08:13:53	ℹ 	Channel #graphite: 179 nicks (1 op, 0 voices, 178 normals)
+2016-01-13 08:13:53	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-13 08:16:35	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-13 08:21:29	-->	ChrisShort (~ChrisShor@152.16.191.34) has joined #graphite
+2016-01-13 08:25:12	-->	zathras (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has joined #graphite
+2016-01-13 08:26:56	<--	ChrisShort (~ChrisShor@152.16.191.34) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-01-13 08:28:19	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-13 08:28:37	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-13 08:30:50	-->	ChrisShort (~ChrisShor@152.16.189.157) has joined #graphite
+2016-01-13 08:35:35	<--	ChrisShort (~ChrisShor@152.16.189.157) has quit (Read error: Connection reset by peer)
+2016-01-13 08:36:13	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-13 08:47:07	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-13 08:47:59	-->	Zathraz (~ZZZZZZ@D57E0C33.static.ziggozakelijk.nl) has joined #graphite
+2016-01-13 08:50:01	-->	zzzz (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has joined #graphite
+2016-01-13 08:50:14	-->	productiondba (~productio@94.196.240.135.threembb.co.uk) has joined #graphite
+2016-01-13 08:50:50	<--	zathras (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 255 seconds)
+2016-01-13 08:54:14	<--	Zathraz (~ZZZZZZ@D57E0C33.static.ziggozakelijk.nl) has quit (Ping timeout: 272 seconds)
+2016-01-13 09:49:09	ℹ 	irc: disconnected from server
+2016-01-13 09:49:39	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-13 09:49:39	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-13 09:49:39	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-13 09:49:39	ℹ 	Channel #graphite: 181 nicks (1 op, 0 voices, 180 normals)
+2016-01-13 09:49:39	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-13 09:50:51	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-13 09:54:38	-->	Zonywhoop (~Zonywhoop@74.11.33.194) has joined #graphite
+2016-01-13 10:08:32	<--	matejz (~matejz@141.255.254.208) has quit (Quit: matejz)
+2016-01-13 10:13:35	-->	cla (~leggenda@37.157.33.36) has joined #graphite
+2016-01-13 10:14:23	cla	how is possible to set a login page on graphite home page
+2016-01-13 10:14:24	cla	?
+2016-01-13 10:14:50	keekz	cla: most people would probably use apache ht auth rules
+2016-01-13 10:15:06	cla	I see
+2016-01-13 10:15:08	cla	let me check
+2016-01-13 10:15:17	cla	thank you for the hit keekz
+2016-01-13 10:15:51	keekz	cla: np!
+2016-01-13 10:19:49	-->	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has joined #graphite
+2016-01-13 10:20:18	cla	@keekz I found this http://www.tompurl.com/2011/08/12/installing-graphite-on-ubuntu-104-lts/
+2016-01-13 10:20:18	cla	what does mean ?   echo 'managers: tom' | sudo tee -a ./sec/.mygroups , do I need  ?
+2016-01-13 10:21:07	keekz	it's if you use     AuthGroupFile /opt/graphite/sec/.mygroups
+2016-01-13 10:21:13	keekz	and     Require group managers
+2016-01-13 10:21:38	keekz	you don't need to require a group specifically, you can require a valid user (and not require a group)
+2016-01-13 10:23:13	keekz	this shows just the user bits: http://www.webreference.com/programming/apache_authentication/index.html
+2016-01-13 10:27:47	cla	thanks man
+2016-01-13 10:33:14	<--	losh (~losh@nat-01-06.vty.dailymotion.com) has quit (Quit: Leaving)
+2016-01-13 10:41:45	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-13 10:52:38	-->	linkedinyou (~linkediny@unaffiliated/linkedinyou) has joined #graphite
+2016-01-13 10:57:54	c_hg	I'd like to add you to my professional network on LinkedIn?
+2016-01-13 11:11:44	-->	Mike11339 (~mike11339@bur-inet-pa-3.disney.com) has joined #graphite
+2016-01-13 11:13:35	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Ping timeout: 240 seconds)
+2016-01-13 11:15:15	<--	N-Mi (~nicolas@calvix/staff/N-Mi) has quit (Ping timeout: 260 seconds)
+2016-01-13 11:15:50	-->	ChrisShort (~ChrisShor@152.16.191.34) has joined #graphite
+2016-01-13 11:16:38	<--	ChrisShort (~ChrisShor@152.16.191.34) has quit (Read error: Connection reset by peer)
+2016-01-13 11:17:15	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-13 11:23:02	-->	tazz_ (~gaurav@triband-mum-120.60.156.75.mtnl.net.in) has joined #graphite
+2016-01-13 11:25:26	<--	cliles (~cliles@ip70-189-165-7.lv.lv.cox.net) has quit (Remote host closed the connection)
+2016-01-13 11:25:46	<--	tazz (~gaurav@triband-mum-120.60.165.191.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-13 11:27:30	-->	N-Mi (~nicolas@calvix/staff/N-Mi) has joined #graphite
+2016-01-13 11:45:46	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-13 11:52:35	-->	cliles (~cliles@ip70-189-165-7.lv.lv.cox.net) has joined #graphite
+2016-01-13 11:54:49	<--	cla (~leggenda@37.157.33.36) has quit (Remote host closed the connection)
+2016-01-13 12:04:13	<--	productiondba (~productio@94.196.240.135.threembb.co.uk) has quit (Read error: Connection reset by peer)
+2016-01-13 12:11:18	ℹ 	tazz_ is now known as tazz
+2016-01-13 12:11:19	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-13 12:11:55	<--	Zonywhoop (~Zonywhoop@74.11.33.194) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-13 12:16:44	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-13 12:18:55	squarebracket	is there any sort of scheduled date for the next graphite release? (which I assume will be 0.10)
+2016-01-13 12:19:55	squarebracket	I'm working on the puppet module currently
+2016-01-13 12:20:36	-->	luch0 (~luch0@OL119-36.fibertel.com.ar) has joined #graphite
+2016-01-13 12:29:00	-->	RobertBirnie (~RobertBir@157.22.52.100) has joined #graphite
+2016-01-13 12:29:02	<--	piavlo (~kvirc@bzq-80-29-90.static.bezeqint.net) has quit (Ping timeout: 246 seconds)
+2016-01-13 12:33:27	-->	tazz_ (~gaurav@triband-mum-120.60.156.75.mtnl.net.in) has joined #graphite
+2016-01-13 12:34:42	<--	zerthimon (~zerth@infra01.r24-admin.ru) has quit (Quit: Leaving)
+2016-01-13 12:35:59	<--	zzzz (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 245 seconds)
+2016-01-13 12:36:06	<--	tazz (~gaurav@triband-mum-120.60.156.75.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-13 12:41:06	<--	dene14 (~dene14@dene.tcm.by) has quit (Ping timeout: 240 seconds)
+2016-01-13 12:44:34	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-01-13 12:48:42	-->	deniszh (~deniszh@195.234.136.77) has joined #graphite
+2016-01-13 12:50:01	<--	deniszh (~deniszh@195.234.136.77) has quit (Client Quit)
+2016-01-13 12:51:17	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-13 12:53:55	@jdixon	nope
+2016-01-13 12:55:07	-->	dene14 (~dene14@dene.tcm.by) has joined #graphite
+2016-01-13 13:02:45	<--	cliles (~cliles@ip70-189-165-7.lv.lv.cox.net) has quit (Remote host closed the connection)
+2016-01-13 13:08:29	<--	MPSimmons (sid11486@lopsa/member/mpsimmons) has quit (K-Lined)
+2016-01-13 13:08:29	<--	davewongillies (sid451@gateway/web/irccloud.com/x-ldxsecrazeunclze) has quit (K-Lined)
+2016-01-13 13:08:30	<--	jayo_ (sid24686@gateway/web/irccloud.com/x-digdlpjbbamzdmkm) has quit (K-Lined)
+2016-01-13 13:08:30	<--	gdusbabek (sid831@gateway/web/irccloud.com/x-bstagfbxirimvugk) has quit (K-Lined)
+2016-01-13 13:08:30	<--	frankS2 (sid22710@gateway/web/irccloud.com/x-vdsljvvgexbpveqi) has quit (K-Lined)
+2016-01-13 13:08:31	<--	webframp (sid5238@gateway/web/irccloud.com/x-vegxlzvxeqdvddom) has quit (K-Lined)
+2016-01-13 13:08:31	<--	AdamMeghji (sid40085@gateway/web/irccloud.com/x-ypispoblnjtgybar) has quit (K-Lined)
+2016-01-13 13:08:31	<--	addshore (sid10233@wikimedia/addshore) has quit (K-Lined)
+2016-01-13 13:08:31	<--	benchen_____ (sid27853@gateway/web/irccloud.com/x-qrncszfdwfqvysrs) has quit (K-Lined)
+2016-01-13 13:08:31	<--	jeremy_carroll (sid5222@gateway/web/irccloud.com/x-szbpcolujkdejxaf) has quit (K-Lined)
+2016-01-13 13:08:32	<--	[diecast] (sid320@gateway/web/irccloud.com/x-dvfnayxahvfgpeol) has quit (K-Lined)
+2016-01-13 13:08:32	<--	countryHick (sid44237@gateway/web/irccloud.com/x-kmzoraptrdyrklop) has quit (K-Lined)
+2016-01-13 13:08:32	<--	mrtnsu (sid16403@gateway/web/irccloud.com/x-sxpvwqbpbwzboojx) has quit (K-Lined)
+2016-01-13 13:08:32	<--	randeffects_ (sid34533@gateway/web/irccloud.com/x-pnrlyqwvndqmnccg) has quit (K-Lined)
+2016-01-13 13:08:34	<--	ovf (sid19068@gateway/web/irccloud.com/x-sdfsebqjuydxrged) has quit (K-Lined)
+2016-01-13 13:08:34	<--	Xorlev (Xorlev@gateway/web/irccloud.com/x-uodsashcwiobvrog) has quit (K-Lined)
+2016-01-13 13:08:34	<--	dch (sid1310@apache/committer/dch) has quit (K-Lined)
+2016-01-13 13:08:35	<--	dgryski (uid38143@gateway/web/irccloud.com/x-xdpujyjdjgvlrflq) has quit (K-Lined)
+2016-01-13 13:08:35	<--	jmcc______ (sid32445@gateway/web/irccloud.com/x-qnjarmgsychaudwk) has quit (K-Lined)
+2016-01-13 13:08:35	<--	davidascher (sid14473@gateway/web/irccloud.com/x-ykmxmpagkkixqlvz) has quit (K-Lined)
+2016-01-13 13:08:35	<--	acedrew (sid35614@gateway/web/irccloud.com/x-ojaphnvumedlpvdi) has quit (K-Lined)
+2016-01-13 13:08:36	<--	munhitsu_ (sid11351@gateway/web/irccloud.com/x-drbqlwaoerycmmng) has quit (K-Lined)
+2016-01-13 13:08:37	<--	robotwitharose__ (sid13717@gateway/web/irccloud.com/x-frpwimteuflerrmp) has quit (K-Lined)
+2016-01-13 13:08:37	<--	antonw (sid6807@gateway/web/irccloud.com/x-yrstasnqhipdxksr) has quit (K-Lined)
+2016-01-13 13:08:37	<--	karl__ (sid51810@gateway/web/irccloud.com/x-bkdwrtjtayoqetgb) has quit (K-Lined)
+2016-01-13 13:08:37	<--	gazarsgo (sid23260@gateway/web/irccloud.com/x-tliisuiivdcolocr) has quit (K-Lined)
+2016-01-13 13:08:37	<--	nickethier (sid7268@gateway/web/irccloud.com/x-cskfpzrqyadnlncp) has quit (K-Lined)
+2016-01-13 13:08:38	<--	addisonj (sid18502@gateway/web/irccloud.com/x-jcqksekcnvktanmy) has quit (K-Lined)
+2016-01-13 13:08:38	<--	sagarC (sid13314@gateway/web/irccloud.com/x-tavzqvhlkhazazxk) has quit (K-Lined)
+2016-01-13 13:08:39	<--	technovangelist (sid43869@gateway/web/irccloud.com/x-toideyezoawwsbgz) has quit (K-Lined)
+2016-01-13 13:09:50	-->	piavlo (~kvirc@p11811120.orange.net.il) has joined #graphite
+2016-01-13 13:10:13	<--	piavlo (~kvirc@p11811120.orange.net.il) has quit (Read error: Connection reset by peer)
+2016-01-13 13:10:25	-->	jmcc______ (sid32445@gateway/web/irccloud.com/x-fzmkixhachjpwzek) has joined #graphite
+2016-01-13 13:10:30	-->	munhitsu_ (sid11351@gateway/web/irccloud.com/x-ejsnxzhdxatacxip) has joined #graphite
+2016-01-13 13:10:41	-->	piavlo (~kvirc@p11811120.orange.net.il) has joined #graphite
+2016-01-13 13:11:22	<--	piavlo (~kvirc@p11811120.orange.net.il) has quit (Read error: Connection reset by peer)
+2016-01-13 13:11:42	-->	piavlo (~kvirc@p11811120.orange.net.il) has joined #graphite
+2016-01-13 13:11:54	<--	piavlo (~kvirc@p11811120.orange.net.il) has quit (Read error: Connection reset by peer)
+2016-01-13 13:12:20	-->	jeremy_carroll (sid5222@gateway/web/irccloud.com/x-nsgepxfkwaxwwcqa) has joined #graphite
+2016-01-13 13:12:22	-->	piavlo (~kvirc@p11811120.orange.net.il) has joined #graphite
+2016-01-13 13:14:22	-->	gdusbabek (sid831@gateway/web/irccloud.com/x-qpdpifnckrqurnwo) has joined #graphite
+2016-01-13 13:15:57	-->	jayo_ (sid24686@gateway/web/irccloud.com/x-abztpjopkadfapye) has joined #graphite
+2016-01-13 13:17:09	-->	countryHick (sid44237@gateway/web/irccloud.com/x-mwurdeucavqsipeq) has joined #graphite
+2016-01-13 13:17:42	-->	webframp (sid5238@gateway/web/irccloud.com/x-mwmskzxbvqkmwasl) has joined #graphite
+2016-01-13 13:17:53	-->	addisonj (sid18502@gateway/web/irccloud.com/x-zaxxefohuyahpyvo) has joined #graphite
+2016-01-13 13:17:55	-->	mrtnsu (sid16403@gateway/web/irccloud.com/x-ptgzgsporhcgywmc) has joined #graphite
+2016-01-13 13:18:01	-->	addshore (sid10233@wikimedia/addshore) has joined #graphite
+2016-01-13 13:18:37	-->	antonw (sid6807@gateway/web/irccloud.com/x-komxjmoypkpszgoi) has joined #graphite
+2016-01-13 13:18:44	-->	nickethier (sid7268@gateway/web/irccloud.com/x-pfwhzwjszwieajnv) has joined #graphite
+2016-01-13 13:18:54	-->	karl__ (sid51810@gateway/web/irccloud.com/x-tdcntblvcpyoqdab) has joined #graphite
+2016-01-13 13:18:56	-->	Xorlev (sid226@gateway/web/irccloud.com/x-qnrsaaptayurkfud) has joined #graphite
+2016-01-13 13:19:14	-->	dch (sid1310@apache/committer/dch) has joined #graphite
+2016-01-13 13:19:26	-->	[diecast] (sid320@gateway/web/irccloud.com/x-wwspqzuomqgkkmrx) has joined #graphite
+2016-01-13 13:19:36	-->	davewongillies (sid451@gateway/web/irccloud.com/x-uzipvnlmuyechuuo) has joined #graphite
+2016-01-13 13:19:38	-->	ovf (sid19068@gateway/web/irccloud.com/x-dggwtqojemdewcxs) has joined #graphite
+2016-01-13 13:19:45	-->	MPSimmons (sid11486@lopsa/member/mpsimmons) has joined #graphite
+2016-01-13 13:19:54	-->	gazarsgo (sid23260@gateway/web/irccloud.com/x-vgqewpeolhfsauvf) has joined #graphite
+2016-01-13 13:20:03	-->	dgryski (uid38143@gateway/web/irccloud.com/x-bgawldxrgiedliii) has joined #graphite
+2016-01-13 13:20:13	-->	benchen_____ (sid27853@gateway/web/irccloud.com/x-tjgainufljdtjonx) has joined #graphite
+2016-01-13 13:20:55	-->	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has joined #graphite
+2016-01-13 13:21:16	-->	randeffects_ (sid34533@gateway/web/irccloud.com/x-yxmgcqhfaggngevh) has joined #graphite
+2016-01-13 13:21:52	-->	cliles (~cliles@ip70-189-165-7.lv.lv.cox.net) has joined #graphite
+2016-01-13 13:24:02	-->	sagarC (sid13314@gateway/web/irccloud.com/x-khttnqmixnbpgcjp) has joined #graphite
+2016-01-13 13:24:03	-->	robotwitharose__ (sid13717@gateway/web/irccloud.com/x-evlkmlfoavmcpdpv) has joined #graphite
+2016-01-13 13:24:14	-->	davidascher (sid14473@gateway/web/irccloud.com/x-hzrfwijfvrmljwny) has joined #graphite
+2016-01-13 13:26:53	-->	acedrew (sid35614@gateway/web/irccloud.com/x-mdvskvygjchimqbo) has joined #graphite
+2016-01-13 13:28:19	-->	frankS2 (sid22710@gateway/web/irccloud.com/x-wcisyernjdfnkqyw) has joined #graphite
+2016-01-13 13:28:21	-->	technovangelist (sid43869@gateway/web/irccloud.com/x-auiisklzashzcstf) has joined #graphite
+2016-01-13 13:31:10	-->	AdamMeghji (sid40085@gateway/web/irccloud.com/x-hgvclxpqswkvyhaw) has joined #graphite
+2016-01-13 13:45:41	<--	piavlo (~kvirc@p11811120.orange.net.il) has quit (Ping timeout: 246 seconds)
+2016-01-13 13:55:19	-->	jbehrends (~jbehrends@74.121.28.6) has joined #graphite
+2016-01-13 13:57:29	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-13 14:18:35	<--	zupzupper (~Zup@104.131.128.23) has quit (Ping timeout: 240 seconds)
+2016-01-13 14:21:50	-->	zupzupper (~Zup@104.131.128.23) has joined #graphite
+2016-01-13 14:44:05	-->	programm1 (~jefferya@unaffiliated/programmerq) has joined #graphite
+2016-01-13 14:46:35	<--	programmerq (~jefferya@unaffiliated/programmerq) has quit (Ping timeout: 246 seconds)
+2016-01-13 14:49:05	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-13 14:58:44	-->	piavlo (~kvirc@bzq-79-179-171-233.red.bezeqint.net) has joined #graphite
+2016-01-13 14:59:30	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 15:01:16	<--	programm1 (~jefferya@unaffiliated/programmerq) has quit (Ping timeout: 256 seconds)
+2016-01-13 15:02:26	-->	programm1 (~jefferya@unaffiliated/programmerq) has joined #graphite
+2016-01-13 15:03:30	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-13 15:05:42	<--	tazz_ (~gaurav@triband-mum-120.60.156.75.mtnl.net.in) has quit (Read error: Connection reset by peer)
+2016-01-13 15:06:04	<--	dev1x (~rfelix@93.102.89.209.rev.optimus.pt) has quit (Ping timeout: 250 seconds)
+2016-01-13 15:07:41	-->	Eccentricson (8fc04704@gateway/web/freenode/ip.143.192.71.4) has joined #graphite
+2016-01-13 15:08:21	Eccentricson	Working on getting Sensu and Graphite/Grafana tied together.  I got it all working, only issue is the client is popping up in Graphite as graphite-a.  I found a few documents, but were a bit old.  Reading through the docs, I'm not finding too much unfortunately.  Anyone have an idea where I can find a document on getting the hostname sent to Graphite?
+2016-01-13 15:09:29	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-13 15:14:01	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 15:14:22	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 15:21:42	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 15:22:01	@jdixon	Eccentricson: I assume you're referring to the carbon metrics?
+2016-01-13 15:22:54	Eccentricson	@jdixon - yes sir
+2016-01-13 15:23:00	ℹ 	programm1 is now known as programmerq
+2016-01-13 15:23:00	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 15:28:59	<--	gunkaaa (~gunkaaa@2403:2f00:f002:900:906f:3fe2:93f8:18db) has quit (Ping timeout: 264 seconds)
+2016-01-13 15:33:41	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 15:35:28	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 15:49:58	@jdixon	Eccentricson: no, it's going to use the hostname and append the carbon-agent instance/index (in this case, "a") to it.
+2016-01-13 15:50:56	Eccentricson	By default?  My sensu client name is sensu-client (testing), and the hostname is set to sensu-client but it's appearing in Graphite as graphite-a.  Do I have to configure Carbon to process it?
+2016-01-13 16:01:06	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 16:01:42	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 16:07:37	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-13 16:10:37	-->	gheegh (~textual@pool-96-255-20-180.washdc.ftas.verizon.net) has joined #graphite
+2016-01-13 16:12:14	-->	kaotiko (~0xFF@unaffiliated/kaotiko) has joined #graphite
+2016-01-13 16:13:04	<--	Eccentricson (8fc04704@gateway/web/freenode/ip.143.192.71.4) has quit (Ping timeout: 252 seconds)
+2016-01-13 16:17:20	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-13 16:22:12	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 16:23:50	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 16:30:24	@jdixon	there is no "default" there is simply the way it is. there's no point trying to rename the carbon services aside from `hostname` or setting your index manually.
+2016-01-13 16:30:36	@jdixon	I don't grok "Do I have to configure Carbon to process it?"
+2016-01-13 16:37:14	<--	zupzupper (~Zup@104.131.128.23) has quit (Ping timeout: 245 seconds)
+2016-01-13 16:39:44	-->	zupzupper (~Zup@104.131.128.23) has joined #graphite
+2016-01-13 16:40:13	<--	linkedinyou (~linkediny@unaffiliated/linkedinyou) has quit (Quit: linkedinyou)
+2016-01-13 16:40:35	<--	dch (sid1310@apache/committer/dch) has left #graphite
+2016-01-13 16:51:09	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 16:53:08	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 17:00:09	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has quit (Remote host closed the connection)
+2016-01-13 17:00:35	<--	N-Mi (~nicolas@calvix/staff/N-Mi) has quit (Ping timeout: 260 seconds)
+2016-01-13 17:01:46	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 17:02:21	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 17:19:29	-->	trent_ (~trent@202.7.176.58) has joined #graphite
+2016-01-13 17:20:39	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 17:24:34	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 17:31:37	-->	N-Mi (~nicolas@2001:470:1f13:b10:c685:8ff:fe91:2cb0) has joined #graphite
+2016-01-13 17:31:37	<--	N-Mi (~nicolas@2001:470:1f13:b10:c685:8ff:fe91:2cb0) has quit (Changing host)
+2016-01-13 17:31:37	-->	N-Mi (~nicolas@calvix/staff/N-Mi) has joined #graphite
+2016-01-13 17:33:14	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 17:35:29	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 17:40:16	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 17:42:17	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 17:55:41	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 17:59:37	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:03:01	<--	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has quit (Quit: leaving)
+2016-01-13 18:04:36	squarebracket	If I make a PR against the 0.9 branch, will it be released as a new version?
+2016-01-13 18:05:35	squarebracket	It would be sweet if I didn't have to hack the user/profile race condition in 0.9.15
+2016-01-13 18:07:41	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 18:09:30	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:15:21	<--	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has quit (Quit: szhem)
+2016-01-13 18:15:22	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 18:17:45	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:19:39	-->	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has joined #graphite
+2016-01-13 18:19:47	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 18:22:44	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:24:00	<--	RobertBirnie (~RobertBir@157.22.52.100) has quit (Ping timeout: 260 seconds)
+2016-01-13 18:25:09	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-13 18:26:02	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Quit: Leaving.)
+2016-01-13 18:26:52	-->	RobertBirnie (~RobertBir@157.22.52.193) has joined #graphite
+2016-01-13 18:32:35	-->	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:32:39	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 18:35:40	-->	ptc (~textual@ec2-52-3-88-136.compute-1.amazonaws.com) has joined #graphite
+2016-01-13 18:37:12	<--	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 18:39:28	-->	gunkaaa (~gunkaaa@please.stfu.net.nz) has joined #graphite
+2016-01-13 18:39:45	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:45:03	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 18:45:49	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:47:08	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-13 18:47:31	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-13 18:52:47	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 18:53:19	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:59:37	-->	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 18:59:39	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 19:02:53	<--	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 19:51:56	ℹ 	irc: disconnected from server
+2016-01-13 19:52:21	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-13 19:52:21	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-13 19:52:21	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-13 19:52:21	ℹ 	Channel #graphite: 181 nicks (1 op, 0 voices, 180 normals)
+2016-01-13 19:52:21	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-13 19:54:33	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 19:55:19	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 19:57:17	<--	jbehrends (~jbehrends@74.121.28.6) has quit (Quit: ZZZzzz…)
+2016-01-13 20:01:21	-->	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:01:27	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:02:05	<--	RobertBirnie (~RobertBir@157.22.52.193) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-01-13 20:07:17	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:07:28	<--	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:08:04	<--	Mike11339 (~mike11339@bur-inet-pa-3.disney.com) has quit (Quit: Leaving.)
+2016-01-13 20:11:48	<--	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has quit (Remote host closed the connection)
+2016-01-13 20:12:23	-->	productiondba (~productio@host86-144-253-234.range86-144.btcentralplus.com) has joined #graphite
+2016-01-13 20:13:28	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:14:05	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:17:36	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:20:37	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:22:54	-->	dev1x (~rfelix@217.129.148.70) has joined #graphite
+2016-01-13 20:23:43	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:27:22	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:32:22	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:33:33	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:38:46	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:40:25	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:45:49	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:47:48	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 20:58:25	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 20:59:52	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 21:01:08	<--	dev1x (~rfelix@217.129.148.70) has quit (Ping timeout: 276 seconds)
+2016-01-13 21:05:52	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 21:07:37	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 21:13:48	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 21:14:02	<--	dgryski (uid38143@gateway/web/irccloud.com/x-bgawldxrgiedliii) has quit (Quit: Connection closed for inactivity)
+2016-01-13 21:14:48	-->	ptc (~textual@ec2-52-3-88-136.compute-1.amazonaws.com) has joined #graphite
+2016-01-13 21:14:55	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 21:22:40	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 21:22:41	-->	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 21:24:31	-->	dev1x (~rfelix@217.129.148.70) has joined #graphite
+2016-01-13 21:26:56	<--	Zonywhoo_ (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Read error: Connection reset by peer)
+2016-01-13 21:27:50	-->	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has joined #graphite
+2016-01-13 21:28:49	<--	Zonywhoop (~Zonywhoop@71-12-206-69.dhcp.leds.al.charter.com) has quit (Client Quit)
+2016-01-13 21:29:19	<--	dev1x (~rfelix@217.129.148.70) has quit (Ping timeout: 265 seconds)
+2016-01-13 21:52:49	-->	psieklFH (psiekl@wombat.eu.org) has joined #graphite
+2016-01-13 21:52:54	<--	brutasse (~brutasse@exo.bruno.im) has quit (Ping timeout: 246 seconds)
+2016-01-13 21:52:54	<--	piavlo (~kvirc@bzq-79-179-171-233.red.bezeqint.net) has quit (Ping timeout: 246 seconds)
+2016-01-13 21:52:55	<--	psiekl (psiekl@wombat.eu.org) has quit (Read error: Connection reset by peer)
+2016-01-13 21:52:56	<--	samb1 (~samb1@turbomolecules.com) has quit (Ping timeout: 246 seconds)
+2016-01-13 21:52:56	<--	asyd (~asyd@gendo.asyd.net) has quit (Ping timeout: 246 seconds)
+2016-01-13 21:52:59	-->	brutasse- (~brutasse@exo.bruno.im) has joined #graphite
+2016-01-13 21:53:01	-->	asyd (~asyd@gendo.asyd.net) has joined #graphite
+2016-01-13 21:53:27	-->	samb1 (~samb1@2a01:7c8:aab0:1a7:39ec:df27:fcb2:8905) has joined #graphite
+2016-01-13 21:53:49	-->	piavlo (~kvirc@bzq-79-179-171-233.red.bezeqint.net) has joined #graphite
+2016-01-13 21:57:14	-->	Winter_ (~textual@60.220.230.16) has joined #graphite
+2016-01-13 22:25:59	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:7445:463d:bbfa:4d4b) has joined #graphite
+2016-01-13 22:56:40	-->	RobertBirnie (~RobertBir@c-98-248-74-152.hsd1.ca.comcast.net) has joined #graphite
+2016-01-13 22:59:54	-->	Mike11339 (~mike11339@cpe-45-50-242-164.socal.res.rr.com) has joined #graphite
+2016-01-13 23:46:00	<--	ptc (~textual@ec2-52-3-88-136.compute-1.amazonaws.com) has quit (Ping timeout: 256 seconds)
+2016-01-14 00:09:00	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:7445:463d:bbfa:4d4b) has quit (Quit: ZZZzzz…)
+2016-01-14 00:17:02	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:844f:6c58:de5d:ef3e) has joined #graphite
+2016-01-14 00:40:33	-->	dev1x (~rfelix@217.129.148.70) has joined #graphite
+2016-01-14 00:44:46	<--	dev1x (~rfelix@217.129.148.70) has quit (Ping timeout: 240 seconds)
+2016-01-14 00:50:45	<--	mowntan (~mowntan@108.162.174.77) has quit (Ping timeout: 260 seconds)
+2016-01-14 00:54:16	<--	Winter_ (~textual@60.220.230.16) has quit (Quit: Textual IRC Client: www.textualapp.com)
+2016-01-14 00:57:18	-->	gasbakid (~gasbakid@105.104.182.63) has joined #graphite
+2016-01-14 01:00:00	-->	anmol (~anmol@122.167.202.131) has joined #graphite
+2016-01-14 01:02:18	<--	gasbakid (~gasbakid@105.104.182.63) has quit (Max SendQ exceeded)
+2016-01-14 01:04:48	-->	gasbakid (~gasbakid@105.104.182.63) has joined #graphite
+2016-01-14 01:08:15	<--	RobertBirnie (~RobertBir@c-98-248-74-152.hsd1.ca.comcast.net) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-01-14 01:10:03	<--	gasbakid (~gasbakid@105.104.182.63) has quit (Excess Flood)
+2016-01-14 01:10:07	-->	SkyRocknRoll_ (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-14 01:20:12	ℹ 	irc: disconnected from server
+2016-01-14 01:20:39	-->	squarebracket (~chuck@207.253.7.190) has joined #graphite
+2016-01-14 01:20:39	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-14 01:20:39	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-14 01:20:40	ℹ 	Channel #graphite: 180 nicks (1 op, 0 voices, 179 normals)
+2016-01-14 01:20:40	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-14 01:25:10	<--	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has quit (Quit: szhem)
+2016-01-14 01:46:25	-->	mowntan (~mowntan@108-162-174-77.cable.teksavvy.com) has joined #graphite
+2016-01-14 01:50:45	-->	trent__ (~trent@202.7.176.58) has joined #graphite
+2016-01-14 01:54:56	<--	trent_ (~trent@202.7.176.58) has quit (Ping timeout: 276 seconds)
+2016-01-14 01:55:35	<--	trent__ (~trent@202.7.176.58) has quit (Ping timeout: 276 seconds)
+2016-01-14 08:24:44	ℹ 	irc: disconnected from server
+2016-01-14 10:07:43	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-01-14 10:07:43	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-01-14 10:07:43	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-01-14 10:07:43	ℹ 	Channel #graphite: 183 nicks (1 op, 0 voices, 182 normals)
+2016-01-14 10:07:43	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-01-14 10:07:52	<--	matejz (~matejz@141.255.254.208) has quit (Quit: matejz)
+2016-01-14 10:08:56	-->	N-Mi (~nicolas@2001:470:1f13:b10:c685:8ff:fe91:2cb0) has joined #graphite
+2016-01-14 10:08:56	<--	N-Mi (~nicolas@2001:470:1f13:b10:c685:8ff:fe91:2cb0) has quit (Changing host)
+2016-01-14 10:08:56	-->	N-Mi (~nicolas@calvix/staff/N-Mi) has joined #graphite
+2016-01-14 10:09:20	<--	ptc (~textual@ec2-52-0-158-42.compute-1.amazonaws.com) has quit (Ping timeout: 256 seconds)
+2016-01-14 10:10:21	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-14 10:22:04	-->	zzzz (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has joined #graphite
+2016-01-14 10:25:59	<--	Zathraz (~ZZZZZZ@D57E0C33.static.ziggozakelijk.nl) has quit (Ping timeout: 264 seconds)
+2016-01-14 10:26:54	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-14 10:31:06	-->	coredump (~coredump|@38.88.32.98) has joined #graphite
+2016-01-14 10:33:03	-->	ChrisShort (~ChrisShor@152.16.191.34) has joined #graphite
+2016-01-14 10:37:49	-->	cshort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-14 10:41:08	<--	ChrisShort (~ChrisShor@152.16.191.34) has quit (Ping timeout: 246 seconds)
+2016-01-14 10:49:30	ℹ 	cshort is now known as ChrisShort
+2016-01-14 10:57:50	-->	Mike11339 (~mike11339@bur-inet-pa-3.disney.com) has joined #graphite
+2016-01-14 11:25:48	-->	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has joined #graphite
+2016-01-14 11:48:28	-->	alemeno22 (~alex@199.116.72.250) has joined #graphite
+2016-01-14 11:52:17	-->	Naresh (uid2823@gateway/web/irccloud.com/x-yunhxhgtandziwwb) has joined #graphite
+2016-01-14 12:06:36	-->	cla (~leggenda@185.53.224.212) has joined #graphite
+2016-01-14 12:09:12	cla	how is possible that if I zoom for last 5min it show me the peak 40 value and then when I check for last 7 days the peak drop to 20 ?
+2016-01-14 12:09:13	cla	mmm
+2016-01-14 12:20:05	jY	cla it has to average chunks of data when you zoom out
+2016-01-14 12:20:18	jY	its not plotting every point when you zoom out
+2016-01-14 12:20:38	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-14 12:24:56	-->	RobertBirnie (~RobertBir@157.22.52.100) has joined #graphite
+2016-01-14 12:28:28	cla	how can I plotting all of them ?
+2016-01-14 12:33:40	<--	losh (~losh@nat-01-06.vty.dailymotion.com) has quit (Quit: Leaving)
+2016-01-14 12:34:24	<--	zzzz (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 256 seconds)
+2016-01-14 13:03:25	<--	N-Mi (~nicolas@calvix/staff/N-Mi) has quit (Ping timeout: 250 seconds)
+2016-01-14 13:07:29	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-14 13:09:44	<--	alemeno22 (~alex@199.116.72.250) has quit (Quit: alemeno22)
+2016-01-14 13:10:13	-->	alemeno22 (~alex@199.116.72.250) has joined #graphite
+2016-01-14 13:11:34	<--	cliluw (~cliluw@unaffiliated/cliluw) has quit (Ping timeout: 272 seconds)
+2016-01-14 13:12:47	-->	cliluw (~cliluw@unaffiliated/cliluw) has joined #graphite
+2016-01-14 13:19:59	<--	zerthimon (~zerth@infra01.r24-admin.ru) has quit (Ping timeout: 264 seconds)
+2016-01-14 13:22:16	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-14 13:34:02	<--	dgryski (uid38143@gateway/web/irccloud.com/x-pudllsxyjyjmdlyk) has quit (Quit: Connection closed for inactivity)
+2016-01-14 14:09:18	-->	tazz (~gaurav@triband-mum-120.60.128.19.mtnl.net.in) has joined #graphite
+2016-01-14 14:14:50	beagleGuy	starting graphite cluster expansion today... thinking of going from 4 i2.2xl's to 10 c4.2xl w/ 4TB EBS  GP2 volume
+2016-01-14 14:16:00	beagleGuy	EBS volume seems to be holding steady https://www.dropbox.com/s/8t5whu8jmrd8ygm/Screenshot%202016-01-14%2011.15.28.png?dl=0 in testing
+2016-01-14 14:18:46	beagleGuy	err, 10 c4.xl
+2016-01-14 14:18:54	beagleGuy	for storage nodes
+2016-01-14 14:44:13	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Quit: Leaving.)
+2016-01-14 14:56:27	-->	zupzupper (~Zup@104.131.128.23) has joined #graphite
+2016-01-14 15:01:16	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-14 15:03:29	<--	adaam (uid27983@gateway/web/irccloud.com/x-cdlobinpquwgdozb) has quit (Quit: Connection closed for inactivity)
+2016-01-14 15:08:03	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-14 15:10:05	<--	coredump (~coredump|@38.88.32.98) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-14 15:14:26	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-14 15:16:14	-->	coredump (~coredump|@38.88.32.98) has joined #graphite
+2016-01-14 15:17:58	-->	ChrisShort (~ChrisShor@152.16.189.157) has joined #graphite
+2016-01-14 15:19:38	<--	ChrisShort (~ChrisShor@152.16.189.157) has quit (Read error: Connection reset by peer)
+2016-01-14 15:20:15	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-14 15:23:01	<--	Naresh (uid2823@gateway/web/irccloud.com/x-yunhxhgtandziwwb) has quit (Quit: Connection closed for inactivity)
+2016-01-14 15:24:58	<--	dev1x (~rfelix@93.102.89.209.rev.optimus.pt) has quit (Ping timeout: 256 seconds)
+2016-01-14 15:40:58	-->	cshort (~ChrisShor@152.16.189.157) has joined #graphite
+2016-01-14 15:41:24	<--	RobertBirnie (~RobertBir@157.22.52.100) has quit (Ping timeout: 245 seconds)
+2016-01-14 15:41:43	<--	phreakocious (~phreakoci@recalcitrant.phreakocious.net) has quit (Ping timeout: 260 seconds)
+2016-01-14 15:42:10	<--	theatrus (~atrus@fe3.stackworks.net) has quit (Ping timeout: 260 seconds)
+2016-01-14 15:42:46	<--	endianX (~x@173.255.242.197) has quit (Ping timeout: 240 seconds)
+2016-01-14 15:42:56	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Ping timeout: 272 seconds)
+2016-01-14 15:42:56	<--	drawks (~drawks@173.255.254.223) has quit (Ping timeout: 272 seconds)
+2016-01-14 15:44:44	-->	RobertBirnie (~RobertBir@157.22.52.100) has joined #graphite
+2016-01-14 15:47:57	-->	phreakocious (~phreakoci@recalcitrant.phreakocious.net) has joined #graphite
+2016-01-14 15:48:20	-->	theatrus (~atrus@fe3.stackworks.net) has joined #graphite
+2016-01-14 15:48:49	<--	cshort (~ChrisShor@152.16.189.157) has quit (Read error: Connection reset by peer)
+2016-01-14 15:49:15	-->	endianX (~x@173.255.242.197) has joined #graphite
+2016-01-14 15:49:26	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-14 15:52:07	-->	drawks (~drawks@173.255.254.223) has joined #graphite
+2016-01-14 15:54:28	ℹ 	kaotiko is now known as sinkmanu
+2016-01-14 15:54:49	<--	sinkmanu (~0xFF@unaffiliated/kaotiko) has quit (Changing host)
+2016-01-14 15:54:49	-->	sinkmanu (~0xFF@unaffiliated/sinkmanu) has joined #graphite
+2016-01-14 16:00:30	<--	luch0 (~luch0@OL119-36.fibertel.com.ar) has left #graphite ("Ex-Chat")
+2016-01-14 16:06:37	<--	xyn (~halcyon@ip-173-201-191-201.ip.secureserver.net) has quit (Changing host)
+2016-01-14 16:06:37	-->	xyn (~halcyon@pdpc/supporter/professional/xyn) has joined #graphite
+2016-01-14 16:06:46	<--	anmol (~anmol@122.167.202.131) has quit (Ping timeout: 240 seconds)
+2016-01-14 16:23:01	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Read error: Connection reset by peer)
+2016-01-14 16:25:30	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-14 16:27:35	<--	phreakocious (~phreakoci@recalcitrant.phreakocious.net) has quit (Ping timeout: 240 seconds)
+2016-01-14 16:28:55	<--	theatrus (~atrus@fe3.stackworks.net) has quit (Ping timeout: 240 seconds)
+2016-01-14 16:29:11	-->	theatrus (~atrus@fe3.stackworks.net) has joined #graphite
+2016-01-14 16:29:58	-->	phreakocious (~phreakoci@recalcitrant.phreakocious.net) has joined #graphite
+2016-01-14 16:33:25	<--	RobertBirnie (~RobertBir@157.22.52.100) has quit (Ping timeout: 260 seconds)
+2016-01-14 16:34:19	<--	theatrus (~atrus@fe3.stackworks.net) has quit (Ping timeout: 245 seconds)
+2016-01-14 16:34:23	<--	drawks (~drawks@173.255.254.223) has quit (Ping timeout: 264 seconds)
+2016-01-14 16:40:30	-->	theatrus (~atrus@fe3.stackworks.net) has joined #graphite
+2016-01-14 16:44:37	-->	drawks (~drawks@173.255.254.223) has joined #graphite
+2016-01-14 16:48:23	-->	RobertBirnie (~RobertBir@157.22.52.100) has joined #graphite
+2016-01-14 16:58:37	<--	coredump (~coredump|@38.88.32.98) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-14 16:59:05	ℹ 	krphop_ is now known as krphop
+2016-01-14 17:08:35	-->	dev1x (~rfelix@217.129.148.70) has joined #graphite
+2016-01-14 17:16:49	piotrp	cla: there are multiple aggregations per .wsp file
+2016-01-14 17:17:03	piotrp	if you select a larger time range you see aggregated values
+2016-01-14 17:18:00	piotrp	you can configure the aggregation function in storage-aggregations.conf, if you choose max instead of avg you will get 40 in both graphs
+2016-01-14 17:21:22	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-14 17:35:10	<--	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has quit (Quit: Leaving)
+2016-01-14 17:35:36	-->	trent__ (~trent@202.7.176.58) has joined #graphite
+2016-01-14 17:52:30	<--	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has quit (Quit: leaving)
+2016-01-14 18:04:09	<--	dev1x (~rfelix@217.129.148.70) has quit (Read error: Connection reset by peer)
+2016-01-14 18:06:48	<--	UICTamale (~joshua@104.218.249.10) has quit (Quit: Leaving.)
+2016-01-14 18:38:23	-->	z999 (6d438fea@gateway/web/freenode/ip.109.67.143.234) has joined #graphite
+2016-01-14 19:06:50	<--	z999 (6d438fea@gateway/web/freenode/ip.109.67.143.234) has quit (Quit: Page closed)
+2016-01-14 19:34:26	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 240 seconds)
+2016-01-14 19:37:34	<--	Mike11339 (~mike11339@bur-inet-pa-3.disney.com) has quit (Quit: Leaving.)
+2016-01-14 20:12:19	<--	alemeno22 (~alex@199.116.72.250) has quit (Quit: alemeno22)
+2016-01-14 20:18:27	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-14 20:18:28	<--	Chepra (~chepra@2001:41d0:8:c5b1::cafe:2) has quit (Ping timeout: 250 seconds)
+2016-01-14 20:20:17	<--	daks (~daks@peter.sietch-tabr.com) has quit (Ping timeout: 246 seconds)
+2016-01-14 20:22:52	-->	daks (~daks@peter.sietch-tabr.com) has joined #graphite
+2016-01-14 20:32:05	-->	Chepra (~chepra@2001:41d0:8:c5b1::cafe:2) has joined #graphite
+2016-01-14 20:44:24	<--	RobertBirnie (~RobertBir@157.22.52.100) has quit (Ping timeout: 272 seconds)
+2016-01-14 21:14:21	-->	RobertBirnie (~RobertBir@c-98-248-74-152.hsd1.ca.comcast.net) has joined #graphite
+2016-01-14 21:21:58	<--	RobertBirnie (~RobertBir@c-98-248-74-152.hsd1.ca.comcast.net) has quit (Ping timeout: 256 seconds)
+2016-01-14 21:24:30	-->	RobertBirnie (~RobertBir@c-98-248-74-152.hsd1.ca.comcast.net) has joined #graphite
+2016-01-14 21:43:30	<--	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has quit (Ping timeout: 256 seconds)
+2016-01-14 22:00:56	-->	anmol (~anmol@122.167.202.131) has joined #graphite
+2016-01-14 22:01:35	-->	tazz_ (~gaurav@triband-mum-120.60.170.151.mtnl.net.in) has joined #graphite
+2016-01-14 22:04:06	<--	tazz (~gaurav@triband-mum-120.60.128.19.mtnl.net.in) has quit (Ping timeout: 240 seconds)
+2016-01-14 22:07:04	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:7d31:a28:623a:e418) has joined #graphite
+2016-01-14 22:11:26	<--	anmol (~anmol@122.167.202.131) has quit (Ping timeout: 240 seconds)
+2016-01-14 22:16:14	<--	jab416171 (~jab416171@c-76-27-96-12.hsd1.ut.comcast.net) has quit (Ping timeout: 272 seconds)
+2016-01-14 22:28:04	-->	jab416171 (~jab416171@c-76-27-96-12.hsd1.ut.comcast.net) has joined #graphite
+2016-01-14 22:40:53	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:7d31:a28:623a:e418) has quit (Quit: ZZZzzz…)
+2016-01-14 23:04:37	-->	adaam (uid27983@gateway/web/irccloud.com/x-aaqekptkjvcjmmnw) has joined #graphite
+2016-01-14 23:47:04	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:2103:3cd8:ce07:4ec7) has joined #graphite
+2016-01-15 00:22:09	-->	Naresh (uid2823@gateway/web/irccloud.com/x-naikoqcwdbqmoqsb) has joined #graphite
+2016-01-15 00:55:23	-->	dgryski (uid38143@gateway/web/irccloud.com/x-zrnhbnwydizieccw) has joined #graphite
+2016-01-15 01:03:14	-->	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has joined #graphite
+2016-01-15 01:27:10	<--	Whoop (~Whoop@unaffiliated/whoop) has quit (Remote host closed the connection)
+2016-01-15 01:36:04	<--	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has quit (Quit: szhem)
+2016-01-15 01:39:14	<--	dene14 (~dene14@dene.tcm.by) has quit (Read error: Connection reset by peer)
+2016-01-15 01:39:36	-->	dene14 (~dene14@dene.tcm.by) has joined #graphite
+2016-01-15 02:16:41	<--	dene14 (~dene14@dene.tcm.by) has quit (Ping timeout: 246 seconds)
+2016-01-15 02:23:21	-->	dene14 (~dene14@dene.tcm.by) has joined #graphite
+2016-01-15 02:29:47	-->	kevferna_f (~IceChat9@131.228.182.253) has joined #graphite
+2016-01-15 02:35:04	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-15 02:39:57	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-15 02:39:57	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-15 02:42:10	<--	tazz_ (~gaurav@triband-mum-120.60.170.151.mtnl.net.in) has quit (Read error: Connection reset by peer)
+2016-01-15 02:51:48	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:2103:3cd8:ce07:4ec7) has quit (Quit: ZZZzzz…)
+2016-01-15 02:54:08	-->	anmol (~anmol@122.167.202.131) has joined #graphite
+2016-01-15 02:56:47	-->	deniszh (~deniszh@195.234.136.77) has joined #graphite
+2016-01-15 03:03:25	-->	maauso (~mauso@mauso.ddns.jazztel.es) has joined #graphite
+2016-01-15 03:04:02	<--	dgryski (uid38143@gateway/web/irccloud.com/x-zrnhbnwydizieccw) has quit (Quit: Connection closed for inactivity)
+2016-01-15 03:31:46	<--	maauso (~mauso@mauso.ddns.jazztel.es) has quit (Ping timeout: 240 seconds)
+2016-01-15 03:53:06	-->	zerthimon (~zerth@broadband-90-154-65-206.nationalcablenetworks.ru) has joined #graphite
+2016-01-15 04:05:11	-->	maauso (~mauso@213.229.153.46) has joined #graphite
+2016-01-15 04:45:53	-->	N-Mi (~nicolas@calvix/staff/N-Mi) has joined #graphite
+2016-01-15 04:47:44	<--	trent__ (~trent@202.7.176.58) has quit (Read error: Connection reset by peer)
+2016-01-15 04:48:02	-->	trent__ (~trent@202.7.176.58) has joined #graphite
+2016-01-15 04:51:32	-->	Whoop (~Whoop@unaffiliated/whoop) has joined #graphite
+2016-01-15 04:54:32	cla	piotrp: thank you for the hit , I m going to look now
+2016-01-15 05:42:11	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Ping timeout: 264 seconds)
+2016-01-15 05:44:35	<--	piavlo (~kvirc@bzq-79-179-171-233.red.bezeqint.net) has quit (Ping timeout: 246 seconds)
+2016-01-15 05:47:51	-->	piavlo (~kvirc@bzq-79-179-171-233.red.bezeqint.net) has joined #graphite
+2016-01-15 05:56:18	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-01-15 06:09:39	-->	bonzo (~mauso@213.229.153.46) has joined #graphite
+2016-01-15 06:10:10	<--	maauso (~mauso@213.229.153.46) has quit (Ping timeout: 260 seconds)
+2016-01-15 06:23:17	-->	nikitosiusis_ (~nikitos@2a00:14d0:0:60:1::1) has joined #graphite
+2016-01-15 06:27:30	<--	nikitosiusis (~nikitos@home.nikitosi.us) has quit (*.net *.split)
+2016-01-15 06:31:00	-->	dgryski (uid38143@gateway/web/irccloud.com/x-wzewniurvpfymleg) has joined #graphite
+2016-01-15 06:37:57	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-15 06:43:48	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-01-15 06:44:26	<--	rmnuvg (~rmnuvg@93.85.174.199) has quit (Ping timeout: 240 seconds)
+2016-01-15 06:46:31	-->	rmnuvg (~rmnuvg@93.84.0.81) has joined #graphite
+2016-01-15 06:53:01	<--	Naresh (uid2823@gateway/web/irccloud.com/x-naikoqcwdbqmoqsb) has quit (Quit: Connection closed for inactivity)
+2016-01-15 06:53:41	<--	bonzo (~mauso@213.229.153.46) has quit (Ping timeout: 276 seconds)
+2016-01-15 07:08:01	-->	bonzo (~mauso@213.229.153.46) has joined #graphite
+2016-01-15 07:59:29	-->	luch0 (~luch0@190.192.179.68) has joined #graphite
+2016-01-15 08:08:57	-->	zathras (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has joined #graphite
+2016-01-15 08:18:57	-->	ChrisShort (~ChrisShor@152.16.189.157) has joined #graphite
+2016-01-15 08:21:48	<--	ChrisShort (~ChrisShor@152.16.189.157) has quit (Read error: Connection reset by peer)
+2016-01-15 08:22:29	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-15 08:34:36	-->	cooktheryan (~rcook-dev@cpe-45-37-94-200.nc.res.rr.com) has joined #graphite
+2016-01-15 08:36:02	-->	GiLgAmEzH (~gilgamezh@unaffiliated/gilgamezh) has joined #graphite
+2016-01-15 09:10:45	<--	cla (~leggenda@185.53.224.212) has quit (Quit: Leaving.)
+2016-01-15 09:11:01	-->	cla (~leggenda@185.53.224.212) has joined #graphite
+2016-01-15 09:19:23	-->	trent_ (~trent@202.7.176.58) has joined #graphite
+2016-01-15 09:23:50	<--	trent__ (~trent@202.7.176.58) has quit (Ping timeout: 276 seconds)
+2016-01-15 09:24:29	<--	trent_ (~trent@202.7.176.58) has quit (Ping timeout: 276 seconds)
+2016-01-15 09:45:41	-->	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has joined #graphite
+2016-01-15 10:01:43	-->	coredump (~coredump|@c-98-204-28-96.hsd1.dc.comcast.net) has joined #graphite
+2016-01-15 10:10:22	-->	coredump|br (~coredump|@50.153.245.151) has joined #graphite
+2016-01-15 10:10:22	<--	coredump (~coredump|@c-98-204-28-96.hsd1.dc.comcast.net) has quit (Ping timeout: 256 seconds)
+2016-01-15 10:11:45	-->	Mike11339 (~mike11339@cpe-45-50-242-164.socal.res.rr.com) has joined #graphite
+2016-01-15 10:13:15	<--	ChrisShort (~ChrisShor@152.16.191.70) has quit (Ping timeout: 240 seconds)
+2016-01-15 10:14:13	-->	ChrisShort (~ChrisShor@152.16.191.70) has joined #graphite
+2016-01-15 10:21:30	-->	conscience (~conscienc@208.8.94.126) has joined #graphite
+2016-01-15 10:31:58	-->	pingec (~pingo@93-103-23-41.dynamic.t-2.net) has joined #graphite
+2016-01-15 10:33:00	<--	pingo (~pingo@93-103-23-41.dynamic.t-2.net) has quit (Ping timeout: 250 seconds)
+2016-01-15 10:39:52	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-01-15 10:45:37	<--	kevferna_f (~IceChat9@131.228.182.253) has quit (Quit: Relax, its only ONES and ZEROS!)
+2016-01-15 10:47:26	-->	UICTamale (~joshua@104.218.249.10) has joined #graphite
+2016-01-15 11:03:05	<--	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has quit (Remote host closed the connection)
+2016-01-15 11:35:39	-->	alemeno22 (~alex@c-50-184-54-49.hsd1.ca.comcast.net) has joined #graphite
+2016-01-15 11:48:44	<--	coredump|br (~coredump|@50.153.245.151) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-15 11:56:18	-->	coredump (~coredump|@50.153.245.151) has joined #graphite
+2016-01-15 11:58:32	<--	anmol (~anmol@122.167.202.131) has quit (Ping timeout: 276 seconds)
+2016-01-15 12:14:36	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:2103:3cd8:ce07:4ec7) has joined #graphite
+2016-01-15 12:16:09	<--	RobertBirnie (~RobertBir@c-98-248-74-152.hsd1.ca.comcast.net) has quit (Quit: My MacBook Pro has gone to sleep. ZZZzzz…)
+2016-01-15 12:32:22	-->	Zathraz (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has joined #graphite
+2016-01-15 12:33:34	-->	RobertBirnie (~RobertBir@157.22.52.100) has joined #graphite
+2016-01-15 12:34:20	<--	zathras (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 250 seconds)
+2016-01-15 12:47:06	-->	EZtheOG (~EZtheOG@152.179.55.78) has joined #graphite
+2016-01-15 12:53:50	<--	Zathraz (~ZZZZZZ@a83-163-198-186.adsl.xs4all.nl) has quit (Ping timeout: 250 seconds)
+2016-01-15 13:00:05	<--	deniszh (~deniszh@195.234.136.77) has quit (Quit: Leaving.)
+2016-01-15 13:09:23	<--	cla (~leggenda@185.53.224.212) has quit (Ping timeout: 276 seconds)
+2016-01-15 13:10:02	<--	bonzo (~mauso@213.229.153.46) has quit (Quit: Konversation terminated!)
+2016-01-15 13:10:33	<--	coredump (~coredump|@50.153.245.151) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-01-15 13:14:30	-->	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:f8b5:74e4:2389:da2b) has joined #graphite
+2016-01-15 13:17:40	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:2103:3cd8:ce07:4ec7) has quit (Ping timeout: 260 seconds)
+2016-01-15 13:19:32	-->	linkedinyou (~linkediny@unaffiliated/linkedinyou) has joined #graphite
+2016-01-15 13:21:33	-->	szhem (~Miranda@broadband-5-228-6-55.nationalcablenetworks.ru) has joined #graphite
+2016-01-15 13:27:51	<--	linkedinyou (~linkediny@unaffiliated/linkedinyou) has quit (Quit: linkedinyou)
+2016-01-15 13:29:40	-->	linkedinyou (~linkediny@unaffiliated/linkedinyou) has joined #graphite
+2016-01-15 13:44:53	-->	jbehrends (~jbehrends@2601:1c1:c100:21d1:b15f:e43e:4216:61d6) has joined #graphite
+2016-01-15 13:44:53	<--	jbehrends (~jbehrends@2601:1c1:c100:21d1:b15f:e43e:4216:61d6) has quit (Client Quit)
+2016-01-15 13:45:51	-->	matejz (~matejz@element.planetq.org) has joined #graphite
+2016-01-15 13:46:51	-->	coredump (~coredump|@50.153.242.158) has joined #graphite
+2016-01-15 13:47:15	<--	jbehrend_ (~jbehrends@2601:1c1:c100:21d1:f8b5:74e4:2389:da2b) has quit (Ping timeout: 240 seconds)
+2016-01-15 13:53:34	-->	coredump|br (~coredump|@c-73-163-164-87.hsd1.dc.comcast.net) has joined #graphite
+2016-01-15 13:54:50	<--	coredump (~coredump|@50.153.242.158) has quit (Ping timeout: 272 seconds)
+2016-01-15 13:59:19	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-02-22 16:58:23	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-02-22 16:58:23	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-02-22 16:58:23	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-02-22 16:58:23	ℹ 	Channel #graphite: 186 nicks (0 ops, 0 voices, 186 normals)
+2016-02-22 16:58:25	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-02-22 17:14:39	-->	deniszh (~deniszh@546A8E46.cm-12-3c.dynamic.ziggo.nl) has joined #graphite
+2016-02-22 17:16:45	<--	deniszh1 (~deniszh@195.234.136.80) has quit (Ping timeout: 276 seconds)
+2016-02-22 17:18:48	-->	bmhatfield (~From_the_@192.133.78.132) has joined #graphite
+2016-02-22 17:22:39	-->	kr_ (53dfb87c@gateway/web/freenode/ip.83.223.184.124) has joined #graphite
+2016-02-22 17:22:44	kr_	hi
+2016-02-22 17:23:23	kr_	any1 can help me with an opentsdb finder for graphite? is there any 0.1 release available?
+2016-02-22 17:31:50	kr_	brutasse ?
+2016-02-22 17:32:36	-->	beagleGuy (~beagleGuy@54.191.133.214) has joined #graphite
+2016-02-22 17:34:07	<--	deniszh (~deniszh@546A8E46.cm-12-3c.dynamic.ziggo.nl) has quit (Quit: Leaving.)
+2016-02-22 17:39:04	-->	Adis (Adis@as54.tz.dlp69.bih.net.ba) has joined #graphite
+2016-02-22 17:39:07	Adis	heloooooo
+2016-02-22 17:39:20	<--	Adis (Adis@as54.tz.dlp69.bih.net.ba) has quit
+2016-02-22 17:45:09	-->	jbehrends (~jbehrends@2601:602:8402:6701:d1f2:df69:7844:6134) has joined #graphite
+2016-02-22 17:48:29	<--	bmhatfield (~From_the_@192.133.78.132) has quit (Ping timeout: 240 seconds)
+2016-02-22 17:53:08	<--	jbehrends (~jbehrends@2601:602:8402:6701:d1f2:df69:7844:6134) has quit (Quit: ZZZzzz…)
+2016-02-22 17:54:30	-->	jbehrends (~jbehrends@2601:602:8402:6701:6c09:26a1:2e19:ea9c) has joined #graphite
+2016-02-22 17:57:48	<--	jbehrends (~jbehrends@2601:602:8402:6701:6c09:26a1:2e19:ea9c) has quit (Client Quit)
+2016-02-22 18:19:02	squarebracket	I'm using graphite 0.9.15 and trying to render SVG, but it's giving me malformed SVG. It's missing a </g> tag. The hack to remove a </g> is now malforming SVG, at least for the version of cairo I'm using.
+2016-02-22 18:19:31	squarebracket	Can I submit a pull request for that?
+2016-02-22 18:29:39	<--	jessemdavis (~jdavis@wsip-68-15-57-158.ri.ri.cox.net) has quit (Quit: Lost terminal)
+2016-02-22 18:42:48	<--	EZtheOG (~EZtheOG@152.179.55.78) has quit (Quit: My Mac has gone to sleep. ZZZzzz…)
+2016-02-22 18:55:04	<--	Druide_ (~smuxi@ip-176-199-16-57.hsi06.unitymediagroup.de) has quit (Remote host closed the connection)
+2016-02-22 19:10:59	<--	prg3 (~prg3@207.34.54.162) has quit (Ping timeout: 240 seconds)
+2016-02-22 19:13:05	-->	prg3 (~prg3@207.34.54.162) has joined #graphite
+2016-02-22 21:00:15	ℹ 	irc: disconnected from server
+2016-02-22 21:00:48	-->	squarebracket (~chuck@modemcable004.14-82-70.mc.videotron.ca) has joined #graphite
+2016-02-22 21:00:48	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-02-22 21:00:48	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-02-22 21:00:48	ℹ 	Channel #graphite: 185 nicks (0 ops, 0 voices, 185 normals)
+2016-02-22 21:00:49	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-02-22 21:09:32	<--	Hanynowksy (~hanynowzk@eth-west-parpa2-46-193-0-135.wb.wifirst.net) has quit (Ping timeout: 244 seconds)
+2016-02-22 21:14:18	<--	dgryski (uid38143@gateway/web/irccloud.com/x-pmnpocvovdbliwcc) has quit (Quit: Connection closed for inactivity)
+2016-02-22 21:36:14	ℹ 	irc: disconnected from server
+2016-02-22 21:36:42	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-02-22 21:36:42	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-02-22 21:36:42	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-02-22 21:36:42	ℹ 	Channel #graphite: 183 nicks (0 ops, 0 voices, 183 normals)
+2016-02-22 21:36:42	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04
+2016-02-22 22:57:07	<--	DevBox (~DevBox@unaffiliated/zacdev) has quit (Read error: Connection timed out)
+2016-02-22 22:57:41	-->	DevBox (~DevBox@95.185.242.27) has joined #graphite
+2016-02-22 23:02:39	-->	cmh (~Adium@pool-71-162-171-48.phlapa.fios.verizon.net) has joined #graphite
+2016-02-22 23:05:46	<--	DevBox (~DevBox@95.185.242.27) has quit (Max SendQ exceeded)
+2016-02-22 23:06:40	-->	DevBox (~DevBox@95.185.242.27) has joined #graphite
+2016-02-22 23:07:24	<--	DevBox (~DevBox@95.185.242.27) has quit (Client Quit)
+2016-02-22 23:11:44	-->	fedexo (~quassel@2602:30a:c021:5bf0:f87d:2216:aee0:8d1b) has joined #graphite
+2016-02-22 23:18:02	<--	fedexo (~quassel@2602:30a:c021:5bf0:f87d:2216:aee0:8d1b) has quit (Read error: Connection reset by peer)
+2016-02-22 23:19:46	-->	fedexo (~quassel@2602:30a:c021:5bf0:b016:3f91:f3af:ad8b) has joined #graphite
+2016-02-22 23:34:40	<--	Dieterbe (~Dieterbe@li245-243.members.linode.com) has quit (Quit: leaving)
+2016-02-22 23:34:54	-->	Dieterbe (~Dieterbe@li245-243.members.linode.com) has joined #graphite
+2016-02-22 23:43:47	-->	SkyRocknRoll (~SkyRocknR@unaffiliated/skyrocknroll) has joined #graphite
+2016-02-23 00:17:47	-->	anmolb (~anmol@122.166.134.215) has joined #graphite
+2016-02-23 00:29:24	-->	srinivas (~srinivas@c-24-14-15-111.hsd1.il.comcast.net) has joined #graphite
+2016-02-23 00:34:12	<--	srinivas (~srinivas@c-24-14-15-111.hsd1.il.comcast.net) has quit (Ping timeout: 276 seconds)
+2016-02-23 00:52:27	-->	remya (~rovalapp@inet-160-34-113-204.oracle-ocna.com) has joined #graphite
+2016-02-23 01:04:57	<--	cmh (~Adium@pool-71-162-171-48.phlapa.fios.verizon.net) has quit (Quit: Leaving.)
+2016-02-23 01:14:08	<--	matejz (~matejz@element.planetq.org) has quit (Quit: matejz)
+2016-02-23 01:28:52	-->	adobrosynets (~adobrosyn@46.119.121.243) has joined #graphite
+2016-02-23 10:59:15	ℹ 	irc: disconnected from server
+2016-02-23 10:59:43	-->	squarebracket (~chuck@gw.vantrix.com) has joined #graphite
+2016-02-23 10:59:43	ℹ 	Topic for #graphite is "http://graphite.readthedocs.org/en/0.9.15/ - graphite@librelist.com - http://answers.launchpad.net/graphite"
+2016-02-23 10:59:43	ℹ 	Topic set by jdixon (~jdixon@174.136.97.18) on Fri, 27 Nov 2015 14:36:13
+2016-02-23 10:59:43	ℹ 	Channel #graphite: 190 nicks (0 ops, 0 voices, 190 normals)
+2016-02-23 10:59:44	ℹ 	Channel created on Thu, 25 Feb 2010 14:13:04

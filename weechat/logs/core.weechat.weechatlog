@@ -1,0 +1,280 @@
+2015-11-12 15:24:17		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-11-12 15:27:43	=!=	Error with command "/server irc.freenode.net" (help on command: /help server)
+2015-11-12 15:27:48		[irc]  /server  list|listfull [<server>]
+2015-11-12 15:27:48		                add <server> <hostname>[/<port>] [-temp] [-<option>[=<value>]] [-no<option>]
+2015-11-12 15:27:48		                copy|rename <server> <new_name>
+2015-11-12 15:27:48		                reorder <server> [<server>...]
+2015-11-12 15:27:48		                del|keep <server>
+2015-11-12 15:27:48		                deloutq|jump|raw
+2015-11-12 15:27:48		list, add or remove IRC servers
+2015-11-12 15:27:48		    list: list servers (without argument, this list is displayed)
+2015-11-12 15:27:48		listfull: list servers with detailed info for each server
+2015-11-12 15:27:48		     add: create a new server
+2015-11-12 15:27:48		  server: server name, for internal and display use
+2015-11-12 15:27:48		hostname: name or IP address of server, with optional port (default: 6667), many addresses can be separated by a comma
+2015-11-12 15:27:48		    temp: create temporary server (not saved)
+2015-11-12 15:27:48		  option: set option for server (for boolean option, value can be omitted)
+2015-11-12 15:27:48		nooption: set boolean option to 'off' (for example: -nossl)
+2015-11-12 15:27:48		    copy: duplicate a server
+2015-11-12 15:27:48		  rename: rename a server
+2015-11-12 15:27:48		 reorder: reorder list of servers
+2015-11-12 15:27:48		    keep: keep server in config file (for temporary servers only)
+2015-11-12 15:27:48		     del: delete a server
+2015-11-12 15:27:48		 deloutq: delete messages out queue for all servers (all messages WeeChat is currently sending)
+2015-11-12 15:27:48		    jump: jump to server buffer
+2015-11-12 15:27:48		     raw: open buffer with raw IRC data
+2015-11-12 15:27:48		Examples:
+2015-11-12 15:27:48		  /server listfull
+2015-11-12 15:27:48		  /server add freenode chat.freenode.net
+2015-11-12 15:27:48		  /server add freenode chat.freenode.net/6697 -ssl -autoconnect
+2015-11-12 15:27:48		  /server add chatspike irc.chatspike.net/6667,irc.duckspike.net/6667
+2015-11-12 15:27:48		  /server copy freenode freenode-test
+2015-11-12 15:27:48		  /server rename freenode-test freenode2
+2015-11-12 15:27:48		  /server reorder freenode2 freenode
+2015-11-12 15:27:48		  /server del freenode
+2015-11-12 15:27:48		  /server deloutq
+2015-11-12 15:27:52	=!=	Error with command "/server freenode" (help on command: /help server)
+2015-11-12 15:28:04		No server
+2015-11-12 15:28:09		No server
+2015-11-12 15:28:18		irc: server freenode created
+2015-11-12 15:28:21	=!=	Error with command "/server freenode" (help on command: /help server)
+2015-11-12 15:29:24		script: downloading list of scripts...
+2015-11-12 15:29:24		script: 299 scripts for WeeChat 1.2
+2015-11-12 15:29:25		perl: loading script "/home/chuck/.weechat/perl/buffers.pl"
+2015-11-12 15:29:25		perl: registered script "buffers", version 5.1 (Sidebar with list of buffers)
+2015-11-12 15:29:25		New key binding (context "mouse"): @bar(buffers):ctrl-wheeldown => hsignal:buffers_mouse
+2015-11-12 15:29:25		New key binding (context "mouse"): @bar(buffers):ctrl-wheelup => hsignal:buffers_mouse
+2015-11-12 15:29:25		New key binding (context "mouse"): @item(buffers):button2* => hsignal:buffers_mouse
+2015-11-12 15:29:25		New key binding (context "mouse"): @item(buffers):button1* => hsignal:buffers_mouse
+2015-11-12 15:29:38		perl: loading script "/home/chuck/.weechat/perl/iset.pl"
+2015-11-12 15:29:38		perl: registered script "iset", version 3.9 (Interactive Set for configuration options)
+2015-11-12 15:29:38		New key binding (context "mouse"): @chat(perl.iset):button1 => hsignal:iset_mouse
+2015-11-12 15:29:38		New key binding (context "mouse"): @chat(perl.iset):button2* => hsignal:iset_mouse
+2015-11-12 15:29:38		New key binding (context "mouse"): @chat(perl.iset):wheeldown => /repeat 5 /iset **down
+2015-11-12 15:29:38		New key binding (context "mouse"): @chat(perl.iset):wheelup => /repeat 5 /iset **up
+2015-11-12 15:29:54		perl: loading script "/home/chuck/.weechat/perl/beep.pl"
+2015-11-12 15:29:54		perl: registered script "beep", version 1.1 (Beep (terminal bell) and/or run command on highlight/private message or new DCC)
+2015-11-12 15:30:04		python: loading script "/home/chuck/.weechat/python/urlserver.py"
+2015-11-12 15:30:04		python: registered script "urlserver", version 1.9 (Shorten URLs with own HTTP server)
+2015-11-12 15:30:04		URL server listening on ('192.168.122.1', 34727)
+2015-11-12 15:35:01		Option changed: weechat.bar.status.color_bg = 0  (default: blue)
+2015-11-12 15:35:12		Option changed: weechat.bar.title.color_bg = 0  (default: blue)
+2015-11-12 15:35:40		Option changed: buffers.color.hotlist_message_fg = 7  (default: yellow)
+2015-11-12 15:35:51		Option changed: weechat.bar.buffers.position = top  (default: left)
+2015-11-12 15:36:53		Notify changed for "core.weechat": "all" to "message"
+2015-11-12 15:36:53		Notify changed for "irc.server.freenode": "all" to "message"
+2015-11-12 15:36:53		Notify changed for "irc.freenode.#puppet-dev": "all" to "message"
+2015-11-12 15:36:53		Option changed: weechat.look.buffer_notify_default = message  (default: all)
+2015-11-12 15:37:05		Option changed: irc.look.smart_filter = on
+2015-11-12 15:37:25		python: loading script "/home/chuck/.weechat/python/apply_corrections.py"
+2015-11-12 15:37:26		python: registered script "apply_corrections", version 1.2 (When a correction (ex: s/typo/replacement) is sent, print the user's previous message(s) with the corrected text instead.)
+2015-11-12 15:37:49		Filter "irc_smart" added:
+2015-11-12 15:37:49		  [irc_smart] buffer: * / tags: irc_smart_filter / regex: * 
+2015-11-12 15:38:08		Filter "irc_join_names" added:
+2015-11-12 15:38:08		  [irc_join_names] buffer: * / tags: irc_366,irc_332,irc_333,irc_329,irc_324 / regex: * 
+2015-11-12 15:38:47		Option changed: weechat.look.prefix_same_nick = "⤷"  (default: "")
+2015-11-12 15:39:01		Option changed: weechat.look.prefix_network = "ℹ "  (default: "--")
+2015-11-12 15:39:09		Option changed: weechat.look.prefix_action = "⚡"  (default: " *")
+2015-11-12 15:39:15		Option changed: weechat.look.bar_more_right = "▶▶"  (default: ">>")
+2015-11-12 15:40:59		Option changed: buffers.color.hotlist_message_fg = 7  (default: yellow)
+2015-11-12 15:41:21		Option "weechat.color.chat_nick_colors":
+2015-11-12 15:41:21		  description: text color for nicks (comma separated list of colors, background is allowed with format: "fg:bg", for example: "lightred:blue")
+2015-11-12 15:41:21		  type: string
+2015-11-12 15:41:21		  values: any string
+2015-11-12 15:41:21		  default value: "cyan,magenta,green,brown,lightblue,default,lightcyan,lightmagenta,lightgreen,blue"
+2015-11-12 15:41:21		  current value: "cyan,magenta,green,brown,lightblue,default,lightcyan,lightmagenta,lightgreen,blue"
+2015-11-25 16:08:44		URL server listening on ('192.168.122.1', 36958)
+2015-11-25 16:08:44		python scripts loaded: apply_corrections, urlserver
+2015-11-25 16:08:45		perl scripts loaded: beep, buffers, iset
+2015-11-25 16:08:45	=!=	Warning: /home/chuck/.weechat/script.conf, line 46: unknown option for section "scripts": dir = "%h/script"
+2015-11-25 16:08:45		script: downloading list of scripts...
+2015-11-25 16:08:45		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-11-25 16:08:48		script: 299 scripts for WeeChat 1.3
+2015-11-25 16:08:51	=!=	Error with command "/server irc.freenode.net" (help on command: /help server)
+2015-11-25 16:08:56	=!=	Error with command "/server freenode" (help on command: /help server)
+2015-11-25 16:08:59		[irc]  /server  list|listfull [<server>]
+2015-11-25 16:08:59		                add <server> <hostname>[/<port>] [-temp] [-<option>[=<value>]] [-no<option>]
+2015-11-25 16:08:59		                copy|rename <server> <new_name>
+2015-11-25 16:08:59		                reorder <server> [<server>...]
+2015-11-25 16:08:59		                del|keep <server>
+2015-11-25 16:08:59		                deloutq|jump|raw
+2015-11-25 16:08:59		list, add or remove IRC servers
+2015-11-25 16:08:59		    list: list servers (without argument, this list is displayed)
+2015-11-25 16:08:59		listfull: list servers with detailed info for each server
+2015-11-25 16:08:59		     add: add a new server
+2015-11-25 16:08:59		  server: server name, for internal and display use
+2015-11-25 16:08:59		hostname: name or IP address of server, with optional port (default: 6667), many addresses can be separated by a comma
+2015-11-25 16:08:59		    temp: add a temporary server (not saved)
+2015-11-25 16:08:59		  option: set option for server (for boolean option, value can be omitted)
+2015-11-25 16:08:59		nooption: set boolean option to 'off' (for example: -nossl)
+2015-11-25 16:08:59		    copy: duplicate a server
+2015-11-25 16:08:59		  rename: rename a server
+2015-11-25 16:08:59		 reorder: reorder list of servers
+2015-11-25 16:08:59		    keep: keep server in config file (for temporary servers only)
+2015-11-25 16:08:59		     del: delete a server
+2015-11-25 16:08:59		 deloutq: delete messages out queue for all servers (all messages WeeChat is currently sending)
+2015-11-25 16:08:59		    jump: jump to server buffer
+2015-11-25 16:08:59		     raw: open buffer with raw IRC data
+2015-11-25 16:08:59		Examples:
+2015-11-25 16:08:59		  /server listfull
+2015-11-25 16:08:59		  /server add freenode chat.freenode.net
+2015-11-25 16:08:59		  /server add freenode chat.freenode.net/6697 -ssl -autoconnect
+2015-11-25 16:08:59		  /server add chatspike irc.chatspike.net/6667,irc.duckspike.net/6667
+2015-11-25 16:08:59		  /server copy freenode freenode-test
+2015-11-25 16:08:59		  /server rename freenode-test freenode2
+2015-11-25 16:08:59		  /server reorder freenode2 freenode
+2015-11-25 16:08:59		  /server del freenode
+2015-11-25 16:08:59		  /server deloutq
+2015-11-25 16:09:07	=!=	irc: server "freenode" already exists, can't add it!
+2015-11-25 16:09:10	=!=	Error with command "/server freenode" (help on command: /help server)
+2015-11-25 16:11:36	=!=	Error: unknown command "/clear" (type /help for help)
+2015-11-25 16:11:37		[core]
+2015-11-25 16:11:37		  away     buffer   command  debug    filter   history  key      mouse    plugin   proxy    reload   save     set      upgrade  version  window 
+2015-11-25 16:11:37		  bar      color    cursor   eval     help     input    layout   mute     print    quit     repeat   secure   unset    uptime   wait   
+2015-11-25 16:11:37		[charset]
+2015-11-25 16:11:37		  charset
+2015-11-25 16:11:37		[relay]
+2015-11-25 16:11:37		  relay
+2015-11-25 16:11:37		[python]
+2015-11-25 16:11:37		  python  urlserver
+2015-11-25 16:11:37		[ruby]
+2015-11-25 16:11:37		  ruby
+2015-11-25 16:11:37		[guile]
+2015-11-25 16:11:37		  guile
+2015-11-25 16:11:37		[perl]
+2015-11-25 16:11:37		  buffers_detach  buffers_whitelist  iset  perl
+2015-11-25 16:11:37		[alias]
+2015-11-25 16:11:37		  AAWAY    AME      ANICK    BYE      CHAT     CLOSE    IG       K        LEAVE    MSGBUF   N        REDRAW   SIGNOFF  UB       V        WC       WII    
+2015-11-25 16:11:37		  alias    AMSG     BEEP     C        CL       EXIT     J        KB       M        MUB      Q        SAY      T        UMODE    W        WI       WW     
+2015-11-25 16:11:37		[xfer]
+2015-11-25 16:11:37		  me  xfer
+2015-11-25 16:11:37		[script]
+2015-11-25 16:11:37		  script
+2015-11-25 16:11:37		[trigger]
+2015-11-25 16:11:37		  trigger
+2015-11-25 16:11:37		[irc]
+2015-11-25 16:11:37		  admin       connect     deop        ignore      kick        lusers      msg         op          query       remove      sapart      squery      topic       users       who       
+2015-11-25 16:11:37		  allchan     ctcp        devoice     info        kickban     map         names       oper        quiet       restart     saquit      squit       trace       version     whois     
+2015-11-25 16:11:37		  allpv       cycle       die         invite      kill        me          nick        part        quote       sajoin      server      stats       unban       voice       whowas    
+2015-11-25 16:11:37		  allserv     dcc         disconnect  ison        links       mode        notice      ping        reconnect   samode      service     summon      unquiet     wallchops 
+2015-11-25 16:11:37		  ban         dehalfop    halfop      join        list        motd        notify      pong        rehash      sanick      servlist    time        userhost    wallops   
+2015-11-25 16:11:37		[javascript]
+2015-11-25 16:11:37		  javascript
+2015-11-25 16:11:37		[lua]
+2015-11-25 16:11:37		  lua
+2015-11-25 16:11:37		[tcl]
+2015-11-25 16:11:37		  tcl
+2015-11-25 16:11:37		[logger]
+2015-11-25 16:11:37		  logger
+2015-11-25 16:11:37		[aspell]
+2015-11-25 16:11:37		  aspell
+2015-11-25 16:11:37		[exec]
+2015-11-25 16:11:37		  exec
+2015-12-07 10:23:33		fifo: removing old fifo pipe "/home/chuck/.weechat/weechat_fifo_25813"
+2015-12-07 10:23:34		URL server listening on ('192.168.122.1', 35803)
+2015-12-07 10:23:34		python scripts loaded: apply_corrections, urlserver
+2015-12-07 10:23:34		perl scripts loaded: beep, buffers, iset
+2015-12-07 10:23:34	=!=	Warning: /home/chuck/.weechat/script.conf, line 46: unknown option for section "scripts": dir = "%h/script"
+2015-12-07 10:23:34		script: downloading list of scripts...
+2015-12-07 10:23:34		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-12-07 10:23:37		script: 299 scripts for WeeChat 1.3
+2015-12-07 10:23:43	=!=	irc: unable to add temporary server "irc.freenode.net" because the addition of temporary servers with command /connect is currently disabled
+2015-12-07 10:23:43	=!=	irc: if you want to add a standard server, use the command "/server add" (see /help server); if you really want to add a temporary server (NOT SAVED), turn on the option irc.look.temporary_servers
+2015-12-07 10:23:50	=!=	Too few arguments for command "/server add" (help on command: /help server)
+2015-12-07 10:23:55		[irc]  /server  list|listfull [<server>]
+2015-12-07 10:23:55		                add <server> <hostname>[/<port>] [-temp] [-<option>[=<value>]] [-no<option>]
+2015-12-07 10:23:55		                copy|rename <server> <new_name>
+2015-12-07 10:23:55		                reorder <server> [<server>...]
+2015-12-07 10:23:55		                del|keep <server>
+2015-12-07 10:23:55		                deloutq|jump|raw
+2015-12-07 10:23:55		list, add or remove IRC servers
+2015-12-07 10:23:55		    list: list servers (without argument, this list is displayed)
+2015-12-07 10:23:55		listfull: list servers with detailed info for each server
+2015-12-07 10:23:55		     add: add a new server
+2015-12-07 10:23:55		  server: server name, for internal and display use
+2015-12-07 10:23:55		hostname: name or IP address of server, with optional port (default: 6667), many addresses can be separated by a comma
+2015-12-07 10:23:55		    temp: add a temporary server (not saved)
+2015-12-07 10:23:55		  option: set option for server (for boolean option, value can be omitted)
+2015-12-07 10:23:55		nooption: set boolean option to 'off' (for example: -nossl)
+2015-12-07 10:23:55		    copy: duplicate a server
+2015-12-07 10:23:55		  rename: rename a server
+2015-12-07 10:23:55		 reorder: reorder list of servers
+2015-12-07 10:23:55		    keep: keep server in config file (for temporary servers only)
+2015-12-07 10:23:55		     del: delete a server
+2015-12-07 10:23:55		 deloutq: delete messages out queue for all servers (all messages WeeChat is currently sending)
+2015-12-07 10:23:55		    jump: jump to server buffer
+2015-12-07 10:23:55		     raw: open buffer with raw IRC data
+2015-12-07 10:23:55		Examples:
+2015-12-07 10:23:55		  /server listfull
+2015-12-07 10:23:55		  /server add freenode chat.freenode.net
+2015-12-07 10:23:55		  /server add freenode chat.freenode.net/6697 -ssl -autoconnect
+2015-12-07 10:23:55		  /server add chatspike irc.chatspike.net/6667,irc.duckspike.net/6667
+2015-12-07 10:23:55		  /server copy freenode freenode-test
+2015-12-07 10:23:55		  /server rename freenode-test freenode2
+2015-12-07 10:23:55		  /server reorder freenode2 freenode
+2015-12-07 10:23:55		  /server del freenode
+2015-12-07 10:23:55		  /server deloutq
+2015-12-07 10:24:20	=!=	irc: server "freenode" already exists, can't add it!
+2015-12-11 10:23:14		URL server listening on ('192.168.122.1', 40012)
+2015-12-11 10:23:14		python scripts loaded: apply_corrections, urlserver
+2015-12-11 10:23:15		perl scripts loaded: beep, buffers, iset
+2015-12-11 10:23:15		script: downloading list of scripts...
+2015-12-11 10:23:15		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-12-11 10:23:19	=!=	Error with command "/server freenode" (help on command: /help server)
+2015-12-11 10:23:20		script: 299 scripts for WeeChat 1.3
+2015-12-11 10:23:25	=!=	You can not write text in this buffer
+2015-12-11 10:23:29	=!=	You can not write text in this buffer
+2015-12-11 10:23:31		URL server listening on ('192.168.122.1', 45779)
+2015-12-11 10:23:31		python scripts loaded: apply_corrections, urlserver
+2015-12-11 10:23:31		perl scripts loaded: beep, buffers, iset
+2015-12-11 10:23:31		script: 299 scripts for WeeChat 1.3
+2015-12-11 10:23:31		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-12-21 10:04:08		URL server listening on ('192.168.122.1', 35025)
+2015-12-21 10:04:08		python scripts loaded: apply_corrections, urlserver
+2015-12-21 10:04:10		perl scripts loaded: beep, buffers, iset
+2015-12-21 10:04:10		script: downloading list of scripts...
+2015-12-21 10:04:10		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-12-21 10:04:31	=!=	script: error downloading list of scripts: curl error 6 (Could not resolve host: weechat.org) (URL: "https://weechat.org/files/plugins.xml.gz")
+2015-12-23 19:03:18		URL server listening on ('192.168.122.1', 38889)
+2015-12-23 19:03:18		python scripts loaded: apply_corrections, urlserver
+2015-12-23 19:03:18		perl scripts loaded: beep, buffers, iset
+2015-12-23 19:03:18		script: downloading list of scripts...
+2015-12-23 19:03:18		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2015-12-23 19:03:22		script: 299 scripts for WeeChat 1.3
+2016-01-06 12:09:03		URL server listening on ('192.168.122.1', 39967)
+2016-01-06 12:09:03		python scripts loaded: apply_corrections, urlserver
+2016-01-06 12:09:03		perl scripts loaded: beep, buffers, iset
+2016-01-06 12:09:03		script: downloading list of scripts...
+2016-01-06 12:09:03		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-01-06 12:09:07		script: 299 scripts for WeeChat 1.3
+2016-01-20 15:16:39		URL server listening on ('192.168.122.1', 38482)
+2016-01-20 15:16:39		python scripts loaded: apply_corrections, urlserver
+2016-01-20 15:16:40		perl scripts loaded: beep, buffers, iset
+2016-01-20 15:16:40		script: downloading list of scripts...
+2016-01-20 15:16:40		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-01-20 15:16:43		script: 299 scripts for WeeChat 1.3
+2016-01-28 15:14:27		fifo: removing old fifo pipe "/home/chuck/.weechat/weechat_fifo_20894"
+2016-01-28 15:14:27		URL server listening on ('192.168.122.1', 36648)
+2016-01-28 15:14:27		python scripts loaded: apply_corrections, urlserver
+2016-01-28 15:14:27		perl scripts loaded: beep, buffers, iset
+2016-01-28 15:14:27		script: downloading list of scripts...
+2016-01-28 15:14:27		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-01-28 15:14:31		script: 299 scripts for WeeChat 1.3
+2016-02-01 12:05:57		URL server listening on ('192.168.122.1', 42145)
+2016-02-01 12:05:57		python scripts loaded: apply_corrections, urlserver
+2016-02-01 12:05:57		perl scripts loaded: beep, buffers, iset
+2016-02-01 12:05:57		script: downloading list of scripts...
+2016-02-01 12:05:57		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-02-01 12:06:00		script: 299 scripts for WeeChat 1.3
+2016-02-03 13:59:48		URL server listening on ('192.168.122.1', 41414)
+2016-02-03 13:59:48		python scripts loaded: apply_corrections, urlserver
+2016-02-03 13:59:49		perl scripts loaded: beep, buffers, iset
+2016-02-03 13:59:49		script: downloading list of scripts...
+2016-02-03 13:59:49		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-02-03 13:59:53		script: 299 scripts for WeeChat 1.3
+2016-02-22 16:54:39		URL server listening on ('192.168.122.1', 41570)
+2016-02-22 16:54:39		python scripts loaded: apply_corrections, urlserver
+2016-02-22 16:54:39		perl scripts loaded: beep, buffers, iset
+2016-02-22 16:54:39		script: downloading list of scripts...
+2016-02-22 16:54:39		Plugins loaded: alias, aspell, charset, exec, fifo, guile, irc, javascript, logger, lua, perl, python, relay, ruby, script, tcl, trigger, xfer
+2016-02-22 16:54:42		script: 299 scripts for WeeChat 1.3
