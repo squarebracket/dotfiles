@@ -2,6 +2,7 @@
 export REMOTE_USER=$1
 export LAUNCH_SHELL=$2
 cd ~
+export DOTFILES="~/.dotfiles-$REMOTE_USER"
 if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     echo "Getting the dotfiles"
     git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git .dotfiles-$REMOTE_USER

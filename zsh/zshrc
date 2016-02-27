@@ -88,6 +88,12 @@ source $ZSH/oh-my-zsh.sh
 alias vim="vimx"
 DEFAULT_USER=chuck
 
+DOTFILES=${DOTFILES:=~/dotfiles}
+
+for file in `ls $DOTFILES/zsh/auto* 2>/dev/null`; do
+    source $file
+done
+
 PATH="/home/chuck/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/chuck/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/chuck/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
