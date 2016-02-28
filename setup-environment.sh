@@ -20,6 +20,11 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     for file in `ls ~/.dotfiles-$REMOTE_USER/keys/*`; do
         cat $file >> ~/.ssh/authorized_keys
     done
+    # Remote -> local copying requires the remote server having a public key
+    # So check if we have a public key, and if not, generate it
+    if [ ! -f ~/.ssh/id_rsa.pub ]; then
+        ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N 
+    fi
     # if you need to install software or do anything else before launching
     # your fancy new environment, add it to ./required.sh
     if [ -f .dotfiles-$REMOTE_USER/required.sh ]; then
