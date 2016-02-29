@@ -1,0 +1,9 @@
+bind c screen bash --rcfile ~/.bashrc-chuck
+defscrollback 10000
+altscreen on
+backtick 1 1 1 $HOME/.van_services.sh
+backtick 2 0 0 $HOME/.van_version.sh
+backtick 3 1 1 $HOME/.van_time.sh
+hardstatus alwayslastline
+#hardstatus string '%{= kd}%1`%{G}[%= %{= kG}%?%-Lw%?%{GW} %n%f%t %?(%u)%?%{kG}%?%+Lw%?%?%= %{G}][%{B} %m-%d %{d}%c %{G}]'
+hardstatus string '%{= kd}%1`%{G}[%{= kd}%= %{Y}%?%-Lw%?%{= kd} %{= KC}%?  %F%n%f %t  %?%{= kd}%? (%u) %? %{Y}%?%+Lw%?%{= kd} %= %{G}]%{= kd}%2`  %H %{kG}%3`'
