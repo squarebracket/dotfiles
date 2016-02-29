@@ -27,7 +27,7 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     ln -fs ~/.dotfiles-$REMOTE_USER/vim ~/.vim
     ln -fs ~/.vim/vimrc ~/.vimrc-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/tmux/tmux.conf ~/.tmux.conf-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/screen/.screenrc ~/.screenrc-$REMOTE_USER
+    ln -fs ~/.dotfiles-$REMOTE_USER/screen/screenrc ~/.screenrc-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/dircolors ~/.dircolors-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/bash/bashrc ~/.bashrc-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/oh-my-zsh ~/.oh-my-zsh
@@ -82,8 +82,8 @@ zsh)
 esac
 
 if [ "$LAUNCH_SHELL" = "screen" ]; then
-    screen -c ~/.screenrc-$REMOTE_USER
+    screen -c ~/.screenrc-$REMOTE_USER $CUSTOM_SHELL
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
-    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f ~/.tmux.conf-$REMOTE_USER new-session -s $REMOTE_USER
+    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f ~/.tmux.conf-$REMOTE_USER new-session -s $REMOTE_USER "$CUSTOM_SHELL"
 fi
 
