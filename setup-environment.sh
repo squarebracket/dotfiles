@@ -1,8 +1,14 @@
 #!/bin/sh
 export REMOTE_USER=$1
 export LAUNCH_SHELL=$2
+export LOOPBACK_PORT=$3
 cd ~
 export DOTFILES="~/.dotfiles-$REMOTE_USER"
+git --version > /dev/null
+if [ $? != 0 ]; then
+    yum --version > /dev/null && [ $? = 0 ] && yum install -y git
+    apt-get --version > /dev/null && [ $? = 0 ] && apt-get install -y git
+fi
 if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     echo "Getting the dotfiles"
     git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git .dotfiles-$REMOTE_USER
@@ -48,7 +54,7 @@ else
     cd ~
 fi
 printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
-echo "$LAUNCH_SHELL"
+#echo "$LAUNCH_SHELL"
 if [ "$LAUNCH_SHELL" = "screen" ]; then
     screen -c ~/.screenrc-$REMOTE_USER
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then

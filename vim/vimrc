@@ -127,13 +127,13 @@ nnoremap U u
 function! CopyVisualSel() range
     let n = @n
     silent! normal gv"ny
-    system("echo '" . @n . "' | ssh -p $LOOPBACK_PORT@localhost -t 'tmux load-buffer -'")
+    let unused = system("ssh -p $LOOPBACK_PORT@localhost -t 'tmux load-buffer -'", @n)
     let @n = n
     " bonus: restores the visual selection
     normal! gv
 endfunction
 
 if exists('$SSH_CLIENT')
-    nnoremap y :call CopyVisualSel()<CR>
+    vnoremap y :call CopyVisualSel()<CR>
 endif
 
