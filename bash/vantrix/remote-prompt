@@ -1,0 +1,10 @@
+#!/bin/bash
+
+DEPLOYMENT=`cat /opt/deployment`
+MACHINE=`hostname | sed 's/\(machine[0-9][0-9]\).*/\1/'`
+if [ "$DEPLOYMENT" = "soak1" ]; then
+    DEPLOYMENT_COLOUR="\e[0;34m"
+elif [ "$DEPLOYMENT" = "soak2" ]; then
+    DEPLOYMENT_COLOUR="\e[0;35m"
+fi
+PS1="\[$DEPLOYMENT_COLOUR\]$DEPLOYMENT \[\e[0;36m\]$MACHINE\[\e[0m\] \w \[\e[0;36m\]\\$\[\e[0m\] "
