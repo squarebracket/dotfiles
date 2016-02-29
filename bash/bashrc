@@ -143,7 +143,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #fi
 
 __source_files() {
-    for file in $DOTFILES_BASH/$1; do
+    local LS=`$DOTFILES_BASH/$1 2> /dev/null`
+    for file in $LS; do
         source $file
     done
 }
