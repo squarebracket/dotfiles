@@ -4,6 +4,7 @@ export LAUNCH_SHELL=$2
 export LOOPBACK_PORT=$3
 cd ~
 export DOTFILES="~/.dotfiles-$REMOTE_USER"
+export ENVIRONMENT=$ENVIRONMENT
 git --version > /dev/null
 # detect installer
 yum --version > /dev/null && [ $? = 0 ] && export INSTALLER=yum
@@ -14,7 +15,9 @@ fi
 if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     echo "Getting the dotfiles"
     git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git .dotfiles-$REMOTE_USER
+    cd .dotfiles-$REMOTE_USER
     git submodule update --init --force
+    cd ..
     echo "Making links"
     ln -fs ~/.dotfiles-$REMOTE_USER/vim ~/.vim
     ln -fs ~/.vim/vimrc ~/.vimrc-$REMOTE_USER
