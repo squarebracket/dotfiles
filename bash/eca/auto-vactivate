@@ -1,3 +1,10 @@
+#!/bin/bash
+
+vactivate() {
+    APP=$1
+    source $HOME/venvs/$APP/bin/activate
+}
+
 _get_virtualenvs()
 {
     local cur
@@ -24,3 +31,4 @@ _get_virtualenvs()
 }
 
 complete -F _get_virtualenvs vactivate
+

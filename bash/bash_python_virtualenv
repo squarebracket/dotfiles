@@ -1,5 +1,0 @@
-vactivate() {
-    APP=$1
-    source $HOME/venvs/$APP/bin/activate
-}
-

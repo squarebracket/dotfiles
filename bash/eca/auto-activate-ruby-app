@@ -1,3 +1,12 @@
+#!/bin/bash
+
+activate-ruby-app() {
+    APPSTRING=$1
+    VERSION=${APPSTRING#*\-*}
+    APP=${APPSTRING%*-*}
+    source $HOME/rubyvenv/$APP/$VERSION/bin/activate
+}
+
 _get_ruby_envs()
 {
     local cur
@@ -26,6 +35,5 @@ _get_ruby_envs()
     return 0
 }
 
-complete -F _get_ruby_envs activate_ruby_app
-
+complete -F _get_ruby_envs activate-ruby-app
 
