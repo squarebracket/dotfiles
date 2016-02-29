@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if [ -z "$REMOTE_USER" ]; then
+    DOTFILES_BASH=~/dotfiles/bash
+else
+    DOTFILES_BASH=~/.dotfiles-$REMOTE_USER/bash
+fi
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -38,7 +44,6 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-TERM=xterm-256color
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -126,22 +131,39 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# include powerline bash statusline
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-if [ -f /usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-    . /usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh
-fi
-if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-    . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+## include powerline bash statusline
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#if [ -f /usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+    #. /usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh
+#fi
+#if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
+    #. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+#fi
+
+__source_files() {
+    for file in $DOTFILES_BASH/$1; do
+        source $file
+    done
+}
+
+__source_env_files() {
+    __source_files $ENVIRONMENT/auto*
+    [ -n "$SSH_CLIENT" ] && __source_files $ENVIRONMENT/remote* || __source_files $ENVIRONMENT/local*
+}
+
+# auto-load
+__source_files auto*
+if [ -n "$SSH_CLIENT" ]; then
+    # we're remote, so load remote shit
+    __source_files remote*
+else
+    __source_files local*
 fi
 
-# Load other bash stuff
-for file in ~/.bash/*; do
-	source $file
-done
-
-alias eca=". ~/dotfiles/bash-nonauto/eca-aliases.sh"
+if [ -n "$ENVIRONMENT" ]; then
+    __source_env_files
+fi
 
 shopt -s dirspell
