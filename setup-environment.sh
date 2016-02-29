@@ -5,13 +5,16 @@ export LOOPBACK_PORT=$3
 cd ~
 export DOTFILES="~/.dotfiles-$REMOTE_USER"
 git --version > /dev/null
+# detect installer
+yum --version > /dev/null && [ $? = 0 ] && export INSTALLER=yum
+apt-get --version > /dev/null && [ $? = 0 ] && export INSTALLER=apt-get
 if [ $? != 0 ]; then
-    yum --version > /dev/null && [ $? = 0 ] && yum install -y git
-    apt-get --version > /dev/null && [ $? = 0 ] && apt-get install -y git
+    $INSTALLER install -y git
 fi
 if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     echo "Getting the dotfiles"
     git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git .dotfiles-$REMOTE_USER
+    git submodule update --init --force
     echo "Making links"
     ln -fs ~/.dotfiles-$REMOTE_USER/vim ~/.vim
     ln -fs ~/.vim/vimrc ~/.vimrc-$REMOTE_USER
@@ -38,7 +41,9 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
         bash .dotfiles-$REMOTE_USER/required.sh
     fi
     if [ -f .dotfiles-$REMOTE_USER/requirements.txt ]; then
-        echo "PIP"
+        echo "installing pip requirements..."
+        pip --version > /dev/null
+        if [ $? != 0 ]; then $INSTALLER install -y python-pip; fi
         pip install -r .dotfiles-$REMOTE_USER/requirements.txt
     fi
     # Test to see if we have ssh keys set up for remote copying back to host
@@ -51,6 +56,7 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
 else
     cd .dotfiles-$REMOTE_USER
     git pull
+    git submodule update --init --force
     cd ~
 fi
 printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
