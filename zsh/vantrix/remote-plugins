@@ -1,0 +1,3 @@
+#!/bin/bash
+
+plugins+=( jira svn-fast-info )

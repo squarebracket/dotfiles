@@ -1,0 +1,41 @@
+#!/bin/bash
+echo $0
+
+if [ -n "$BASH_VERSION" ]; then
+    RUNNER=bash
+elif [ -n "$ZSH_VERSION" ]; then
+    RUNNER=zsh
+else
+    echo "ERROR: Unknown shell"
+    exit 1
+fi
+
+__source_files() {
+    echo $DOTFILES/$RUNNER/$1
+    local LS=$(ls $DOTFILES/$RUNNER/$1*)
+    echo $LS
+    for file in $LS; do
+        echo "sourcing $file"
+        source $file
+    done
+}
+
+__source_env_files() {
+    __source_files $ENVIRONMENT/auto
+    [ -n "$REMOTE_USER" ] && __source_files "$ENVIRONMENT/remote" || __source_files "$ENVIRONMENT/local"
+}
+
+# auto-load
+__source_files auto
+if [ -n "$REMOTE_USER" ]; then
+    # we're remote, so load remote shit
+    __source_files "remote"
+else
+    __source_files "local"
+fi
+
+if [ -n "$ENVIRONMENT" ]; then
+    __source_env_files
+fi
+
+
