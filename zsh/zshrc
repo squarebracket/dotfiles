@@ -90,7 +90,7 @@ alias vim="vimx"
 DEFAULT_USER=chuck
 
 # Set the dotfiles directory if not already set
-DOTFILES=${DOTFILES:=dotfiles}
+export DOTFILES=${DOTFILES:=dotfiles}
 
 # Auto-source files depending on environment
 source ~/$DOTFILES/zsh/sourcer
