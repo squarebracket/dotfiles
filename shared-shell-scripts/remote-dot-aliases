@@ -1,6 +1,5 @@
 #!/bin/bash
 
-alias vim="vim -u ~/.dotfiles-$REMOTE_USER/vim/vimrc"
 alias bash="bash --rcfile ~/.dotfiles-$REMOTE_USER/bash/bashrc"
 alias screen="screen -c ~/.dotfiles-$REMOTE_USER/screen/screenrc"
 alias tmux="tmux -f ~/.dotfiles-$REMOTE_USER/tmux/tmux.conf"
