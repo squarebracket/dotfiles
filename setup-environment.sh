@@ -24,7 +24,7 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     git submodule update --init --force
     cd ..
     echo "Making links"
-    ln -fs ~/.dotfiles-$REMOTE_USER/vim ~/.vim
+    ln -fs ~/.dotfiles-$REMOTE_USER/vim ~/.vim-$REMOTE_USER
     ln -fs ~/.vim/vimrc ~/.vimrc-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/tmux/tmux.conf ~/.tmux.conf-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/screen/screenrc ~/.screenrc-$REMOTE_USER
@@ -32,7 +32,7 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     ln -fs ~/.dotfiles-$REMOTE_USER/bash/bashrc ~/.bashrc-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/oh-my-zsh ~/.oh-my-zsh
     ln -fs ~/.dotfiles-$REMOTE_USER/zsh/zshrc ~/.zshrc-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/weechat ~/.weechat
+    ln -fs ~/.dotfiles-$REMOTE_USER/weechat ~/.weechat-$REMOTE_USER
     echo "Installing public key"
     for file in `ls ~/.dotfiles-$REMOTE_USER/keys/*`; do
         cat $file >> ~/.ssh/authorized_keys
