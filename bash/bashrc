@@ -131,6 +131,16 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Set the dotfiles directory
+if [ -n "$REMOTE_USER" ]; then
+    export DOTFILES=~/.dotfiles-$REMOTE_USER
+else
+    export DOTFILES=~/dotfiles
+fi
+
+# Auto-source files depending on environment
+source $DOTFILES/bash/sourcer
+
 ## include powerline bash statusline
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
@@ -141,30 +151,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
     #. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 #fi
-
-__source_files() {
-    local LS=`ls $DOTFILES_BASH/$1 2> /dev/null`
-    for file in $LS; do
-        source $file
-    done
-}
-
-__source_env_files() {
-    __source_files $ENVIRONMENT/auto*
-    [ -n "$SSH_CLIENT" ] && __source_files $ENVIRONMENT/remote* || __source_files $ENVIRONMENT/local*
-}
-
-# auto-load
-__source_files auto*
-if [ -n "$SSH_CLIENT" ]; then
-    # we're remote, so load remote shit
-    __source_files remote*
-else
-    __source_files local*
-fi
-
-if [ -n "$ENVIRONMENT" ]; then
-    __source_env_files
-fi
 
 shopt -s dirspell

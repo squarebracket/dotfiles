@@ -59,17 +59,18 @@ plugins=(colorize cp gem git git-extras github git-remote-branch mosh pip python
 export PATH="/usr/lib64/ccache:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chuck/.local/bin:/home/chuck/bin:/home/chuck/.rvm/bin:/home/chuck/vantrix-files/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+ZSH_TMUX_AUTOCONNECT=false
+#ZSH_TMUX_AUTOSTART=true
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vimx'
- else
-   export EDITOR='vimx'
- fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vimx'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -88,11 +89,21 @@ source $ZSH/oh-my-zsh.sh
 alias vim="vimx"
 DEFAULT_USER=chuck
 
-DOTFILES=${DOTFILES:=~/dotfiles}
+# Set the dotfiles directory
+if [ -n "$REMOTE_USER" ]; then
+    export DOTFILES=~/.dotfiles-$REMOTE_USER
+else
+    export DOTFILES=~/dotfiles
+fi
 
-for file in `ls $DOTFILES/zsh/auto* 2>/dev/null`; do
-    source $file
-done
+# Auto-source files depending on environment
+source $DOTFILES/zsh/sourcer
+
+# Source oh-my-zsh and activate plugins
+# This has to be done after you've autoloaded to make sure all plugins
+# are collected.
+source $ZSH/oh-my-zsh.sh
+
 
 PATH="/home/chuck/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/chuck/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
