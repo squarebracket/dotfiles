@@ -131,15 +131,11 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Set the dotfiles directory
-if [ -n "$REMOTE_USER" ]; then
-    export DOTFILES=~/.dotfiles-$REMOTE_USER
-else
-    export DOTFILES=~/dotfiles
-fi
+# Set the dotfiles directory if not already set
+DOTFILES=${DOTFILES:=dotfiles}
 
 # Auto-source files depending on environment
-source $DOTFILES/bash/sourcer
+source ~/$DOTFILES/bash/sourcer
 
 ## include powerline bash statusline
 #powerline-daemon -q

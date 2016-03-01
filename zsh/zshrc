@@ -89,15 +89,11 @@ fi
 alias vim="vimx"
 DEFAULT_USER=chuck
 
-# Set the dotfiles directory
-if [ -n "$REMOTE_USER" ]; then
-    export DOTFILES=~/.dotfiles-$REMOTE_USER
-else
-    export DOTFILES=~/dotfiles
-fi
+# Set the dotfiles directory if not already set
+DOTFILES=${DOTFILES:=dotfiles}
 
 # Auto-source files depending on environment
-source $DOTFILES/zsh/sourcer
+source ~/$DOTFILES/zsh/sourcer
 
 # Source oh-my-zsh and activate plugins
 # This has to be done after you've autoloaded to make sure all plugins

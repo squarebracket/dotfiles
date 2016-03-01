@@ -10,7 +10,7 @@ else
 fi
 
 __source_files() {
-    local LS=$(ls $DOTFILES/$RUNNER/$1*)
+    local LS=$(ls ~/$DOTFILES/$RUNNER/$1*)
     echo $LS
     for file in $LS; do
         echo "sourcing $file"

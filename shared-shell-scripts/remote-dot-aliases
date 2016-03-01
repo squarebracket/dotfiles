@@ -1,6 +1,6 @@
 #!/bin/bash
 
-alias bash="bash --rcfile ~/.dotfiles-$REMOTE_USER/bash/bashrc"
-alias screen="screen -c ~/.dotfiles-$REMOTE_USER/screen/screenrc"
-alias tmux="tmux -f ~/.dotfiles-$REMOTE_USER/tmux/tmux.conf"
-export WEECHAT_HOME=~/.dotfiles-$REMOTE_USER/weechat/
+alias bash="bash --rcfile ~/$DOTFILES/bash/bashrc"
+alias screen="screen -c ~/$DOTFILES/screen/screenrc"
+alias tmux="tmux -f ~/$DOTFILES/tmux/tmux.conf"
+export WEECHAT_HOME=~/$DOTFILES/weechat/

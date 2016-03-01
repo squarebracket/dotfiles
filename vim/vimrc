@@ -1,5 +1,5 @@
-if exists('$SSH_CLIENT')
-    let &runtimepath=substitute(&rtp, $HOME."/\.vim", "$HOME/\.dotfiles-$REMOTE_USER/vim", "g")
+if exists('$DOTFILES')
+    let &runtimepath=substitute(&rtp, $HOME."/\.vim", "$HOME/$DOTFILES/vim", "g")
 endif
 execute pathogen#infect()
 filetype plugin on
