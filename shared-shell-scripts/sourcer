@@ -1,5 +1,4 @@
 #!/bin/bash
-echo $0
 
 if [ -n "$BASH_VERSION" ]; then
     RUNNER=bash
@@ -11,7 +10,6 @@ else
 fi
 
 __source_files() {
-    echo $DOTFILES/$RUNNER/$1
     local LS=$(ls $DOTFILES/$RUNNER/$1*)
     echo $LS
     for file in $LS; do
