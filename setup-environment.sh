@@ -2,6 +2,7 @@
 export REMOTE_USER=$1
 export LAUNCH_SHELL=$2
 export LOOPBACK_PORT=$3
+REPO=
 cd ~
 if [ "$REMOTE_USER" = "LOCAL" ]; then
     export DOTFILES="dotfiles"
@@ -25,7 +26,7 @@ fi
 # Do the dotfiles magic if the folder doesn't exist
 if [ ! -d "$DOTFILES" ]; then
     echo "Getting the dotfiles"
-    git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git $DOTFILES
+    git clone https://github.com/squarebracket/dotfiles.git $DOTFILES
     
     echo "Pulling any submodules"
     cd $DOTFILES

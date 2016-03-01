@@ -1,6 +1,6 @@
 #!/bin/bash
 start-remote-env() {
-    SCRIPTFILE=http://chuckdoesthings.com/setup-environment.sh
+    SCRIPTFILE=https://raw.githubusercontent.com/squarebracket/dotfiles/master/setup-environment.sh
     LAUNCH_SHELL=$1
     REMOTE_USER=$USER
     LOOPBACK_PORT=5555
