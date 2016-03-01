@@ -3,7 +3,13 @@ export REMOTE_USER=$1
 export LAUNCH_SHELL=$2
 export LOOPBACK_PORT=$3
 cd ~
-export DOTFILES="~/.dotfiles-$REMOTE_USER"
+if [ "$REMOTE_USER" = "LOCAL" ]; then
+    export DOTFILES=".dotfiles-$REMOTE_USER"
+    TERMINATOR="-$REMOTE_USER"
+else
+    export DOTFILES="dotfiles"
+    TERMINATOR=''
+fi
 export ENVIRONMENT=$ENVIRONMENT
 
 # detect installer
@@ -17,38 +23,37 @@ if [ $? != 0 ]; then
 fi
 
 # Do the dotfiles magic if the folder doesn't exist
-if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
+if [ ! -d "$DOTFILES" ]; then
     echo "Getting the dotfiles"
-    git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git .dotfiles-$REMOTE_USER
+    git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git $DOTFILES
     
     echo "Pulling any submodules"
-    cd .dotfiles-$REMOTE_USER
+    cd $DOTFILES
     git submodule update --init --force
     cd ..
     
     echo "Making links"
-    ln -fs ~/.dotfiles-$REMOTE_USER/vim ~/.vim-$REMOTE_USER
-    ln -fs ~/.vim/vimrc ~/.vimrc-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/tmux/tmux.conf ~/.tmux.conf-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/screen/screenrc ~/.screenrc-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/dircolors ~/.dircolors-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/bash/bashrc ~/.bashrc-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/oh-my-zsh ~/.oh-my-zsh
-    ln -fs ~/.dotfiles-$REMOTE_USER/zsh/zshrc ~/.zshrc-$REMOTE_USER
-    ln -fs ~/.dotfiles-$REMOTE_USER/weechat ~/.weechat-$REMOTE_USER
+    ln -fs $DOTFILES/vim ~/.vim$TERMINATOR
+    ln -fs $DOTFILES/tmux/tmux.conf ~/.tmux.conf$TERMINATOR
+    ln -fs $DOTFILES/screen/screenrc ~/.screenrc$TERMINATOR
+    ln -fs $DOTFILES/dircolors ~/.dircolors$TERMINATOR
+    ln -fs $DOTFILES/bash/bashrc ~/.bashrc$TERMINATOR
+    ln -fs $DOTFILES/oh-my-zsh ~/.oh-my-zsh
+    ln -fs $DOTFILES/zsh/zshrc ~/.zshrc$TERMINATOR
+    ln -fs $DOTFILES/weechat ~/.weechat$TERMINATOR
     
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
     # it work
     echo "Verifying vimrc hack"
     if [ ! -f ~/.vimrc ]; then
-       echo 'source ~/.dotfiles-$REMOTE_USER/vim/vimrc' >> ~/.vimrc
+       echo 'source ~/$DOTFILES/vim/vimrc' >> ~/.vimrc
     elif  [ -f ~/.vimrc ]; then
-        grep "source ~/.dotfiles-$REMOTE_USER/vim/vimrc" < ~/.vimrc > /dev/null || echo 'source ~/.dotfiles-$REMOTE_USER/vim/vimrc' >> ~/.vimrc
+        grep "source ~/$DOTFILES/vim/vimrc" < ~/.vimrc > /dev/null || echo 'source ~/$DOTFILES/vim/vimrc' >> ~/.vimrc
     fi
 
     echo "Installing public key"
-    for file in `ls ~/.dotfiles-$REMOTE_USER/keys/*`; do
+    for file in `ls ~/$DOTFILES/keys/*`; do
         cat $file >> ~/.ssh/authorized_keys
     done
     
@@ -60,52 +65,56 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
 
     # if you need to install software or do anything else before launching
     # your fancy new environment, add it to ./required.sh
-    if [ -f .dotfiles-$REMOTE_USER/required.sh ]; then
+    if [ -f $DOTFILES/required.sh ]; then
         echo "Performing required pre-environment actions"
-        bash .dotfiles-$REMOTE_USER/required.sh
+        bash $DOTFILES/required.sh
     fi
 
     # Likewise, if you need to `pip install` anything, add it to the usual
     # requirements.txt file
-    if [ -f .dotfiles-$REMOTE_USER/requirements.txt ]; then
+    if [ -f $DOTFILES/requirements.txt ]; then
         echo "installing pip requirements..."
         pip --version > /dev/null
         if [ $? != 0 ]; then $INSTALLER install -y python-pip; fi
-        pip install -r .dotfiles-$REMOTE_USER/requirements.txt
+        pip install -r $DOTFILES/requirements.txt
     fi
 
-    # Test to see if we have ssh keys set up for remote copying back to host
-    ssh -q -o PasswordAuthentication=no -p 5555 $REMOTE_USER@localhost -t 'echo "success!"'
-    EXIT_CODE=$?
-    if [ $EXIT_CODE != 0 ]; then
-        # If we don't, exit with status 13
-        exit 13
+    if [ "$REMOTE_USER" != "LOCAL" ]; then
+        # Test to see if we have ssh keys set up for remote copying back to host
+        ssh -q -o PasswordAuthentication=no -p 5555 $REMOTE_USER@localhost -t 'echo "success!"'
+        EXIT_CODE=$?
+        if [ $EXIT_CODE != 0 ]; then
+            # If we don't, exit with status 13
+            exit 13
+        fi
     fi
 
 else
     # Update the dotfiles and all submodules to the latest version
-    cd .dotfiles-$REMOTE_USER
+    cd $DOTFILES
     git pull
     git submodule update --init
     cd ~
 fi
 
-printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
+if [ "$REMOTE_USER" != "LOCAL" ]; then
+    printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
+fi
 
 case "$SHELL" in
 /bin/bash)
-    export CUSTOM_SHELL="$SHELL --rcfile ~/.dotfiles-$REMOTE_USER/bash/bashrc"
+    export CUSTOM_SHELL="$SHELL --rcfile ~/$DOTFILES/bash/bashrc"
     echo "shell is: $SHELL"
     ;;
-zsh)
+/bin/zsh)
     export CUSTOM_SHELL="$SHELL"
-    export ZDOTDIR="~/.dotfiles-$REMOTE_USER/zsh/"
+    export ZDOTDIR="~/$DOTFILES/zsh/"
     ;;
 esac
 
 if [ "$LAUNCH_SHELL" = "screen" ]; then
-    screen -c ~/.screenrc-$REMOTE_USER $CUSTOM_SHELL
+    screen -c ~/.screenrc$TERMINATOR $CUSTOM_SHELL
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
-    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f ~/.tmux.conf-$REMOTE_USER new-session -s $REMOTE_USER "$CUSTOM_SHELL"
+    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f ~/.tmux.conf$TERMINATOR new-session -s $REMOTE_USER "$CUSTOM_SHELL"
 fi
 
