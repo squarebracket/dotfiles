@@ -4,11 +4,11 @@ export LAUNCH_SHELL=$2
 export LOOPBACK_PORT=$3
 cd ~
 if [ "$REMOTE_USER" = "LOCAL" ]; then
-    export DOTFILES=".dotfiles-$REMOTE_USER"
-    TERMINATOR="-$REMOTE_USER"
-else
     export DOTFILES="dotfiles"
     TERMINATOR=''
+else
+    export DOTFILES=".dotfiles-$REMOTE_USER"
+    TERMINATOR="-$REMOTE_USER"
 fi
 export ENVIRONMENT=$ENVIRONMENT
 
