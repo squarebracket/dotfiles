@@ -20,9 +20,12 @@ fi
 if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     echo "Getting the dotfiles"
     git clone https://squarebracket@bitbucket.org/squarebracket/dotfiles.git .dotfiles-$REMOTE_USER
+    
+    echo "Pulling any submodules"
     cd .dotfiles-$REMOTE_USER
     git submodule update --init --force
     cd ..
+    
     echo "Making links"
     ln -fs ~/.dotfiles-$REMOTE_USER/vim ~/.vim-$REMOTE_USER
     ln -fs ~/.vim/vimrc ~/.vimrc-$REMOTE_USER
@@ -33,27 +36,44 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
     ln -fs ~/.dotfiles-$REMOTE_USER/oh-my-zsh ~/.oh-my-zsh
     ln -fs ~/.dotfiles-$REMOTE_USER/zsh/zshrc ~/.zshrc-$REMOTE_USER
     ln -fs ~/.dotfiles-$REMOTE_USER/weechat ~/.weechat-$REMOTE_USER
+    
+    # Vim is fucking dumb and can't handle using alternate .vimrc files,
+    # so we have to literally append some bullshit to ~/.vimrc just to make
+    # it work
+    echo "Verifying vimrc hack"
+    if [ ! -f ~/.vimrc ]; then
+       echo 'source ~/.dotfiles-$REMOTE_USER/vim/vimrc' >> ~/.vimrc
+    elif  [ -f ~/.vimrc ]; then
+        grep "source ~/.dotfiles-$REMOTE_USER/vim/vimrc" < ~/.vimrc > /dev/null || echo 'source ~/.dotfiles-$REMOTE_USER/vim/vimrc' >> ~/.vimrc
+    fi
+
     echo "Installing public key"
     for file in `ls ~/.dotfiles-$REMOTE_USER/keys/*`; do
         cat $file >> ~/.ssh/authorized_keys
     done
+    
     # Remote -> local copying requires the remote server having a public key
     # So check if we have a public key, and if not, generate it
     if [ ! -f ~/.ssh/id_rsa.pub ]; then
         ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ''
     fi
+
     # if you need to install software or do anything else before launching
     # your fancy new environment, add it to ./required.sh
     if [ -f .dotfiles-$REMOTE_USER/required.sh ]; then
         echo "Performing required pre-environment actions"
         bash .dotfiles-$REMOTE_USER/required.sh
     fi
+
+    # Likewise, if you need to `pip install` anything, add it to the usual
+    # requirements.txt file
     if [ -f .dotfiles-$REMOTE_USER/requirements.txt ]; then
         echo "installing pip requirements..."
         pip --version > /dev/null
         if [ $? != 0 ]; then $INSTALLER install -y python-pip; fi
         pip install -r .dotfiles-$REMOTE_USER/requirements.txt
     fi
+
     # Test to see if we have ssh keys set up for remote copying back to host
     ssh -q -o PasswordAuthentication=no -p 5555 $REMOTE_USER@localhost -t 'echo "success!"'
     EXIT_CODE=$?
@@ -61,7 +81,9 @@ if [ ! -d ".dotfiles-$REMOTE_USER" ]; then
         # If we don't, exit with status 13
         exit 13
     fi
+
 else
+    # Update the dotfiles and all submodules to the latest version
     cd .dotfiles-$REMOTE_USER
     git pull
     git submodule update --init
