@@ -130,18 +130,28 @@ nnoremap U u
 function! CopyVisualSel() range
     let n = @n
     silent! normal gv"nyr
-    let unused = system("ssh -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'tmux load-buffer -'", @n)
+    if exists('$REMOTE_USER')
+        let unused = system("ssh -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'tmux load-buffer -'", @n)
+    else
+        let unused = system('tmux load-buffer -', @n)
+    endif
     let @n = n
     " bonus: restores the visual selection
     normal! gv
 endfunction
 
-" if we're running in a remote session, remap y to local-yank and paste
-" to local-paste (to/from tmux buffer)
-if exists('$SSH_CLIENT')
+" If we're running in a remote session, remap y to local-yank and paste
+" to local-paste (to/from tmux buffer).
+" If we're just in a tmux shell, wire yank and paste to tmux buffer
+if exists('$REMOTE_USER')
     vnoremap yr y
     vnoremap y :call CopyVisualSel()<CR>
     nnoremap pr p
     nnoremap p :read ! ssh -qp $LOOPBACK_PORT $REMOTE_USER@localhost -t 'tmux show-buffer'<CR>
+elseif exists('$TMUX')
+    vnoremap yr y
+    vnoremap y :call CopyVisualSel()<CR>
+    nnoremap pr p
+    nnoremap p :read ! tmux show-buffer<CR>
 endif
 
