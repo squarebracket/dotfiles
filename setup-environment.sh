@@ -16,11 +16,15 @@ export ENVIRONMENT=$ENVIRONMENT
 # detect installer
 yum --version > /dev/null && [ $? = 0 ] && export INSTALLER=yum
 apt-get --version > /dev/null && [ $? = 0 ] && export INSTALLER=apt-get
+# Are we root?
+if [ "$UID" != "0" ]; then
+    export SUDO="sudo"
+fi
 
 # Detect if we have git
 git --version > /dev/null
 if [ $? != 0 ]; then
-    $INSTALLER install -y git
+    $SUDO $INSTALLER install -y git
 fi
 
 # Do the dotfiles magic if the folder doesn't exist
@@ -77,7 +81,7 @@ if [ ! -d "$DOTFILES" ]; then
         echo "installing pip requirements..."
         pip --version > /dev/null
         if [ $? != 0 ]; then $INSTALLER install -y python-pip; fi
-        pip install -r $DOTFILES/requirements.txt
+        $SUDO pip install -r $DOTFILES/requirements.txt
     fi
 
     if [ "$REMOTE_USER" != "LOCAL" ]; then
