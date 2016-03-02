@@ -1,7 +1,10 @@
 #!/bin/bash
 embed-tmux() {
-    printf '\033]2;%s\033\\' 'tmux'
-    EMBEDDED=1 tmux -L $1 new-session -s "LOCAL"
+    printf '\033]2;%s\033\\' 'tmux-embedded'
+    export EMBEDDED=1
+    TEMP=${TMUX%*,*}
+    export TMUX_MASTER=${TEMP%*,*}
+    tmux -L "$1" has-session -t "LOCAL" && tmux -L "$1" attach -t "LOCAL" || tmux -L "$1" new-session -s "LOCAL"
 }
 
 if [ -n "$1" ]; then
