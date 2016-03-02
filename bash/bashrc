@@ -131,6 +131,9 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Export that we use a powerline-patched font
+export POWERLINE_FONT=1
+
 # Set the dotfiles directory if not already set
 export DOTFILES=${DOTFILES:=dotfiles}
 
