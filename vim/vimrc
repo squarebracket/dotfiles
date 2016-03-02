@@ -144,14 +144,14 @@ endfunction
 " to local-paste (to/from tmux buffer).
 " If we're just in a tmux shell, wire yank and paste to tmux buffer
 if exists('$REMOTE_USER')
-    vnoremap yr y
-    vnoremap y :call CopyVisualSel()<CR>
-    nnoremap pr p
-    nnoremap p :read ! ssh -qp $LOOPBACK_PORT $REMOTE_USER@localhost -t 'tmux show-buffer'<CR>
+    "vnoremap yr y
+    vnoremap <C-y> :call CopyVisualSel()<CR>
+    "nnoremap pr p
+    nnoremap <C-p> :read ! ssh -qp $LOOPBACK_PORT $REMOTE_USER@localhost -t 'tmux show-buffer'<CR>
 elseif exists('$TMUX')
-    vnoremap yr y
-    vnoremap y :call CopyVisualSel()<CR>
-    nnoremap pr p
-    nnoremap p :read ! tmux show-buffer<CR>
+    "vnoremap y y
+    vnoremap <C-y> :call CopyVisualSel()<CR>
+    "nnoremap p p
+    nnoremap <C-p> :read ! tmux show-buffer<CR>
 endif
 
