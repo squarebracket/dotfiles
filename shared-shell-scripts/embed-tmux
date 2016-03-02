@@ -1,0 +1,10 @@
+#!/bin/bash
+embed-tmux() {
+    printf '\033]2;%s\033\\' 'tmux'
+    EMBEDDED=1 tmux -L $1 new-session -s "LOCAL"
+}
+
+if [ -n "$1" ]; then
+    # We're being called as a script, rather than just being sourced
+    embed-tmux "$@"
+fi
