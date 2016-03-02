@@ -10,10 +10,10 @@ else
 fi
 
 __source_files() {
-    local LS=$(ls ~/$DOTFILES/$RUNNER/$1*)
     # Make sure our local $1 isn't passed along to the file we're sourcing
+    local GLOB=$1
     shift
-    for file in $LS; do
+    for file in $(ls ~/$DOTFILES/$RUNNER/$GLOB*); do
         echo "sourcing $file"
         source $file
     done
