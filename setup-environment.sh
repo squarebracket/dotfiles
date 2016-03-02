@@ -24,7 +24,7 @@ fi
 _install_if_needed() {
     which $1 > /dev/null
     if [ $? = 1 ]; then
-        $SUDO $INSTALLER -y $1
+        $SUDO $INSTALLER install -y $1
     fi
 }
 ## Detect if we have git
