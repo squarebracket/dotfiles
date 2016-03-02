@@ -24,3 +24,8 @@ start-remote-env() {
         fi
     done
 }
+
+if [ -n "$1" ]; then
+    # We're being called as a script, rather than just being sourced
+    start-remote-env "$@"
+fi
