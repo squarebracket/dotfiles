@@ -21,11 +21,18 @@ if [ "$UID" != "0" ]; then
     export SUDO="sudo"
 fi
 
-# Detect if we have git
-git --version > /dev/null
-if [ $? != 0 ]; then
-    $SUDO $INSTALLER install -y git
-fi
+_install_if_needed() {
+    which $1 > /dev/null
+    if [ $? = 1 ]; then
+        $SUDO $INSTALLER -y $1
+    fi
+}
+## Detect if we have git
+#git --version > /dev/null
+#if [ $? != 0 ]; then
+    #$SUDO $INSTALLER install -y git
+#fi
+_install_if_needed git
 
 # Do the dotfiles magic if the folder doesn't exist
 if [ ! -d "$DOTFILES" ]; then
@@ -80,7 +87,7 @@ if [ ! -d "$DOTFILES" ]; then
     if [ -f $DOTFILES/requirements.txt ]; then
         echo "installing pip requirements..."
         pip --version > /dev/null
-        if [ $? != 0 ]; then $INSTALLER install -y python-pip; fi
+        if [ $? != 0 ]; then $SUDO $INSTALLER install -y python-pip; fi
         $SUDO pip install -r $DOTFILES/requirements.txt
     fi
 
@@ -116,6 +123,8 @@ case "$SHELL" in
     export ZDOTDIR="~/$DOTFILES/zsh/"
     ;;
 esac
+
+_install_if_needed $LAUNCH_SHELL
 
 if [ "$LAUNCH_SHELL" = "screen" ]; then
     screen -c ~/.screenrc$TERMINATOR $CUSTOM_SHELL
