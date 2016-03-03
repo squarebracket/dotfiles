@@ -95,6 +95,9 @@ export POWERLINE_FONT=1
 # Set the dotfiles directory if not already set
 export DOTFILES=${DOTFILES:=dotfiles}
 
+export XDG_CONFIG_DIRS="${XDG_CONFIG_DIRS}:~/$DOTFILES/config"
+export PYTHONPATH="${PYTHONPATH}:~/$DOTFILES/config/powerline"
+
 # Auto-source files depending on environment
 source ~/$DOTFILES/zsh/sourcer
 
