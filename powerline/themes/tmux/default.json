@@ -13,6 +13,12 @@
         "left": [
             {
                 "function": "vantrix.puppet_running"
+            },
+            {
+                "function": "vantrix.van_active_services"
+            },
+            {
+                "function": "vantrix.van_failed_services"
             }
         ],
 		"right": [
@@ -20,9 +26,6 @@
 				"function": "powerline.segments.common.sys.system_load",
 				"priority": 50
 			},
-            {
-                "function": "vantrix.van_services"
-            }
 		]
 	}
 }
