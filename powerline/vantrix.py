@@ -18,7 +18,7 @@ def puppet_running(pl):
         return "Applying puppet"
 
 def van_active_services(pl):
-    p = subprocess.Popen(['bash', VAN_HUD_FILE, '--failed-services'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(['bash', VAN_HUD_FILE, '--active-services'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
     return out
 
