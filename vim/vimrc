@@ -46,7 +46,6 @@ nnoremap <leader>q :NERDTreeToggle<CR>
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " open ag.vim
 nnoremap <leader>a :Ag
@@ -84,9 +83,19 @@ augroup END
 
 set omnifunc=syntaxcomplete#Complete
 filetype plugin indent on
+" always display statusline
 set laststatus=2
-let g:airline_powerline_fonts = 1
+" enable/disable powerline fonts based on environment variable
+let g:airline_powerline_fonts = $POWERLINE_FONT
+" show a bar at the top which displays buffers when there is only 1 tab open
+" and displays tabs when more than 1 tab is open
 let g:airline#extensions#tabline#enabled = 1
+" for CSV files, display the current column name rather than the column
+" number...
+let g:airline#extensions#csv#column_display = 'Name'
+""...unless the filename matches the following
+"autocmd BufRead,BufNewFile *media.csv let airline#extensions#csv#column_display = 'Number'
+" Quit when the only "buffer" open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 set background=dark                     " darkness
 colorscheme solarized
@@ -128,30 +137,31 @@ nnoremap I i
 nnoremap U u
 
 function! CopyVisualSel() range
-    let n = @n
-    silent! normal gv"nyr
+    "let n = @n
+    silent! normal gv"ny
     if exists('$REMOTE_USER')
         let unused = system("ssh -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'tmux load-buffer -'", @n)
+    elseif exists('$TMUX_MASTER')
+        let unused = system('tmux -S $TMUX_MASTER load-buffer -', @n)
     else
         let unused = system('tmux load-buffer -', @n)
     endif
-    let @n = n
+    "let @n = n
     " bonus: restores the visual selection
-    normal! gv
+    "normal! gv
 endfunction
 
 " If we're running in a remote session, remap y to local-yank and paste
 " to local-paste (to/from tmux buffer).
 " If we're just in a tmux shell, wire yank and paste to tmux buffer
 if exists('$REMOTE_USER')
-    "vnoremap yr y
     vnoremap <C-y> :call CopyVisualSel()<CR>
-    "nnoremap pr p
     nnoremap <C-p> :read ! ssh -qp $LOOPBACK_PORT $REMOTE_USER@localhost -t 'tmux show-buffer'<CR>
-elseif exists('$TMUX')
-    "vnoremap y y
+elseif exists('$TMUX_MASTER')
     vnoremap <C-y> :call CopyVisualSel()<CR>
-    "nnoremap p p
+    nnoremap <C-p> :read ! tmux -S $TMUX_MASTER show-buffer<CR>
+elseif exists('$TMUX')
+    vnoremap <C-y> :call CopyVisualSel()<CR>
     nnoremap <C-p> :read ! tmux show-buffer<CR>
 endif
 
