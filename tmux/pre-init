@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# required for powerline
+export XDG_CONFIG_DIRS="${XDG_CONFIG_DIRS}:~/$DOTFILES/config"
+export PYTHONPATH="${PYTHONPATH}:~/$DOTFILES/config/powerline"

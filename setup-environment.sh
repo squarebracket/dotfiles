@@ -142,6 +142,10 @@ esac
 echo "shell is: $SHELL"
 _install_if_needed $LAUNCH_SHELL
 
+# Some environment variables need to be set before launching a
+# terminal multiplexer, so we source them here.
+source ~/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init
+
 if [ "$LAUNCH_SHELL" = "screen" ]; then
     screen -c ~/.screenrc$TERMINATOR $CUSTOM_SHELL
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
