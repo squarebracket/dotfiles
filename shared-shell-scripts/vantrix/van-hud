@@ -1,0 +1,169 @@
+#!/bin/bash
+VANTRIX_SERVICES="ltrx rmss esg mpc mpcms hms vta oamgui vrm ingm rabbitmq-server"
+
+__puppet_active() {
+    ps -C puppet,puppetmasterless,puppetmasterful > /dev/null || ps -ef | grep -i agent_postinstall | grep -v grep > /dev/null
+    local PUPPET_ACTIVE=$?
+    if [ $PUPPET_ACTIVE -eq 0 ]; then
+        #echo -e "\005{G}[\005{-} \005{bw}Applying Puppet\005{-} \005{G}]\005{-}"
+        echo "Applying Puppet"
+    fi
+}
+
+__active_non_failed_services() {
+    SERVICES_OUTPUT=""
+    for i in $VANTRIX_SERVICES; do
+        systemctl is-active $i > /dev/null
+        local result=$?
+        if [ $result = 0 ]; then
+            SERVICES_OUTPUT="$SERVICES_OUTPUT $i"
+        fi
+    done
+    echo $SERVICES_OUTPUT
+}
+
+__failed_services() {
+    SERVICES_OUTPUT=""
+    for i in $VANTRIX_SERVICES; do
+        systemctl is-failed $i > /dev/null
+        local result=$?
+        if [ $result = 0 ]; then
+            SERVICES_OUTPUT="$SERVICES_OUTPUT $i"
+        fi
+    done
+    echo $SERVICES_OUTPUT
+}
+
+__weird_services() {
+    SERVICES_OUTPUT=""
+    for i in $VANTRIX_SERVICES; do
+        systemctl is-enabled $i > /dev/null
+        local enabled=$?
+        systemctl is-active $i > /dev/null
+        local active=$?
+        if [ $enabled = 0 -a $active = 1 ]; then
+            SERVICES_OUTPUT="$SERVICES_OUTPUT $i"
+        fi
+    done
+    echo $SERVICES_OUTPUT
+}
+
+__gluster_status() {
+    GLUSTER_OUTPUT=""
+    local GLUSTER_MOUNTS=`systemctl list-units | grep mnt-gv | awk '{print $5}'| sed s/^.mnt.//`
+    local GLUSTER_VOLS=`gluster volume list`
+    for i in $GLUSTER_MOUNTS; do
+        local FREE=`df -h | grep $i | awk '{print $5}' | sed s/.$//`
+        if [ $FREE -lt 90 ]; then
+            GLUSTER_OUTPUT="$GLUSTER_OUTPUT $i ($FREE%)"
+        elif [ $FREE -gt 98 ]; then
+            GLUSTER_OUTPUT="$GLUSTER_OUTPUT $i ($FREE%)"
+        else
+            GLUSTER_OUTPUT="$GLUSTER_OUTPUT $i ($FREE%)"
+        fi
+    done
+}
+
+__mongo_status() {
+    MONGO_OUTPUT=""
+    systemctl is-enabled mongod > /dev/null
+    local ENABLED=$?
+    systemctl is-active mongod > /dev/null
+    local ACTIVE=$?
+    systemctl is-failed mongod > /dev/null
+    local FAILED=$?
+    if [ $ENABLED = 0 ]; then
+        if [ $ACTIVE = 0 ]; then
+            local RS=`mongo --quiet --eval 'rs.conf()'`
+            local STATUS=`mongo --quiet --eval 'printjson(db.isMaster()["ismaster"])'`
+            if [ $RS = 'null' ]; then
+                MONGO_OUTPUT="Standalone"
+            elif [ $STATUS = 'true' ]; then
+                MONGO_OUTPUT="Primary"
+            else
+                MONGO_OUTPUT="Secondary"
+            fi
+        elif [ $FAILED = 0 ]; then
+            MONGO_OUTPUT="Failed"
+        else
+            MONGO_OUTPUT="Inactive"
+        fi
+    fi
+}
+
+__dunno_services() {
+    # TODO: Make a case for when a service is active but not enabled
+    services="ltrx rmss esg mpc mpcms hms vta oamgui vrm ingm rabbitmq-server"
+    SERVICES_OUTPUT=""
+    for i in $services; do
+        ENABLED_OUTPUT=`systemctl is-enabled $i`
+        ENABLED=$?
+        systemctl is-active $i > /dev/null
+        ACTIVE=$?
+        systemctl is-failed $i > /dev/null
+        FAILED=$?
+        #export LOADED=`systemctl status $i | grep -i loaded | awk '{print $2}'`
+        #export ACTIVE=`systemctl status $i | grep -i active | awk '{print $2}'`
+        if [ $ACTIVE = 0 ]; then
+            # Service is operational
+            SERVICES_OUTPUT="$SERVICES_OUTPUT \005{g}$i\005{-}"
+        elif [ $ENABLED = 1 ]; then
+            # Service is not enabled on this machine
+            SERVICES_OUTPUT="$SERVICES_OUTPUT"
+        elif [ $ENABLED = 0 -a $FAILED = 0 ]; then
+            # Service is in failed state!!
+            SERVICES_OUTPUT="$SERVICES_OUTPUT \005{b r}$i\005{-}"
+        #elif [ $ENABLED = 0 -a $ENABLED_OUTPUT = 'static' ]; then
+            ## Service is set to 'static'
+            ##SERVICES_OUTPUT="$SERVICES_OUTPUT \005{G}$i\005{-}"
+            #SERVICES_OUTPUT="$SERVICES_OUTPUT"
+        else
+            # Service is in weird / unknown state
+            SERVICES_OUTPUT="$SERVICES_OUTPUT \005{y}$i\005{-}"
+        fi
+    done
+}
+
+_add_to_output() {
+    if [ -z "$OUTPUT" ]; then
+        OUTPUT="$1"
+    else
+        OUTPUT="$OUTPUT $1"
+    fi
+}
+
+# Actual definition
+van-hud() {
+    OUTPUT=""
+    # Consume command line arguments
+    while [[ $# > 0 ]]; do
+        case $1 in
+            #-h|--help)
+                #_iperf_si_usage
+                #exit 0
+                #;;
+            --active-services)
+                echo "$(__active_non_failed_services)"
+                shift
+                ;;
+            --failed-services)
+                echo "$(__failed_services)"
+                shift
+                ;;
+            --gluster)
+                echo "$(__gluster_status)"
+                shift
+                ;;
+            --mongo)
+                echo "$(__mongo_status)"
+                shift
+                ;;
+        esac
+        shift
+    done
+}
+
+if [ -n "$1" ]; then
+    # We're being called as a script, rather than just being sourced
+    van-hud "$@"
+fi
