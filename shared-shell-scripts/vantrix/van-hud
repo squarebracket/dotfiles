@@ -130,7 +130,7 @@ _build_chunk() {
     if [ -z "$CHUNK" ]; then
         CHUNK="$1"
     else
-        CHUNK="$CHUCK $1"
+        CHUNK="$CHUNK $1"
     fi
 }
 
@@ -190,19 +190,15 @@ van-hud() {
                 #;;
             --active-services|--failed-services|--gluster|--mongo|--deployment)
                 _add_command $1
-                shift
                 ;;
             --screen)
                 _set_screen
-                shift
                 ;;
             --tmux)
                 _set_tmux
-                shift
                 ;;
             --left|--right)
                 _set_sep $1
-                shift
                 ;;
             *)
                 shift
@@ -214,23 +210,18 @@ van-hud() {
         case $cmd in
             --active-services)
                 _output "$(__active_non_failed_services)"
-                shift
                 ;;
             --failed-services)
                 _output "$(__failed_services)"
-                shift
                 ;;
             --gluster)
                 _output "$(__gluster_status)"
-                shift
                 ;;
             --mongo)
                 _output "$(__mongo_status)"
-                shift
                 ;;
             --deployment)
                 _output "$(__mongo_status)"
-                shift
                 ;;
         esac
     done
