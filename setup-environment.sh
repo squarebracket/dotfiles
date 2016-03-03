@@ -52,34 +52,34 @@ if [ ! -d "$DOTFILES" ]; then
     cd ..
     
     echo "Making links"
-    ln -fs $DOTFILES/vim ~/.vim$TERMINATOR
-    ln -fs $DOTFILES/tmux/tmux.conf ~/.tmux.conf$TERMINATOR
-    ln -fs $DOTFILES/screen/screenrc ~/.screenrc$TERMINATOR
-    ln -fs $DOTFILES/dircolors ~/.dircolors$TERMINATOR
-    ln -fs $DOTFILES/bash/bashrc ~/.bashrc$TERMINATOR
-    ln -fs $DOTFILES/oh-my-zsh ~/.oh-my-zsh
-    ln -fs $DOTFILES/zsh/zshrc ~/.zshrc$TERMINATOR
-    ln -fs $DOTFILES/weechat ~/.weechat$TERMINATOR
+    ln -fs $DOTFILES/vim $HOME/.vim$TERMINATOR
+    ln -fs $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf$TERMINATOR
+    ln -fs $DOTFILES/screen/screenrc $HOME/.screenrc$TERMINATOR
+    ln -fs $DOTFILES/dircolors $HOME/.dircolors$TERMINATOR
+    ln -fs $DOTFILES/bash/bashrc $HOME/.bashrc$TERMINATOR
+    ln -fs $DOTFILES/oh-my-zsh $HOME/.oh-my-zsh
+    ln -fs $DOTFILES/zsh/zshrc $HOME/.zshrc$TERMINATOR
+    ln -fs $DOTFILES/weechat $HOME/.weechat$TERMINATOR
     
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
     # it work
     echo "Managing vimrc hack"
-    if [ ! -f ~/.vimrc ]; then
-       echo 'source ~/$DOTFILES/vim/vimrc' >> ~/.vimrc
-    elif  [ -f ~/.vimrc ]; then
+    if [ ! -f $HOME/.vimrc ]; then
+       echo 'source $HOME/$DOTFILES/vim/vimrc' >> $HOME/.vimrc
+    elif  [ -f $HOME/.vimrc ]; then
         grep "source ~/$DOTFILES/vim/vimrc" < ~/.vimrc > /dev/null || echo 'source ~/$DOTFILES/vim/vimrc' >> ~/.vimrc
     fi
 
     echo "Installing public key"
-    for file in `ls ~/$DOTFILES/keys/*`; do
-        cat $file >> ~/.ssh/authorized_keys
+    for file in `ls $HOME/$DOTFILES/keys/*`; do
+        cat $file >> $HOME/.ssh/authorized_keys
     done
     
     # Remote -> local copying requires the remote server having a public key
     # So check if we have a public key, and if not, generate it
-    if [ ! -f ~/.ssh/id_rsa.pub ]; then
-        ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ''
+    if [ ! -f $HOME/.ssh/id_rsa.pub ]; then
+        ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa -N ''
     fi
 
     # If you need to install software or do anything else before launching
@@ -119,7 +119,7 @@ else
     cd $DOTFILES
     git pull
     git submodule update --init
-    cd ~
+    cd $HOME
 fi
 
 # Set the title of the pane for embedded screen/tmux
@@ -131,10 +131,10 @@ fi
 # a customized environment. So here we set up a custom variable if needed.
 case "$SHELL" in
 /bin/bash)
-    export CUSTOM_SHELL_OPTS="--rcfile ~/$DOTFILES/bash/bashrc"
+    export CUSTOM_SHELL_OPTS="--rcfile $HOME/$DOTFILES/bash/bashrc"
     ;;
 /bin/zsh)
-    export ZDOTDIR="~/$DOTFILES/zsh/"
+    export ZDOTDIR="$HOME/$DOTFILES/zsh/"
     ;;
 esac
 
@@ -143,12 +143,12 @@ _install_if_needed $LAUNCH_SHELL
 
 # Some environment variables need to be set before launching a
 # terminal multiplexer, so we source them here.
-source ~/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init
+source $HOME/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init
 
 if [ "$LAUNCH_SHELL" = "screen" ]; then
-    screen -c ~/.screenrc$TERMINATOR $SHELL $CUSTOM_SHELL_OPTS
+    screen -c $HOME/.screenrc$TERMINATOR $SHELL $CUSTOM_SHELL_OPTS
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
-    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f ~/.tmux.conf$TERMINATOR new-session -s $REMOTE_USER "$SHELL $CUSTOM_SHELL_OPTS"
+    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f $HOME/.tmux.conf$TERMINATOR new-session -s $REMOTE_USER "$SHELL $CUSTOM_SHELL_OPTS"
 else
     $LAUNCH_SHELL
 fi
