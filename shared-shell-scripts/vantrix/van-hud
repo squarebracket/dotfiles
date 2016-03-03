@@ -143,19 +143,19 @@ van-hud() {
                 #exit 0
                 #;;
             --active-services)
-                echo "$(__active_non_failed_services)"
+                echo -n "$(__active_non_failed_services)"
                 shift
                 ;;
             --failed-services)
-                echo "$(__failed_services)"
+                echo -n "$(__failed_services)"
                 shift
                 ;;
             --gluster)
-                echo "$(__gluster_status)"
+                echo -n "$(__gluster_status)"
                 shift
                 ;;
             --mongo)
-                echo "$(__mongo_status)"
+                echo -n "$(__mongo_status)"
                 shift
                 ;;
         esac
