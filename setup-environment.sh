@@ -131,10 +131,9 @@ fi
 # a customized environment. So here we set up a custom variable if needed.
 case "$SHELL" in
 /bin/bash)
-    export CUSTOM_SHELL="$SHELL --rcfile ~/$DOTFILES/bash/bashrc"
+    export CUSTOM_SHELL_OPTS="--rcfile ~/$DOTFILES/bash/bashrc"
     ;;
 /bin/zsh)
-    export CUSTOM_SHELL="$SHELL"
     export ZDOTDIR="~/$DOTFILES/zsh/"
     ;;
 esac
@@ -147,9 +146,9 @@ _install_if_needed $LAUNCH_SHELL
 source ~/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init
 
 if [ "$LAUNCH_SHELL" = "screen" ]; then
-    screen -c ~/.screenrc$TERMINATOR $CUSTOM_SHELL
+    screen -c ~/.screenrc$TERMINATOR $SHELL $CUSTOM_SHELL_OPTS
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
-    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f ~/.tmux.conf$TERMINATOR new-session -s $REMOTE_USER "$CUSTOM_SHELL"
+    tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f ~/.tmux.conf$TERMINATOR new-session -s $REMOTE_USER "$SHELL $CUSTOM_SHELL_OPTS"
 else
     $LAUNCH_SHELL
 fi
