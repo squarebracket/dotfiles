@@ -5,7 +5,7 @@ from powerline.segments import Segment
 
 HOMEDIR = os.environ['HOME']
 DOTFILES = os.environ['DOTFILES']
-VAN_HUD_FILE = os.path.join(HOME, DOTFILES, 'shared-shell-scripts', 'vantrix', 'van-hud')
+VAN_HUD_FILE = os.path.join(HOMEDIR, DOTFILES, 'shared-shell-scripts', 'vantrix', 'van-hud')
 
 class VantrixServices(Segment):
     
