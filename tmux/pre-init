@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # required for powerline
+DIR_TO_ADD=~/$DOTFILES/config
 if [ -z "$XDG_CONFIG_DIRS" ]; then
-    export XDG_CONFIG_DIRS="~/$DOTFILES/config"
+    export XDG_CONFIG_DIRS="$DIR_TO_ADD"
 else
-    export XDG_CONFIG_DIRS="${XDG_CONFIG_DIRS}:~/$DOTFILES/config"
+    export XDG_CONFIG_DIRS="${XDG_CONFIG_DIRS}:$DIR_TO_ADD"
 fi
 export PYTHONPATH="${PYTHONPATH}:~/$DOTFILES/config/powerline"
