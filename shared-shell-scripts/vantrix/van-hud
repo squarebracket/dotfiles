@@ -130,7 +130,7 @@ _build_chunk() {
     if [ -z "$CHUNK" ]; then
         CHUNK="$1"
     else
-        CHUNK="$CHUCK $1"
+        CHUNK="$CHUNK $1"
     fi
 }
 
