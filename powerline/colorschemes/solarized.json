@@ -32,7 +32,8 @@
 		"weather_temp_gradient":   { "fg": "blue_red", "bg": "solarized:base03", "attrs": [] },
 		"weather":                 { "fg": "solarized:base1", "bg": "solarized:base03", "attrs": [] },
 		"uptime":                  { "fg": "solarized:base1", "bg": "solarized:base03", "attrs": [] },
-        "van_services":            { "fg": "solarized:green", "bg": "solarized:base02", "attrs": [] },
+        "van_active_services":     { "fg": "solarized:green", "bg": "solarized:base02", "attrs": [] },
+        "van_failed_services":     { "fg": "solarized:base3", "bg": "solarized:red", "attrs": [] },
         "puppet_running":          { "fg": "solarized:base3", "bg": "solarized:blue", "attrs": ["bold"] }
 	}
 }
