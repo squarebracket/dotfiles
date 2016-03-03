@@ -10,7 +10,11 @@ VAN_HUD_FILE = os.path.join(HOMEDIR, DOTFILES, 'shared-shell-scripts', 'vantrix'
 def van_hud(command):
     p = subprocess.Popen(['bash', VAN_HUD_FILE, command], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
-    return out.strip()
+    out = out.strip()
+    if out == '':
+        return None
+    else:
+        return out
 
 class VantrixServices(Segment):
     
