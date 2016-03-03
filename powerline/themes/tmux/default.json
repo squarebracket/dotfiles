@@ -19,7 +19,9 @@
             },
             {
                 "function": "vantrix.van_failed_services"
-            }
+            },
+            { "function": "vantrix.van_mongo" },
+            { "function": "vantrix.van_gluster" }
         ],
 		"right": [
 			{
