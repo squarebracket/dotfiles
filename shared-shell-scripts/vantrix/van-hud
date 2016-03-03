@@ -11,41 +11,41 @@ __puppet_active() {
 }
 
 __active_non_failed_services() {
-    SERVICES_OUTPUT=""
+    CHUNK=""
     for i in $VANTRIX_SERVICES; do
         systemctl is-active $i > /dev/null
         local result=$?
         if [ $result = 0 ]; then
-            SERVICES_OUTPUT="$SERVICES_OUTPUT $i"
+            _build_chunk "$i"
         fi
     done
-    echo $SERVICES_OUTPUT
+    echo -n $CHUNK
 }
 
 __failed_services() {
-    SERVICES_OUTPUT=""
+    CHUNK=""
     for i in $VANTRIX_SERVICES; do
         systemctl is-failed $i > /dev/null
         local result=$?
         if [ $result = 0 ]; then
-            SERVICES_OUTPUT="$SERVICES_OUTPUT $i"
+            _build_chunk "$i"
         fi
     done
-    echo $SERVICES_OUTPUT
+    echo -n $CHUNK
 }
 
 __weird_services() {
-    SERVICES_OUTPUT=""
+    CHUNK=""
     for i in $VANTRIX_SERVICES; do
         systemctl is-enabled $i > /dev/null
         local enabled=$?
         systemctl is-active $i > /dev/null
         local active=$?
         if [ $enabled = 0 -a $active = 1 ]; then
-            SERVICES_OUTPUT="$SERVICES_OUTPUT $i"
+            _build_chunk "$i"
         fi
     done
-    echo $SERVICES_OUTPUT
+    echo -n $CHUNK
 }
 
 __gluster_status() {
@@ -62,6 +62,7 @@ __gluster_status() {
             GLUSTER_OUTPUT="$GLUSTER_OUTPUT $i ($FREE%)"
         fi
     done
+    echo -n $GLUSTER_OUTPUT
 }
 
 __mongo_status() {
@@ -72,23 +73,24 @@ __mongo_status() {
     local ACTIVE=$?
     systemctl is-failed mongod > /dev/null
     local FAILED=$?
-    if [ $ENABLED = 0 ]; then
-        if [ $ACTIVE = 0 ]; then
+    if [ "$ENABLED" = "0" ]; then
+        if [ "$ACTIVE" = "0" ]; then
             local RS=`mongo --quiet --eval 'rs.conf()'`
             local STATUS=`mongo --quiet --eval 'printjson(db.isMaster()["ismaster"])'`
-            if [ $RS = 'null' ]; then
+            if [ "$RS" = 'null' ]; then
                 MONGO_OUTPUT="Standalone"
-            elif [ $STATUS = 'true' ]; then
+            elif [ "$STATUS" = 'true' ]; then
                 MONGO_OUTPUT="Primary"
             else
                 MONGO_OUTPUT="Secondary"
             fi
-        elif [ $FAILED = 0 ]; then
+        elif [ "$FAILED" = "0" ]; then
             MONGO_OUTPUT="Failed"
         else
             MONGO_OUTPUT="Inactive"
         fi
     fi
+    echo -n $MONGO_OUTPUT
 }
 
 __dunno_services() {
@@ -124,17 +126,61 @@ __dunno_services() {
     done
 }
 
-_add_to_output() {
-    if [ -z "$OUTPUT" ]; then
-        OUTPUT="$1"
+_build_chunk() {
+    if [ -z "$CHUNK" ]; then
+        CHUNK="$1"
     else
-        OUTPUT="$OUTPUT $1"
+        CHUNK="$CHUCK $1"
+    fi
+}
+
+_add_command() {
+    if [ -z "$COMMANDS" ]; then
+        COMMANDS="$1"
+    else
+        COMMANDS="$COMMANDS $1"
+    fi
+}
+
+_set_screen() {
+    _SCREEN_MODE=1
+    RED="r"
+    GREEN="g"
+}
+
+_set_tmux() {
+    _TMUX_MODE=1
+}
+
+#_colorize() {
+    #if [ -n "$_SCREEN_MODE" ]; then
+        #echo -e "\005{$1}$2"
+    #else
+        #echo -e "\e[${1}m;
+
+#_red() {
+    #RED="\005{r}"
+
+#_good_output() {
+
+#_set_sep() {
+    #if [ -n "$POWERLINE_FONT" ]; then
+        #LEFT_SEP=
+        #RIGHT_SEP=
+    #if [ "$1" = "left" ]; then
+        #SEPARATOR=
+
+_output() {
+    if [ -n "$_TMUX_MODE" -o -n "$_SCREEN_MODE" ]; then
+        echo -n "$1"
+    else
+        echo "$1"
     fi
 }
 
 # Actual definition
 van-hud() {
-    OUTPUT=""
+    local COMMANDS
     # Consume command line arguments
     while [[ $# > 0 ]]; do
         case $1 in
@@ -142,24 +188,51 @@ van-hud() {
                 #_iperf_si_usage
                 #exit 0
                 #;;
-            --active-services)
-                echo -n "$(__active_non_failed_services)"
+            --active-services|--failed-services|--gluster|--mongo|--deployment)
+                _add_command $1
                 shift
                 ;;
-            --failed-services)
-                echo -n "$(__failed_services)"
+            --screen)
+                _set_screen
                 shift
                 ;;
-            --gluster)
-                echo -n "$(__gluster_status)"
+            --tmux)
+                _set_tmux
                 shift
                 ;;
-            --mongo)
-                echo -n "$(__mongo_status)"
+            --left|--right)
+                _set_sep $1
+                shift
+                ;;
+            *)
                 shift
                 ;;
         esac
         shift
+    done
+    for cmd in $COMMANDS; do        
+        case $cmd in
+            --active-services)
+                _output "$(__active_non_failed_services)"
+                shift
+                ;;
+            --failed-services)
+                _output "$(__failed_services)"
+                shift
+                ;;
+            --gluster)
+                _output "$(__gluster_status)"
+                shift
+                ;;
+            --mongo)
+                _output "$(__mongo_status)"
+                shift
+                ;;
+            --deployment)
+                _output "$(__mongo_status)"
+                shift
+                ;;
+        esac
     done
 }
 
