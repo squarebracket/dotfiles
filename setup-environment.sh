@@ -1,7 +1,7 @@
 #!/bin/sh
 # export arguments to script
 export REMOTE_USER=$1
-export LAUNCH_SHELL=$2
+export LAUNCH_SHELL=${2:=$SHELL}
 # set locally-used variables which get overridden by environment
 REPO=${REPO:=https://github.com/squarebracket/dotfiles.git}
 # export important environment variables
@@ -61,6 +61,9 @@ if [ ! -d "$DOTFILES" ]; then
     ln -fs $DOTFILES/zsh/zshrc $HOME/.zshrc$TERMINATOR
     ln -fs $DOTFILES/weechat $HOME/.weechat$TERMINATOR
     ln -fs $DOTFILES/terminfo $HOME/.terminfo$TERMINATOR
+
+    # Make sure that custom termcaps are sourced / installed
+    tic $DOTFILES/terminfo/*
     
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
