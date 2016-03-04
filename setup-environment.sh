@@ -114,6 +114,7 @@ if [ ! -d "$DOTFILES" ]; then
     # If we're remote and we've got a $LOOPBACK_PORT...
     if [ "$REMOTE_USER" != "LOCAL" -a -n "$LOOPBACK_PORT" ]; then
         # ...test to see if we have ssh keys set up for remote copying back to host...
+        ssh-keyscan -H <host> >> ~/.ssh/known_hosts
         ssh -q -o PasswordAuthentication=no -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'echo "success!"'
         EXIT_CODE=$?
         if [ $EXIT_CODE != 0 ]; then
