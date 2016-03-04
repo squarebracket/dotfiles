@@ -62,9 +62,6 @@ if [ ! -d "$DOTFILES" ]; then
     ln -fs $DOTFILES/weechat $HOME/.weechat$TERMINATOR
     ln -fs $DOTFILES/terminfo $HOME/.terminfo$TERMINATOR
 
-    # Make sure that custom termcaps are sourced / installed
-    tic $DOTFILES/terminfo/*
-    
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
     # it work
