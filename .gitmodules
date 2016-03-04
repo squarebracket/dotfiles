@@ -13,9 +13,6 @@
 [submodule "ctrlp.vim"]
     path = vim/bundle/ctrlp.vim
     url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "gundo.vim"]
-    path = vim/bundle/gundo.vim
-    url = https://github.com/vim-scripts/Gundo.git
 [submodule "jshint2.vim"]
     path = vim/bundle/jshint2.vim
     url = https://github.com/Shutnik/jshint2.vim.git
