@@ -60,7 +60,13 @@ if [ ! -d "$DOTFILES" ]; then
     ln -fs $DOTFILES/oh-my-zsh $HOME/.oh-my-zsh
     ln -fs $DOTFILES/zsh/zshrc $HOME/.zshrc$TERMINATOR
     ln -fs $DOTFILES/weechat $HOME/.weechat$TERMINATOR
-    ln -fs $DOTFILES/terminfo $HOME/.terminfo$TERMINATOR
+
+    # Copy over custom termcaps
+    [ ! -d $HOME/.terminfo ] && mkdir $HOME/.terminfo
+    cd $HOME/$DOTFILES/terminfo
+    for file in $(ls */*); do
+        cp $file $HOME/.terminfo/$file
+    done
 
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
