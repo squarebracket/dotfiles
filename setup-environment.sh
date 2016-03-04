@@ -48,7 +48,7 @@ if [ ! -d "$DOTFILES" ]; then
     
     echo "Pulling any submodules"
     cd $DOTFILES
-    git submodule update --init --force
+    git submodule update --init
     cd ..
     
     echo "Making links"
