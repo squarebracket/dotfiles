@@ -67,6 +67,7 @@ if [ ! -d "$DOTFILES" ]; then
     for file in $(ls */*); do
         cp $file $HOME/.terminfo/$file
     done
+    cd ~
 
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
