@@ -65,6 +65,7 @@ if [ ! -d "$DOTFILES" ]; then
     [ ! -d $HOME/.terminfo ] && mkdir $HOME/.terminfo
     cd $HOME/$DOTFILES/terminfo
     for file in $(ls */*); do
+        mkdir -p $HOME/.terminfo/${file%*/*}
         cp $file $HOME/.terminfo/$file
     done
     cd ~
