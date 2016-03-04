@@ -8,6 +8,7 @@ REPO=${REPO:=https://github.com/squarebracket/dotfiles.git}
 export LOOPBACK_PORT=$LOOPBACK_PORT
 export POWERLINE_FONT=$POWERLINE_FONT
 export ENVIRONMENT=$ENVIRONMENT
+export LOCAL_DISPLAY=$LOCAL_DISPLAY
 # make sure we're in ~
 cd ~
 # set and export $DOTFILES

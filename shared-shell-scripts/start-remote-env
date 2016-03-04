@@ -5,10 +5,11 @@ start-remote-env() {
     LAUNCH_SHELL=${2:=$SHELL}
     REMOTE_USER=$USER
     LOOPBACK_PORT=5555
+    LOCAL_DISPLAY=$DISPLAY
     echo -e "    Launching remote environment for $ENVIRONMENT"
     while [ true ]; do
-        VARS_TO_PASS="ENVIRONMENT=$ENVIRONMENT POWERLINE_FONT=$POWERLINE_FONT LOOPBACK_PORT=$LOOPBACK_PORT"
-        ssh -R "$LOOPBACK_PORT":localhost:22 -o ExitOnForwardFailure=yes $SERVER -t "wget --no-check-certificate $SCRIPTFILE -O .setup_env.sh && $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL"
+        VARS_TO_PASS="ENVIRONMENT=$ENVIRONMENT POWERLINE_FONT=$POWERLINE_FONT LOOPBACK_PORT=$LOOPBACK_PORT LOCAL_DISPLAY=$LOCAL_DISPLAY"
+        ssh -R "$LOOPBACK_PORT":localhost:22 -o ExitOnForwardFailure=yes $SERVER -t "wget --no-check-certificate $SCRIPTFILE -O .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL"
         EXIT_CODE=$?
         if [ $EXIT_CODE = 13 ]; then
             # We need to get the remote server's SSH key
