@@ -52,9 +52,6 @@
 [submodule "vim-indent-object"]
     path = vim/bundle/vim-indent-object
     url = https://github.com/michaeljsmith/vim-indent-object.git
-[submodule "vim-markdown"]
-    path = vim/bundle/vim-markdown
-    url = https://github.com/tpope/vim-markdown.git
 [submodule "vim-multiple-cursors"]
     path = vim/bundle/vim-multiple-cursors
     url = https://github.com/terryma/vim-multiple-cursors.git
