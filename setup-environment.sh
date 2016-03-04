@@ -60,6 +60,7 @@ if [ ! -d "$DOTFILES" ]; then
     ln -fs $DOTFILES/oh-my-zsh $HOME/.oh-my-zsh
     ln -fs $DOTFILES/zsh/zshrc $HOME/.zshrc$TERMINATOR
     ln -fs $DOTFILES/weechat $HOME/.weechat$TERMINATOR
+    ln -fs $DOTFILES/terminfo $HOME/.terminfo$TERMINATOR
     
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
