@@ -16,11 +16,27 @@ def van_hud(command):
     else:
         return out
 
-class VantrixServices(Segment):
-    
-    def __call__(self, pl):
-        output = subprocess.Popen(['~/.van_services.sh',], stdout=subprocess.PIPE).communicate()
-        return output
+class VantrixMongo(Segment): 
+     
+    def __call__(self, pl): 
+        mongo_state = van_hud('--mongo') 
+        if mongo_state == 'Primary': 
+            return [{ 
+                'contents': mongo_state, 
+                'highlight_groups': ['van_active_services'], 
+            }] 
+        elif mongo_state == 'Secondary': 
+            return [{ 
+                'contents': mongo_state, 
+                'highlight_groups': ['branch_dirty'], 
+            }] 
+        else: 
+            return [{ 
+                'contents': mongo_state, 
+                'highlight_groups': ['branch_dirty'], 
+            }] 
+
+mongo = VantrixMongo()
 
 def puppet_running(pl):
     if os.path.isfile('/var/lib/puppet/state/agent_catalog_run.lock'):

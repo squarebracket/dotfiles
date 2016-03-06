@@ -27,7 +27,8 @@
 				"priority": 50
 			},
             { "function": "vantrix.van_mongo" },
-            { "function": "vantrix.van_gluster" }
+            { "function": "vantrix.van_gluster" },
+            { "function": "vantrix.mongo" }
 		]
 	}
 }
