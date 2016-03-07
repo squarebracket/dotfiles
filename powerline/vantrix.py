@@ -66,6 +66,8 @@ class VantrixGluster(Segment):
 
     def __call__(self, pl):
         gluster = van_hud('--gluster')
+        if not gluster:
+            return None
         m = re.match(r'(gv\d) \((\d+)%\)', gluster)
         if not m:
             return None
