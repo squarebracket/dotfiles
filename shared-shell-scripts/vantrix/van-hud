@@ -1,5 +1,5 @@
 #!/bin/bash
-VANTRIX_SERVICES="ltrx rmss esg mpc mpcms hms vta oamgui vrm ingm rabbitmq-server"
+VANTRIX_SERVICES="ltrx rmss esg mpc mpcms hms vta oamgui vrm ingm rabbitmq-server vta-context"
 
 __puppet_active() {
     ps -C puppet,puppetmasterless,puppetmasterful > /dev/null || ps -ef | grep -i agent_postinstall | grep -v grep > /dev/null
