@@ -9,12 +9,12 @@ start-remote-env() {
     echo -e "    Launching remote environment for $ENVIRONMENT"
     while [ true ]; do
         VARS_TO_PASS="ENVIRONMENT=$ENVIRONMENT POWERLINE_FONT=$POWERLINE_FONT LOOPBACK_PORT=$LOOPBACK_PORT LOCAL_DISPLAY=$LOCAL_DISPLAY"
-        ssh -R "$LOOPBACK_PORT":localhost:22 -o ExitOnForwardFailure=yes $SERVER -t "wget --no-check-certificate $SCRIPTFILE -O .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL"
+        ssh -R "$LOOPBACK_PORT":localhost:22 -o "ExitOnForwardFailure yes" -o "StrictHostKeyChecking no" $SERVER -t "wget --no-check-certificate $SCRIPTFILE -O .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL"
         EXIT_CODE=$?
         if [ $EXIT_CODE = 13 ]; then
             # We need to get the remote server's SSH key
             echo "    Need to install server's SSH key locally"
-            echo "$(ssh -q $2 -t 'cat ~/.ssh/id_rsa.pub')" >> ~/.ssh/authorized_keys
+            echo "$(ssh -q $SERVER -t 'cat ~/.ssh/id_rsa.pub')" >> ~/.ssh/authorized_keys
         elif [ $EXIT_CODE = 0 ]; then
             echo "    Exiting normally"
             return 0
