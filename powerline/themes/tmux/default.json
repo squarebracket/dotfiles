@@ -26,9 +26,11 @@
 				"function": "powerline.segments.common.sys.system_load",
 				"priority": 50
 			},
-            { "function": "vantrix.van_mongo" },
-            { "function": "vantrix.van_gluster" },
-            { "function": "vantrix.mongo" }
+            { "function": "vantrix.gluster" },
+            { "function": "vantrix.mongo" },
+            { "function": "vantrix.location" },
+            { "function": "vantrix.machine" },
+            { "function": "vantrix.deployment" }
 		]
 	}
 }
