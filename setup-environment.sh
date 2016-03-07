@@ -113,17 +113,6 @@ if [ ! -d "$DOTFILES" ]; then
         $SUDO pip install -r $DOTFILES/requirements.txt
     fi
 
-    # If we're remote and we've got a $LOOPBACK_PORT...
-    if [ "$REMOTE_USER" != "LOCAL" -a -n "$LOOPBACK_PORT" ]; then
-        # ...test to see if we have ssh keys set up for remote copying back to host...
-        ssh -q -o PasswordAuthentication=no -o StrictHostKeyChecking=no -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'echo "success!"'
-        EXIT_CODE=$?
-        if [ $EXIT_CODE != 0 ]; then
-            # ...and if we don't, exit with status 13
-            exit 13
-        fi
-    fi
-
 # Update the repo(s) on every login
 else
     # Update the dotfiles and all submodules to the latest version
@@ -131,6 +120,17 @@ else
     git pull
     git submodule update --init
     cd $HOME
+fi
+
+# If we're remote and we've got a $LOOPBACK_PORT...
+if [ "$REMOTE_USER" != "LOCAL" -a -n "$LOOPBACK_PORT" ]; then
+    # ...test to see if we have ssh keys set up for remote copying back to host...
+    ssh -q -o PasswordAuthentication=no -o StrictHostKeyChecking=no -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'echo "success!"'
+    EXIT_CODE=$?
+    if [ $EXIT_CODE != 0 ]; then
+        # ...and if we don't, exit with status 13
+        exit 13
+    fi
 fi
 
 # Set the title of the pane for embedded screen/tmux
