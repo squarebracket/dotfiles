@@ -2,4 +2,4 @@
 
 #alias cs="tmux new-session && tmux rename-window 'Session Chooser' && tmux choose-list -l soak1,soak2,char,empty 'source ~/dotfiles/tmux/tmux-%%.conf'"
 #alias cs="tmux new-session \"tmux rename-window 'Session Chooser' && tmux choose-list -l soak1,soak2,char,empty if-shell 'tmux has-session -t %%' 'attach-session -t %%' 'source ~/dotfiles/tmux/tmux-%%.conf'\""
-alias cs="tmux new-session -s 'Chooser' \"tmux source ~/dotfiles/tmux/tmux-session-chooser.conf\""
+alias cs="tmux new-session -s 'Chooser' \"tmux run-shell 'ENVIRONMENT=$ENVIRONMENT $HOME/$DOTFILES/tmux/session-chooser'\""

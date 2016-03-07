@@ -1,0 +1,24 @@
+#!/bin/bash
+if [ -z "$ENVIRONMENT" ]; then
+    SESSIONS=""
+    for file in $(ls $HOME/$DOTFILES/tmux/sessions/*/*.conf); do
+        chop1="${file#*tmux-*}"
+        chop2="${chop1%*.conf}"
+        chop3="${file#$HOME/$DOTFILES/tmux/sessions/*}"
+        env="${chop3%*/*}"
+        [ -z "$SESSIONS" ] && SESSIONS="'$env/$chop2'" || SESSIONS="$SESSIONS,'$env/$chop2'"
+    done
+    tmux set display-time 10000
+    tmux choose-list -l $SESSIONS "_SESSION='%%' ENV='${_SESSION%*/*}' SESSION='${_SESSION#*/*}' source '$HOME/$DOTFILES/tmux/sessions/$ENV/tmux-$SESSION.conf'; kill-session -t 'Chooser'"
+else
+    SESSIONS=""
+    for file in $(ls $HOME/$DOTFILES/tmux/sessions/$ENVIRONMENT/*.conf); do
+        chop1="${file#*tmux-*}"
+        chop2="${chop1%*.conf}"
+        #chop3="${file#$HOME/$DOTFILES/tmux/sessions/*}"
+        #env="${chop3%*/*}"
+        [ -z "$SESSIONS" ] && SESSIONS="'$chop2'" || SESSIONS="$SESSIONS,'$chop2'"
+    done
+    tmux set display-time 10000
+    tmux choose-list -l $SESSIONS "_SESSION='%%' SESSION='${_SESSION#*/*}' source '$HOME/$DOTFILES/tmux/sessions/$ENVIRONMENT/tmux-$SESSION.conf'; kill-session -t 'Chooser'"
+fi
