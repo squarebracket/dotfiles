@@ -38,6 +38,7 @@
         "van_gluster:fine":        { "fg": "solarized:base1", "bg": "solarized:base02", "attrs": [] },
         "van_gluster:warning":     { "fg": "solarized:yellow", "bg": "solarized:base02", "attrs": [] },
         "van_gluster:danger":      { "fg": "solarized:red", "bg": "solarized:base02", "attrs": [] },
+        "van_version":             { "fg": "solarized:cyan", "bg": "solarized:base02", "attrs": [] },
         "puppet_running":          { "fg": "solarized:base3", "bg": "solarized:violet", "attrs": ["bold"] },
         "soak1":                   { "fg": "solarized:blue", "bg": "solarized:base02", "attrs": []},
         "soak2":                   { "fg": "solarized:magenta", "bg": "solarized:base02", "attrs": []}

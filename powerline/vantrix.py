@@ -127,6 +127,9 @@ class VantrixLocation(Segment):
         }]
 location = VantrixLocation()
 
+def van_version(pl):
+    return get_file_contents('/etc/vantrix-release')
+
 def puppet_running(pl):
     if os.path.isfile('/var/lib/puppet/state/agent_catalog_run.lock'):
         return "Applying puppet"

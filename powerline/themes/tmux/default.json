@@ -28,6 +28,7 @@
 			},
             { "function": "vantrix.gluster" },
             { "function": "vantrix.mongo" },
+            { "function": "vantrix.van_version" },
             { "function": "vantrix.location" },
             { "function": "vantrix.machine" },
             { "function": "vantrix.deployment" }
