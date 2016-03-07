@@ -62,6 +62,7 @@ if [ ! -d "$DOTFILES" ]; then
     ln -fs $DOTFILES/zsh/zshrc $HOME/.zshrc$TERMINATOR
     ln -fs $DOTFILES/weechat $HOME/.weechat$TERMINATOR
 
+    # TODO: Change this to links?
     # Copy over custom termcaps
     [ ! -d $HOME/.terminfo ] && mkdir $HOME/.terminfo
     cd $HOME/$DOTFILES/terminfo
