@@ -2,10 +2,13 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Set the dotfiles directory if not already set
+export DOTFILES=${DOTFILES:=dotfiles}
+
 if [ -z "$REMOTE_USER" ]; then
-    DOTFILES_BASH=~/dotfiles/bash
+    DOTFILES_BASH=$HOME/$DOTFILES/bash
 else
-    DOTFILES_BASH=~/.dotfiles-$REMOTE_USER/bash
+    DOTFILES_BASH=$HOME/.dotfiles-$REMOTE_USER/bash
 fi
 
 # If not running interactively, don't do anything
@@ -83,7 +86,7 @@ esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    test -r ~/$DOTFILES/dircolors && eval "$(dircolors -b ~/$DOTFILES/dircolors)" || eval "$(dircolors -b)"
 fi
 
 # Colour is good.
@@ -133,9 +136,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Export that we use a powerline-patched font
 export POWERLINE_FONT=1
-
-# Set the dotfiles directory if not already set
-export DOTFILES=${DOTFILES:=dotfiles}
 
 # Auto-source files depending on environment
 source ~/$DOTFILES/bash/sourcer
