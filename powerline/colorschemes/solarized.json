@@ -41,7 +41,7 @@
         "van_version":             { "fg": "solarized:cyan", "bg": "solarized:base02", "attrs": [] },
         "puppet_running":          { "fg": "solarized:base3", "bg": "solarized:violet", "attrs": ["bold"] },
         "soak1":                   { "fg": "solarized:blue", "bg": "solarized:base02", "attrs": []},
-        "soak2":                   { "fg": "solarized:magenta", "bg": "solarized:base02", "attrs": []}
+        "soak2":                   { "fg": "solarized:magenta", "bg": "solarized:base02", "attrs": []},
         "soak3":                   { "fg": "solarized:orange", "bg": "solarized:base02", "attrs": []}
 	}
 }
