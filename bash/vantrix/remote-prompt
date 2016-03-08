@@ -7,6 +7,8 @@ if [ -f /opt/deployment ]; then
         DEPLOYMENT_COLOUR="\e[0;34m"
     elif [ "$DEPLOYMENT" = "soak2" ]; then
         DEPLOYMENT_COLOUR="\e[0;35m"
+    elif [ "$DEPLOYMENT" = "soak3" ]; then
+        DEPLOYMENT_COLOUR="\e[0;91m"
     fi
     PS1="\[$DEPLOYMENT_COLOUR\]$DEPLOYMENT \[\e[0;36m\]$MACHINE\[\e[0m\] \w \[\e[0;36m\]\\$\[\e[0m\] "
 fi
