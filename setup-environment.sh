@@ -77,9 +77,9 @@ if [ ! -d "$DOTFILES" ]; then
     # it work
     echo "Managing vimrc hack"
     if [ ! -f $HOME/.vimrc ]; then
-       echo 'source $HOME/$DOTFILES/vim/vimrc' >> $HOME/.vimrc
+        echo "if exists('\$DOTFILES')\nsource $HOME/$DOTFILES/vim/vimrc\nendif" >> $HOME/.vimrc
     elif  [ -f $HOME/.vimrc ]; then
-        grep "source ~/$DOTFILES/vim/vimrc" < ~/.vimrc > /dev/null || echo 'source ~/$DOTFILES/vim/vimrc' >> ~/.vimrc
+        grep "source $HOME/$DOTFILES/vim/vimrc" < ~/.vimrc > /dev/null || echo "if exists('\$DOTFILES')\nsource $HOME/$DOTFILES/vim/vimrc\nendif" >> ~/.vimrc
     fi
 
     echo "Installing public key"
