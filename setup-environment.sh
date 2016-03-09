@@ -83,7 +83,7 @@ if [ ! -d "$DOTFILES" ]; then
     # it work
     echo "Managing vimrc hack"
     if [ ! -f $HOME/.vimrc ]; then
-        echo "if exists('\$DOTFILES')\nsource $HOME/$DOTFILES/vim/vimrc\nendif" >> $HOME/.vimrc
+        echo "if exists('\$DOTFILES')\nsource $HOME/$DOTFILES/vim/vimrc\nendif" > $HOME/.vimrc
     elif  [ -f $HOME/.vimrc ]; then
         grep "source $HOME/$DOTFILES/vim/vimrc" < ~/.vimrc > /dev/null || echo "if exists('\$DOTFILES')\nsource $HOME/$DOTFILES/vim/vimrc\nendif" >> ~/.vimrc
     fi
