@@ -1,1 +1,3 @@
+argparse
 powerline-status
+requests
