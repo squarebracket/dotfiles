@@ -2,6 +2,7 @@
 # export arguments to script
 export REMOTE_USER=$1
 export LAUNCH_SHELL=${2:=$SHELL}
+if [ "$3" = "--reset" ]; then RESET=1; fi
 # set locally-used variables which get overridden by environment
 REPO=${REPO:=https://github.com/squarebracket/dotfiles.git}
 # export important environment variables
@@ -38,6 +39,11 @@ _install_if_needed() {
         $SUDO $INSTALLER install -y $1
     fi
 }
+
+# If we've been asked to reset the state, do a clean-up
+if [ -n "$RESET" ]; then
+    rm -rf $HOME/$DOTFILES/
+fi
 
 # Install git if it's not present
 _install_if_needed git
