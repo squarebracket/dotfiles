@@ -170,3 +170,4 @@ else
     $LAUNCH_SHELL
 fi
 
+exit $?
