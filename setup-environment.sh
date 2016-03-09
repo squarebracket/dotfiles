@@ -89,6 +89,7 @@ if [ ! -d "$DOTFILES" ]; then
     fi
 
     echo "Installing public key"
+    mkdir -p $HOME/.ssh
     for file in `ls $HOME/$DOTFILES/keys/*`; do
         cat $file >> $HOME/.ssh/authorized_keys
     done
