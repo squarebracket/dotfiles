@@ -81,11 +81,14 @@ if [ ! -d "$DOTFILES" ]; then
     # Vim is fucking dumb and can't handle using alternate .vimrc files,
     # so we have to literally append some bullshit to ~/.vimrc just to make
     # it work
+    VIMHACK="if exists('\$DOTFILES')
+    source $HOME/$DOTFILES/vim/vimrc
+endif"
     echo "Managing vimrc hack"
     if [ ! -f $HOME/.vimrc ]; then
-        echo "if exists('\$DOTFILES')\nsource $HOME/$DOTFILES/vim/vimrc\nendif" > $HOME/.vimrc
+        echo "$VIMHACK" > $HOME/.vimrc
     elif  [ -f $HOME/.vimrc ]; then
-        grep "source $HOME/$DOTFILES/vim/vimrc" < ~/.vimrc > /dev/null || echo "if exists('\$DOTFILES')\nsource $HOME/$DOTFILES/vim/vimrc\nendif" >> ~/.vimrc
+        grep "source $HOME/$DOTFILES/vim/vimrc" < ~/.vimrc > /dev/null || echo "$VIMHACK" >> ~/.vimrc
     fi
 
     echo "Installing public key"
