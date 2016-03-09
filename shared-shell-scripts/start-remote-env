@@ -9,19 +9,28 @@ start-remote-env() {
     echo -e "    Launching remote environment for $ENVIRONMENT"
     while [ true ]; do
         VARS_TO_PASS="ENVIRONMENT=$ENVIRONMENT POWERLINE_FONT=$POWERLINE_FONT LOOPBACK_PORT=$LOOPBACK_PORT LOCAL_DISPLAY=$LOCAL_DISPLAY"
-        ssh -R "$LOOPBACK_PORT":localhost:22 -o "ExitOnForwardFailure yes" -o "StrictHostKeyChecking no" $SERVER -t "wget --no-check-certificate $SCRIPTFILE -O .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL"
+        ssh -R "$LOOPBACK_PORT":localhost:22 -o "ExitOnForwardFailure yes" -o "StrictHostKeyChecking no" $SERVER -t "wget --no-check-certificate $SCRIPTFILE -O .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL $RESET"
         EXIT_CODE=$?
+        # Unset $RESET
+        unset RESET
         if [ $EXIT_CODE = 13 ]; then
             # We need to get the remote server's SSH key
             echo "    Need to install server's SSH key locally"
-            echo "$(ssh -q $SERVER -t 'cat ~/.ssh/id_rsa.pub')" >> ~/.ssh/authorized_keys
+            REMOTE_KEY="$(ssh -q $SERVER -t 'cat ~/.ssh/id_rsa.pub')"
+            grep "$REMOTE_KEY" < ~/.ssh/authorized_keys > /dev/null
+            [ "$?" = "0" ] && echo "    ERROR: Remote key is already present in local authorized_keys file. Something is wrong." && exit 1
+            if [ -z "$REMOTE_KEY" ]; then echo "    ERROR: Returned SSH key was null. Something is wrong."; exit 1; fi
+            echo "$REMOTE_KEY" >> ~/.ssh/authorized_keys
         elif [ $EXIT_CODE = 0 ]; then
             echo "    Exiting normally"
             return 0
         elif [ $EXIT_CODE = 255 ]; then
             LOOPBACK_PORT=$(($LOOPBACK_PORT+1))
-            [ $LOOPBACK_PORT = 5565 ] && echo "    ERROR: Ports 5555-5565 were all used. Exiting." && exit 1
+            [ $LOOPBACK_PORT = 5565 ] && echo "    ERROR: Ports 5555-5565 were all used. Attempting to drop to regular shell..." && ssh $SERVER
             echo "    Exit code was $EXIT_CODE, trying port $LOOPBACK_PORT"
+        elif [ $EXIT_CODE = 15 ]; then
+            echo "    Remote shell asked for a reset... "
+            RESET="--reset"
         fi
     done
 }
