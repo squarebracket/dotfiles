@@ -145,7 +145,15 @@ fi
 
 # Set the title of the pane for embedded screen/tmux
 if [ "$REMOTE_USER" != "LOCAL" ]; then
-    printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
+    case "$LAUNCH_SHELL" in
+        *tmux*)
+            TMUX_VER=$(tmux -V)
+            printf '\033]2;%s\033\\' "$TMUX_VER"
+            ;;
+        *)
+            printf '\033]2;%s\033\\' "$LAUNCH_SHELL"
+            ;;
+    esac
 fi
 
 # Your local and remote shell may be different, but you probably still want
