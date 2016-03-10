@@ -4,6 +4,12 @@ altscreen on
 backtick 1 1 1 $HOME/.van_services.sh
 backtick 2 0 0 $HOME/.van_version.sh
 backtick 3 1 1 $HOME/.van_time.sh
+ignorecase on
+# Scroll up and down with Shift-PageUp/PageDown
+bindkey "^[[5;2~" eval "copy" "stuff ^u"
+bindkey -m "^[[5;2~" stuff ^u
+bindkey -m "^[[6;2~" stuff ^d
+bind ^y eval "writebuf $HOME/.screen-buffer-$REMOTE_USER" "exec bash -c '$HOME/$DOTFILES/shared-shell-scripts/copyback"
 hardstatus alwayslastline
 #hardstatus string '%{= kd}%1`%{G}[%= %{= kG}%?%-Lw%?%{GW} %n%f%t %?(%u)%?%{kG}%?%+Lw%?%?%= %{G}][%{B} %m-%d %{d}%c %{G}]'
 hardstatus string '%{= kd}%1`%{G}[%{= kd}%= %{Y}%?%-Lw%?%{= kd} %{= KC}%?  %F%n%f %t  %?%{= kd}%? (%u) %? %{Y}%?%+Lw%?%{= kd} %= %{G}]%{= kd}%2`  %H %{kG}%3`'

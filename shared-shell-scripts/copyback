@@ -1,0 +1,1 @@
+ssh -p $LOOPBACK_PORT $REMOTE_USER@localhost -t "tmux load-buffer - && tmux show-buffer | xsel -i -b --display $LOCAL_DISPLAY" < $HOME/.screen-buffer-$REMOTE_USER
