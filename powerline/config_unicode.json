@@ -1,0 +1,37 @@
+{
+	"common": {
+		"term_truecolor": true,
+        "default_top_theme": "unicode"
+	},
+	"ext": {
+		"ipython": {
+			"colorscheme": "default",
+			"theme": "in",
+			"local_themes": {
+				"rewrite": "rewrite",
+				"out": "out",
+				"in2": "in2"
+			}
+		},
+		"pdb": {
+			"colorscheme": "default",
+			"theme": "default"
+		},
+		"shell": {
+			"colorscheme": "solarized",
+			"theme": "default",
+			"local_themes": {
+				"continuation": "continuation",
+				"select": "select"
+			}
+		},
+		"tmux": {
+			"colorscheme": "solarized",
+			"theme": "vantrix"
+		},
+		"wm": {
+			"colorscheme": "default",
+			"theme": "default"
+		}
+	}
+}

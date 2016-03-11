@@ -1,0 +1,27 @@
+{
+	"segments": {
+        "left": [
+            {
+                "function": "vantrix.puppet_running"
+            },
+            {
+                "function": "vantrix.van_active_services"
+            },
+            {
+                "function": "vantrix.van_failed_services"
+            }
+        ],
+		"right": [
+			{
+				"function": "powerline.segments.common.sys.system_load",
+				"priority": 50
+			},
+            { "function": "vantrix.gluster" },
+            { "function": "vantrix.mongo" },
+            { "function": "vantrix.van_version" },
+            { "function": "vantrix.location" },
+            { "function": "vantrix.machine" },
+            { "function": "vantrix.deployment" }
+		]
+	}
+}
