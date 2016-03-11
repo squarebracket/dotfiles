@@ -89,11 +89,21 @@ fi
 alias vim="vimx"
 DEFAULT_USER=chuck
 
-# Export that we use a powerline-patched font
-export POWERLINE_FONT=1
 
 # Set the dotfiles directory if not already set
 export DOTFILES=${DOTFILES:=dotfiles}
+
+# Export that we use a powerline-patched font
+export POWERLINE_FONT=0
+
+pushd $HOME/$DOTFILES/powerline
+# symlink to proper config.json since there's no way to override tmux variables
+if [ "$POWERLINE_FONT" = "1" ]; then
+    ln -fs config_powerline.json config.json
+else
+    ln -fs config_unicode.json config.json
+fi
+popd
 
 # Auto-source files depending on environment
 source ~/$DOTFILES/zsh/sourcer

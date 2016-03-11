@@ -134,8 +134,14 @@ fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# Export that we use a powerline-patched font
-export POWERLINE_FONT=1
+pushd $HOME/$DOTFILES/powerline
+# symlink to proper config.json since there's no way to override tmux variables
+if [ "$POWERLINE_FONT" = "1" ]; then
+    ln -fs config_powerline.json config.json
+else
+    ln -fs config_unicode.json config.json
+fi
+popd
 
 # Auto-source files depending on environment
 source ~/$DOTFILES/bash/sourcer
