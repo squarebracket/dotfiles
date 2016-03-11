@@ -84,6 +84,11 @@ class VantrixGluster(Segment):
             'highlight_groups': [highlight,],
         }]
 
+    @staticmethod
+    def truncate(pl, amount, segment, *args):
+        m = re.match("/mnt/(.*): (\d+%) used", segment['contents'])
+        return "%s:%s" % (m.group(1), m.group(2))
+
 gluster = VantrixGluster()
 
 
@@ -103,7 +108,7 @@ class VantrixMachine(Segment):
 
     def __call__(self, pl):
         hostname = get_file_contents('/etc/hostname')
-        m = re.match(r'(machine\d\d).*', hostname)
+        m = re.match(r'(.*?)-(.*?)(-\d+)?', hostname)
         if not m:
             return None
         machine = m.group(1)
@@ -113,6 +118,11 @@ class VantrixMachine(Segment):
             'contents': machine,
             'highlight_groups': [DEPLOYMENT,],
         }]
+
+    @staticmethod
+    def truncate(pl, amount, segment, *args):
+        if segment['contents'][0:6] == 'machin':
+            return "m%s" % segment['contents'][-2:]
 machine = VantrixMachine()
 
 class VantrixLocation(Segment):
@@ -125,10 +135,29 @@ class VantrixLocation(Segment):
             'contents': location,
             'highlight_groups': [DEPLOYMENT,],
         }]
+
+    @staticmethod
+    def truncate(pl, amount, segment, *args):
+        m = re.match("(s\d[a|b]).symkloud0(\d)", segment['contents'])
+        return "%s.k%s" % (m.group(1), m.group(2))
 location = VantrixLocation()
 
-def van_version(pl):
-    return get_file_contents('/etc/vantrix-release')
+class VanVersion(Segment):
+
+    def __call__(self, pl):
+        return get_file_contents('/etc/vantrix-release')
+
+    @staticmethod
+    def truncate(pl, amount, segment, *args):
+        m = re.match("Vantrix OS release (.*)", segment['contents'])
+        if amount < 5:
+            return "VantOS release %s" % m.group(1)
+        elif amount < 13:
+            return "VantOS %s" % m.group(1)
+        else:
+            return m.group(1)
+VanVersion.highlight_groups = ['van_version',]
+van_version = VanVersion()
 
 def puppet_running(pl):
     if os.path.isfile('/var/lib/puppet/state/agent_catalog_run.lock'):
