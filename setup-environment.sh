@@ -175,7 +175,7 @@ _install_if_needed $LAUNCH_SHELL
 source $HOME/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init
 
 if [ "$LAUNCH_SHELL" = "screen" ]; then
-    screen -c $HOME/.screenrc$TERMINATOR $SHELL $CUSTOM_SHELL_OPTS
+    screen -S $REMOTE_USER -c $HOME/.screenrc$TERMINATOR $SHELL $CUSTOM_SHELL_OPTS
 elif [ "$LAUNCH_SHELL" = "tmux" ]; then
     tmux has-session -t $REMOTE_USER && tmux attach -t $REMOTE_USER || tmux -f $HOME/.tmux.conf$TERMINATOR new-session -s $REMOTE_USER "$SHELL $CUSTOM_SHELL_OPTS"
 else
