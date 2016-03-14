@@ -1,6 +1,52 @@
 #!/bin/bash
 VANTRIX_SERVICES="ltrx rmss esg mpc mpcms hms vta oamgui vrm ingm rabbitmq-server vta-context"
 
+__is_active() {
+    systemctl 2>&1 > /dev/null
+    if [ "$?" = "0" ]; then
+        systemctl is-active $1 > /dev/null
+    else
+        service $1 status 2>&1 > /dev/null
+        #return $?
+        #local return_status=$?
+        #if [ "$return_status" = "0" ]; then
+            #return 0
+        #elif [ "$return_status" = "3" ]; then
+            #return 1
+        #fi
+    fi
+}
+
+__is_failed() {
+    systemctl 2>&1 > /dev/null
+    if [ "$?" = "0" ]; then
+        systemctl is-failed $1 2>&1 > /dev/null
+    else
+        chkconfig $1
+        if [ "$?" = "0" ]; then
+            service $1 status 2>&1 > /dev/null
+            if [ "$?" = "1" ]; then
+                return 0
+            else
+                return 1
+            fi
+        else
+            return 1
+        fi
+    fi
+}
+
+
+__is_enabled() {
+    systemctl 2>&1 > /dev/null
+    if [ "$?" = "0" ]; then
+        systemctl is-enabled $1 > /dev/null
+    else
+        chkconfig $1 > /dev/null 
+        #return $?
+    fi
+}
+
 __puppet_active() {
     ps -C puppet,puppetmasterless,puppetmasterful > /dev/null || ps -ef | grep -i agent_postinstall | grep -v grep > /dev/null
     local PUPPET_ACTIVE=$?
@@ -13,9 +59,24 @@ __puppet_active() {
 __active_non_failed_services() {
     CHUNK=""
     for i in $VANTRIX_SERVICES; do
-        systemctl is-active $i > /dev/null
+        __is_active $i > /dev/null
         local result=$?
-        if [ $result = 0 ]; then
+        if [ "$result" = "0" ]; then
+            _build_chunk "$i"
+        fi
+    done
+    echo -n $CHUNK
+}
+
+__inactive_services() {
+    CHUNK=""
+    for i in $VANTRIX_SERVICES; do
+        __is_enabled $i
+        local enabled=$?
+        __is_active $i
+        local active=$?
+        #echo "$i $enabled $active"
+        if [ "$enabled" = "0" -a "$active" = "3" ]; then
             _build_chunk "$i"
         fi
     done
@@ -25,7 +86,7 @@ __active_non_failed_services() {
 __failed_services() {
     CHUNK=""
     for i in $VANTRIX_SERVICES; do
-        systemctl is-failed $i > /dev/null
+        __is_failed $i > /dev/null
         local result=$?
         if [ $result = 0 ]; then
             _build_chunk "$i"
@@ -37,9 +98,9 @@ __failed_services() {
 __weird_services() {
     CHUNK=""
     for i in $VANTRIX_SERVICES; do
-        systemctl is-enabled $i > /dev/null
+        __is_enabled $i > /dev/null
         local enabled=$?
-        systemctl is-active $i > /dev/null
+        __is_active $i > /dev/null
         local active=$?
         if [ $enabled = 0 -a $active = 1 ]; then
             _build_chunk "$i"
@@ -67,11 +128,11 @@ __gluster_status() {
 
 __mongo_status() {
     MONGO_OUTPUT=""
-    systemctl is-enabled mongod > /dev/null
+    __is_enabled mongod 2>&1 > /dev/null
     local ENABLED=$?
-    systemctl is-active mongod > /dev/null
+    __is_active mongod > /dev/null
     local ACTIVE=$?
-    systemctl is-failed mongod > /dev/null
+    __is_failed mongod > /dev/null
     local FAILED=$?
     if [ "$ENABLED" = "0" ]; then
         if [ "$ACTIVE" = "0" ]; then
@@ -188,7 +249,7 @@ van-hud() {
                 #_iperf_si_usage
                 #exit 0
                 #;;
-            --active-services|--failed-services|--gluster|--mongo|--deployment)
+            --active-services|--failed-services|--gluster|--mongo|--deployment|--inactive-services)
                 _add_command $1
                 ;;
             --screen)
@@ -213,6 +274,9 @@ van-hud() {
                 ;;
             --failed-services)
                 _output "$(__failed_services)"
+                ;;
+            --inactive-services)
+                _output "$(__inactive_services)"
                 ;;
             --gluster)
                 _output "$(__gluster_status)"
