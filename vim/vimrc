@@ -16,6 +16,7 @@ set showcmd                             " show command in bottom bar
 set cursorline                          " highlight current line
 set wildmenu                            " shows possible choices for command autocomplete
 set showmatch                           " highlighting matching [{()}]
+set noshowmode                          " Don't extra-display the mode since we have it in statusline
 
 " Search stuff
 set incsearch                           " search as characters are entered
