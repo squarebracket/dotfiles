@@ -1,7 +1,7 @@
 #!/bin/bash
 
 van-log() {
-    local logfile="$(_find_log $1)"
+    local logfile="$(_find_logfile $1)"
     local logconfig_file="$(_find_logconfig $1)"
     if [ -z "$logfile" ]; then
         echo "Log file not found for $1"
