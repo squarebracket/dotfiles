@@ -6,7 +6,7 @@ van-log() {
     if [ -z "$logfile" ]; then
         echo "Log file not found for $1"
         return 1
-    elif [ -z $2 -o "$2" = "-o" -o "$2" = "--open-in-editor" ]; then
+    elif [ -z "$2" -o "$2" = "-o" -o "$2" = "--open-in-editor" ]; then
       # just open it
         $EDITOR $logfile
     elif [ "$2" = "--tail" -o "$2" = "-t" ]; then
@@ -25,11 +25,11 @@ van-log() {
 _get_logfiles() {
     local logfiles=""
     if [ -d /var/opt/spotxde/log ]; then
-        for logfile in /var/opt/spotxde/*.log
+        for logfile in /var/opt/spotxde/log/*.log
         do
-            local temp1=${conf#/var/opt/spotxde/log/*}
+            local temp1=${logfile#/var/opt/spotxde/log/*}
             local app=${temp1%*.log}
-            local logfiles="$logfiles $app"
+            logfiles="$logfiles $app"
             unset temp1
         done
     fi
@@ -37,10 +37,10 @@ _get_logfiles() {
     if [ -d /var/log/vantrix/localhost/ ]; then
         for logfile in /var/log/vantrix/localhost/*/*.log
         do
-            local temp1=${conf#/var/log/vantrix/localhost/*}
+            local temp1=${logfile#/var/log/vantrix/localhost/*}
             local app=${temp1%*/*.log}
 
-            local logfiles="$logfiles $app"
+            logfiles="$logfiles $app"
         done
     fi
 
@@ -51,12 +51,12 @@ _get_logfiles() {
     return 1
 }
 
-_get_logiconfigs() {
+_get_logconfigs() {
     local logconfigs=""
     if [ -d /opt/spotxde/etc ]; then
-        for logfile in /opt/spotxde/etc/*/logconfig.xml
+        for logconfig in /opt/spotxde/etc/*/logconfig.xml
         do
-            local temp1=${conf#/opt/spotxde/etc/*}
+            local temp1=${logconfig#/opt/spotxde/etc/*}
             local app=${temp1%*/logconfig.xml}
             local logconfigs="$logconfigs $app"
             unset temp1
@@ -66,7 +66,7 @@ _get_logiconfigs() {
     if [ -d /var/opt/spotxde ]; then
         for logconfig in /var/opt/spotxde/*/conf/*/conf/logconfig.xml
         do
-            local temp1=${conf#/var/opt/spotxde/*}
+            local temp1=${logconfig#/var/opt/spotxde/*}
             local app=${temp1%*/conf/*/conf/logconfig.xml}
 
             local temp2=${temp1#*/conf/*}
@@ -135,7 +135,7 @@ _complete_van-log() {
     COMPREPLY=()
     local cur="${COMP_WORDS[COMP_CWORD]}"
     if [ "$COMP_CWORD" = 1 ]; then
-        local logs=`_get_logfiles`
+        local logs=`_get_logconfigs`
         COMPREPLY=( $( compgen -W "${logs}" -- ${cur} ) )
     elif [ "$COMP_CWORD" -eq 2 ]; then
         local opts="-c -s -o -t --current-log-level --set-log-level --open-in-editor --tail"
