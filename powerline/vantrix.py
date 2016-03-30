@@ -8,6 +8,15 @@ HOMEDIR = os.environ['HOME']
 DOTFILES = os.environ['DOTFILES']
 VAN_HUD_FILE = os.path.join(HOMEDIR, DOTFILES, 'shared-shell-scripts', 'vantrix', 'van-hud')
 
+def get_hostname():
+    p = subprocess.Popen(['hostname', ], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = p.communicate()
+    out = out.strip()
+    if out == '':
+        return None
+    else:
+        return out
+
 def get_file_contents(f):
     p = subprocess.Popen(['cat', f], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
@@ -104,18 +113,14 @@ class VantrixDeployment(Segment):
         }]
 deployment = VantrixDeployment()
 
+MACHINE = get_file_contents('/opt/machine')
 class VantrixMachine(Segment):
 
     def __call__(self, pl):
-        hostname = get_file_contents('/etc/hostname')
-        m = re.match(r'(.*?)-(.*?)(-\d+)?', hostname)
-        if not m:
-            return None
-        machine = m.group(1)
-        if not machine or not DEPLOYMENT:
+        if not MACHINE or not DEPLOYMENT:
             return None
         return [{
-            'contents': machine,
+            'contents': MACHINE,
             'highlight_groups': [DEPLOYMENT,],
         }]
 
