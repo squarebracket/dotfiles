@@ -1,5 +1,7 @@
 #!/bin/bash
 
 alias pf="puppetmasterful"
-alias pl="puppetmasterless --datadir /opt/MSV_DRM_integration/hiera --hierarchy \"hosts/%{::hostname}\",\"providers/%{provider}/%{::machine}\",\"providers/%{provider}\",\"deployments/%{::deployment}/%{::machine}\",\"deployments/%{::deployment}\",\"branches/%{branch}\",\"%{protocol}\",common /opt/MSV_DRM_integration/DRM_MSV_provisioning.pp"
+alias pl="puppetmasterless --datadir /opt/MSV_DRM_integration/hiera --hierarchy \"hosts/%{::hostname}\",\"hardwares/%{::productname}\",\"providers/%{provider}/%{::machine}\",\"providers/%{provider}\",\"deployments/%{::deployment}/%{::machine}\",\"deployments/%{::deployment}\",\"branches/%{branch}\",\"%{protocol}\",common /opt/MSV_DRM_integration/DRM_MSV_provisioning.pp"
 alias nodes="razor active_model"
+alias vc="van-config"
+alias vl="van-log"
