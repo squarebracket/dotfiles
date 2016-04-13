@@ -150,7 +150,7 @@ class VantrixLocation(Segment):
 
     @staticmethod
     def truncate(pl, amount, segment, *args):
-        m = re.match("(s\d[a|b]).symkloud0(\d)", segment['contents'])
+        m = re.match("(s\d[a|b]).symkloud(\d)", segment['contents'])
         return "%s.k%s" % (m.group(1), m.group(2))
 location = VantrixLocation()
 
