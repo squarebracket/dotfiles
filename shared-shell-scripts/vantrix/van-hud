@@ -135,6 +135,7 @@ __mongo_status() {
     __is_failed mongod > /dev/null
     local FAILED=$?
     if [ "$ENABLED" = "0" ]; then
+        local REPL=$(grep -e '^\s*replSet\s*=\s*.\+' < /etc/mongodb.conf | sed 's|\s*replSet\s*=\s*\(.*\)|\1|')
         if [ "$ACTIVE" = "0" ]; then
             local RS=`mongo --quiet --eval 'rs.conf()'`
             local STATUS=`mongo --quiet --eval 'printjson(db.isMaster()["ismaster"])'`
@@ -150,6 +151,9 @@ __mongo_status() {
         else
             MONGO_OUTPUT="Inactive"
         fi
+    fi
+    if [ -n "$REPL" ]; then
+        MONGO_OUTPUT="$MONGO_OUTPUT ($REPL)"
     fi
     echo -n $MONGO_OUTPUT
 }
