@@ -134,6 +134,9 @@ fi
 # Export EDITOR
 export EDITOR="vim"
 
+# I get it, I have mail
+export MAILCHECK=0
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 pushd $HOME/$DOTFILES/powerline
