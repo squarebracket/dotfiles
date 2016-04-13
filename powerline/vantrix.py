@@ -42,7 +42,7 @@ class VantrixMongo(Segment):
         m = re.match(r'(Primary|Secondary|Standalone|Failure|Inactive)(?: \((\w*)\))?', mongo_conf)
         mongo_state = m.group(1)
         mongo_replset = m.group(2)
-        if mongo_state == 'Primary': 
+        if mongo_state == 'Primary' or (mongo_state == 'Standalone' and not mongo_replset): 
             highlight = 'van_active_services'
         elif mongo_state == 'Secondary': 
             highlight = 'branch_dirty'
