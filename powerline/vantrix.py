@@ -38,17 +38,20 @@ def van_hud(command):
 class VantrixMongo(Segment): 
     _PREFIX = 'Mongo:'
     def __call__(self, pl): 
-        mongo_state = van_hud('--mongo') 
+        mongo_conf = van_hud('--mongo')
+        m = re.match(r'(Primary|Secondary|Standalone|Failure|Inactive)(?: \((\w*)\))?')
+        mongo_state = m.group(1)
+        mongo_replset = m.group(2)
         if mongo_state == 'Primary': 
             highlight = 'van_active_services'
         elif mongo_state == 'Secondary': 
             highlight = 'branch_dirty'
-        elif mongo_state == 'Standalone':
+        elif (mongo_state == 'Standalone' and mongo_replset) or mongo_state == 'Failure':
             highlight = 'warning:regular'
         else:
             return None
         return [{ 
-            'contents': "%s %s" % (self._PREFIX, mongo_state),
+            'contents': "%s %s" % (self._PREFIX, m.group(0)),
             'highlight_groups': [highlight,], 
         }] 
 
