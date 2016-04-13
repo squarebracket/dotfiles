@@ -40,8 +40,12 @@ class VantrixMongo(Segment):
     def __call__(self, pl): 
         mongo_conf = van_hud('--mongo')
         m = re.match(r'(Primary|Secondary|Standalone|Failure|Inactive)(?: \((\w*)\))?', mongo_conf)
-        mongo_state = m.group(1)
-        mongo_replset = m.group(2)
+        if m:
+            mongo_state = m.group(1)
+            mongo_replset = m.group(2)
+        else:
+            mongo_state = None
+            mongo_replset = None
         if mongo_state == 'Primary' or (mongo_state == 'Standalone' and not mongo_replset): 
             highlight = 'van_active_services'
         elif mongo_state == 'Secondary': 
