@@ -39,7 +39,7 @@ class VantrixMongo(Segment):
     _PREFIX = 'Mongo:'
     def __call__(self, pl): 
         mongo_conf = van_hud('--mongo')
-        m = re.match(r'(Primary|Secondary|Standalone|Failure|Inactive)(?: \((\w*)\))?')
+        m = re.match(r'(Primary|Secondary|Standalone|Failure|Inactive)(?: \((\w*)\))?', mongo_conf)
         mongo_state = m.group(1)
         mongo_replset = m.group(2)
         if mongo_state == 'Primary': 
@@ -51,7 +51,7 @@ class VantrixMongo(Segment):
         else:
             return None
         return [{ 
-            'contents': "%s %s" % (self._PREFIX, m.group(0)),
+            'contents': "%s %s" % (self._PREFIX, mongo_conf),
             'highlight_groups': [highlight,], 
         }] 
 
