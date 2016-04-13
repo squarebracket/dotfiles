@@ -39,19 +39,16 @@ class VantrixMongo(Segment):
     _PREFIX = 'Mongo:'
     def __call__(self, pl): 
         mongo_conf = van_hud('--mongo')
-        m = re.match(r'(Primary|Secondary|Standalone|Failure|Inactive)(?: \((\w*)\))?', mongo_conf)
-        if m:
+        if mongo_conf:
+            m = re.match(r'(Primary|Secondary|Standalone|Failure|Inactive)(?: \((\w*)\))?', mongo_conf)
             mongo_state = m.group(1)
             mongo_replset = m.group(2)
-        else:
-            mongo_state = None
-            mongo_replset = None
-        if mongo_state == 'Primary' or (mongo_state == 'Standalone' and not mongo_replset): 
-            highlight = 'van_active_services'
-        elif mongo_state == 'Secondary': 
-            highlight = 'branch_dirty'
-        elif (mongo_state == 'Standalone' and mongo_replset) or mongo_state == 'Failure':
-            highlight = 'warning:regular'
+            if mongo_state == 'Primary' or (mongo_state == 'Standalone' and not mongo_replset): 
+                highlight = 'van_active_services'
+            elif mongo_state == 'Secondary': 
+                highlight = 'branch_dirty'
+            elif (mongo_state == 'Standalone' and mongo_replset) or mongo_state == 'Failure':
+                highlight = 'warning:regular'
         else:
             return None
         return [{ 
