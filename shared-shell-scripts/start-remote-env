@@ -3,32 +3,50 @@ start-remote-env() {
     SCRIPTFILE=${SCRIPTFILE:=https://raw.githubusercontent.com/squarebracket/dotfiles/master/setup-environment.sh}
     SERVER=$1
     LAUNCH_SHELL=${2:=$SHELL}
+    RESET=$3
     REMOTE_USER=$USER
     LOOPBACK_PORT=5555
     LOCAL_DISPLAY=$DISPLAY
     echo -e "    Launching remote environment for $ENVIRONMENT"
     while [ true ]; do
         VARS_TO_PASS="ENVIRONMENT=$ENVIRONMENT POWERLINE_FONT=$POWERLINE_FONT LOOPBACK_PORT=$LOOPBACK_PORT LOCAL_DISPLAY=$LOCAL_DISPLAY"
-        ssh -R "$LOOPBACK_PORT":localhost:22 -o "ExitOnForwardFailure yes" -o "StrictHostKeyChecking no" $SERVER -t "wget --no-check-certificate $SCRIPTFILE -O .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL $RESET"
+        if [ -n "$LOOPBACK_PORT" ]; then local remote_establish="-R ${LOOPBACK_PORT}:localhost:22"; fi
+        { OUTPUT=$(ssh -YC $remote_establish -o "ExitOnForwardFailure yes" -o "StrictHostKeyChecking no" $SERVER -t "curl $SCRIPTFILE -o .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL $RESET" 2>&1 1>&$out); } {out}>&1
         EXIT_CODE=$?
+        echo "    Remote environment returned with exit code $EXIT_CODE"
         # Unset $RESET
         unset RESET
-        if [ $EXIT_CODE = 13 ]; then
+        if [ "$EXIT_CODE" = "13" ]; then
             # We need to get the remote server's SSH key
             echo "    Need to install server's SSH key locally"
             REMOTE_KEY="$(ssh -q $SERVER -t 'cat ~/.ssh/id_rsa.pub')"
             grep "$REMOTE_KEY" < ~/.ssh/authorized_keys > /dev/null
-            [ "$?" = "0" ] && echo "    ERROR: Remote key is already present in local authorized_keys file. Something is wrong." && exit 1
-            if [ -z "$REMOTE_KEY" ]; then echo "    ERROR: Returned SSH key was null. Something is wrong."; exit 1; fi
-            echo "$REMOTE_KEY" >> ~/.ssh/authorized_keys
-        elif [ $EXIT_CODE = 0 ]; then
+            if [ "$?" = "0" ]; then echo "    ERROR: Remote key is already present in local authorized_keys file. Something is wrong." && unset LOOPBACK_PORT && exit;
+            elif [ -z "$REMOTE_KEY" ]; then echo "    ERROR: Returned SSH key was null. Something is wrong."; export LOOPBACK_PORT=; exit
+            else
+                echo "$REMOTE_KEY" >> ~/.ssh/authorized_keys
+            fi
+        elif [ "$EXIT_CODE" = "17" ]; then
+            echo "got 17"
+            exit 17
+        elif [ "$EXIT_CODE" = "0" ]; then
             echo "    Exiting normally"
             return 0
-        elif [ $EXIT_CODE = 255 ]; then
-            LOOPBACK_PORT=$(($LOOPBACK_PORT+1))
-            [ $LOOPBACK_PORT = 5565 ] && echo "    ERROR: Ports 5555-5565 were all used. Attempting to drop to regular shell..." && ssh $SERVER
-            echo "    Exit code was $EXIT_CODE, trying port $LOOPBACK_PORT"
-        elif [ $EXIT_CODE = 15 ]; then
+        elif [ "$EXIT_CODE" = "255" ]; then
+            echo "$OUTPUT" | grep "remote port forwarding failed" > /dev/null
+            if [ "$?" = "0" ]; then
+                if [[ $LOOPBACK_PORT < 5565 ]]; then
+                    LOOPBACK_PORT=$(($LOOPBACK_PORT+1))
+                    echo "    Remote port was not available, trying port $LOOPBACK_PORT"
+                else
+                    echo "    ERROR: Ports 5555-5565 were all used. Attempting to drop to regular shell..."
+                    ssh $SERVER || exit 1
+                fi
+            else
+                echo "    Exiting on error code 255, output was: $OUTPUT"
+                exit
+            fi
+        elif [ "$EXIT_CODE" = "15" ]; then
             echo "    Remote shell asked for a reset... "
             RESET="--reset"
         fi
