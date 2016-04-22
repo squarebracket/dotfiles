@@ -1,0 +1,10 @@
+#!/bin/sh
+addr=${1%*/*}
+last_octet=$(echo "$addr" | cut -d . -f 4)
+subnet=$(echo "$addr" | cut -d . -f 1,2,3)
+cidr=${1#*/*}
+netmask=$(( 256 - (2**( 8- ($cidr % 8)) )))
+for ((i=2;i<=$netmask;i++)); do
+    host=$(($i + $last_octet))
+    sed --in-place "/${subnet}.${host}/d" ~/.ssh/known_hosts
+done
