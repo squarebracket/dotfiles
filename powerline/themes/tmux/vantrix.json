@@ -12,6 +12,7 @@
             }
         ],
 		"right": [
+            { "function": "vantrix.multicast" },
 			{
 				"function": "powerline.segments.common.sys.system_load",
 				"priority": 50

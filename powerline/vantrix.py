@@ -178,3 +178,15 @@ def van_active_services(pl):
 def van_failed_services(pl):
     return van_hud('--failed-services')
 
+class MulticastStatus(Segment):
+    def __call__(self, pl):
+        status = get_file_contents('/opt/multicast')
+        if status == 'allowed':
+            highlight = 'good'
+        else:
+            highlight = 'bad'
+        return [{
+            'contents': status,
+            'highlight_groups': [highlight,],
+        }]
+multicast = MulticastStatus()
