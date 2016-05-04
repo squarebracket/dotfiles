@@ -183,8 +183,10 @@ class MulticastStatus(Segment):
         status = get_file_contents('/opt/multicast')
         if status == 'allowed':
             highlight = 'good'
-        else:
+        elif status == 'blocked':
             highlight = 'bad'
+        else:
+            return None
         return [{
             'contents': status,
             'highlight_groups': [highlight,],
