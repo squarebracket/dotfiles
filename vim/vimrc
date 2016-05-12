@@ -56,6 +56,9 @@ let g:ctrlp_working_path_mode = 0                   " follows cwd's in vim
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""' " uses ag as searcher
 let g:ctrlp_custom_ignore = '\vbuild/|dist/|venv/|target/|\.(o|swp|pyc|egg)$'
 
+" YankRing settings
+nnoremap <leader>r :YRShow<CR>
+
 " NERDTree ignores
 let NERDTreeIgnore = ['\.pyc$', 'build', 'venv', 'egg', 'egg-info/', 'dist', 'docs']
 
