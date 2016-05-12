@@ -94,7 +94,7 @@ DEFAULT_USER=chuck
 export DOTFILES=${DOTFILES:=dotfiles}
 
 # Export that we use a powerline-patched font
-export POWERLINE_FONT=0
+export POWERLINE_FONT=1
 
 pushd $HOME/$DOTFILES/powerline
 # symlink to proper config.json since there's no way to override tmux variables
