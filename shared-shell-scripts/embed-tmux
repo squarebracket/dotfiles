@@ -1,6 +1,7 @@
 #!/bin/bash
 embed-tmux() {
-    printf '\033]2;%s\033\\' 'tmux-embedded'
+    VER="$(tmux -V)"
+    printf '\033]2;%s\033\\' "$VER"
     export EMBEDDED=1
     TEMP=${TMUX%*,*}
     export TMUX_MASTER=${TEMP%*,*}
