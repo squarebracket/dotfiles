@@ -108,6 +108,9 @@ popd
 # Auto-source files depending on environment
 source ~/$DOTFILES/zsh/sourcer
 
+# Export the tmux version
+export TMUX_VERSION="$(tmux -V)"
+
 # Source oh-my-zsh and activate plugins
 # This has to be done after you've autoloaded to make sure all plugins
 # are collected.
