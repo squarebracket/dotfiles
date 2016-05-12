@@ -188,7 +188,7 @@ class MulticastStatus(Segment):
         else:
             return None
         return [{
-            'contents': status,
+            'contents': "multicast: %s" % status,
             'highlight_groups': [highlight,],
         }]
 multicast = MulticastStatus()
