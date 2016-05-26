@@ -128,7 +128,7 @@ _extract_log_level() {
 }
 
 _set_log_level() {
-    sed -i.bak "s|<priority value=\".*\"/>|<priority value=\"$2\"/>|" $1
+    sed -i.bak "s|<priority \(class=\"cVanLogLevel\" \)\?value=\".*\"/>|<priority \1value=\"$2\"/>|" $1
 }
 
 _complete_van-log() {
