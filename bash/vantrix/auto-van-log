@@ -124,7 +124,7 @@ _find_logconfig() {
 }
 
 _extract_log_level() {
-    grep -o -P '(?<=<priority value=").*(?="/>)' < $1
+    grep '<priority class="cVanLogLevel" value="\(.*\)"/>' < $1 | grep -o -P '(?<=value=").*(?="/>)'
 }
 
 _set_log_level() {
