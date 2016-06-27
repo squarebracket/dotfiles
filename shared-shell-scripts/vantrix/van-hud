@@ -4,7 +4,7 @@ VANTRIX_SERVICES="ltrx rmss esg mpc mpcms hms vta oamgui vrm ingm rabbitmq-serve
 __is_active() {
     systemctl > /dev/null 2>&1
     if [ "$?" = "0" ]; then
-        systemctl is-active $1 > /dev/null
+        systemctl is-active $1 > /dev/null 2>&1
     else
         service $1 status > /dev/null 2>&1
         #return $?
@@ -40,15 +40,15 @@ __is_failed() {
 __is_enabled() {
     systemctl > /dev/null 2>&1
     if [ "$?" = "0" ]; then
-        systemctl is-enabled $1 > /dev/null
+        systemctl is-enabled $1 > /dev/null 2>&1
     else
-        chkconfig $1 > /dev/null 
+        chkconfig $1 > /dev/null  2>&1
         #return $?
     fi
 }
 
 __puppet_active() {
-    ps -C puppet,puppetmasterless,puppetmasterful > /dev/null || ps -ef | grep -i agent_postinstall | grep -v grep > /dev/null
+    ps -C puppet,puppetmasterless,puppetmasterful > /dev/null || ps -ef | grep -i agent_postinstall | grep -v grep > /dev/null 2>&1
     local PUPPET_ACTIVE=$?
     if [ $PUPPET_ACTIVE -eq 0 ]; then
         #echo -e "\005{G}[\005{-} \005{bw}Applying Puppet\005{-} \005{G}]\005{-}"
