@@ -2,11 +2,11 @@
 VANTRIX_SERVICES="ltrx rmss esg mpc mpcms hms vta oamgui vrm ingm rabbitmq-server vta-context"
 
 __is_active() {
-    systemctl 2>&1 > /dev/null
+    systemctl > /dev/null 2>&1
     if [ "$?" = "0" ]; then
         systemctl is-active $1 > /dev/null
     else
-        service $1 status 2>&1 > /dev/null
+        service $1 status > /dev/null 2>&1
         #return $?
         #local return_status=$?
         #if [ "$return_status" = "0" ]; then
@@ -18,13 +18,13 @@ __is_active() {
 }
 
 __is_failed() {
-    systemctl 2>&1 > /dev/null
+    systemctl > /dev/null 2>&1
     if [ "$?" = "0" ]; then
-        systemctl is-failed $1 2>&1 > /dev/null
+        systemctl is-failed $1 > /dev/null 2>&1
     else
         chkconfig $1
         if [ "$?" = "0" ]; then
-            service $1 status 2>&1 > /dev/null
+            service $1 status > /dev/null 2>&1
             if [ "$?" = "1" ]; then
                 return 0
             else
@@ -38,7 +38,7 @@ __is_failed() {
 
 
 __is_enabled() {
-    systemctl 2>&1 > /dev/null
+    systemctl > /dev/null 2>&1
     if [ "$?" = "0" ]; then
         systemctl is-enabled $1 > /dev/null
     else
@@ -128,7 +128,7 @@ __gluster_status() {
 
 __mongo_status() {
     MONGO_OUTPUT=""
-    __is_enabled mongod 2>&1 > /dev/null
+    __is_enabled mongod > /dev/null 2>&1
     local ENABLED=$?
     __is_active mongod > /dev/null
     local ACTIVE=$?
