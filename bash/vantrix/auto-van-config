@@ -115,3 +115,8 @@ _complete_van-config() {
 }
 
 complete -F _complete_van-config van-config
+
+# Launch function if called as a script
+if [ -n $1 ]; then
+    van-config $@
+fi

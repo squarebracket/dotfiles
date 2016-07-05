@@ -146,3 +146,8 @@ _complete_van-log() {
 }
 
 complete -F _complete_van-log van-log
+
+# Launch function if called as a script
+if [ -n $1 ]; then
+    van-log $@
+fi
