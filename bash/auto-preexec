@@ -1,0 +1,14 @@
+#!/bin/bash
+# Pull down our file from GitHub and write it to our home directory as a hidden file.
+if [ ! -f ~/.bash-preexec.sh ]; then
+    curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o ~/.bash-preexec.sh
+fi
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+
+preexec() { 
+    tput sc
+    tput cuu1
+    tput cuf $(($(tput cols)-25))
+    echo -e "\e[00;38;5;240m$(date --rfc-3339=seconds)\e[0m";
+    tput rc
+}
