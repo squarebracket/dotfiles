@@ -8,6 +8,9 @@
                 "function": "vantrix.van_active_services"
             },
             {
+                "function": "vantrix.van_inactive_services"
+            },
+            {
                 "function": "vantrix.van_failed_services"
             }
         ],

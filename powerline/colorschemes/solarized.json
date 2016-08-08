@@ -33,6 +33,7 @@
 		"weather":                 { "fg": "solarized:base1", "bg": "solarized:base03", "attrs": [] },
 		"uptime":                  { "fg": "solarized:base1", "bg": "solarized:base03", "attrs": [] },
         "van_active_services":     { "fg": "solarized:green", "bg": "solarized:base02", "attrs": [] },
+        "van_inactive_services":   { "fg": "solarized:base01", "bg": "solarized:base02", "attrs": [] },
         "van_failed_services":     { "fg": "solarized:base3", "bg": "solarized:red", "attrs": [] },
         "van_mongo":               { "fg": "solarized:base2", "bg": "solarized:base02", "attrs": [] },
         "van_gluster:fine":        { "fg": "solarized:base1", "bg": "solarized:base02", "attrs": [] },

@@ -175,6 +175,9 @@ def puppet_running(pl):
 def van_active_services(pl):
     return van_hud('--active-services')
 
+def van_inactive_services(pl):
+    return van_hud('--inactive-services')
+
 def van_failed_services(pl):
     return van_hud('--failed-services')
 
