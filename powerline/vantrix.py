@@ -49,6 +49,11 @@ class VantrixMongo(Segment):
                 highlight = 'branch_dirty'
             elif (mongo_state == 'Standalone' and mongo_replset) or mongo_state == 'Failure':
                 highlight = 'warning:regular'
+            elif mongo_state == 'Inactive':
+                highlight = 'van_inactive_services'
+            else:
+                # Unknown state
+                highlight = 'warning:regular'
         else:
             return None
         return [{ 
