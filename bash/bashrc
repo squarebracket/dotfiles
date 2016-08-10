@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Source the system's bashrc in case it contains something we need (like RVM)
+source ~/.bashrc
+
 # Set the dotfiles directory if not already set
 export DOTFILES=${DOTFILES:=dotfiles}
 
