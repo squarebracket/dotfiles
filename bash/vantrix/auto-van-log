@@ -142,6 +142,9 @@ _complete_van-log() {
     elif [ "$COMP_CWORD" -eq 2 ]; then
         local opts="-c -s -o -t -w --current-log-level --set-log-level --open-in-editor --tail --where"
         COMPREPLY=( $( compgen -W "${opts}" -- ${cur} ) )
+    elif [ "$cur" = "-s" -o "$cur" = "--set-log-level" ]; then
+        local levels="DEBUG INFO WARNING ERROR"
+        COMPREPLY=( $( compgen -W "${levels}" -- ${cur} ) )
     fi
 
     return 0
