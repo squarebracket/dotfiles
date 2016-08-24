@@ -136,13 +136,14 @@ _set_log_level() {
 _complete_van-log() {
     COMPREPLY=()
     local cur="${COMP_WORDS[COMP_CWORD]}"
+    local prev="${COMP_WORDS[COMP_CWORD-1]}"
     if [ "$COMP_CWORD" = 1 ]; then
         local logs=`_get_logconfigs`
         COMPREPLY=( $( compgen -W "${logs}" -- ${cur} ) )
     elif [ "$COMP_CWORD" -eq 2 ]; then
         local opts="-c -s -o -t -w --current-log-level --set-log-level --open-in-editor --tail --where"
         COMPREPLY=( $( compgen -W "${opts}" -- ${cur} ) )
-    elif [ "$cur" = "-s" -o "$cur" = "--set-log-level" ]; then
+    elif [ "$prev" = "-s" -o "$prev" = "--set-log-level" ]; then
         local levels="DEBUG INFO WARNING ERROR"
         COMPREPLY=( $( compgen -W "${levels}" -- ${cur} ) )
     fi
