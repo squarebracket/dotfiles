@@ -5,3 +5,6 @@ alias pl="puppetmasterless --datadir /opt/MSV_DRM_integration/hiera --hierarchy 
 alias nodes="razor active_model"
 alias vc="van-config"
 alias vl="van-log"
+alias sr="systemctl restart"
+alias st="systemctl status"
+
