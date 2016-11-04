@@ -1,0 +1,12 @@
+if [ "$ENVIRONMENT" = "vantrix" ]; then
+    GIT_AUTHOR_NAME="Chuck Wilson"
+    GIT_AUTHOR_EMAIL="charles.wilson@vantrix.com"
+    GIT_COMMITTER_NAME="Chuck Wilson"
+    GIT_COMMITTER_EMAIL="charles.wilson@vantrix.com"
+else
+    GIT_AUTHOR_NAME="Chuck Wilson"
+    GIT_AUTHOR_EMAIL="chuck.wilson+github@vantrix.com"
+    GIT_COMMITTER_NAME="Chuck Wilson"
+    GIT_COMMITTER_EMAIL="chuck.wilson+github@vantrix.com"
+fi
+
