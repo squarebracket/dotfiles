@@ -5,6 +5,9 @@
 # Source the system's bashrc in case it contains something we need (like RVM)
 source ~/.bashrc
 
+# Disable flow control keys (C-s, C-q)
+stty -ixon
+
 # Set the dotfiles directory if not already set
 export DOTFILES=${DOTFILES:=dotfiles}
 
