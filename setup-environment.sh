@@ -51,12 +51,7 @@ _install_if_needed git
 # Do the dotfiles magic if the folder doesn't exist
 if [ ! -d "$DOTFILES" ]; then
     echo "Getting the dotfiles"
-    git clone $REPO $DOTFILES
-    
-    echo "Pulling any submodules"
-    cd $DOTFILES
-    git submodule update --init
-    cd ..
+    git clone --recursive $REPO $DOTFILES
     
     echo "Making links"
     ln -fs $DOTFILES/vim $HOME/.vim$TERMINATOR
@@ -137,10 +132,10 @@ if [ "$REMOTE_USER" != "LOCAL" -a -n "$LOOPBACK_PORT" ]; then
     # ...test to see if we have ssh keys set up for remote copying back to host...
     ssh -q -o PasswordAuthentication=no -o StrictHostKeyChecking=no -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'echo "success!"'
     EXIT_CODE=$?
-    if [ $EXIT_CODE != 0 ]; then
-        # ...and if we don't, exit with status 13
-        exit 13
-    fi
+    #if [ $EXIT_CODE != 0 ]; then
+        ## ...and if we don't, exit with status 13
+        #exit 13
+    #fi
 fi
 
 # Set the title of the pane for embedded screen/tmux
