@@ -58,6 +58,9 @@
 [submodule "vim-puppet"]
     path = vim/bundle/vim-puppet
     url = https://github.com/rodjek/vim-puppet.git
+[submodule "vim-uninmpaired"]
+    path = vim/bundle/vim-unimpaired
+    url = https://github.com/tpope/vim-unimpaired.git
 [submodule "vim-vagrant"]
     path = vim/bundle/vim-vagrant
     url = https://github.com/hashivim/vim-vagrant.git
