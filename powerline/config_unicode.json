@@ -27,7 +27,7 @@
 		},
 		"tmux": {
 			"colorscheme": "solarized",
-			"theme": "vantrix"
+			"theme": "default"
 		},
 		"wm": {
 			"colorscheme": "default",
