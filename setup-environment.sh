@@ -132,10 +132,10 @@ if [ "$REMOTE_USER" != "LOCAL" -a -n "$LOOPBACK_PORT" ]; then
     # ...test to see if we have ssh keys set up for remote copying back to host...
     ssh -q -o PasswordAuthentication=no -o StrictHostKeyChecking=no -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'echo "success!"'
     EXIT_CODE=$?
-    #if [ $EXIT_CODE != 0 ]; then
-        ## ...and if we don't, exit with status 13
-        #exit 13
-    #fi
+    if [ $EXIT_CODE != 0 ]; then
+        # ...and if we don't, exit with status 13
+        exit 13
+    fi
 fi
 
 # Set the title of the pane for embedded screen/tmux
