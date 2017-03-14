@@ -105,8 +105,9 @@ set t_Co=256                            " Make terminal vim compatible with sola
 syntax enable                           " enable syntax highlighting
 
 " set yaml and ruby file types to use puppet-style 2-space indent
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
-autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType puppet setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Switch tmux panes / vim splits automagically using the same keys
 if exists('$TMUX')
