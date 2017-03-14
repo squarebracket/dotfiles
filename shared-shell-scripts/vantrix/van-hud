@@ -111,9 +111,8 @@ __weird_services() {
 
 __gluster_status() {
     GLUSTER_OUTPUT=""
-    local GLUSTER_MOUNTS=`systemctl list-units | grep mnt-gv | awk '{print $5}'| sed s/^.mnt.//`
     local GLUSTER_VOLS=`gluster volume list`
-    for i in $GLUSTER_MOUNTS; do
+    for i in $GLUSTER_VOLS; do
         local FREE=`df -h | grep $i | awk '{print $5}' | sed s/.$//`
         if [ $FREE -lt 90 ]; then
             GLUSTER_OUTPUT="$GLUSTER_OUTPUT $i ($FREE%)"
