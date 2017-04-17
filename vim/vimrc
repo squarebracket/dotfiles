@@ -108,6 +108,7 @@ syntax enable                           " enable syntax highlighting
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType puppet setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Switch tmux panes / vim splits automagically using the same keys
 if exists('$TMUX')
