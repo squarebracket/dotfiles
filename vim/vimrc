@@ -110,6 +110,9 @@ autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType puppet setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" by default, support jquery in .js files
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+
 " Switch tmux panes / vim splits automagically using the same keys
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
