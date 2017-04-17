@@ -139,6 +139,8 @@ endif
 " Map some capital keys to lowercase keys
 nnoremap I i
 nnoremap U u
+nnoremap W w
+nnoremap Q q
 
 function! CopyVisualSel() range
     "let n = @n
