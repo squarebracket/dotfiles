@@ -2,7 +2,7 @@
 
 if [ -f /opt/deployment ]; then
     DEPLOYMENT=`cat /opt/deployment`
-    MACHINE=`hostname | sed 's/\(machine[0-9][0-9]\).*/\1/'`
+    MACHINE=`hostname -s`
     if [ "$DEPLOYMENT" = "soak1" ]; then
         DEPLOYMENT_COLOUR="\e[0;34m"
     elif [ "$DEPLOYMENT" = "soak2" ]; then
