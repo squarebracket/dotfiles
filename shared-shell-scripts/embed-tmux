@@ -3,9 +3,10 @@ embed-tmux() {
     VER="$(tmux -V)"
     printf '\033]2;%s\033\\' "$VER"
     export EMBEDDED=1
+    export ENVIRONMENT="$1"
     TEMP=${TMUX%*,*}
     export TMUX_MASTER=${TEMP%*,*}
-    tmux -L "$1" has-session -t "LOCAL" && tmux -L "$1" attach -t "LOCAL" || tmux -L "$1" new-session -s "LOCAL"
+    tmux -L "$1" has-session -t "$1" && tmux -L "$1" attach -t "$1" || tmux -L "$1" new-session -s "$1"
 }
 
 if [ -n "$1" ]; then
