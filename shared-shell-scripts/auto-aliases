@@ -1,1 +1,5 @@
 alias a="ip -o -f inet addr"
+which ag > /dev/null 2>&1
+if [ "$?" != "0" ]; then
+    alias ag="grep -iHRn"
+fi
