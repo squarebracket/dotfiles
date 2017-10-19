@@ -43,6 +43,7 @@
         "puppet_running":          { "fg": "solarized:base3", "bg": "solarized:violet", "attrs": ["bold"] },
         "soak1":                   { "fg": "solarized:blue", "bg": "solarized:base02", "attrs": []},
         "soak2":                   { "fg": "solarized:magenta", "bg": "solarized:base02", "attrs": []},
+        "4d-2":                    { "fg": "solarized:magenta", "bg": "solarized:base02", "attrs": []},
         "soak3":                   { "fg": "solarized:orange", "bg": "solarized:base02", "attrs": []},
         "soak4":                   { "fg": "solarized:base1", "bg": "solarized:base02", "attrs": []},
         "good":                    { "fg": "solarized:base3", "bg": "solarized:green", "attrs": [] },
