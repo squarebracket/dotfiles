@@ -155,11 +155,11 @@ function! CopyVisualSel() range
     "let n = @n
     silent! normal gv"ny
     if exists('$REMOTE_USER')
-        let unused = system("ssh -p $LOOPBACK_PORT $REMOTE_USER@localhost -t \"tmux load-buffer - && tmux show-buffer | xsel -i -b --display $LOCAL_DISPLAY\"", @n)
+        let unused = system("cat - | ssh -p $LOOPBACK_PORT $REMOTE_USER@localhost -t \"tmux load-buffer - && tmux show-buffer | xsel -i -b --display $LOCAL_DISPLAY\"", @n)
     elseif exists('$TMUX_MASTER')
-        let unused = system('tmux -S $TMUX_MASTER load-buffer - && tmux -S $TMUX_MASTER show-buffer | xsel -i -b --display $DISPLAY', @n)
+        let unused = system('cat - | tmux -S $TMUX_MASTER load-buffer - && tmux -S $TMUX_MASTER show-buffer | xsel -i -b --display $DISPLAY', @n)
     else
-        let unused = system('tmux load-buffer - && tmux show-buffer | xsel -i -b --display $DISPLAY', @n)
+        let unused = system('cat - | tmux load-buffer - && tmux show-buffer | xsel -i -b --display $DISPLAY', @n)
     endif
     "let @n = n
     " bonus: restores the visual selection
