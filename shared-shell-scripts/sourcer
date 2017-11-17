@@ -21,6 +21,7 @@ __source_files() {
 
 __source_env_files() {
     __source_files $ENVIRONMENT/auto
+    [ "$RUNNER" = "bash" ] && __source_files $ENVIRONMENT/completions/*
     [ -n "$REMOTE_USER" ] && __source_files "$ENVIRONMENT/remote" || __source_files "$ENVIRONMENT/local"
 }
 
