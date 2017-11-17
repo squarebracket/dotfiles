@@ -1,12 +1,13 @@
 #!/bin/bash
+
 start-remote-env() {
-    SCRIPTFILE=${SCRIPTFILE:=https://raw.githubusercontent.com/squarebracket/dotfiles/master/setup-environment.sh}
-    SERVER=$1
-    LAUNCH_SHELL=${2:=$SHELL}
-    RESET=$3
-    REMOTE_USER=$USER
-    LOOPBACK_PORT=5555
-    LOCAL_DISPLAY=$DISPLAY
+    local SCRIPTFILE=${SCRIPTFILE:=https://raw.githubusercontent.com/squarebracket/dotfiles/master/setup-environment.sh}
+    local SERVER=$1
+    local LAUNCH_SHELL=${2:=$SHELL}
+    local RESET=$3
+    local REMOTE_USER=$USER
+    local LOOPBACK_PORT=5555
+    local LOCAL_DISPLAY=$DISPLAY
     echo -e "    Launching remote environment for $ENVIRONMENT"
     while [ true ]; do
         VARS_TO_PASS="ENVIRONMENT=$ENVIRONMENT POWERLINE_FONT=$POWERLINE_FONT LOOPBACK_PORT=$LOOPBACK_PORT LOCAL_DISPLAY=$LOCAL_DISPLAY"
