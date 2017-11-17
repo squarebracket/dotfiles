@@ -22,7 +22,7 @@ start-remote-env() {
             echo "    Need to install server's SSH key locally"
             REMOTE_KEY="$(ssh -q $SERVER -t 'cat ~/.ssh/id_rsa.pub')"
             grep "$REMOTE_KEY" < ~/.ssh/authorized_keys > /dev/null
-            if [ "$?" = "0" ]; then echo "    ERROR: Remote key is already present in local authorized_keys file. Something is wrong." && unset LOOPBACK_PORT && exit;
+            if [ "$?" = "0" ]; then echo "    ERROR: Remote key is already present in local authorized_keys file. Something is wrong." && unset LOOPBACK_PORT;
             elif [ -z "$REMOTE_KEY" ]; then echo "    ERROR: Returned SSH key was null. Something is wrong."; export LOOPBACK_PORT=; exit
             else
                 echo "$REMOTE_KEY" >> ~/.ssh/authorized_keys
