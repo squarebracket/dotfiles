@@ -22,8 +22,8 @@ else
 fi
 
 # detect installer
-yum --version > /dev/null && [ $? = 0 ] && export INSTALLER=yum
-apt-get --version > /dev/null && [ $? = 0 ] && export INSTALLER=apt-get
+yum --version > /dev/null 2>&1 && [ $? = 0 ] && export INSTALLER=yum
+apt-get --version > /dev/null 2>&1 && [ $? = 0 ] && export INSTALLER=apt-get
 # Are we root?
 if [ "$UID" != "0" ]; then
     # if not, set $SUDO
