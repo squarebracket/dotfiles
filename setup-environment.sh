@@ -167,7 +167,9 @@ _install_if_needed $LAUNCH_SHELL
 
 # Some environment variables need to be set before launching a
 # terminal multiplexer, so we source them here.
-source $HOME/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init
+if [ -f $HOME/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init ]; then
+    source $HOME/$DOTFILES/${LAUNCH_SHELL#/bin/*}/pre-init
+fi
 
 if [ "$LAUNCH_SHELL" = "screen" ]; then
     screen -xRR -S $REMOTE_USER -c $HOME/.screenrc$TERMINATOR $SHELL $CUSTOM_SHELL_OPTS
