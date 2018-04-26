@@ -6,7 +6,7 @@ else
     DEPLOYMENT="infra"
 fi
 MACHINE=`hostname -s`
-if [ "$DEPLOYMENT" = "soak1" ]; then
+if [ "$DEPLOYMENT" = "4d-3" ]; then
     DEPLOYMENT_COLOUR="\e[0;34m"
 elif [ "$DEPLOYMENT" = "soak2" ]; then
     DEPLOYMENT_COLOUR="\e[0;35m"
