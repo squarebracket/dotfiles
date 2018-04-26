@@ -3,7 +3,9 @@
 # for examples
 
 # Source the system's bashrc in case it contains something we need (like RVM)
-source ~/.bashrc
+if [ "$BASH_SOURCE" != "$HOME/.bashrc" ]; then
+    source ~/.bashrc
+fi
 
 # Disable flow control keys (C-s, C-q)
 stty -ixon
