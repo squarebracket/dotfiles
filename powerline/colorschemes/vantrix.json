@@ -45,7 +45,7 @@
         "soak2":                   { "fg": "solarized:magenta", "bg": "solarized:base02", "attrs": []},
         "4d-2":                    { "fg": "solarized:magenta", "bg": "solarized:base02", "attrs": []},
         "colba-1":                 { "fg": "solarized:orange", "bg": "solarized:base02", "attrs": []},
-        "soak4":                   { "fg": "solarized:base1", "bg": "solarized:base02", "attrs": []},
+        "4d-4":                    { "fg": "solarized:violet", "bg": "solarized:base02", "attrs": []},
         "good":                    { "fg": "solarized:base3", "bg": "solarized:green", "attrs": [] },
         "bad":                     { "fg": "solarized:base3", "bg": "solarized:red", "attrs": [] }
 	}
