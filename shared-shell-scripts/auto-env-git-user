@@ -1,12 +1,7 @@
-if [ "$ENVIRONMENT" = "vantrix" ]; then
-    export GIT_AUTHOR_NAME="Chuck Wilson"
-    export GIT_AUTHOR_EMAIL="charles.wilson@vantrix.com"
-    export GIT_COMMITTER_NAME="Chuck Wilson"
-    export GIT_COMMITTER_EMAIL="charles.wilson@vantrix.com"
-else
-    export GIT_AUTHOR_NAME="Chuck Wilson"
-    export GIT_AUTHOR_EMAIL="chuck.wilson+github@vantrix.com"
-    export GIT_COMMITTER_NAME="Chuck Wilson"
-    export GIT_COMMITTER_EMAIL="chuck.wilson+github@vantrix.com"
-fi
+#!/bin/bash
+
+export GIT_NAME_VANTRIX="Chuck Wilson"
+export GIT_EMAIL_VANTRIX="charles.wilson@vantrix.com"
+export GIT_NAME_GITHUB="Chuck Wilson"
+export GIT_EMAIL_GITHUB="chuck.wilson+github@gmail.com"
 
