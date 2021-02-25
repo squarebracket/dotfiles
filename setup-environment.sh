@@ -10,6 +10,7 @@ export LOOPBACK_PORT=$LOOPBACK_PORT
 export POWERLINE_FONT=$POWERLINE_FONT
 export ENVIRONMENT=$ENVIRONMENT
 export LOCAL_DISPLAY=$LOCAL_DISPLAY
+export HOST_FINGERPRINT="$HOST_FINGERPRINT"
 # make sure we're in ~
 cd ~
 # set and export $DOTFILES
@@ -129,7 +130,11 @@ fi
 
 # If we're remote and we've got a $LOOPBACK_PORT...
 if [ "$REMOTE_USER" != "LOCAL" -a -n "$LOOPBACK_PORT" ]; then
-    # ...test to see if we have ssh keys set up for remote copying back to host...
+    # ensure our current config's fingerprint is removed from known hosts
+    ssh-keygen -R "[localhost]:$LOOPBACK_PORT"
+    # insert the current config's fingerprint
+    echo "$HOST_FINGERPRINT" | sed "s/localhost/[localhost]:$LOOPBACK_PORT/g" >> ~/.ssh/known_hosts
+    # test to see if we have ssh keys set up for remote copying back to host...
     ssh -q -o PasswordAuthentication=no -o StrictHostKeyChecking=no -p $LOOPBACK_PORT $REMOTE_USER@localhost -t 'echo "success!"'
     EXIT_CODE=$?
     if [ $EXIT_CODE != 0 ]; then
