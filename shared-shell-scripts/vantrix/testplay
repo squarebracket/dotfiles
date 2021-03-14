@@ -1,0 +1,185 @@
+#!/bin/bash
+
+# Arguments passed to script
+JOB_NAME=$1
+
+# Arguments taken from environment
+PLAYER=${PLAYER:-"mplayer -cache 8192 -msgcolor -vo xv -tsprobe 20000000"}
+CONTEXT=${CONTEXT}
+STREAM=${STREAM:-"output"}
+SERVER_HOST=${SERVER_HOST:-rmss}
+SERVER_PORT=${SERVER_PORT:-8080}
+VTA_HOST=${VTA_HOST:-vta}
+VTA_PORT=${VTA_PORT:-12200}
+VTA_CONTEXT_HOST=${VTA_CONTEXT_HOST:-"vta-context"}
+VTA_CONTEXT_PORT=${VTA_CONTEXT_PORT:-12220}
+
+# Error conditions
+ERROR_NO_JOB_GIVEN=1
+ERROR_NO_JOB_EXISTS=2
+ERROR_UNKNOWN_PROTOCOL=3
+ERROR_LOCKFILE_EXISTS=4
+ERROR_NO_SWITCH_HOSTS_CONTEXT=5
+ERROR_CANT_RESOLVE_HOST=6
+ERROR_INVALID_IP=7
+
+
+# Play the requested stream. Makes a mutex if none exists, otherwise fails.
+#
+# Parameters:
+#   $1 : URL to play
+function _testplay() {
+    local _lockfile="$HOME/.testplay-$JOB_NAME-$CONTEXT-$STREAM.lock"
+    if [ -f $_lockfile ]; then
+        # Validate the lock, removing if invalid, dying if valid
+        ps -ef | grep "$PLAYER $1" > /dev/null || rm $_lockfile && \
+            _die $ERROR_LOCKFILE_EXISTS "Lockfile for $1 present at $_lockfile"
+    elif [ ! -f $_lockfile ]; then
+        echo "$1" > $_lockfile
+        echo $__a
+        # Play the source
+        echo "$STREAM => $(_get_pid)"
+        if [ "$STREAM" = "input" -a "$(_get_pid)" != "1" ]; then
+            $PLAYER $(_program_argument_for_player) $(_get_pid) $1
+        else
+            $PLAYER -tsprog 0 $1
+        fi
+        rm $_lockfile
+        _die 0 "Exiting cleanly"
+    fi
+}
+
+# Capture using ffmpeg, until you ctrl+c
+function _capture_ffmpeg() {
+    echo "Capturing, stop with ctrl+c"
+    ffmpeg -i $1 -map 0:p:$(_get_pid) -f mpegts -c copy $JOB_NAME-$STREAM-$CONTEXT.ts
+}
+
+# Unset any non-local / non-environment variables set during this script
+function _testplay_cleanup() {
+    unset _url
+    unset _server_ip
+    unset _protocol
+    unset _location
+    unset _stream
+    unset _program
+}
+
+# Parameters:
+#   $1            : The exit code for this script
+#   $2 (Optional) : The exit message to print
+function _die() {
+    [ -n "$2" ] && echo $2
+    _testplay_cleanup
+    exit $1
+}
+
+# Uses:
+#   JOB_NAME
+#   STREAM
+function _get_url_from_vta() {
+    local _vta_ip=$(_get_ip_using_context $VTA_HOST $CONTEXT)
+    local _vta_context_ip=$(_get_ip_using_context $VTA_CONTEXT_HOST $CONTEXT)
+    if [ "$STREAM" = "input" ]; then
+        local _output='input.url'
+    elif [ "$STREAM" = "output" ]; then
+        local _output='outputs.0.target.url'
+    fi
+    echo $(PYTHONPATH=$HOME $HOME/pyvta/bin/vta-helper get-jobs --filter name=$JOB_NAME \
+        --outputs $_output --host $_vta_ip --port $VTA_PORT \
+        --context-host $_vta_context_ip --context-port $VTA_CONTEXT_PORT | \
+        awk '/url/{ print $2 }')
+}
+
+function _get_pid {
+    local _vta_ip=$(_get_ip_using_context $VTA_HOST $CONTEXT)
+    local _vta_context_ip=$(_get_ip_using_context $VTA_CONTEXT_HOST $CONTEXT)
+    local _program=$(PYTHONPATH=$HOME $HOME/pyvta/bin/vta-helper get-jobs --filter name=$JOB_NAME \
+        --outputs input.programId --host $_vta_ip --port $VTA_PORT \
+        --context-host $_vta_context_ip --context-port $VTA_CONTEXT_PORT | awk '/programId/{ print $2 }')
+    if [ -n "$_program" ]; then
+        # If we got a program ID from VTA, use it
+        echo $_program
+    else
+        # If we're grabbing the input, assume 1
+        [ "$STREAM" = "input" ] && echo 1
+        # If we're grabbing the output, assume 0
+        [ "$STREAM" = "output" ] && echo 0
+    fi
+}
+
+function _program_argument_for_player() {
+    if [[ $PLAYER =~ ^mplayer.*$ ]]; then
+        echo "-tsprog"
+    elif [[ $PLAYER =~ ^vlc.*$ ]]; then
+        echo "--program"
+    fi
+}
+
+# Resolve the passed SERVER_HOST to an IP, validating if appropriate.
+function _get_server_ip() {
+    if [[ $SERVER_HOST =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+        # Attempt to validate IP if `ipcalc` is available. If it isn't, #yolo.
+        which ipcalc 2&>1 > /dev/null && (ipcalc -cs $SERVER_HOST || _die $ERROR_INVALID_IP "Invalid IP $SERVER_HOST provided for SERVER_HOST")
+        echo $SERVER_HOST
+    else
+        _get_ip_using_context $SERVER_HOST $CONTEXT
+    fi
+}
+
+# Get an IP for a hostname, referencing a particular context if given.
+#
+# This function will intelligently try to get the IP for a host. First, it will
+# attempt to pull an IP from /etc/hosts by grepping for the hostname and
+# context. If it can't find any, it will attempt to grab one using
+# `getent hosts`.
+#
+# Parameters:
+#   $1            : hostname
+#   $2 (Optional) : context
+function _get_ip_using_context() {
+    # If given a context
+    if [ -n "$2" ]; then
+        # Try to pull the IP for the host out of /etc/hosts
+        local _found_hosts=$(grep -i "[[:space:]]$1[[:space:]]" < /etc/hosts | grep -i ".*# $2[[:space:]]*")
+        if [ "$(echo $_found_hosts | wc -l)" -gt "1" ]; then
+            _die $ERROR_TOO_MANY_HOSTS "Unable to match a single host $1 for $2 from /etc/hosts"
+        else
+            echo "$(echo $_found_hosts | sed "s/#\?\(.*\)/\1/" | awk '{ print $1 }')"
+        fi
+    else
+        # Try to get a host using `getent hosts`. If we can't, die.
+        getent hosts $1 2&>1 > /dev/null || _die $ERROR_CANT_RESOLVE_HOST "Unable to get IP for host $1"
+        # Otherwise, echo back just the IP
+        echo $(getent hosts $1 | awk '{ print $1 }' | head -1)
+    fi
+}
+
+#### MAIN ####
+if [ -z "$JOB_NAME" ]; then _die $ERROR_NO_JOB_GIVEN "No job name provided"; fi
+
+_url=$(_get_url_from_vta)
+if [ -z "$_url" ]; then _die $ERROR_NO_JOB_EXISTS "No matching job found"; fi
+
+_protocol=$(echo "$_url" | sed 's,\(file\|udp\)://\(.*\),\1,')
+_location=$(echo "$_url" | sed 's,\(file\|udp\)://\(.*\),\2,')
+
+if [ "$_protocol" = "udp" ]; then
+    _stream="http://perfmcast.vantrix.com:4022/udp/$_location"
+elif [ "$_protocol" = "file" ]; then
+    _server_ip=$(_get_server_ip)
+    _stream="http://$_server_ip:$SERVER_PORT/mnt/gv0/17bb7d3e595b3693b483aa97a8b44fbf/results$_location"
+else
+    _die $ERROR_UNKNOWN_PROTOCOL "Unknown protocol"
+fi
+
+if [ "$2" = "--capture" ]; then
+    _capture_ffmpeg $_stream
+elif [ "$2" = "--print" ]; then
+    echo $_stream
+#elif [ "$2" = "--probe" ]; then
+    #_
+else
+    echo $(_get_pid)
+    _testplay $_stream
+fi

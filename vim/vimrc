@@ -104,11 +104,12 @@ colorscheme solarized
 set t_Co=256                            " Make terminal vim compatible with solarized
 syntax enable                           " enable syntax highlighting
 
+let g:airline#extensions#ale#enabled = 1
 " TODO: Document this
-let g:syntastic_always_populate_loc_list = 1 " always update list of errors
-let g:syntastic_auto_loc_list = 0            " do not open or close error list automatically
-let g:syntastic_check_on_open = 1            " syntax check files when opening them (is kinda slow)
-let g:syntastic_aggregate_errors = 1         " aggregate all errors together
+"let g:syntastic_always_populate_loc_list = 1 " always update list of errors
+"let g:syntastic_auto_loc_list = 0            " do not open or close error list automatically
+"let g:syntastic_check_on_open = 1            " syntax check files when opening them (is kinda slow)
+"let g:syntastic_aggregate_errors = 1         " aggregate all errors together
 
 " set yaml and ruby file types to use puppet-style 2-space indent
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2

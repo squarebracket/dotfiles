@@ -55,11 +55,11 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 ### These are all the plugins I want loaded, but it is quite a few. Probably best to load them in dynamically
 #plugins=(bundler celery colored-man-pages colorize compleat cp django docker gem git git-extras gitfast github git-hubflow git-remote-branch gnu-utils jira jsontools mosh pip pow pyenv python rake rbenv ruby rvm screen sudo svn-fast-info vagrant virtualenv virtualenvwrapper yum)
-plugins=(bgnotify bundler colorize cp gem git git-extras github git-remote-branch mosh mvn pip python ruby rvm ssh-agent sudo svn-fast-info tmux virtualenv virtualenvwrapper yum zsh-nvm)
+plugins=(aws bgnotify bundler colorize cp docker docker-compose doctl gem gpg-agent git git-extras github git-remote-branch mosh mvn pip python ruby rvm ssh-agent sudo svn-fast-info tmux virtualenv virtualenvwrapper yum zsh-nvm)
 
 # User configuration
 
-export PATH="$PATH:/usr/lib64/ccache:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chuck/.local/bin:/home/chuck/bin:/home/chuck/dotfiles/shared-shell-scripts/vantrix:/home/chuck/dotfiles/shared-shell-scripts"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chuck/.local/bin:/home/chuck/bin:/home/chuck/dotfiles/shared-shell-scripts/vantrix:/home/chuck/dotfiles/shared-shell-scripts"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 ZSH_TMUX_AUTOCONNECT=false
@@ -141,3 +141,14 @@ function r() {
 }
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+for f in $(ls ~/.kube); do
+  if [ -f "$HOME/.kube/$f" ]; then
+    export KUBECONFIG="$KUBECONFIG:$HOME/.kube/$f"
+  fi
+done
+
+export NODE_EXTRA_CA_CERTS=/etc/os-cert-store-bundle.crt
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+. "/home/chuck/.acme.sh/acme.sh.env"

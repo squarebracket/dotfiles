@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Set some defaults if environment variables haven't been provided
+MONGO_HOSTS=${MONGO_HOSTS:='Performance/machine06,machine08,machine09'}
+MONGO_USER=${MONGO_USER:=spotxde}
+MONGO_PASS=${MONGO_PASS:=password}
+
+_job_id=$(PYTHONPATH=$HOME $HOME/pyvta/bin/vta-helper get-id $1)
+mongo --quiet --username $MONGO_USER --password=$MONGO_PASS --host $MONGO_HOSTS ltrx --eval \
+    "var srv = db.services.findOne({_id: '$_job_id'}); if ('ltrx' in srv) { print(srv['ltrx']['node_id']); } else { print('No node currently has service.'); }" | \
+    remove-mongo-cruft

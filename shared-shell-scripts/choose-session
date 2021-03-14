@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function choose-session() {
+    if [ -z "$1" ]; then
+        local sessions=$(find $HOME/$DOTFILES/tmux/sessions/ -mindepth 1 -type f | sed "s,$HOME/$DOTFILES/tmux/sessions/\([^/]*\)/tmux-\(.*\).conf,\1/\2,")
+        echo "$sessions"
+        exit 0
+    fi
+    local env=${1%*/*}
+    local session=${1#*/*}
+    [ "$env" = "$session" ] && local session_file="tmux-$session.conf" || local session_file="$env/tmux-$session.conf"
+    session_file="$HOME/$DOTFILES/tmux/sessions/$session_file"
+    [ ! -f $session_file ] && echo "Can't find session file $session_file" && exit 1
+    if [ -n "$TMUX_MASTER" ]; then
+        local tmux_socket="-S $TMUX_MASTER"
+    elif [ -n "$TMUX" ]; then
+        local tmux_socket="-S $TMUX"
+    fi
+    #tmux ls 2>&1 > /dev/null
+    #[ "$?" != "0" ] && local start_server='start-server \;'
+    #tmux -q $tmux_socket list-sessions 2>&1 > /dev/null || tmux -q $tmux_socket start-server
+    #echo $tmux_socket
+    (tmux -q $tmux_socket has-session -t "$session" 2>/dev/null && tmux $tmux_socket attach -t "$session") || (tmux -q $tmux_socket start-server \; source "$session_file")
+}
+
+choose-session "$@"

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    # Grab the first context match and print it out
+    CURRENT_CONTEXT=$(grep -m 1 '^[^#]* # \(.*\)$' < /etc/hosts | sed 's/.* # \(.*\)/\1/')
+    echo "Currently using context: ${CURRENT_CONTEXT}"
+    exit 0
+fi
+# Make sure we actually have the requested context
+grep "#\?.\+# $1" < /etc/hosts > /dev/null
+if [ $? != 0 ]; then
+    echo "Couldn't find context: $1"
+    exit 1
+fi
+# The first sed match comments all lines with a '# <context>' at the end
+# The second sed match uncomments the <context> requested
+sudo sed -i "s/#\?\(.\+\)# \(.\+\)/#\1# \2/; s/#\?\(.\+\)# $1/\1# $1/" /etc/hosts
+if [ $? == 0 ]; then
+    echo "Switched to context: $1"
+    exit 0
+else
+    echo "Error switching to context: $1"
+    exit 1
+fi

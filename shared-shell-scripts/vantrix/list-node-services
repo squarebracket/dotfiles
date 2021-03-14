@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Set some defaults if environment variables haven't been provided
+MONGO_HOSTS=${MONGO_HOSTS:='Performance/machine06,machine08,machine09'}
+MONGO_USER=${MONGO_USER:=spotxde}
+MONGO_PASS=${MONGO_PASS:=password}
+
+OLDIFS="$IFS"
+IFS='
+'
+for item in $(mongo --username $MONGO_USER --host $MONGO_HOSTS ltrx --password=$MONGO_PASS --eval "db.services.find({}).sort({'ltrx.node_id': 1}).forEach( function(myobj) { if ('ltrx' in myobj) { print(myobj['_id'], myobj['ltrx']['node_id']); } else { print(myobj['_id'], 'NONE'); } });" --quiet | remove-mongo-cruft); do
+    service=${item%* *}
+    node=${item#* *}
+    name=$(PYTHONPATH=$HOME $HOME/pyvta/bin/vta-helper get-jobs --filter id=$service | grep name | awk '{print $2}')
+    [ -z "$name" ] && name="$service"
+    printf "%-20s : %s\n" "$name" "$node"
+    #echo "$service: $name"
+done

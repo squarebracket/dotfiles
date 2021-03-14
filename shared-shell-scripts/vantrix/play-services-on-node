@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Set some defaults if environment variables haven't been provided
+MONGO_HOSTS=${MONGO_HOSTS:='Performance/machine06,machine08,machine09'}
+MONGO_USER=${MONGO_USER:=spotxde}
+MONGO_PASS=${MONGO_PASS:=password}
+TMUX_SOCKET=${TMUX_SOCKET:='-L video-test'}
+
+function _test_func() {
+    while true; do
+        name=$(PYTHONPATH=$HOME $HOME/pyvta/bin/vta-helper get-jobs --filter id=$1 | grep name | awk '{print $2}')
+        echo "Launching player for service $name"
+        tmux $TMUX_SOCKET new-window -n $name "testplay $name"
+        shift
+        if [ -n "$1" ]; then
+            sleep 10
+        else
+            break
+        fi
+    done
+}
+_test_func $(mongo --username $MONGO_USER --host $MONGO_HOSTS ltrx --password=$MONGO_PASS --eval "db.services.find({'ltrx.node_id': '$1'}).forEach( function(myobj) { print(myobj['_id']); });" --quiet | remove-mongo-cruft)
+#for service in $(mongo --username spotxde --host machine06 ltrx --password=password --eval "db.services.find({'ltrx.node_id': '$1'}).forEach( function(myobj) { print(myobj['_id']); });" --quiet | grep -v legacy); do
+#name=$(PYTHONPATH=/home/chuck /home/chuck/pyvta/bin/vta-helper get-jobs --filter id=$service | grep name | awk '{print $2}')
+#echo "Launching player for service $name"
+#tmux -L video-test new-window -n $name "testplay $name"
+#sleep 10
+#done

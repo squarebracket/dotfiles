@@ -1,0 +1,7 @@
+alias k2='telnet cj640.ts.vantrix.com 2310 -l charles.wilson'
+alias k3='telnet cj640.ts.vantrix.com 2311 -l charles.wilson'
+alias vh="vta-helper"
+alias plo="van-helper play-output"
+alias pn="van-helper play-input"
+alias sc="van-helper context"
+alias wh="van-helper who-has"

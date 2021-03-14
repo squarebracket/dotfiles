@@ -1,0 +1,55 @@
+#!/bin/bash
+
+_svna="svn --username anonymous --password anonymous"
+
+function _builds() {
+    $_svna ls $1 | grep -v '9[0-9]\{3\}' | sed 's|^\(.*\)/|\1|' | sort -V
+}
+function _builds_human() {
+    $_svna ls $1 | grep -v '9[0-9]\{3\}' | sed -n 's|^\([0-9]\+\.[0-9]\+\)\.\(00\.\)\?0*\([^/]*\)/\?$|\3\n|p' | sort -V
+}
+
+function _stupid_bash() {
+    echo "$builds" | grep -- "^$cur"
+}
+
+function _complete_release_notes() {
+    local _modules="ltrx rmss esg mpc mpcms vta vta-context vta-cloud-ui ingm"
+    COMPREPLY=()
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    local prev="${COMP_WORDS[COMP_CWORD-1]}"
+    if [ "$COMP_CWORD" = 1 ]; then
+        COMPREPLY=( $( compgen -W "${_modules}" -- ${cur} ) )
+    elif [ "$COMP_CWORD" = 2 ]; then
+        case $prev in
+            ltrx|rmss)
+                local url="http://cvs.voiceagenetworks.com/svn/vantrix/tags/SPOTxdeLIVE/modules/${prev^^}"
+                ;;
+            mpc|esg|mpcms)
+                local url="http://cvs.voiceagenetworks.com/svn/vantrix/tags/JAVAModules/msv/module/$prev"
+                ;;
+            vta*)
+                if [ "$_module" = "vta" ]; then
+                    _url_end='vta/api'
+                elif [ "$_module" = 'vta-cloud-ui' ]; then
+                    _url_end='vta/cloud/ui'
+                elif [ "$_module" = 'vta-context' ]; then
+                    _url_end='vta/context'
+                fi
+                if [ -n "$_url_end" ]; then
+                    local url="http://cvs.voiceagenetworks.com/svn/vantrix/tags/JAVAModules/msv/module/$_url_end"
+                fi
+                ;;
+            ingm)
+                local url="http://cvs.voiceagenetworks.com/svn/vantrix/tags/SPOTxdeLIVE/modules/Ingestion/"
+                ;;
+        esac
+        local builds=$(_builds_human $url)
+
+        COMPREPLY=( $( compgen -W "$(_stupid_bash)" -- "$cur" ) )
+    fi
+
+    return 0
+}
+
+complete -F _complete_release_notes ./release-notes

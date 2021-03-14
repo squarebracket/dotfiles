@@ -2,4 +2,15 @@
 
 #alias cs="tmux new-session && tmux rename-window 'Session Chooser' && tmux choose-list -l soak1,soak2,char,empty 'source ~/dotfiles/tmux/tmux-%%.conf'"
 #alias cs="tmux new-session \"tmux rename-window 'Session Chooser' && tmux choose-list -l soak1,soak2,char,empty if-shell 'tmux has-session -t %%' 'attach-session -t %%' 'source ~/dotfiles/tmux/tmux-%%.conf'\""
-alias cs="tmux new-session -s 'Chooser' \"tmux run-shell 'ENVIRONMENT=$ENVIRONMENT $HOME/$DOTFILES/tmux/session-chooser'\""
+#alias cs="tmux new-session -s 'Chooser' \"tmux set-option destroy-unattached on; tmux run-shell 'ENVIRONMENT=$ENVIRONMENT $HOME/$DOTFILES/tmux/session-chooser'\""
+cs() {
+    if [ -z "$1" ]; then
+        local _sessions=$(find $HOME/$DOTFILES/tmux/sessions/ -mindepth 1 -type f | sed "s,$HOME/$DOTFILES/tmux/sessions/\([^/]*\)/tmux-\(.*\).conf,\1/\2,")
+        echo "$_sessions"
+        return 0
+    fi
+    local env=${1%*/*}
+    local session=${1#*/*}
+    [ "$env" = "$session" ] && local session_file="tmux-$session.conf" || local session_file="$env/tmux-$session.conf"
+    (tmux -q -S $TMUX_MASTER has-session -t "$session" && tmux -S $TMUX_MASTER attach -t "$session") || (tmux -q -S $TMUX_MASTER source "$HOME/$DOTFILES/tmux/sessions/$session_file")
+}

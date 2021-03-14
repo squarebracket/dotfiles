@@ -7,12 +7,12 @@ start-remote-env() {
     local RESET=$3
     local REMOTE_USER=$USER
     local LOOPBACK_PORT=5555
-    local LOCAL_DISPLAY=$DISPLAY
+    local LOCAL_DISPLAY=:0
     echo -e "    Launching remote environment for $ENVIRONMENT"
     while [ true ]; do
         VARS_TO_PASS="ENVIRONMENT=$ENVIRONMENT POWERLINE_FONT=$POWERLINE_FONT LOOPBACK_PORT=$LOOPBACK_PORT LOCAL_DISPLAY=$LOCAL_DISPLAY"
         if [ -n "$LOOPBACK_PORT" ]; then local remote_establish="-R ${LOOPBACK_PORT}:localhost:22"; fi
-        { OUTPUT=$(ssh -YC $remote_establish -o "ExitOnForwardFailure yes" -o "StrictHostKeyChecking no" $SERVER -t "curl --insecure $SCRIPTFILE -o .setup_env.sh; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL $RESET" 2>&1 1>&$out); } {out}>&1
+        { OUTPUT=$(ssh -YC $remote_establish -o "ExitOnForwardFailure yes" -o "StrictHostKeyChecking no" $SERVER -t "curl --insecure $SCRIPTFILE -o .setup_env.sh; echo $VARS_TO_PASS; $VARS_TO_PASS bash .setup_env.sh $USER $LAUNCH_SHELL $RESET" 2>&1 1>&$out); } {out}>&1
         EXIT_CODE=$?
         echo "    Remote environment returned with exit code $EXIT_CODE"
         # Unset $RESET
@@ -44,6 +44,8 @@ start-remote-env() {
                     ssh $SERVER || exit 1
                 fi
             else
+                #echo "    Sleeping for 10 seconds..."
+                #sleep 60
                 echo "    Exiting on error code 255, output was: $OUTPUT"
                 exit
             fi

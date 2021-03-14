@@ -1,0 +1,3 @@
+#!/bin/bash
+grep -v "Cannot use 'commands' readMode, degrading to 'legacy' mode" | \
+grep -Pv "[0-9\-T:.]{28} I NETWORK"

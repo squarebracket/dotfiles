@@ -1,0 +1,5 @@
+#compdef van-config
+local -a options 
+options=('-c:description for -c opt' '-d:description for -d opt')
+_describe 'values' options
+#_arguments ':service:_get_confs'
